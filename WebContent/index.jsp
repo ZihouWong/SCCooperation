@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <input type="submit">
     </form>
     <a href="pregister.action">注册</a>
-    <a href="cregister.action">注册</a>
+    <a href="classDetail.action">课程详情</a>
     <a href="frontIndex.action">首页</a>
     <a href="luntan.action?pageNo=1">luntan</a>
     <a href="chuangxinggu.action">luntanppppp</a>

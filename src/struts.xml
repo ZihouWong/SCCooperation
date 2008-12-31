@@ -468,6 +468,10 @@
 <action name="frontIndex">
 <result name="success">/WEB-INF/page/webpages/frontIndex.jsp</result>
 </action>
+
+<action name="classDetail">
+<result name="success">/WEB-INF/page/webpages/classDetail.jsp</result>
+</action>
 <!-- 哈哈 -->
 </package>
 
