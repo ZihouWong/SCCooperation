@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.objectFactory" value="spring" />
+
+
+<package name="lee" namespace="/" extends="struts-default">
+
+<!-- action,spring结合，class已在spring里装配好 -->
+<action name="login" class="loginAction">
+<result name="success">/WEB-INF/page/imisindex.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+
+</package>
+
+
+</struts>    

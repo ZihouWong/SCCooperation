@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+        >
+        
+        
+        
+        <!-- 配置信息源数据库等 -->
+   <tx:annotation-driven transaction-manager="transactionManager" 
+                                       proxy-target-class="true"/>
+   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost/sccp?useUnicode=true&amp;characterEncoding=UTF-8" />
+        <property name="user" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>  
+        
+        
+
+      <!-- 配置sessionfactory -->  
+         <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" p:dataSource-ref="dataSource">  
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>  
+        <property name="annotatedClasses">
+        <list>
+        <value>org.sccooperation.domain.People</value>
+        </list>
+        </property>
+    </bean>  
+    
+    
+    
+    
+    
+    <!-- 配置事务 -->
+    	 <bean id="transactionManager" 
+	 class="org.springframework.orm.hibernate4.HibernateTransactionManager" 
+	 p:sessionFactory-ref="sessionFactory">
+    </bean> 
+    <aop:aspectj-autoproxy/> 
+
+     <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    
+    <aop:config>
+        <aop:pointcut expression="execution(*  org.sccooperation.service.impl.*.*(..))" id="txPointcut"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+    
+    <!-- 配置底层操作的实体类，用来给service层赋值 -->
+    <!-- 模板类防止冗余 -->
+    <bean id="daoTemplate" abstract="true" lazy-init="true" p:sessionFactory-ref="sessionFactory"></bean>
+    
+    
+    
+    
+    <!-- spring装配-->
+    <bean id="userDaoImpl" class="org.sccooperation.daoimpl.UserDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="userManageImpl" class="org.sccooperation.service.impl.UserManageImpl">
+    <property name="userDao" ref="userDaoImpl"></property>
+    </bean>
+
+    
+    
+    
+   <!-- 配置Action层,action直接调用即可 -->
+
+   <bean id="loginAction" class="org.sccooperation.action.LoginAction" scope="prototype">
+    <property name="userManage" ref="userManageImpl"></property>
+    </bean> 
+    
+	
+	</beans>
