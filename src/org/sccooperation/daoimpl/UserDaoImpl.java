@@ -13,22 +13,28 @@ import org.sccooperation.domain.People;
  */
 
 
-public class UserDaoImpl extends BaseDaoImpl<People> implements IUserDao {
+public class UserDaoImpl<T> extends BaseDaoImpl<T> implements IUserDao<T> {
   /*
    * 父接口有说明此处不赘述
   */  
 	@Override
-	public String loginCheck(String account, String password) {
+	public List loginCheck(String account, String password) {
 		// TODO Auto-generated method stub
 
-		List<People> pp=find("from People where account =?0 and password = ?1", account,password);
+		List<T> pp=find("from People where account =?0 and password = ?1", account,password);
 		//List pl= sess.createQuery("from User where account =? and password = ?").setString(0, account).setString(1, password).list();
         
 		if(!pp.isEmpty())
 		{
-			return "success";
+			return pp;
 		}
-		return "error";
+		return pp;
+	}
+
+	@Override
+	public void insertUser(T entity) {
+		// TODO Auto-generated method stub
+		save(entity);
 	}
 
 }

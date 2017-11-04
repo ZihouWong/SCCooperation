@@ -123,7 +123,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	 * @exception ÔÝÊ±Ã»×ö
 	 */
     @SuppressWarnings("unchecked")
-	protected List<T> findByPage(String hql ,int pageNo,int pageSize,Object...params)
+	protected List<T> findByPage(String hql ,int pageNo,int pageSize,int max,Object...params)
     {
     	Query query = getSessionFactory().getCurrentSession().createQuery(hql);
     	for(int i=0,len = params.length;i<len;i++)
@@ -131,7 +131,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
     		query.setParameter(i+"", params[i]);
     	}
     	
-    	return query.setFirstResult((pageNo-1)*pageSize).setMaxResults(pageSize).list();
+    	return query.setFirstResult((pageNo-1)*pageSize).setMaxResults(max).list();
     }
 
 	public SessionFactory getSessionFactory() {

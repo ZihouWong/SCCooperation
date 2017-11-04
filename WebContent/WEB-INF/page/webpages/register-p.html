@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    
+    <title>My JSP 'register.jsp' starting page</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+<style>
+     * {
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+           width: 1240px !important;
+           margin: 0  auto;
+           height: 900px;
+        }
+        .login-bg {
+            width: 100%;
+            height: 680px;
+            background: url("../img/login-bg.png");
+            background-size: 100% 102%;
+            padding: 30px;
+            /*margin-top: 100px;*/
+        }
+        .login-title {
+            font-size: 46px;
+            letter-spacing: 1px;
+            position: relative;
+            top: 40px;
+            left: 26px;
+            text-shadow: 5px 5px 5px #eee;
+        }
+        .login-form {
+            width: 40%;
+            position: relative;
+            margin-top: 7%;
+        }
+        .login-p {
+            margin-right: 15px;
+        }
+        .login-form tr {
+            display: block;
+            width: 100%;
+            height: 45px;
+            margin-bottom: 8px;
+        }
+        .login-form .input-in {
+            padding: 7px 10px;
+            
+            width: 58%;
+           
+        }
+        form {
+            width: 100%;
+            border: 1px solid #eee;
+            padding: 30px;
+        }
+        .btn {
+            width: 80px;
+            height: 35px;
+            letter-spacing: 2px;
+            padding: 8px 0;
+            margin-top: 20px;
+        }
+        .btn-left {
+            background: #eee;
+            border: 1px solid #eee;
+            margin-left: 55px;
+        }
+        .btn-right {
+            background: orange;
+            margin-left: 15px;
+        }
+        .login-p {
+            /*margin-right: 5px;*/
+            width: 30%;
+            margin-top: 12px;
+        }
+        .login-p3,
+        .login-p2 {
+            margin-right: 26px;
+        }
+          .register {
+            position: relative;
+            left: 15px;
+            top: 10px;
+         }
+         .register a {
+            color: black;
+         }
+   .margin-left12 {
+    margin-left: -11px;
+   }
+</style>
+<script src="jquery.min.js"></script>
+<script>
+$(function(){
+    $('.btn-left').click(function(){
+        var id = $('#id').val();
+        var name = $('#name').val();
+        var password = $('#password').val();
+        var idCar = $('#idCar').val();
+        var tel = $('#tel').val();
+            if(name==0){
+                alert('请输入用户名!');        
+                return false;
+             }
+             if(tel==0){
+                alert('请输入手机号!');       
+                return false;
+             }
+             if(id==0){
+                alert('请输入账号!');      
+                return false;
+             }
+             if(idCar==0){
+                alert('请输入您身份证号!');      
+                return false;
+             }
+             if(password==0){
+                alert('请输入密码！');      
+                return false;
+             }
+              if(!(/^1(3|4|5|7|8)\d{9}$/.test(tel))){ 
+                  alert("手机号码有误，请重填");  
+                  return false; 
+              } 
+               if(!(/^\w{5,100}$/.test(name))){ 
+                  alert("用户名必须是5~15位！");  
+                  return false; 
+              }
+
+               if(!(/^\w{5,15}$/.test(id))){ 
+                  alert("账号必须是5~15位！");  
+                  return false; 
+              }
+               if(!(/^\w{5,15}$/.test(password))){ 
+                  alert("密码必须是5~15位！");  
+                  return false; 
+              } 
+              
+               if(!(/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(idCar))){ 
+                  alert("请输入正确的身份证号！");  
+                  return false; 
+              }  
+    });
+});
+
+
+</script>
+  </head>
+  
+  <body>
+  <div class="container">
+        <div class="login-bg">
+            <p class="login-title">
+                用户注册
+            </p>
+            <div class="login-form">
+                <form name="register" action="insertUser.action?register=p" method="post" class="form">
+                    <tr>
+                        <td><label for="" class="login-p">账号:</label></td>
+                        <td><input class="input-in" name="userid" id="id" type="text" placeholder="请输入账号"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="" class="login-p login-p2">用户名:</label></td>
+                        <td><input class="input-in margin-left12" name="username" id="name" type="password" placeholder="请输入用户名"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="" class="login-p">密码:</label></td>
+                        <td><input class="input-in" name="password" type="password" id="password" placeholder="请输入密码"></td>
+                    </tr>
+                    <tr class="margin-right200">
+                        <td><label for="" class="login-p login-p3">身份证:</label></td>
+                        <td><input class="input-in margin-left12" name="userIdCar" id="idCar" type="password" placeholder="请输入身份证"></td>
+                    </tr>
+                    <tr class="margin-right200">
+                        <td><label for="" class="login-p login-p3">手机号:</label></td>
+                        <td><input class="input-in margin-left12" name="usertel" id="tel" type="password" placeholder="请输入手机号"></td>
+                    </tr>
+                    <tr>
+                        <td><input class="btn-left btn" type="submit" value="注册"></td>
+                        <td><input class="btn-right btn" type="reset" value="重置"></td>
+                    </tr>
+                    <div class="register"><a href="login.jsp">前往登陆</a></div>
+                </form>
+
+  
+
+
+  </body>
+
+</html>

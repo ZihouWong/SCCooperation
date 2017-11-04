@@ -3,7 +3,17 @@ package org.sccooperation.action;
 
 
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.List;
+import java.util.Map;
+
 import org.sccooperation.service.UserManage;
+
+import com.opensymphony.xwork2.ActionContext;
+
+import sun.misc.BASE64Encoder;
 /**
  * Project:SCCooperation Comments:此类action，先由spring装配一个实例，然后将该实例交给struts管理
  *  JDK version used:JDK1.8 
@@ -19,6 +29,8 @@ public class LoginAction {
 	private String account;
 	/**网页传来的密码*/
 	private String password;
+	//session
+	private Map session;
 	public String getAccount() {
 		return account;
 	}
@@ -41,15 +53,30 @@ public class LoginAction {
 	 * 根据网页传过来的账号密码，调用service验证数据库是否有此条记录进行登录
 	 * 
 	 * @return 返回'success'或'error'字符串
+	 * @throws NoSuchAlgorithmException 
+	 * @throws UnsupportedEncodingException 
 	 * @exception 暂时没做
 	 */
-	public String execute()
+	public String execute() throws NoSuchAlgorithmException, UnsupportedEncodingException
 	{    
-		
+		//双重解密获取密码，判断数据库是否有相关字段判断登录
+		MessageDigest md5=MessageDigest.getInstance("MD5"); 
+        BASE64Encoder base64en = new BASE64Encoder(); 
+        password=base64en.encode(md5.digest(password.getBytes("utf-8")));
 		System.out.println(account+"    "+password);
 		System.out.println("kaishile");		
-			return userManage.loginCheck(account, password);
+		List list = userManage.loginCheck(account, password);
+		
+        System.out.println("..................................");
+        System.out.println(password);
+//        if(session.get("user")==null)
+        ActionContext.getContext().getSession().put("user",list);
 
+        if(list.isEmpty())
+        {
+              return "error";	
+         }
+             return "success";
 	}
 
 

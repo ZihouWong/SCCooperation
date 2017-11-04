@@ -32,6 +32,11 @@
         <property name="annotatedClasses">
         <list>
         <value>org.sccooperation.domain.People</value>
+        <value>org.sccooperation.domain.Cv</value>
+        <value>org.sccooperation.domain.Enterprise</value>
+        <value>org.sccooperation.domain.Note</value>
+        <value>org.sccooperation.domain.ReplyNote</value>
+        <value>org.sccooperation.domain.RReplyNote</value>
         </list>
         </property>
     </bean>  
@@ -67,12 +72,23 @@
     
     
     <!-- spring装配-->
+    <!-- 用户类装配 -->
     <bean id="userDaoImpl" class="org.sccooperation.daoimpl.UserDaoImpl">
     <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
     <bean id="userManageImpl" class="org.sccooperation.service.impl.UserManageImpl">
     <property name="userDao" ref="userDaoImpl"></property>
     </bean>
+    
+    <!-- 帖子类装配 -->
+    <bean id="noteDaoImpl" class="org.sccooperation.daoimpl.NoteDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="noteManageImpl" class="org.sccooperation.service.impl.NoteManageImpl">
+    <property name="noteDao" ref="noteDaoImpl"></property>
+    </bean>
+    
+    
 
     
     
@@ -81,6 +97,26 @@
 
    <bean id="loginAction" class="org.sccooperation.action.LoginAction" scope="prototype">
     <property name="userManage" ref="userManageImpl"></property>
+    </bean> 
+    
+    <bean id="InsertUserAction" class="org.sccooperation.action.InsertUserAction" scope="prototype">
+    <property name="userManage" ref="userManageImpl"></property>
+    </bean>
+    
+    <bean id="LuntanAction" class="org.sccooperation.action.LuntanAction" scope="prototype">
+    <property name="noteManage" ref="noteManageImpl"></property>
+    </bean> 
+    
+    <bean id="AddNoteAction" class="org.sccooperation.action.AddNoteAction" scope="prototype">
+    <property name="noteManage" ref="noteManageImpl"></property>
+    </bean> 
+    
+    <bean id="MinuteNoteAction" class="org.sccooperation.action.MinuteNoteAction" scope="prototype">
+    <property name="noteManage" ref="noteManageImpl"></property>
+    </bean> 
+    
+    <bean id="AddReplyNoteAction" class="org.sccooperation.action.AddReplyNoteAction" scope="prototype">
+    <property name="noteManage" ref="noteManageImpl"></property>
     </bean> 
     
 	

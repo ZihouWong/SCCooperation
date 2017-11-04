@@ -8,9 +8,35 @@
 
 <!-- action,spring结合，class已在spring里装配好 -->
 <action name="login" class="loginAction">
-<result name="success">/WEB-INF/page/imisindex.jsp</result>
+<result type="chain" name="success">luntan</result>
 <result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
+
+<action name="insertUser" class="InsertUserAction">
+<result name="success">/WEB-INF/page/imisindex.jsp</result>
+</action>
+<action name="pregister">
+<result>/WEB-INF/page/webpages/register-p.html</result>
+</action>
+<action name="cregister">
+<result>/WEB-INF/page/webpages/register-comp.html</result>
+</action>
+<action name="luntan" class="LuntanAction">
+<result>/WEB-INF/page/webpages/luntan.jsp</result>
+</action>
+<action name="addNote" class="AddNoteAction">
+<result type="chain" name="success">luntan</result>
+</action>
+<action name="minutenote" class="MinuteNoteAction">
+<result>/WEB-INF/page/webpages/luntan-info.jsp</result>
+</action>
+<action name="addreplynote" class="AddReplyNoteAction">
+<result type="chain" name="success">minutenote</result>
+</action>
+<action name="seex">
+<result name="success">/WEB-INF/page/webpages/luntan-info.html</result>
+</action>
+
 
 
 </package>

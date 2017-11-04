@@ -18,14 +18,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link href="umeditor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="umeditor/third-party/jquery.min.js"></script>
+    <script type="text/javascript" src="umeditor/third-party/template.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="umeditor/umeditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="umeditor/umeditor.min.js"></script>
+    <script type="text/javascript" src="umeditor/lang/zh-cn/zh-cn.js"></script>
   </head>
   
   <body>
     imis后台管理系统<br>
     <form action="login.action" method="post">
     账号:<input type="text" name="account">
-    密码:<input type="text" name="password">
+    密码:<input type="text" name="password"><br/>
+    <script type="text/plain" id="myEditor" name="content" style="width:1000px;height:240px;">
+</script>
+<script type="text/javascript">
+    var um = UM.getEditor('myEditor'); 
+</script>
     <input type="submit">
     </form>
+    <a href="pregister.action">注册</a>
+    <a href="cregister.action">注册</a>
+    <a href="luntan.action?pageNo=1">luntan</a>
+    <a href="seePNote.action">luntanppppp</a>
+    <a href="seex.action">sexx</a>
   </body>
 </html>

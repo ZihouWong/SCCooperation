@@ -3,8 +3,13 @@ package org.sccooperation.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.sccooperation.domain.Cv;
 
 /**                     
 * Project:SCCooperation                                            
@@ -28,7 +33,8 @@ import javax.persistence.Table;
 */  
 public class People {
 	@Id
-	@Column(name = "id", unique = false, nullable = false)
+	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 /*
  * 映射数据库主键字段
  * */
@@ -51,7 +57,10 @@ public class People {
 /* 图片存放位置 */
 	private String picture;
 /* 简历外键 */
-	private int cv;
+	@ManyToOne(targetEntity=Cv.class)
+	@JoinColumn(name="cv",referencedColumnName="id")
+    
+	private Cv cv;
 /* 账号*/	
 	private String account;
 /* 密码 */	
@@ -64,6 +73,8 @@ public class People {
     private String wechar;
 /* qq号 */    
     private String qq;
+    /*发帖总数*/
+    private int notesum;
     
 /*
  * 以下为所有字段的set，get方法
@@ -132,11 +143,13 @@ public class People {
 		this.picture = picture;
 	}
 
-	public int getCv() {
+
+
+	public Cv getCv() {
 		return cv;
 	}
 
-	public void setCv(int cv) {
+	public void setCv(Cv cv) {
 		this.cv = cv;
 	}
 
@@ -194,6 +207,14 @@ public class People {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getNotesum() {
+		return notesum;
+	}
+
+	public void setNotesum(int notesum) {
+		this.notesum = notesum;
 	}
 
 	
