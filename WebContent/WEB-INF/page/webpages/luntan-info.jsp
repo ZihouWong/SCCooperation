@@ -312,10 +312,11 @@
 			<%Note note = (Note)request.getAttribute("firstNote");
 			  People host = (People)request.getAttribute("host");
 			  List replyList = (List)request.getAttribute("replyNote");
+			  int pageN = Integer.parseInt((String)request.getAttribute("pageNo"));
 			%>
 			<div class="reply">
-				<p class="font-intro float"><span class="red"> 10 </span>回复贴，共<span class="red"> 1 </span>页</p>
-				<p class="font-intro float-right"><a href="#">&lt;&lt; 返回创行谷</a></p>
+			<p class="font-intro float"><span class="red"> 10 </span>回复贴，共<span class="red"> 1 </span>页</p>
+				<p class="font-intro float-right"><a href="luntan.action?pageNo=1">&lt;&lt; 返回创行谷</a></p>
 			</div>
 			<div class="topic1">
 				<p class="font-title2 float"><%=note.getTitle() %></p>
@@ -515,18 +516,11 @@
 				
 				
 				<p class="apply-tab text-center float"> 
-									   <a class="lock" href="#">1</a> 
-                                       <a href="#">2</a>
-                                       <a href="#">3</a>
-                                       <a href="#">4</a>
-                                       <a href="#">5</a>
-                                       <a href="#">6</a>
-                                       <a href="#">7</a>
-                                       <a href="#">8</a>
-                                       <a href="#">9</a>
-                                       <a href="#">10</a>
-                                       <a href="#">下一页</a>
-                                       <a href="#">尾页</a>
+			                	<a href="minutenote.action?id=<%=note.getId()%>&pageNo=1">首页</a>
+								<a href="minutenote.action?id=<%=note.getId()%>&pageNo=<%=pageN-1%>">上页</a>
+								<a href="minutenote.action?id=<%=note.getId()%>&pageNo=<%=pageN+1%>">下页</a>
+								<input type="text" value="1">
+								<a href="#">GO</a>
 									</p>
 				 
 				         <style>
@@ -576,10 +570,10 @@
 			                </style>
 			        <div class="apply" id="apply" style="margin-top:60px;">
 <form action="addreplynote.action?pageNo=1&id=<%=note.getId() %>" name="topic-form" method="post">
-			            <p class="main-font" style="font-weight:500"><i class="fa fa-lg fa-star float"></i>发布新帖</p>
+			            <p class="main-font" style="font-weight:500"><i class="fa fa-lg fa-star float"></i>发布回复</p>
 			            <div class="apply-topic-title">
-				            	<input type="text" name="title" class="topic float">
-				            	<p class="main-font float-right topic-icon"><i class="fa fa-lg fa-comment-o float"></i><span style="color:#7d6d6d">话题</span></p>
+				            	
+				            	<p class="main-font float-right topic-icon"><i class="fa fa-lg fa-comment-o float"></i><span style="color:#7d6d6d">回复</span></p>
 			                <!-- 加载编辑器的容器 -->
 
 			            </div>
