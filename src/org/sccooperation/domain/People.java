@@ -13,13 +13,13 @@ import org.sccooperation.domain.Cv;
 
 /**                     
 * Project:SCCooperation                                            
-* Comments:´ËÀàÊÇhibernate¶ÔÊý¾Ý¿âµÄÓ³ÉäÀà¡£                                          
+* Comments:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½hibernateï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ó³ï¿½ï¿½ï¿½à¡£                                          
 * JDK version used:JDK1.8                                                          
-* Author£ºWLNSSS                 
-* Create Date£º2017-9-27 
-* Modified By£º   <ÐÞ¸ÄÈËÖÐÎÄÃû»òÆ´ÒôËõÐ´>                                         
-* Modified Date: <ÐÞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD>                                    
-* Why & What is modified  <ÐÞ¸ÄÔ­ÒòÃèÊö>    
+* Authorï¿½ï¿½WLNSSS                 
+* Create Dateï¿½ï¿½2017-9-27 
+* Modified Byï¿½ï¿½   <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½Ð´>                                         
+* Modified Date: <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Ê½:YYYY-MM-DD>                                    
+* Why & What is modified  <ï¿½Þ¸ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>    
 * Version:1.0                       
 */ 
 
@@ -27,7 +27,7 @@ import org.sccooperation.domain.Cv;
 @Table(name="people")
 
 /** 
-*hiberateÓ³ÉäÊý¾Ý¿âpeopleµÄÓ³ÉäÀà
+*hiberateÓ³ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½peopleï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½
 * @author WLNSSS 
 * @Time 2017-9-27 
 */  
@@ -36,48 +36,48 @@ public class People {
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 /*
- * Ó³ÉäÊý¾Ý¿âÖ÷¼ü×Ö¶Î
+ * Ó³ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½
  * */
 	
 	private int id;
-/* Ó³ÉäÊý¾Ý¿ânameÊôÐÔ,ÎªÓÃ»§ÐÕÃû */
+/* Ó³ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½nameï¿½ï¿½ï¿½ï¿½,Îªï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	private String name;
-/* Éí·ÝÖ¤ºÅ*/
+/* ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½*/
 	private String idnumber;
-/* ÊÖ»úºÅ */
+/* ï¿½Ö»ï¿½ï¿½ï¿½ */
 	private String pnumber;
-/* ÐÔ±ð */	
+/* ï¿½Ô±ï¿½ */	
 	private String sex;
-/* ÉúÈÕ */	
+/* ï¿½ï¿½ï¿½ï¿½ */	
 	private String birthday;
-/* ÄêÁä */	
+/* ï¿½ï¿½ï¿½ï¿½ */	
 	private int age;
-/* ¸öÈË¼ò½é*/
+/* ï¿½ï¿½ï¿½Ë¼ï¿½ï¿½*/
 	private String summary;
-/* Í¼Æ¬´æ·ÅÎ»ÖÃ */
+/* Í¼Æ¬ï¿½ï¿½ï¿½Î»ï¿½ï¿½ */
 	private String picture;
-/* ¼òÀúÍâ¼ü */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 	@ManyToOne(targetEntity=Cv.class)
 	@JoinColumn(name="cv",referencedColumnName="id")
     
 	private Cv cv;
-/* ÕËºÅ*/	
+/* ï¿½Ëºï¿½*/	
 	private String account;
-/* ÃÜÂë */	
+/* ï¿½ï¿½ï¿½ï¿½ */	
 	private String password;
-/* ×´Ì¬Âë */
+/* ×´Ì¬ï¿½ï¿½ */
 	private String state;
-/* ÓÃ»§Ãû*/	
+/* ï¿½Ã»ï¿½ï¿½ï¿½*/	
     private String username;
-/* Î¢ÐÅºÅ */    
+/* Î¢ï¿½Åºï¿½ */    
     private String wechar;
-/* qqºÅ */    
+/* qqï¿½ï¿½ */    
     private String qq;
-    /*·¢Ìû×ÜÊý*/
+    /*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
     private int notesum;
     
 /*
- * ÒÔÏÂÎªËùÓÐ×Ö¶ÎµÄset£¬get·½·¨
+ * ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Ö¶Îµï¿½setï¿½ï¿½getï¿½ï¿½ï¿½ï¿½
  */
 	public String getName() {
 		return name;

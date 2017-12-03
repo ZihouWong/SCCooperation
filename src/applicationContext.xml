@@ -37,6 +37,8 @@
         <value>org.sccooperation.domain.Note</value>
         <value>org.sccooperation.domain.ReplyNote</value>
         <value>org.sccooperation.domain.RReplyNote</value>
+        <value>org.sccooperation.domain.Tag</value>
+        <value>org.sccooperation.domain.Post</value>
         </list>
         </property>
     </bean>  

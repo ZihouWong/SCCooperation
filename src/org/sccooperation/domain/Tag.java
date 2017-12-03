@@ -9,44 +9,46 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="tag")
-
+/** 
+*hiberateӳ�����ݿ�tag��ӳ����
+* @author WLNSSS 
+* @Time 2017-9-27 
+*/  
 public class Tag {
-
-	
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
-	private int id;
+	private Integer id;
 	
-	private String tagName;
+	private String tagname;
 	
-	private int bigTagNo;
-	
-	
-	public int getId() {
+	private Integer bigTagName;
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public String getTagName() {
-		return tagName;
+	public String getTagname() {
+		return tagname;
 	}
 
-	public void setTagName(String tagName) {
-		this.tagName = tagName;
+	public void setTagname(String tagname) {
+		this.tagname = tagname;
 	}
 
-	public int getBigTagNo() {
-		return bigTagNo;
+	public Integer getBigTagName() {
+		return bigTagName;
 	}
 
-	public void setBigTagNo(int bigTagNo) {
-		this.bigTagNo = bigTagNo;
+	public void setBigTagName(Integer bigTagName) {
+		this.bigTagName = bigTagName;
 	}
-
 	
+	
+
 }

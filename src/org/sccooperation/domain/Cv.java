@@ -11,13 +11,13 @@ import javax.persistence.Table;
 import org.sccooperation.domain.People;
 /**                     
 * Project:SCCooperation                                            
-* Comments:´ËÀàÊÇhibernate¶ÔÊý¾Ý¿âµÄÓ³ÉäÀà¡£                                          
+* Comments:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½hibernateï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ó³ï¿½ï¿½ï¿½à¡£                                          
 * JDK version used:JDK1.8                                                          
-* Author£ºWLNSSS                 
-* Create Date£º2017-9-27 
-* Modified By£º   <ÐÞ¸ÄÈËÖÐÎÄÃû»òÆ´ÒôËõÐ´>                                         
-* Modified Date: <ÐÞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD>                                    
-* Why & What is modified  <ÐÞ¸ÄÔ­ÒòÃèÊö>    
+* Authorï¿½ï¿½WLNSSS                 
+* Create Dateï¿½ï¿½2017-9-27 
+* Modified Byï¿½ï¿½   <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½Ð´>                                         
+* Modified Date: <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Ê½:YYYY-MM-DD>                                    
+* Why & What is modified  <ï¿½Þ¸ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>    
 * Version:1.0                       
 */ 
 
@@ -25,7 +25,7 @@ import org.sccooperation.domain.People;
 @Table(name="cv")
 
 /** 
-*hiberateÓ³ÉäÊý¾Ý¿âcvµÄÓ³ÉäÀà
+*hiberateÓ³ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½cvï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½
 * @author WLNSSS 
 * @Time 2017-9-27 
 */  
@@ -34,45 +34,45 @@ public class Cv {
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 /*
- * Ó³ÉäÊý¾Ý¿âÖ÷¼ü×Ö¶Î
+ * Ó³ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½
  * */
 	
 	private int id;
 	
-	/*Ãû³Æ*/
+	/*ï¿½ï¿½ï¿½ï¿½*/
 	private String name;
 	
-	/*Éí·ÝÖ¤ºÅ*/
+	/*ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½*/
 	private String idnumber;
 	
-	/*ÊÖ»úºÅ*/
+	/*ï¿½Ö»ï¿½ï¿½ï¿½*/
 	private String pnumber;
 	
-	/*ÐÔ±ð*/
+	/*ï¿½Ô±ï¿½*/
 	private String sex;
 	
-	/*ÉúÈÕ*/
+	/*ï¿½ï¿½ï¿½ï¿½*/
 	private String birthday;
 	
-	/*ÄêÁä*/
+	/*ï¿½ï¿½ï¿½ï¿½*/
 	private int age;
 	
-	/*¸öÈËÃèÊö*/
+	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	private String summary;
 	
-	/*¹¤×÷¾­Àú*/
+	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	private String experience;
 	
-	/*»ñ½±¾­Àú*/
+	/*ï¿½ñ½±¾ï¿½ï¿½ï¿½*/
 	private String prize;
 	
 	/*Ñ§Ð£*/
 	private String school;
 	
-	/*¸öÈËÕÕÆ¬*/
+	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬*/
 	private String prictureurl;
 	
-	/*×´Ì¬Âë*/
+	/*×´Ì¬ï¿½ï¿½*/
 	private String state;
 
 	/*user*/
