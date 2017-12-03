@@ -46,8 +46,14 @@
 <result name="success">/WEB-INF/page/webpages/work/gongxing.html</result>
 </action>
 <action name="geren">
-<result name="success">/WEB-INF/page/webpages/people.html</result>
+<result name="success" >/WEB-INF/page/webpages/people.html</result>
 </action>
+<action name="chuangxinggutest1">
+<result name="success">/WEB-INF/page/webpages/chuangxinggu/chuangxinggu.jsp</result>
+</action>
+
+
+
 
 
 

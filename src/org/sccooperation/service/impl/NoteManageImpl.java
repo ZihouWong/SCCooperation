@@ -17,9 +17,11 @@ public class NoteManageImpl<T> implements NoteManage<T> {
 		// TODO Auto-generated method stub
 		return noteDao.findAllNote(pageNo);
 	}
+	
 	public void setNoteDao(INoteDao noteDao) {
 		this.noteDao = noteDao;
 	}
+	
 	@Override
 	public void addNote(T entity) {
 		// TODO Auto-generated method stub

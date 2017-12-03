@@ -238,8 +238,7 @@ background: url("./img/hot-class4.jpg");
 				<%}else{ 
 					
 					People people =(People) listU.get(0);
-					%>
-				}
+				%>
 				<div class="login-in">
 				欢迎<%=people.getPnumber() %>
 				</div>
@@ -312,9 +311,9 @@ background: url("./img/hot-class4.jpg");
 				 	   float pageS = (float)noteSum/23;
 				 	   int pageSum ;
 				 	   if(pageS>(int)pageS)
-				 	   pageSum = (int)pageS+1;
+				 	   	pageSum = (int)pageS+1;
 				 	   else
-				 	   pageSum =(int) pageS;
+				 	   	pageSum =(int) pageS;
 				 	int listSize = list.size();
 				 	for(int i =0;i<23;i++)
 				 	{

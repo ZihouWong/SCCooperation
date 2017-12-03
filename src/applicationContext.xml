@@ -119,5 +119,11 @@
     <property name="noteManage" ref="noteManageImpl"></property>
     </bean> 
     
+    <!-- 工作显示Action -->
+    <bean id="JobClassificationAction" class="org.sccooperation.chuangxinggu.action.JobClassificationAction" scope="prototyper">
+    <property name="postManage" ref="postManageImpl"></property>
+    </bean>
+    
+    
 	
 	</beans>
