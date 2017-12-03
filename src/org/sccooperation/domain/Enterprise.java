@@ -76,6 +76,11 @@ public class Enterprise {
 	/*联系方式*/
 	private String contact;
 	
+	//个性化标签
+	private String tagno;
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -186,6 +191,14 @@ public class Enterprise {
 
 	public void setContact(String contact) {
 		this.contact = contact;
+	}
+
+	public String getTagno() {
+		return tagno;
+	}
+
+	public void setTagno(String tagno) {
+		this.tagno = tagno;
 	}
 
 	

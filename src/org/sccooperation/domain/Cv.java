@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.sccooperation.domain.People;
@@ -55,7 +56,7 @@ public class Cv {
 	private String birthday;
 	
 	/*ÄêÁä*/
-	private int age;
+	private Integer age;
 	
 	/*¸öÈËÃèÊö*/
 	private String summary;
@@ -74,9 +75,10 @@ public class Cv {
 	
 	/*×´Ì¬Âë*/
 	private String state;
-
+	@ManyToOne(targetEntity=People.class)
+	@JoinColumn(name="user",referencedColumnName="id")
 	/*user*/
-	private int user;
+	private People user;
 	public int getId() {
 		return id;
 	}
@@ -113,10 +115,11 @@ public class Cv {
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
-	public int getAge() {
+
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 	public String getSummary() {
@@ -155,10 +158,10 @@ public class Cv {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getUser() {
+	public People getUser() {
 		return user;
 	}
-	public void setUser(int user) {
+	public void setUser(People user) {
 		this.user = user;
 	}
 

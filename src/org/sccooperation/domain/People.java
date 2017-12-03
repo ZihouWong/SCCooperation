@@ -75,6 +75,8 @@ public class People {
     private String qq;
     /*发帖总数*/
     private int notesum;
+    //个性标签
+    private String tagno;
     
 /*
  * 以下为所有字段的set，get方法
@@ -215,6 +217,14 @@ public class People {
 
 	public void setNotesum(int notesum) {
 		this.notesum = notesum;
+	}
+
+	public String getTagno() {
+		return tagno;
+	}
+
+	public void setTagno(String tagno) {
+		this.tagno = tagno;
 	}
 
 	
