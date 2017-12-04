@@ -3,12 +3,11 @@ package org.sccooperation.service.impl;
 import java.util.List;
 
 import org.sccooperation.dao.IPostDao;
-import org.sccooperation.service.PostMange;
+import org.sccooperation.service.PostManage;
 
-public class PostMangeImpl implements PostMange{
+public class PostManageImpl implements PostManage{
 	private IPostDao postDao;
 	
-	@Override
 	public List findJobByButtom(String buttom) {
 		// TODO Auto-generated method stub
 		return postDao.findJobByButtom(buttom);
