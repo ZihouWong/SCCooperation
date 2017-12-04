@@ -43,6 +43,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="luntan.action?pageNo=1">luntan</a>
     <a href="chuangxinggu.action">chuangxinggu</a>
     <a href="seex.action">sexx</a>
-    <a href="chuangxinggutest1.action">chuangxinggutest1</a>
+    <a href="JobClassification.action">chuangxinggutest12</a>
   </body>
 </html>

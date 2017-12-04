@@ -6,18 +6,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import org.sccooperation.domain.People;
 /**                     
 * Project:SCCooperation                                            
-* Comments:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½hibernateï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ó³ï¿½ï¿½ï¿½à¡£                                          
+* Comments:´ËÀàÊÇhibernate¶ÔÊý¾Ý¿âµÄÓ³ÉäÀà¡£                                          
 * JDK version used:JDK1.8                                                          
-* Authorï¿½ï¿½WLNSSS                 
-* Create Dateï¿½ï¿½2017-9-27 
-* Modified Byï¿½ï¿½   <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½Ð´>                                         
-* Modified Date: <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Ê½:YYYY-MM-DD>                                    
-* Why & What is modified  <ï¿½Þ¸ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>    
+* Author£ºWLNSSS                 
+* Create Date£º2017-9-27 
+* Modified By£º   <ÐÞ¸ÄÈËÖÐÎÄÃû»òÆ´ÒôËõÐ´>                                         
+* Modified Date: <ÐÞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD>                                    
+* Why & What is modified  <ÐÞ¸ÄÔ­ÒòÃèÊö>    
 * Version:1.0                       
 */ 
 
@@ -25,7 +26,7 @@ import org.sccooperation.domain.People;
 @Table(name="cv")
 
 /** 
-*hiberateÓ³ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½cvï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½
+*hiberateÓ³ÉäÊý¾Ý¿âcvµÄÓ³ÉäÀà
 * @author WLNSSS 
 * @Time 2017-9-27 
 */  
@@ -34,49 +35,50 @@ public class Cv {
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 /*
- * Ó³ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½
+ * Ó³ÉäÊý¾Ý¿âÖ÷¼ü×Ö¶Î
  * */
 	
 	private int id;
 	
-	/*ï¿½ï¿½ï¿½ï¿½*/
+	/*Ãû³Æ*/
 	private String name;
 	
-	/*ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½*/
+	/*Éí·ÝÖ¤ºÅ*/
 	private String idnumber;
 	
-	/*ï¿½Ö»ï¿½ï¿½ï¿½*/
+	/*ÊÖ»úºÅ*/
 	private String pnumber;
 	
-	/*ï¿½Ô±ï¿½*/
+	/*ÐÔ±ð*/
 	private String sex;
 	
-	/*ï¿½ï¿½ï¿½ï¿½*/
+	/*ÉúÈÕ*/
 	private String birthday;
 	
-	/*ï¿½ï¿½ï¿½ï¿½*/
-	private int age;
+	/*ÄêÁä*/
+	private Integer age;
 	
-	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
+	/*¸öÈËÃèÊö*/
 	private String summary;
 	
-	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
+	/*¹¤×÷¾­Àú*/
 	private String experience;
 	
-	/*ï¿½ñ½±¾ï¿½ï¿½ï¿½*/
+	/*»ñ½±¾­Àú*/
 	private String prize;
 	
 	/*Ñ§Ð£*/
 	private String school;
 	
-	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬*/
+	/*¸öÈËÕÕÆ¬*/
 	private String prictureurl;
 	
-	/*×´Ì¬ï¿½ï¿½*/
+	/*×´Ì¬Âë*/
 	private String state;
-
+	@ManyToOne(targetEntity=People.class)
+	@JoinColumn(name="user",referencedColumnName="id")
 	/*user*/
-	private int user;
+	private People user;
 	public int getId() {
 		return id;
 	}
@@ -113,10 +115,11 @@ public class Cv {
 	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
-	public int getAge() {
+
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 	public String getSummary() {
@@ -155,10 +158,10 @@ public class Cv {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getUser() {
+	public People getUser() {
 		return user;
 	}
-	public void setUser(int user) {
+	public void setUser(People user) {
 		this.user = user;
 	}
 

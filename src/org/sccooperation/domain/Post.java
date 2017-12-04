@@ -5,61 +5,50 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="post")
-
+/** 
+*hiberate映射数据库post的映射类
+* @author WLNSSS 
+* @Time 2017-9-27 
+*/  
 public class Post {
-	
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-
+	
 	private int id;
 	
-	private String name;
-	
-	private String idnumber;
-	
-	private String pnumber;
-	
-	private String sex;
-	
-	private String birthday;
-	
-	private int age;
+	//
+	private String ename;
 	
 	private String summary;
 	
-	private String picture;
+	private String place;
 	
-	private int cv;
+	private String ptime;
 	
-	private String account;
+	private String domand;
 	
-	private String password;
+	private String remuneration;
 	
-	private String state;
+	private String stime;
 	
-	private String username;
+	private String allure;
 	
-	private String wechat;
+	private String pictureurl;
 	
-	private String qq;
 	
-	private int notesum;
+	@ManyToOne(targetEntity=Enterprise.class)
+	@JoinColumn(name="enterprise_id",referencedColumnName="id")
+	private Enterprise enterprise_id;
 	
-	private int tagNo;
-
-	public int getTagNo() {
-		return tagNo;
-	}
-
-	public void setTagNo(int tagNo) {
-		this.tagNo = tagNo;
-	}
-
+	private String people_id;
+	
 	public int getId() {
 		return id;
 	}
@@ -68,52 +57,12 @@ public class Post {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getEname() {
+		return ename;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getIdnumber() {
-		return idnumber;
-	}
-
-	public void setIdnumber(String idnumber) {
-		this.idnumber = idnumber;
-	}
-
-	public String getPnumber() {
-		return pnumber;
-	}
-
-	public void setPnumber(String pnumber) {
-		this.pnumber = pnumber;
-	}
-
-	public String getSex() {
-		return sex;
-	}
-
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-
-	public String getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(String birthday) {
-		this.birthday = birthday;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
+	public void setEname(String ename) {
+		this.ename = ename;
 	}
 
 	public String getSummary() {
@@ -124,36 +73,76 @@ public class Post {
 		this.summary = summary;
 	}
 
-	public String getPicture() {
-		return picture;
+	public String getPlace() {
+		return place;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setPlace(String place) {
+		this.place = place;
 	}
 
-	public int getCv() {
-		return cv;
+	public String getPtime() {
+		return ptime;
 	}
 
-	public void setCv(int cv) {
-		this.cv = cv;
+	public void setPtime(String ptime) {
+		this.ptime = ptime;
 	}
 
-	public String getAccount() {
-		return account;
+	public String getDomand() {
+		return domand;
 	}
 
-	public void setAccount(String account) {
-		this.account = account;
+	public void setDomand(String domand) {
+		this.domand = domand;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getRemuneration() {
+		return remuneration;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setRemuneration(String remuneration) {
+		this.remuneration = remuneration;
+	}
+
+	public String getStime() {
+		return stime;
+	}
+
+	public void setStime(String stime) {
+		this.stime = stime;
+	}
+
+	public String getAllure() {
+		return allure;
+	}
+
+	public void setAllure(String allure) {
+		this.allure = allure;
+	}
+
+	public String getPictureurl() {
+		return pictureurl;
+	}
+
+	public void setPictureurl(String pictureurl) {
+		this.pictureurl = pictureurl;
+	}
+
+	public Enterprise getEnterprise_id() {
+		return enterprise_id;
+	}
+
+	public void setEnterprise_id(Enterprise enterprise_id) {
+		this.enterprise_id = enterprise_id;
+	}
+
+	public String getPeople_id() {
+		return people_id;
+	}
+
+	public void setPeople_id(String people_id) {
+		this.people_id = people_id;
 	}
 
 	public String getState() {
@@ -164,36 +153,28 @@ public class Post {
 		this.state = state;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getContact() {
+		return contact;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setContact(String contact) {
+		this.contact = contact;
 	}
 
-	public String getWechat() {
-		return wechat;
+	public String getTagno() {
+		return tagno;
 	}
 
-	public void setWechat(String wechat) {
-		this.wechat = wechat;
+	public void setTagno(String tagno) {
+		this.tagno = tagno;
 	}
 
-	public String getQq() {
-		return qq;
-	}
-
-	public void setQq(String qq) {
-		this.qq = qq;
-	}
-
-	public int getNotesum() {
-		return notesum;
-	}
-
-	public void setNotesum(int notesum) {
-		this.notesum = notesum;
-	}
+	private String state;
 	
+	private String contact;
+	
+	private String tagno;
+	
+	
+
 }

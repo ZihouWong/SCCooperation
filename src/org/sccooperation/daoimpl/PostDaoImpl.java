@@ -8,8 +8,12 @@ public class PostDaoImpl extends BaseDaoImpl implements IPostDao {
 
 	@Override
 	public List findJobByButtom(String buttom) {
-		// TODO Auto-generated method stub
-		return findBypage("from Post a", 0, 9, 9);
+		
+		List req = find("from Post a,Tag b where .tagNo = tagName = ?0 ", buttom);
+		
+		return req; 
+		
+//		return findBypage("from Post a where ", 0, 9, 9);
 	}
 
 }

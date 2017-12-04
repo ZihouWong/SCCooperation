@@ -48,7 +48,7 @@
 <action name="geren">
 <result name="success" >/WEB-INF/page/webpages/people.html</result>
 </action>
-<action name="chuangxinggutest1">
+<action name="chuangxinggutest" class ="JobClassificationAction">
 <result name="success">/WEB-INF/page/webpages/chuangxinggu/chuangxinggu.jsp</result>
 </action>
 

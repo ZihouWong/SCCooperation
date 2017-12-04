@@ -82,6 +82,9 @@
     <property name="userDao" ref="userDaoImpl"></property>
     </bean>
     
+    
+    
+    
     <!-- 帖子类装配 -->
     <bean id="noteDaoImpl" class="org.sccooperation.daoimpl.NoteDaoImpl">
     <property name="sessionFactory" ref="sessionFactory"></property>
@@ -90,6 +93,15 @@
     <property name="noteDao" ref="noteDaoImpl"></property>
     </bean>
     
+    
+    <!-- 黄智豪 -->
+    	<!-- 工作显示类装配 -->
+   	<bean id="postDaoImpl" class="org.sccooperation.daoimpl.PostDaoImpl">
+   	<property name="sessionFactory" ref="sessionFactory"></property>
+   	</bean>
+   	<bean id="postManageImpl" class="org.sccooperation.service.impl.PostManageImpl">
+   	<property name="postDao" ref="postDaoImpl"></property>
+   	</bean>
     
 
     
@@ -121,6 +133,8 @@
     <property name="noteManage" ref="noteManageImpl"></property>
     </bean> 
     
+    
+    <!-- 黄智豪 -->
     <!-- 工作显示Action -->
     <bean id="JobClassificationAction" class="org.sccooperation.chuangxinggu.action.JobClassificationAction" scope="prototyper">
     <property name="postManage" ref="postManageImpl"></property>

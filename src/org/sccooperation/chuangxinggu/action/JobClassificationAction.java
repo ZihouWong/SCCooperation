@@ -3,14 +3,17 @@ package org.sccooperation.chuangxinggu.action;
 import java.util.List;
 import java.util.Map;
 
-import org.sccooperation.service.PostMange;
+import org.sccooperation.service.PostManage;
+
+import com.opensymphony.xwork2.ActionContext;
+
 
 
 public class JobClassificationAction {
 	
 	private String buttom;
 	private Map request;
-	private PostMange postManage;
+	private PostManage postManage;
 
 
 	public String getButtom() {
@@ -22,6 +25,8 @@ public class JobClassificationAction {
 	}
 	
 	public String execute() {
+		
+		request = (Map)ActionContext.getContext().get("request");
 		
 		request.put("list",	postManage.findJobByButtom(buttom));
 		

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+                     <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>  
 <%@page import="org.sccooperation.domain.*"%> 
@@ -608,10 +608,14 @@ ul {
     			<div class="hot-work-body">
     			
     			
-    			
+    			<%
+    			List list = (List)request.getAttribute("list");
+    		
+    			Post post = (Post)list.get(0);
+    			%>
     				<div class="col-xs-4">
     					<div class="hot-work-body-item">
-    						<p class="work-name float">高级java开发工程师</p>
+    						<p class="work-name float"><%=post.getSummary() %></p>
     						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
     						<p class="salary float-right">20k-30k</p>
     						<p class="demand main-font grey2">有相关经验的学生  本科</p>

@@ -51,7 +51,7 @@ public class People {
 /* ���� */	
 	private String birthday;
 /* ���� */	
-	private int age;
+	private Integer age;
 /* ���˼��*/
 	private String summary;
 /* ͼƬ���λ�� */
@@ -75,6 +75,8 @@ public class People {
     private String qq;
     /*��������*/
     private int notesum;
+    //���Ա�ǩ
+    private String tagno;
     
 /*
  * ����Ϊ�����ֶε�set��get����
@@ -119,11 +121,11 @@ public class People {
 		this.birthday = birthday;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
@@ -215,6 +217,14 @@ public class People {
 
 	public void setNotesum(int notesum) {
 		this.notesum = notesum;
+	}
+
+	public String getTagno() {
+		return tagno;
+	}
+
+	public void setTagno(String tagno) {
+		this.tagno = tagno;
 	}
 
 	

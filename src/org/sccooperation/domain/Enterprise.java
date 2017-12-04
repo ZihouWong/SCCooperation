@@ -9,13 +9,13 @@ import javax.persistence.Table;
 
 /**                     
 * Project:SCCooperation                                            
-* Comments:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½hibernateï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½Ó³ï¿½ï¿½ï¿½à¡£                                          
+* Comments:´ËÀàÊÇhibernate¶ÔÊý¾Ý¿âµÄÓ³ÉäÀà¡£                                          
 * JDK version used:JDK1.8                                                          
-* Authorï¿½ï¿½WLNSSS                 
-* Create Dateï¿½ï¿½2017-9-27 
-* Modified Byï¿½ï¿½   <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½Ð´>                                         
-* Modified Date: <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Ê½:YYYY-MM-DD>                                    
-* Why & What is modified  <ï¿½Þ¸ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>    
+* Author£ºWLNSSS                 
+* Create Date£º2017-9-27 
+* Modified By£º   <ÐÞ¸ÄÈËÖÐÎÄÃû»òÆ´ÒôËõÐ´>                                         
+* Modified Date: <ÐÞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD>                                    
+* Why & What is modified  <ÐÞ¸ÄÔ­ÒòÃèÊö>    
 * Version:1.0                       
 */ 
 
@@ -23,7 +23,7 @@ import javax.persistence.Table;
 @Table(name="enterprise")
 
 /** 
-*hiberateÓ³ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½enterpriseï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½
+*hiberateÓ³ÉäÊý¾Ý¿âenterpriseµÄÓ³ÉäÀà
 * @author WLNSSS 
 * @Time 2017-9-27 
 */  
@@ -32,49 +32,54 @@ public class Enterprise {
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 /*
- * Ó³ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½
+ * Ó³ÉäÊý¾Ý¿âÖ÷¼ü×Ö¶Î
  * */
 	
 	private int id;
 	
-	/*ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½*/
+	/*ÆóÒµÃû³Æ*/
 	private String ename;
 	
-	/*ï¿½ï¿½ï¿½*/
+	/*¼ò½é*/
 	private String summary;
 	
-	/*ï¿½Øµï¿½*/
+	/*µØµã*/
 	private String place;
 	
-	/*ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½*/
+	/*³ÉÁ¢Ê±¼ä*/
 	private String btime;
 	
-	/*ï¿½ï¿½Ë¾ï¿½ï¿½ï¿½ï¿½*/
+	/*¹«Ë¾ÐÔÖÊ*/
 	private String property;
 	
-	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·*/
+	/*¹ÙÍøÍøÖ·*/
 	private String website;
 	
 	/*ceo*/
 	private String ceo;
 	
-	/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµ*/
+	/*´ÓÊÂÐÐÒµ*/
 	private String vocation;
 	
-	/*Í¼Æ¬Ô´ï¿½ï¿½Ö·*/
+	/*Í¼Æ¬Ô´µØÖ·*/
 	private String pictureurl;
 	
-	/*ï¿½Ëºï¿½*/
+	/*ÕËºÅ*/
 	private String account;
 	
-	/*ï¿½ï¿½ï¿½ï¿½*/
+	/*ÃÜÂë*/
 	private String password;
 	
-	/*×´Ì¬ï¿½ï¿½*/
+	/*×´Ì¬Âë*/
 	private String state;
 	
-	/*ï¿½ï¿½Ïµï¿½ï¿½Ê½*/
+	/*ÁªÏµ·½Ê½*/
 	private String contact;
+	
+	//¸öÐÔ»¯±êÇ©
+	private String tagno;
+	
+	
 	
 	public int getId() {
 		return id;
@@ -186,6 +191,14 @@ public class Enterprise {
 
 	public void setContact(String contact) {
 		this.contact = contact;
+	}
+
+	public String getTagno() {
+		return tagno;
+	}
+
+	public void setTagno(String tagno) {
+		this.tagno = tagno;
 	}
 
 	

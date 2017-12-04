@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="tag")
 /** 
-*hiberateÓ³ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½tagï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½
+*hiberateÓ³ÉäÊı¾İ¿âtagµÄÓ³ÉäÀà
 * @author WLNSSS 
 * @Time 2017-9-27 
 */  
