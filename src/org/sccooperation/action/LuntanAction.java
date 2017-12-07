@@ -10,10 +10,10 @@ import org.sccooperation.service.NoteManage;
 import com.opensymphony.xwork2.ActionContext;
 
 /**
- * Project:SCCooperation Comments:此类action，先由spring装配一个实例，然后将该实例交给struts管理,主要功能是用户访问创行谷，调用数据底层找到相应的帖子列子
+ * Project:SCCooperation Comments:锟斤拷锟斤拷action锟斤拷锟斤拷锟斤拷spring装锟斤拷一锟斤拷实锟斤拷锟斤拷然锟襟将革拷实锟斤拷锟斤拷锟斤拷struts锟斤拷锟斤拷,锟斤拷要锟斤拷锟斤拷锟斤拷锟矫伙拷锟斤拷锟绞达拷锟叫谷ｏ拷锟斤拷锟斤拷锟斤拷锟捷底诧拷锟揭碉拷锟斤拷应锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
  *  JDK version used:JDK1.8 
- *  Author：WLNSSS Create Date：2017-9-27 Modified By： <修改人中文名或拼音缩写>
- * Modified Date: <修改日期，格式:YYYY-MM-DD> Why & What is modified <修改原因描述>
+ *  Author锟斤拷WLNSSS Create Date锟斤拷2017-9-27 Modified By锟斤拷 <锟睫革拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷拼锟斤拷锟斤拷写>
+ * Modified Date: <锟睫革拷锟斤拷锟节ｏ拷锟斤拷式:YYYY-MM-DD> Why & What is modified <锟睫革拷原锟斤拷锟斤拷锟斤拷>
  * Version:1.0
  */
 public class LuntanAction {
@@ -40,18 +40,18 @@ public class LuntanAction {
 
 	public String execute()
 	{
-		//获取request对象
+		//锟斤拷取request锟斤拷锟斤拷
 		request = (Map)ActionContext.getContext().get("request"); 
 		
 		
-		//根据页数查询帖子列表
+		//锟斤拷锟斤拷页锟斤拷锟斤拷询锟斤拷锟斤拷锟叫憋拷
 		request.put("list", noteManage.findAllNote(Integer.parseInt(pageNo)));
 		
-		//查询帖子总数
-		request.put("noteSum",noteManage.findNoteCount(Note.class));
+		//锟斤拷询锟斤拷锟斤拷锟斤拷锟斤拷
+		request.put("noteSum", noteManage.findNoteCount(Note.class));
 		
-		//查询发帖最多的四个人
-		request.put("manyNotePeople",noteManage.seeManyNotePeople());
+		//锟斤拷询锟斤拷锟斤拷锟斤拷锟斤拷锟侥革拷锟斤拷
+		request.put("manyNotePeople", noteManage.seeManyNotePeople());
 		
 		
 		return "success";

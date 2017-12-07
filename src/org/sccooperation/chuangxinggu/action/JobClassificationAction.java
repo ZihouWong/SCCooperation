@@ -16,6 +16,22 @@ public class JobClassificationAction {
 	private PostManage postManage;
 
 
+	public Map getRequest() {
+		return request;
+	}
+
+	public void setRequest(Map request) {
+		this.request = request;
+	}
+
+	public PostManage getPostManage() {
+		return postManage;
+	}
+
+	public void setPostManage(PostManage postManage) {
+		this.postManage = postManage;
+	}
+
 	public String getButtom() {
 		return buttom;
 	}

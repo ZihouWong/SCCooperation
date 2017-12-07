@@ -103,7 +103,7 @@
    	<property name="postDao" ref="postDaoImpl"></property>
    	</bean>
     
-
+    
     
     
     
@@ -136,7 +136,12 @@
     
     <!-- 黄智豪 -->
     <!-- 工作显示Action -->
-    <bean id="JobClassificationAction" class="org.sccooperation.chuangxinggu.action.JobClassificationAction" scope="prototyper">
+    
+    <bean id="ChuangxingguAction" class="org.sccooperation.chuangxinggu.action.ChuangxingguAction">
+    <property name="postManage" ref="postManageImpl"></property>
+    </bean>
+    
+    <bean id="JobClassificationAction" class="org.sccooperation.chuangxinggu.action.JobClassificationAction">
     <property name="postManage" ref="postManageImpl"></property>
     </bean>
     

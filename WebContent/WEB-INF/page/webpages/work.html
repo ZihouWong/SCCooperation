@@ -1,12 +1,5 @@
-                     <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="java.util.List"%>  
-<%@page import="org.sccooperation.domain.*"%> 
-    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>创行谷</title>
@@ -377,23 +370,11 @@ ul {
 }
   </style>
 </head>
-
-
-
-
-
-</head>
-<body>
-
 <body>
 	 <!-- 登陆框、联系方式 -->
 	<div id="head-link" class="login">
 		<div class="container">
 			<div class="col-xs-12">
-			<%
-			List listU = (List)request.getSession().getAttribute("user");
-			if(request.getSession().getAttribute("user")==null) {
-			%>
 			    <div class="login-in">
 					<form id="login-form" action="" method="post">
 						<p class="main-font">学生代码:</p><input type="text" name="id">
@@ -403,16 +384,6 @@ ul {
 						<input id="login-btn" type="submit" value="登陆">
 					</form>
 				</div>
-				
-				<%
-				}else{
-					People people = (People) listU.get(0);
-				%>
-			    
-			    <div class="login-in">
-				欢迎<%=people.getPnumber() %>
-				</div>
-			    <% } %>
 			    <div class="login-tel">
 			    	<i class="fa fa-phone fa-lg"></i>
 			    	<p class="main-font">咨询电话：010-82319999转2846</p>
@@ -421,7 +392,6 @@ ul {
 		</div>
 	</div>
 	<!-- 导航条 -->
-	
 	<div class="navbar">
 		<div class="container">
 			<div class="col-xs-12">
@@ -451,72 +421,39 @@ ul {
     				<div class="menu-head">所有工作分类</div>
 				    <div class="menu">
 						<ul class="menu-list">
-						
-							<li class="menu-title">
-								<a href="JobClassification.action?buttom=biancheng"><span>编程</span></a>
-								<a href="https://www.sina.com/?buttom=sheji"><span>设计</span></a>
-								<a href="https://www.runoob.com/?buttom=ITruanjian"><span>IT软件</span></a>
-							</li>
 							
 							<li class="menu-title">
-								<a href="https://www.baidu.com/?buttom=qiuzhi"><span>求职</span></a>
-								<a href="https://www.sina.com/?buttom=zhichang"><span>职场</span></a>
-								<a href="https://www.runoob.com/?buttom=bangongruanjian"><span>办公软件</span></a>
-							</li>
-							
-							<li class="menu-title">
-								<a href="https://www.baidu.com/?buttom=english"><span>英语</span></a>
-								<a href="https://www.sina.com/?buttom=japanese"><span>日语</span></a>
-								<a href="https://www.runoob.com/?buttom=french"><span>法语</span></a>
-								<a href="https://www.runoob.com/?buttom=Korean"><span>韩语</span></a>
-							</li>
-							
-							<li class="menu-title">
-								<a href="https://www.baidu.com/?buttom=yingxiao"><span>营销</span></a>
-								<a href="https://www.sina.com/?buttom=licai"><span>理财</span></a>
-								<a href="https://www.runoob.com/?buttom=zhuanyezhishi"><span>专业技能</span></a> 
-							</li>
-							
-							<li class="menu-title">
-								<a href="https://www.baidu.com/?buttom=kuaijizheng"><span>会计证</span></a>
-								<a href="https://www.sina.com/?buttom=gangqin"><span>钢琴</span></a>
-								<a href="https://www.runoob.com/?buttom=jianzhushi"><span>建造师</span></a>
-							</li>
-							
-							<li class="menu-title">
-								<a href="https://www.baidu.com/?buttom=guoxue"><span>国学</span></a>
-								<a href="https://www.sina.com/?buttom=shengxue"><span>省学</span></a>
-								<a href="https://www.runoob.com/?buttom=xuelijiaoxue"><span>学历教育</span></a>
-							</li>
-							
-							<li class="menu-title">
-								<a href="https://www.baidu.com/?buttom=gaokao"><span>高考</span></a>
-								<a href="https://www.sina.com/?buttom=zhongkao"><span>中考</span></a>
-								<a href="https://www.runoob.com/?buttom=xiaoshengchu"><span>小升初</span></a>
-							</li>
-							
-							<li class="menu-title">
-								<a href="https://www.baidu.com/?buttom=>kaoyan"><span>考研</span></a>
-								<a href="https://www.sina.com/?buttom=siliuji"><span>四六级</span></a>
-								<a href="https://www.runoob.com/?buttom=jisuanjikaoshi"><span>计算机考试</span></a>
-							</li>
-							
-							<li class="menu-title">
-								<a href="https://www.baidu.com/?buttom=yashi"><span>雅思</span></a>
-								<a href="https://www.sina.com/?buttom=tuofu"><span>托福</span></a>
-								<a href="https://www.runoob.com/?buttom=liuxuezhidao"><span>留学指导</span></a>
-							</li>
-							
-							<li class="menu-title">
-								<a href="https://www.baidu.com/?buttom=shenghuo"><span>生活</span></a>
-								<a href="https://www.sina.com/?buttom=wenhua"><span>文化</span></a>
-								<a href="https://www.runoob.com/?buttom=xingqu"><span>兴趣</span></a>
+								<span>编程、设计、IT软件<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
 							</li>
 							<li class="menu-title">
-								<a href="https://www.baidu.com/?buttom=xueshu"><span>学术</span></a>
-								<a href="https://www.sina.com/?buttom=TED"><span>TED</span></a>
-								<a href="https://www.runoob.com/?buttom=mingxiaogongkaike"><span>名校公开课</span></a>
-
+								<span>求职、职场、办公软件<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
+							</li>
+							<li class="menu-title">
+								<span>英语、日语、韩语 、法语<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
+							</li>
+							<li class="menu-title">
+								<span>营销、理财、专业技能<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
+							</li>
+							<li class="menu-title">
+								<span>会计证、钢琴、建造师<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
+							</li>
+							<li class="menu-title">
+								<span>国考、省考、学历教育<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
+							</li>
+							<li class="menu-title">
+								<span>高考、中考、小升初<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
+							</li>
+							<li class="menu-title">
+								<span>考研、四六级、计算机考试<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
+							</li>
+							<li class="menu-title">
+								<span>雅思、托福、留学指导<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
+							</li>
+							<li class="menu-title">
+								<span>生活、文化、兴趣<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
+							</li>
+							<li class="menu-title">
+								<span>学术、TED、名校公开课<i class="fa fa-angle-right fa-lg grey2 float-right"></i></span>
 							</li>
 						</ul>
 						<div class="menu-body display">
@@ -575,8 +512,6 @@ ul {
 					<!-- menu ending -->
     			</div>
                 <!-- col-xs-4 ending -->
-                
-                
     			<div class="col-xs-9">
     				<div class="carousel">
 						<div id="owl-demo" class="owl-carousel">
@@ -606,31 +541,6 @@ ul {
     		</div>
     		<div class="container">
     			<div class="hot-work-body">
-    			
-    			
-    			<%
-    			List list = (List)request.getAttribute("list");
-    			List allJob = (List)request.getAttribute("allJob");
-    			
-    			
-    			Post post = (Post)list.get(0);
-    			%>
-    			
-    			<%-- <%
-    			int listSize = list.size();
-			
-    			for(int i =0;i<9;i++)
-			 	{
-			 		if(listSize>i)
-			 		{
-			 			Note note = (Note)list.get(i);
-			 		
-    			%> --%>
-    				
-]\[poiu8y7 65432Q]
-    				 <%-- <%}else{}} %> --%>
-    		
-    				col-xs-4 ending
     				<div class="col-xs-4">
     					<div class="hot-work-body-item">
     						<p class="work-name float">高级java开发工程师</p>
@@ -646,7 +556,7 @@ ul {
                             <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
     					</div>
     				</div>
-    				col-xs-4 ending
+    				<!-- col-xs-4 ending -->
     				<div class="col-xs-4">
     					<div class="hot-work-body-item">
     						<p class="work-name float">高级java开发工程师</p>
@@ -662,7 +572,23 @@ ul {
                             <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
     					</div>
     				</div>
-    				col-xs-4 ending
+    				<!-- col-xs-4 ending -->
+    				<div class="col-xs-4">
+    					<div class="hot-work-body-item">
+    						<p class="work-name float">高级java开发工程师</p>
+    						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
+    						<p class="salary float-right">20k-30k</p>
+    						<p class="demand main-font grey2">有相关经验的学生  本科</p>
+    						<span class="condition">五险一金</span>
+    						<span class="condition">五险一金</span>
+    						<span class="condition">五险一金</span>
+    						<span class="hot-work-body-border"></span>
+                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
+                            <p class="company-name"><a href="#">前实科技</a></p>
+                            <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
+    					</div>
+    				</div>
+    				<!-- col-xs-4 ending -->
     				<div class="col-xs-4">
     					<div class="hot-work-body-item">
     						<p class="work-name float">高级java开发工程师</p>
@@ -678,7 +604,7 @@ ul {
                             <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
     					</div>
     				</div>
-    				col-xs-4 ending
+    				<!-- col-xs-4 ending -->
     				<div class="col-xs-4">
     					<div class="hot-work-body-item">
     						<p class="work-name float">高级java开发工程师</p>
@@ -694,7 +620,7 @@ ul {
                             <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
     					</div>
     				</div>
-    				col-xs-4 ending
+    				<!-- col-xs-4 ending -->
     				<div class="col-xs-4">
     					<div class="hot-work-body-item">
     						<p class="work-name float">高级java开发工程师</p>
@@ -710,7 +636,7 @@ ul {
                             <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
     					</div>
     				</div>
-    				col-xs-4 ending
+    				<!-- col-xs-4 ending -->
     				<div class="col-xs-4">
     					<div class="hot-work-body-item">
     						<p class="work-name float">高级java开发工程师</p>
@@ -726,7 +652,7 @@ ul {
                             <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
     					</div>
     				</div>
-    				col-xs-4 ending
+    				<!-- col-xs-4 ending -->
     				<div class="col-xs-4">
     					<div class="hot-work-body-item">
     						<p class="work-name float">高级java开发工程师</p>
@@ -742,7 +668,7 @@ ul {
                             <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
     					</div>
     				</div>
-    				col-xs-4 ending
+    				<!-- col-xs-4 ending -->
     				<div class="col-xs-4">
     					<div class="hot-work-body-item">
     						<p class="work-name float">高级java开发工程师</p>
@@ -758,14 +684,10 @@ ul {
                             <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
     					</div>
     				</div>
-    				col-xs-4 ending
+    				<!-- col-xs-4 ending -->
     				<a href="#" class="hot-work-btn">查看更多</a>
     			</div>
-    			hot-work-body ending
-    			
-    			
-    			
-    			
+    			<!-- hot-work-body ending -->
     			<div class="hot-work-body display">
     				<div class="col-xs-4">
     					<div class="hot-work-body-item">
@@ -782,12 +704,9 @@ ul {
                             <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
     					</div>
     				</div>
-    				col-xs-4 ending
+    				<!-- col-xs-4 ending -->
     				<a href="#" class="hot-work-btn">查看更多</a>
     			</div>
-    			
-    			
-    			
     			<!-- hot-work-body ending -->
     		</div>
     	</div>
@@ -1211,10 +1130,4 @@ $(window).scroll(function() {
         });
 	</script>
 </body>
-
-</body>
 </html>
-
-
-
-

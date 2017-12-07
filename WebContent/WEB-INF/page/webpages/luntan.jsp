@@ -223,7 +223,8 @@ background: url("./img/hot-class4.jpg");
 			<div class="col-xs-12">
 			<%
 			List listU = (List)request.getSession().getAttribute("user");
-			if(request.getSession().getAttribute("user")==null) {%>
+			if(request.getSession().getAttribute("user")==null) {
+			%>
 			    <div class="login-in">
 					<form id="login-form" action="login.action?pageNo=1" method="post">
 						<p class="main-font">学生代码:</p><input type="text" name="account">
