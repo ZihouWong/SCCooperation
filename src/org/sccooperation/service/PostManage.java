@@ -8,5 +8,5 @@ public interface PostManage {
 
 	public List findAllJob();
 
-	public List findJob(int pageNo);
+	public List findJobByPageNo(int pageNo);
 }

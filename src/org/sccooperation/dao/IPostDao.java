@@ -8,7 +8,8 @@ public interface IPostDao {
 
 	public List findAllJob();
 
-	public List findJob(int pageNo);
+	public List findJobByPageNo(int pageNo);
+
 	
 	
 }

@@ -137,11 +137,11 @@
     <!-- 黄智豪 -->
     <!-- 工作显示Action -->
     
-    <bean id="ChuangxingguAction" class="org.sccooperation.chuangxinggu.action.ChuangxingguAction">
+    <bean id="ChuangxingguAction" class="org.sccooperation.chuangxinggu.action.ChuangxingguAction" scope="prototype">
     <property name="postManage" ref="postManageImpl"></property>
     </bean>
     
-    <bean id="JobClassificationAction" class="org.sccooperation.chuangxinggu.action.JobClassificationAction">
+    <bean id="JobClassificationAction" class="org.sccooperation.chuangxinggu.action.JobClassificationAction" scope="prototype">
     <property name="postManage" ref="postManageImpl"></property>
     </bean>
     

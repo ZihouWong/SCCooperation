@@ -25,11 +25,10 @@ public class PostDaoImpl extends BaseDaoImpl implements IPostDao {
 	}
 
 	
-	public List findJob(int pageNo) {
+	public List findJobByPageNo(int pageNo) {
 		
-		
-		
-		return findBypage("from Post", pageNo, 10, 10);
+	
+		return findBypage("from Post", pageNo, 18, 18);
 		
 	}
 }

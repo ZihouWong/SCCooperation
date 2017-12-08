@@ -42,9 +42,11 @@ public class ChuangxingguAction {
 	public String execute() {
 		request = (Map)ActionContext.getContext().get("request");
 		 
+		System.out.println(postManage.findAllJob());
 		request.put("allJob", postManage.findAllJob());
-		
-		request.put("list", postManage.findJob(Integer.parseInt(pageNo)));
+
+		System.out.println("hahahahahahahahah"+postManage.findJobByPageNo(Integer.parseInt(pageNo)));
+		request.put("list", postManage.findJobByPageNo(Integer.parseInt(pageNo)));
 		
 		return "success";
 	}

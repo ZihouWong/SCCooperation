@@ -28,9 +28,9 @@ public class PostManageImpl implements PostManage{
 	}
 
 	@Override
-	public List findJob(int pageNo) {
+	public List findJobByPageNo(int pageNo) {
 		// TODO Auto-generated method stub
-		return null;
+		return postDao.findJobByPageNo(pageNo);
 	}
 
 	

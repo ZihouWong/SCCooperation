@@ -608,181 +608,60 @@ ul {
     			<div class="hot-work-body">
     			
     			
-    			<%
+   			<%
     			List list = (List)request.getAttribute("list");
     			List allJob = (List)request.getAttribute("allJob");
-    			
-    			
-    			Post post = (Post)list.get(0);
+
+    			/* Post post = (Post)list.get(0); */
     			%>
-    			
-    			<%-- <%
+    			<%
     			int listSize = list.size();
 			
-    			for(int i =0;i<9;i++)
+    			for(int i = 0; i < 9; i++)
 			 	{
 			 		if(listSize>i)
 			 		{
-			 			Note note = (Note)list.get(i);
-			 		
-    			%> --%>
-    				
-]\[poiu8y7 65432Q]
-    				 <%-- <%}else{}} %> --%>
+			 			Post post = (Post)list.get(i);
+			 			
+			 			
+			 			
+			 			%>
+				<div class="col-xs-4">
+    					<div class="hot-work-body-item">
+    						<p class="work-name float"><%=post.getSummary() %></p>
+    						<p class="publish-time main-font grey2 float">[<%=post.getStime() %>年发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
+    						<p class="salary float-right"><%=post.getRemuneration() %></p>
+    						<p class="demand main-font grey2"><%=post.getDomand() %></p>
+    						<%
+    						String sp = post.getAllure();
+    				 		String sps[] = sp.split(",");
+    				 		int spslength = sps.length;
+    				 		
+    						for(int a = 0;a < spslength; a++) {%>
+    							<span class="condition"><%=sps[a]%></span>
+    						<%} %>
+    						<span class="hot-work-body-border"></span>
+                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
+                            <p class="company-name"><a href="#"><%=post.getEname() %></a></p>
+                            <p class="company-intro grey2">移动互联网  <%=post.getPlace() %></p>
+    					</div>
+    				</div>
+    				 <%	}
+				 } %>
     		
-    				col-xs-4 ending
-    				<div class="col-xs-4">
-    					<div class="hot-work-body-item">
-    						<p class="work-name float">高级java开发工程师</p>
-    						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
-    						<p class="salary float-right">20k-30k</p>
-    						<p class="demand main-font grey2">有相关经验的学生  本科</p>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="hot-work-body-border"></span>
-                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
-                            <p class="company-name"><a href="#">前实科技</a></p>
-                            <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
-    					</div>
-    				</div>
-    				col-xs-4 ending
-    				<div class="col-xs-4">
-    					<div class="hot-work-body-item">
-    						<p class="work-name float">高级java开发工程师</p>
-    						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
-    						<p class="salary float-right">20k-30k</p>
-    						<p class="demand main-font grey2">有相关经验的学生  本科</p>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="hot-work-body-border"></span>
-                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
-                            <p class="company-name"><a href="#">前实科技</a></p>
-                            <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
-    					</div>
-    				</div>
-    				col-xs-4 ending
-    				<div class="col-xs-4">
-    					<div class="hot-work-body-item">
-    						<p class="work-name float">高级java开发工程师</p>
-    						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
-    						<p class="salary float-right">20k-30k</p>
-    						<p class="demand main-font grey2">有相关经验的学生 本科</p>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="hot-work-body-border"></span>
-                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
-                            <p class="company-name"><a href="#">前实科技</a></p>
-                            <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
-    					</div>
-    				</div>
-    				col-xs-4 ending
-    				<div class="col-xs-4">
-    					<div class="hot-work-body-item">
-    						<p class="work-name float">高级java开发工程师</p>
-    						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
-    						<p class="salary float-right">20k-30k</p>
-    						<p class="demand main-font grey2">有相关经验的学生  本科</p>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="hot-work-body-border"></span>
-                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
-                            <p class="company-name"><a href="#">前实科技</a></p>
-                            <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
-    					</div>
-    				</div>
-    				col-xs-4 ending
-    				<div class="col-xs-4">
-    					<div class="hot-work-body-item">
-    						<p class="work-name float">高级java开发工程师</p>
-    						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
-    						<p class="salary float-right">20k-30k</p>
-    						<p class="demand main-font grey2">有相关经验的学生  本科</p>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="hot-work-body-border"></span>
-                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
-                            <p class="company-name"><a href="#">前实科技</a></p>
-                            <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
-    					</div>
-    				</div>
-    				col-xs-4 ending
-    				<div class="col-xs-4">
-    					<div class="hot-work-body-item">
-    						<p class="work-name float">高级java开发工程师</p>
-    						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
-    						<p class="salary float-right">20k-30k</p>
-    						<p class="demand main-font grey2">有相关经验的学生  本科</p>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="hot-work-body-border"></span>
-                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
-                            <p class="company-name"><a href="#">前实科技</a></p>
-                            <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
-    					</div>
-    				</div>
-    				col-xs-4 ending
-    				<div class="col-xs-4">
-    					<div class="hot-work-body-item">
-    						<p class="work-name float">高级java开发工程师</p>
-    						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
-    						<p class="salary float-right">20k-30k</p>
-    						<p class="demand main-font grey2">有相关经验的学生  本科</p>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="hot-work-body-border"></span>
-                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
-                            <p class="company-name"><a href="#">前实科技</a></p>
-                            <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
-    					</div>
-    				</div>
-    				col-xs-4 ending
-    				<div class="col-xs-4">
-    					<div class="hot-work-body-item">
-    						<p class="work-name float">高级java开发工程师</p>
-    						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
-    						<p class="salary float-right">20k-30k</p>
-    						<p class="demand main-font grey2">有相关经验的学生  本科</p>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="hot-work-body-border"></span>
-                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
-                            <p class="company-name"><a href="#">前实科技</a></p>
-                            <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
-    					</div>
-    				</div>
-    				col-xs-4 ending
-    				<a href="#" class="hot-work-btn">查看更多</a>
-    			</div>
-    			hot-work-body ending
-    			
-    			
-    			
-    			
-    			<div class="hot-work-body display">
-    				<div class="col-xs-4">
-    					<div class="hot-work-body-item">
-    						<p class="work-name float">高级java开发工程师</p>
-    						<p class="publish-time main-font grey2 float">[1天前发布]<i class="fa fa-commenting-o fa-lg main-color"></i></p>
-    						<p class="salary float-right">20k-30k</p>
-    						<p class="demand main-font grey2">有相关经验的学生  本科</p>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="condition">五险一金</span>
-    						<span class="hot-work-body-border"></span>
-                            <img class="company-logo float" src="./img/company-logo1.png" alt="">
-                            <p class="company-name"><a href="#">前实科技</a></p>
-                            <p class="company-intro grey2">移动互联网 成长型(A轮) 广州</p>
-    					</div>
-    				</div>
-    				col-xs-4 ending
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				
+    				<!-- col-xs-4 ending -->
     				<a href="#" class="hot-work-btn">查看更多</a>
     			</div>
     			
