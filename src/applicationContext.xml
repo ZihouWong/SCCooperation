@@ -94,7 +94,7 @@
     </bean>
     
     
-    <!-- 黄智豪 -->
+    <!-- 黄智豪 START-->
     	<!-- 工作显示类装配 -->
    	<bean id="postDaoImpl" class="org.sccooperation.daoimpl.PostDaoImpl">
    	<property name="sessionFactory" ref="sessionFactory"></property>
@@ -102,6 +102,14 @@
    	<bean id="postManageImpl" class="org.sccooperation.service.impl.PostManageImpl">
    	<property name="postDao" ref="postDaoImpl"></property>
    	</bean>
+   	
+   	<bean id="enterpriseDaoImpl" class="org.sccooperation.daoimpl.EnterpriseDaoImpl">
+   	<property name="sessionFactory" ref="sessionFactory"></property>
+   	</bean>
+    <bean id="enterpriseManageImpl" class="org.sccooperation.service.impl.EnterpriseManageImpl">
+    <property name="enterpriseDao" ref="enterpriseDaoImpl"></property>
+    </bean>
+    
     
     
     
@@ -139,12 +147,12 @@
     
     <bean id="ChuangxingguAction" class="org.sccooperation.chuangxinggu.action.ChuangxingguAction" scope="prototype">
     <property name="postManage" ref="postManageImpl"></property>
+    <property name="enterpriseManage" ref="enterpriseManageImpl"></property>
     </bean>
     
     <bean id="JobClassificationAction" class="org.sccooperation.chuangxinggu.action.JobClassificationAction" scope="prototype">
     <property name="postManage" ref="postManageImpl"></property>
     </bean>
-    
-    
+
 	
 	</beans>

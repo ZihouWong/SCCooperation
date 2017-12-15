@@ -70,7 +70,7 @@ public class People {
 /* �û���*/	
     private String username;
 /* ΢�ź� */    
-    private String wechar;
+    private String mail;
 /* qq�� */    
     private String qq;
     /*��������*/
@@ -187,12 +187,14 @@ public class People {
 		this.username = username;
 	}
 
-	public String getWechar() {
-		return wechar;
+
+
+	public String getMail() {
+		return mail;
 	}
 
-	public void setWechar(String wechar) {
-		this.wechar = wechar;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
 	public String getQq() {

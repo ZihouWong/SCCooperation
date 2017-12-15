@@ -4,76 +4,76 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Project:SCCooperation Comments:´ËÀàÊÇÌû×Ó²Ù×÷½Ó¿Ú
+ * Project:SCCooperation Comments:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½
  *  JDK version used:JDK1.8 
- *  Author£ºWLNSSS Create Date£º2017-9-27 Modified By£º <ÐÞ¸ÄÈËÖÐÎÄÃû»òÆ´ÒôËõÐ´>
- * Modified Date: <ÐÞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD> Why & What is modified <ÐÞ¸ÄÔ­ÒòÃèÊö>
+ *  Authorï¿½ï¿½WLNSSS Create Dateï¿½ï¿½2017-9-27 Modified Byï¿½ï¿½ <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½Ð´>
+ * Modified Date: <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Ê½:YYYY-MM-DD> Why & What is modified <ï¿½Þ¸ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>
  * Version:1.0
  */
 public interface INoteDao<T> {
 	/**
-	 * ±£´æµ½Êý¾Ý¿â
+	 * ï¿½ï¿½ï¿½æµ½ï¿½ï¿½ï¿½Ý¿ï¿½
 	 * 
-	 * @param entity ÒªÌí¼ÓµÄÌû×Ó
+	 * @param entity Òªï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return void
-	 * @exception ÔÝÊ±Ã»×ö
+	 * @exception ï¿½ï¿½Ê±Ã»ï¿½ï¿½
 	 */
 	public void addNote(T entity);
 	/**
-	 * ¸ù¾ÝÒ³Êý²éÕÒÊý¾Ý¿â£¬Ã¿´Î23Ìõ¼ÇÂ¼
+	 * ï¿½ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿â£¬Ã¿ï¿½ï¿½23ï¿½ï¿½ï¿½ï¿½Â¼
 	 * 
-	 * @param pageNo Ò³Êý
-	 * @return ·µ»Ø²éÑ¯µÄ½á¹û¼¯
-	 * @exception ÔÝÊ±Ã»×ö
+	 * @param pageNo Ò³ï¿½ï¿½
+	 * @return ï¿½ï¿½ï¿½Ø²ï¿½Ñ¯ï¿½Ä½ï¿½ï¿½ï¿½ï¿½
+	 * @exception ï¿½ï¿½Ê±Ã»ï¿½ï¿½
 	 */
 	public List<T> findAllNote(int pageNo);
 	/**
-	 * ²éÕÒÊý¾Ý¿âÌû×Ó×ÜÊý
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
-	 * @return ·µ»Ø¼ÇÂ¼Êý
-	 * @exception ÔÝÊ±Ã»×ö
+	 * @return ï¿½ï¿½ï¿½Ø¼ï¿½Â¼ï¿½ï¿½
+	 * @exception ï¿½ï¿½Ê±Ã»ï¿½ï¿½
 	 */
 	public long findNoteCount(Class<T> entityClazz);
 	/**
-	 * ¸ù¾Ýid²éÑ¯Êý¾Ý¿âÄ³¸ö×Ö¶Î
+	 * ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ý¿ï¿½Ä³ï¿½ï¿½ï¿½Ö¶ï¿½
 	 * 
-	 * @return ·µ»Ø¼ÇÂ¼Êý
-	 * @exception ÔÝÊ±Ã»×ö
+	 * @return ï¿½ï¿½ï¿½Ø¼ï¿½Â¼ï¿½ï¿½
+	 * @exception ï¿½ï¿½Ê±Ã»ï¿½ï¿½
 	 */
 	public T findById(Class<T> entityClazz, Serializable id);
 	/**
-	 * ±£´æ»Ø¸´µ½Êý¾Ý¿â
+	 * ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
 	 * 
-	 * @param entity ÒªÌí¼ÓµÄÌû×Ó
+	 * @param entity Òªï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return void
-	 * @exception ÔÝÊ±Ã»×ö
+	 * @exception ï¿½ï¿½Ê±Ã»ï¿½ï¿½
 	 */
 	public void addReplyNote(T entity);
 	/**
-	 * ¸ù¾Ýid²éÕÒÏà¹ØµÄÌû×Ó»Ø¸´
+	 * ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½Ó»Ø¸ï¿½
 	 * 
-	 * @param id Òª²éÕÒ»Ø¸´µÄÌû×Ó
+	 * @param id Òªï¿½ï¿½ï¿½Ò»Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return List
-	 * @exception ÔÝÊ±Ã»×ö
+	 * @exception ï¿½ï¿½Ê±Ã»ï¿½ï¿½
 	 */
 	public List findReplyNoteByPage(int pageNo,int id);
 	/**
-	 * ±£´æÐÞ¸ÄµÄÄÚÈÝ
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Äµï¿½ï¿½ï¿½ï¿½ï¿½
 	 * 
-	 * @param T Òª±£´æµÄÐÞ¸ÄÄÚÈÝ
+	 * @param T Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return void
-	 * @exception ÔÝÊ±Ã»×ö
+	 * @exception ï¿½ï¿½Ê±Ã»ï¿½ï¿½
 	 */
-     public void saveAlter(T entity);
-     /**
- 	 * ÕÒ³ö·¢Ìû×î¶àµÄ4¸öÈË
- 	 * 
- 	 * @param
- 	 * @return ·µ»Ø·¢Ìû×î¶àÈý¸öÈËµÄÐÅÏ¢
- 	 * @exception ÔÝÊ±Ã»×ö
- 	 */
-     public List seeManyNotePeople();
+	public void saveAlter(T entity);
+	/**
+	 * ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½
+	 * 
+	 * @param
+	 * @return ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ï¢
+	 * @exception ï¿½ï¿½Ê±Ã»ï¿½ï¿½
+	 */
+	public List seeManyNotePeople();
 
-	
+
 
 }

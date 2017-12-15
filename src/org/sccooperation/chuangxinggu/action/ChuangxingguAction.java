@@ -1,6 +1,8 @@
 package org.sccooperation.chuangxinggu.action;
 
 import java.util.Map;
+
+import org.sccooperation.service.EnterpriseManage;
 import org.sccooperation.service.PostManage;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -8,10 +10,19 @@ import com.opensymphony.xwork2.ActionContext;
 
 
 public class ChuangxingguAction {
-	
+
 	private PostManage postManage;
+	private EnterpriseManage enterpriseManage;
 	private String pageNo;
-	
+
+	public EnterpriseManage getEnterpriseManage() {
+		return enterpriseManage;
+	}
+
+	public void setEnterpriseManage(EnterpriseManage enterpriseManage) {
+		this.enterpriseManage = enterpriseManage;
+	}
+
 	public String getPageNo() {
 		return pageNo;
 	}
@@ -21,7 +32,7 @@ public class ChuangxingguAction {
 	}
 
 	private Map request;
-	
+
 
 	public Map getRequest() {
 		return request;
@@ -41,13 +52,16 @@ public class ChuangxingguAction {
 
 	public String execute() {
 		request = (Map)ActionContext.getContext().get("request");
-		 
-		System.out.println(postManage.findAllJob());
-		request.put("allJob", postManage.findAllJob());
 
+		System.out.println(postManage.findAllJob());
+		request.put("ChosenJob", postManage.findAllJob());
+		//暂时不用⬆;
 		System.out.println("hahahahahahahahah"+postManage.findJobByPageNo(Integer.parseInt(pageNo)));
-		request.put("list", postManage.findJobByPageNo(Integer.parseInt(pageNo)));
+		request.put("JobList", postManage.findJobByPageNo(Integer.parseInt(pageNo)));
 		
+		System.out.println("hahahahahahahahah"+ enterpriseManage.findEnterpriseByPageNo(Integer.parseInt(pageNo)));
+		request.put("EnterpriseList", enterpriseManage.findEnterpriseByPageNo(Integer.parseInt(pageNo)));
+
 		return "success";
 	}
 }
