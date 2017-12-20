@@ -103,12 +103,15 @@
    	<property name="postDao" ref="postDaoImpl"></property>
    	</bean>
    	
+   	
+   	
    	<bean id="enterpriseDaoImpl" class="org.sccooperation.daoimpl.EnterpriseDaoImpl">
    	<property name="sessionFactory" ref="sessionFactory"></property>
    	</bean>
     <bean id="enterpriseManageImpl" class="org.sccooperation.service.impl.EnterpriseManageImpl">
     <property name="enterpriseDao" ref="enterpriseDaoImpl"></property>
     </bean>
+    
     
     
     

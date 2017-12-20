@@ -16,15 +16,10 @@ public class PostManageImpl implements PostManage{
 		this.postDao = postDao;
 	}
 	
-	public List findJobByButtom(String buttom) {
+	/*黄智豪*/
+	public List findJobByButtom(int pageNo, String button) {
 		// TODO Auto-generated method stub
-		return postDao.findJobByButtom(buttom);
-	}
-
-	@Override
-	public List findAllJob() {
-		// TODO Auto-generated method stub
-		return postDao.findAllJob();
+		return postDao.findJobByButtom(pageNo, button);
 	}
 
 	@Override
@@ -32,6 +27,5 @@ public class PostManageImpl implements PostManage{
 		// TODO Auto-generated method stub
 		return postDao.findJobByPageNo(pageNo);
 	}
-
 	
 }

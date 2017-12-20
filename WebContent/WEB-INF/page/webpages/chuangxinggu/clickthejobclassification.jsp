@@ -448,13 +448,15 @@ ul {
 					if (request.getSession().getAttribute("user") == null) {
 				%>
 				<div class="login-in">
-					<form id="login-form" action="login.action?pageNo=1" method="post">
-						<p class="main-font">学生代码:</p><input type="text" name="account">
-						<p class="main-font">密码:</p><input type="password" name="password">
-						<p class="main-font">验证码:</p><input id="input-code" type="text" name="code">
-						<img src="" alt="" class="code-img"> 
-						<input id="login-btn" type="submit" value="登陆">
-						<a href="register-goto.html" id="login-btn-a" class="float">注册</a>
+					<form id="login-form" action="" method="post">
+					<p class="main-font">学生代码:</p>
+						<input type="text" name="id">
+					<p class="main-font">密码:</p>
+						<input type="password" name="password">
+					<p class="main-font">验证码:</p>
+						<input id="input-code" type="text" name="code"> <img
+							src="" alt="" class="code-img"> <input id="login-btn"
+							type="submit" value="登陆">
 					</form>
 				</div>
 
@@ -512,72 +514,61 @@ ul {
 					<div class="menu">
 						<ul class="menu-list">
 
-							<li class="menu-title"><a
-								href="JobClassification.action?button=1&pageNo=1"><span>
-										编程 </span></a> <a href="JobClassification.action?button=2&pageNo=1"><span>
-										设计 </span></a> <a href="JobClassification.action?button=3&pageNo=1"><span>
-										IT软件 </span> </a></li>
+							<li class="menu-title">
+							<a href="JobClassification.action?button=1&pageNo=1"><span> 编程 </span></a>
+							<a href="JobClassification.action?button=2&pageNo=1"><span> 设计 </span></a> 
+							<a href="JobClassification.action?button=3&pageNo=1"><span> IT软件 </span> </a></li>
+										
+							<li class="menu-title">
+							<a href="JobClassification.action?button=3&pageNo=1"><span> 求职 </span></a> 
+							<a href="JobClassification.action?button=4&pageNo=1"><span> 职场 </span></a>
+							<a href="JobClassification.action?button=5&pageNo=1"><span> 办公软件 </span></a></li>
 
-							<li class="menu-title"><a
-								href="JobClassification.action?button=3&pageNo=1"><span>
-										求职 </span></a> <a href="JobClassification.action?button=4&pageNo=1"><span>
-										职场 </span></a> <a href="JobClassification.action?button=5&pageNo=1"><span>
-										办公软件 </span></a></li>
+							<li class="menu-title">
+							<a href="JobClassification.action?button=6&pageNo=1"><span> 英语 </span></a>
+							<a href="JobClassification.action?button=7&pageNo=1"><span> 日语 </span></a> 
+							<a href="JobClassification.action?button=8&pageNo=1"><span> 法语 </span></a> 
+							<a href="JobClassification.action?button=9&pageNo=1"><span> 韩语 </span></a></li>
 
-							<li class="menu-title"><a
-								href="JobClassification.action?button=6&pageNo=1"><span>
-										英语 </span></a> <a href="JobClassification.action?button=7&pageNo=1"><span>
-										日语 </span></a> <a href="JobClassification.action?button=8&pageNo=1"><span>
-										法语 </span></a> <a href="JobClassification.action?button=9&pageNo=1"><span>
-										韩语 </span></a></li>
+							<li class="menu-title">
+							<a href="JobClassification.action?button=10&pageNo=1"><span> 营销 </span></a> 
+							<a href="JobClassification.action?button=11&pageNo=1"><span> 理财 </span></a> 
+							<a href="JobClassification.action?button=12&pageNo=1"><span>专业技能 </span></a></li>
 
-							<li class="menu-title"><a
-								href="JobClassification.action?button=10&pageNo=1"><span>
-										营销 </span></a> <a href="JobClassification.action?button=11&pageNo=1"><span>
-										理财 </span></a> <a href="JobClassification.action?button=12&pageNo=1"><span>专业技能
-								</span></a></li>
+							<li class="menu-title">
+							<a href="JobClassification.action?button=13&pageNo=1"><span> 会计证 </span></a> 
+							<a href="JobClassification.action?button=14&pageNo=1"><span> 钢琴 </span></a> 
+							<a href="JobClassification.action?button=15&pageNo=1"><span> 建造师 </span></a></li>
 
-							<li class="menu-title"><a
-								href="JobClassification.action?button=13&pageNo=1"><span>
-										会计证 </span></a> <a href="JobClassification.action?button=14&pageNo=1"><span>
-										钢琴 </span></a> <a href="JobClassification.action?button=15&pageNo=1"><span>
-										建造师 </span></a></li>
+							<li class="menu-title">
+							<a href="JobClassification.action?button=16&pageNo=1"><span> 国学 </span></a> 
+							<a href="JobClassification.action?button=17&pageNo=1"><span> 省学 </span></a> 
+							<a href="JobClassification.action?button=18&pageNo=1"><span> 学历教育 </span></a></li>
 
-							<li class="menu-title"><a
-								href="JobClassification.action?button=16&pageNo=1"><span>
-										国学 </span></a> <a href="JobClassification.action?button=17&pageNo=1"><span>
-										省学 </span></a> <a href="JobClassification.action?button=18&pageNo=1"><span>
-										学历教育 </span></a></li>
+							<li class="menu-title">
+							<a href="JobClassification.action?button=19&pageNo=1"><span> 高考 </span></a> 
+							<a href="JobClassification.action?button=20&pageNo=1"><span> 中考 </span></a> 
+							<a href="JobClassification.action?button=21&pageNo=1"><span>小升初 </span></a></li>
 
-							<li class="menu-title"><a
-								href="JobClassification.action?button=19&pageNo=1"><span>
-										高考 </span></a> <a href="JobClassification.action?button=20&pageNo=1"><span>
-										中考 </span></a> <a href="JobClassification.action?button=21&pageNo=1"><span>小升初
-								</span></a></li>
+							<li class="menu-title">
+							<a href="JobClassification.action?button=22&pageNo=1"><span> 考研 </span></a> 
+							<a href="JobClassification.action?button=23&pageNo=1"><span> 四六级 </span></a> 
+							<a href="JobClassification.action?button=24&pageNo=1"><span> 计算机考试 </span></a></li>
 
-							<li class="menu-title"><a
-								href="JobClassification.action?button=22&pageNo=1"><span>
-										考研 </span></a> <a href="JobClassification.action?button=23&pageNo=1"><span>
-										四六级 </span></a> <a href="JobClassification.action?button=24&pageNo=1"><span>
-										计算机考试 </span></a></li>
+							<li class="menu-title">
+							<a href="JobClassification.action?button=25&pageNo=1"><span> 雅思 </span></a> 
+							<a href="JobClassification.action?button=26&pageNo=1"><span> 托福 </span></a> 
+							<a href="JobClassification.action?button=27&pageNo=1"><span> 留学指导 </span></a></li>
 
-							<li class="menu-title"><a
-								href="JobClassification.action?button=25&pageNo=1"><span>
-										雅思 </span></a> <a href="JobClassification.action?button=26&pageNo=1"><span>
-										托福 </span></a> <a href="JobClassification.action?button=27&pageNo=1"><span>
-										留学指导 </span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=28&pageNo=1"><span>生活
-								</span></a> <a href="JobClassification.action?button=29&pageNo=1"><span>文化
-								</span></a> <a href="JobClassification.action?button=30&pageNo=1"><span>兴趣
-								</span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=31&pageNo=1"><span>
-										学术</span></a> <a href="JobClassification.action?button=32&pageNo=1"><span>TED
-								</span></a> <a href="JobClassification.action?button=33&pageNo=1"><span>名校公开课
-								</span></a></li>
+							<li class="menu-title">
+							<a href="JobClassification.action?button=28&pageNo=1"><span>生活 </span></a> 
+							<a href="JobClassification.action?button=29&pageNo=1"><span>文化 </span></a> 
+							<a href="JobClassification.action?button=30&pageNo=1"><span>兴趣 </span></a></li>
+							
+							<li class="menu-title">
+							<a href="JobClassification.action?button=31&pageNo=1"><span> 学术</span></a> 
+							<a href="JobClassification.action?button=32&pageNo=1"><span>TED </span></a> 
+							<a href="JobClassification.action?button=33&pageNo=1"><span>名校公开课 </span></a></li>
 						</ul>
 
 					</div>
@@ -589,11 +580,11 @@ ul {
 				<div class="col-xs-9">
 					<div class="carousel">
 						<div id="owl-demo" class="owl-carousel">
-							<a class="item"><img src="	" alt=""></a> <a class="item"><img
-								src="./img/owl-img2.png" alt=""></a> <a class="item"><img
-								src="./img/owl-img3.png" alt=""></a> <a class="item"><img
-								src="./img/owl-img4.png" alt=""></a> <a class="item"><img
-								src="./img/owl-img5.png" alt=""></a>
+							<a class="item"><img src="./img/owl-img1.png" alt=""></a> 
+							<a class="item"><img src="./img/owl-img2.png" alt=""></a> 
+							<a class="item"><img src="./img/owl-img3.png" alt=""></a> 
+							<a class="item"><img src="./img/owl-img4.png" alt=""></a> 
+							<a class="item"><img src="./img/owl-img5.png" alt=""></a>
 						</div>
 					</div>
 				</div>
@@ -607,8 +598,8 @@ ul {
 			<div class="container">
 				<div class="col-xs-12">
 					<div class="hot-work-head">
-						<a href="#" class="hot-work-head-item selected">热门职位</a> <a
-							href="#" class="hot-work-head-item hot-work-head-item2">最新职位</a>
+						<a href="#" class="hot-work-head-item selected">热门职位</a> 
+						<a href="#" class="hot-work-head-item hot-work-head-item2">最新职位</a>
 					</div>
 				</div>
 				<span class="hot-work-hr"></span>
@@ -618,13 +609,13 @@ ul {
 
 					<!-- 正确显示 -->
 					<%
-						List Job = (List) request.getAttribute("JobList");
-						if (request.getSession().getAttribute("JobList") == null) {
-							int JlistSize = Job.size();
+						List buttonJob = (List) request.getAttribute("ButtonJob");
+						if (request.getSession().getAttribute("ButtonJob") == null) {
+							int BlistSize = buttonJob.size();
 
 							for (int i = 0; i < 9; i++) {
-								if (JlistSize > i) {
-									Post post = (Post) Job.get(i);
+								if (BlistSize > i) {
+									Post post = (Post) buttonJob.get(i);
 					%>
 					<div class="col-xs-4">
 						<div class="hot-work-body-item">
@@ -682,7 +673,7 @@ ul {
 						}
 							}
 						}
-					%>
+					%> 
 
 					<!-- col-xs-4 ending -->
 					<a href="#" class="hot-work-btn">查看更多</a>
@@ -693,98 +684,7 @@ ul {
 		</div>
 
 		<!-- 热门职位 结束 -->
-		<div class="hot-company">
-			<div class="container">
-				<div class="col-xs-12">
-					<div class="hot-work-head">
-						<a href="#" class="hot-work-head-item selected">热门公司</a>
-					</div>
-				</div>
-				<div>
-					<span class="hot-work-hr"></span>
-					<div class="hot-company-body">
 
-						<!-- 正确显示 -->
-						<%
-							List EnterpriseList = (List) request.getAttribute("EnterpriseList");
-							if (request.getSession().getAttribute("user") == null) {
-								int ElistSize = EnterpriseList.size();
-
-								for (int a = 0; a < 8; a++) {
-									if (ElistSize > a) {
-										Enterprise enterprise = (Enterprise) EnterpriseList.get(a);
-						%>
-
-						<div class="col-xs-3">
-							<div class="hot-company-body-item">
-								<img class="company-logo" src="<%=enterprise.getPictureurl()%>"
-									alt="">
-								<p class="hot-company-name">
-									<a href="#"><%=enterprise.getEname()%></a>
-								</p>
-								<p class="company-intro grey2"><%=enterprise.getProperty()%></p>
-								<p class="company-intro"><%=enterprise.getSummary()%></p>
-								<span class="hot-work-body-border"></span>
-								<!--  <ul class="hot-company-list"> -->
-								<a href="#" class="hot-company-list-item float"> <span
-									class="main-color">122</span>
-									<p class="main-font float  hot-company-list-intro">面试评价</p> <span
-									class="hot-company-list-border"></span>
-								</a> <a href="#" class="hot-company-list-item float"> <span
-									class="main-color">38</span>
-									<p class="main-font float  hot-company-list-intro">在找职位</p> <span
-									class="hot-company-list-border"></span>
-								</a> <a href="#" class="hot-company-list-item float"> <span
-									class="main-color">100%</span>
-									<p class="main-font float hot-company-list-intro">简历处理率</p>
-								</a>
-							</div>
-							<!-- hot-company-body-item ending -->
-						</div>
-						<%
-							} else {
-						%>
-						<!-- 错误反馈 -->
-						<div class="col-xs-3">
-							<div class="hot-company-body-item">
-								<img class="company-logo" alt="">
-								<p class="hot-company-name">
-									<a href="#">error</a>
-								</p>
-								<p class="company-intro grey2">error</p>
-								<p class="company-intro">error</p>
-								<span class="hot-work-body-border"></span>
-								<!--  <ul class="hot-company-list"> -->
-								<a href="#" class="hot-company-list-item float"> <span
-									class="main-color">error</span>
-									<p class="main-font float  hot-company-list-intro">面试评价</p> <span
-									class="hot-company-list-border"></span>
-								</a> <a href="#" class="hot-company-list-item float"> <span
-									class="main-color">error</span>
-									<p class="main-font float  hot-company-list-intro">在找职位</p> <span
-									class="hot-company-list-border"></span>
-								</a> <a href="#" class="hot-company-list-item float"> <span
-									class="main-color">error</span>
-									<p class="main-font float hot-company-list-intro">简历处理率</p>
-								</a>
-							</div>
-							<!-- hot-company-body-item ending -->
-						</div>
-
-						<%
-							}
-								}
-							}
-						%>
-
-
-						<a href="#" class="hot-work-btn">查看更多</a>
-					</div>
-					<!-- hot-company-body ending -->
-				</div>
-				<!-- col-xs-12 ending -->
-			</div>
-		</div>
 
 		<div class="footer margin">
 			<div class="container">

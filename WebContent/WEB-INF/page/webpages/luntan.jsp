@@ -233,7 +233,6 @@ background: url("./img/hot-class4.jpg");
 						<img src="" alt="" class="code-img">
 						<input id="login-btn" type="submit" value="登陆">
 						<a href="register-goto.html" id="login-btn-a" class="float">注册</a>
-
 					</form>
 				</div>
 				<%}else{ 
@@ -241,7 +240,7 @@ background: url("./img/hot-class4.jpg");
 					People people =(People) listU.get(0);
 				%>
 				<div class="login-in">
-				欢迎<%=people.getPnumber() %>
+					欢迎<%=people.getPnumber() %>
 				</div>
 				<%} %>
 			    <div class="login-tel">

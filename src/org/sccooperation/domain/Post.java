@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name="post")
 /** 
-*hiberateÓ³ÉäÊı¾İ¿âpostµÄÓ³ÉäÀà
+*hiberateÓ³ï¿½ï¿½ï¿½ï¿½ï¿½İ¿ï¿½postï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½
 * @author WLNSSS 
 * @Time 2017-9-27 
 */  
@@ -161,19 +161,23 @@ public class Post {
 		this.contact = contact;
 	}
 
-	public String getTagno() {
+	
+
+	public Integer getTagno() {
 		return tagno;
 	}
 
-	public void setTagno(String tagno) {
+	public void setTagno(Integer tagno) {
 		this.tagno = tagno;
 	}
+
+
 
 	private String state;
 	
 	private String contact;
 	
-	private String tagno;
+	private Integer tagno;
 	
 	
 

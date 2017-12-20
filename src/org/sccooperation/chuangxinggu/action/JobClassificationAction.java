@@ -11,10 +11,19 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class JobClassificationAction {
 	
-	private String buttom;
+	private String button;
 	private Map request;
 	private PostManage postManage;
+	private int pageNo;
 
+
+	public int getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
 
 	public Map getRequest() {
 		return request;
@@ -32,22 +41,26 @@ public class JobClassificationAction {
 		this.postManage = postManage;
 	}
 
-	public String getButtom() {
-		return buttom;
-	}
 	
-	public void setButtom(String buttom) {
-		this.buttom = buttom;
+	public String getButton() {
+		return button;
 	}
-	
+
+	public void setButton(String button) {
+		this.button = button;
+	}
+
 	public String execute() {
 		
 		request = (Map)ActionContext.getContext().get("request");
 		
-		request.put("list",	postManage.findJobByButtom(buttom));
+		
+		System.out.println(button);
+		System.out.println(pageNo);
+		//显示所选的标签对应的工作
+		request.put("ButtonJob",	 postManage.findJobByButtom(pageNo, button));
 		
 		return "success";
 	}
-	
 
 }

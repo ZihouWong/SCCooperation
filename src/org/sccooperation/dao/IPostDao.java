@@ -3,13 +3,9 @@ package org.sccooperation.dao;
 import java.util.List;
 
 public interface IPostDao {
-	
-	public List findJobByButtom(String buttom);
-
-	public List findAllJob();
+/********************************* 黄智豪 ******************************/
+	public List findJobByButtom(int pageNo, String buttom);
 
 	public List findJobByPageNo(int pageNo);
-
-	
 	
 }

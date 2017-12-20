@@ -37,6 +37,11 @@
 <result name="success">/WEB-INF/page/webpages/luntan-info.html</result>
 </action>
 
+<!-- 黄智豪 -->
+<action name="chuangxinggutest" class ="ChuangxingguAction">
+<result name="success">/WEB-INF/page/webpages/chuangxinggu/chuangxinggu.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
 
 <!-- test   ....................................................................... -->
 <action name="chuangxinggu">
@@ -48,11 +53,9 @@
 <action name="geren">
 <result name="success" >/WEB-INF/page/webpages/people.html</result>
 </action>
-<action name="chuangxinggutest" class ="ChuangxingguAction">
-<result name="success">/WEB-INF/page/webpages/chuangxinggu/chuangxinggu.jsp</result>
-</action>
+
 <action name="JobClassification" class="JobClassificationAction">
-<result name="success">/WEB-INF/page/webpages/chuangxinggu/chuangxinggu.jsp</result>
+<result name="success">/WEB-INF/page/webpages/chuangxinggu/clickthejobclassification.jsp</result>
 </action>
 
 

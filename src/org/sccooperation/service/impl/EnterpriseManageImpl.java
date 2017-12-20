@@ -8,7 +8,7 @@ import org.sccooperation.service.EnterpriseManage;
 public class EnterpriseManageImpl implements EnterpriseManage{
 	private IEnterpriseDao enterpriseDao;
 
-
+ /*黄智豪*/
 	@Override
 	public List findEnterpriseByPageNo(int pageNo) {
 		// TODO Auto-generated method stub

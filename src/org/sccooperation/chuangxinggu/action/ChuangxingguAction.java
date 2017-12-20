@@ -53,12 +53,10 @@ public class ChuangxingguAction {
 	public String execute() {
 		request = (Map)ActionContext.getContext().get("request");
 
-		System.out.println(postManage.findAllJob());
-		request.put("ChosenJob", postManage.findAllJob());
-		//暂时不用⬆;
+		//显示主页显示所有工作
 		System.out.println("hahahahahahahahah"+postManage.findJobByPageNo(Integer.parseInt(pageNo)));
 		request.put("JobList", postManage.findJobByPageNo(Integer.parseInt(pageNo)));
-		
+		//显示主页显示所有公司
 		System.out.println("hahahahahahahahah"+ enterpriseManage.findEnterpriseByPageNo(Integer.parseInt(pageNo)));
 		request.put("EnterpriseList", enterpriseManage.findEnterpriseByPageNo(Integer.parseInt(pageNo)));
 
