@@ -1,4 +1,4 @@
-package org.sccooperation.service.impl;
+ package org.sccooperation.service.impl;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,6 +8,7 @@ import org.sccooperation.service.NoteManage;
 
 public class NoteManageImpl<T> implements NoteManage<T> {
 	private INoteDao noteDao;
+	
 	public INoteDao getNoteDao() {
 		return noteDao;
 	}

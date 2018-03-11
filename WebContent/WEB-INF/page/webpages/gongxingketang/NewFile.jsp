@@ -1,25 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="org.sccooperation.domain.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
 <head>
 <meta charset="UTF-8">
+<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+<!-- 以上代码IE=edge告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome Frame. -->
+<title>躬行课堂-详情页</title>
+
+<link rel="stylesheet" type="text/css"
+	href="css/gongxingclass_detailpage1.css" />
+<!-- <script type="text/javascript" src="jq/jquery-3.2.1.min.js"></script> -->
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
+	// 导航
+	$(document)
+			.ready(
+					function() {
+
+						var lis = document.getElementsByName("list");
+						// 播放列表的长度
+						//document.getElementById("content").style.height = "lis.length"//;
+
+						var navstr = '';
+						for (c in vars = '0'.split(',')) {
+							$('#menu_' + vars[c]).addClass('selected');
+						}
+						$('#wrap-nav ul.menu > li').hover(function() {
+							$(this).find('.children').show();
+							if ($(this).find('.children').length)
+								$(this).addClass('hover');
+						}, function() {
+							$('.children').hide();
+							$(this).removeClass('hover');
+						});
+						$(
+								'#wrap-nav ul.menu h3, #wrap-nav ul.menu ul.children > li, #wrap-cats h3')
+								.hover(function() {
+									$(this).addClass('hover');
+								}, function() {
+									$(this).removeClass('hover');
+								});
+					});
+
+	function showitem1(obj, itemdl, setvalid) {
+		var fodinfo = document.getElementById(itemdl)
+				.getElementsByTagName("li");
+		var ii = 0;
+		for (var i = 0; i < fodinfo.length; i++) {
+			if (obj == fodinfo[i]) {
+				//fodinfo[i].className=objcss+(i+1)+'2';
+				ii = i + 1;
+				document.getElementById(setvalid + ii).style.display = "";
+				fodinfo[i].style.borderBottom = " 2px solid #3AAEA9";
+			} else {
+				//fodinfo[i].className=objcss+(i+1)+'1';
+				ii = i + 1;
+				document.getElementById(setvalid + ii).style.display = "none";
+				fodinfo[i].style.borderBottom = " 0";
+			}
+		}
+	}
+	
+</script>
+<meta charset="UTF-8">
 <title>工作详情</title>
-<link rel="stylesheet" href="../plugin/css/easy-responsive-tabs.css">
+<link rel="stylesheet" href="./plugin/css/easy-responsive-tabs.css">
 <!-- Bootstrap -->
-<link rel="stylesheet" href="../plugin/css/bootstrap.min.css">
+<link rel="stylesheet" href="./plugin/css/bootstrap.min.css">
 <!-- Animate -->
-<link rel="stylesheet" href="../plugin/css/animate.css">
-<link rel="stylesheet" href="../plugin/css/animate-control.css">
+<link rel="stylesheet" href="./plugin/css/animate.css">
+<link rel="stylesheet" href="./plugin/css/animate-control.css">
 
 <!-- Owl Carousel -->
-<link rel="stylesheet" href="../plugin/css/owl.carousel.min.css">
-<link rel="stylesheet" href="../plugin/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./plugin/css/owl.carousel.min.css">
+<link rel="stylesheet" href="./plugin/css/owl.theme.default.min.css">
 <!-- Font Awesome -->
 <link rel="stylesheet"
-	href="../plugin/font-awesome-4.7.0/css/font-awesome.min.css">
+	href="./plugin/font-awesome-4.7.0/css/font-awesome.min.css">
 <!-- easyTab css -->
 
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/class.css">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/class.css">
 <style>
 /*!课程分类
 -------------------------------------------------------------------------------!*/
@@ -346,7 +412,23 @@ ul {
 </style>
 </head>
 <body>
+
+	<style>
+.modal {
+	/*position: relative;*/
+	top: 50%;
+	margin-top: -85px;
+}
+
+.modal-dialog {
+	background: rgba(0, 0, 0, 0.1);
+}
+</style>
+
+
+
 	<!-- 登陆框、联系方式 -->
+
 	<div id="head-link" class="login">
 		<div class="container">
 			<div class="col-xs-12">
@@ -374,7 +456,7 @@ ul {
 		<div class="container">
 			<div class="col-xs-12">
 				<div class="navbar-left">
-					<img src="../img/logo.png" alt="" class="navbar-logo"> <span
+					<img src="./img/logo.png" alt="" class="navbar-logo"> <span
 						class="navbar-border"></span> <a href="#" class="navbar-title">大创项目</a>
 				</div>
 				<div class="navbar-right">
@@ -392,124 +474,111 @@ ul {
 	</div>
 	<!-- 导航条 结束-->
 	<div class="body">
-		<div class="work-header">
-			<div class="container">
-				<div class="col-xs-12">
-					<div class="work-head-left">
-						<p class="font-intro grey2">红网技术中心招聘</p>
-						<p class="font-title">前端工程师</p>
-						<p class="font-title2">
-							<span class="red">6k-12k</span> /长沙 / 经验3-5年 / 本科及以上 / 全职
-						</p>
-						<span class="label"><p class="font-intro">移动互联网</p></span> <span
-							class="label"><p class="font-intro">移动互联网</p></span> <span
-							class="label"><p class="font-intro">移动互联网</p></span> <span
-							class="label"><p class="font-intro">移动互联网</p></span> <span
-							class="label"><p class="font-intro">移动互联网</p></span>
-						<p class="main-font grey2 publish-time">2017-07-06 发布于拉勾网</p>
-					</div>
-					<div class="work-head-right">
-						<div class="work-head-btn-group">
-							<a href="#" class="work-head-btn work-head-btn-left"><i
-								class="fa fa-star fa-lg main-color"></i>收藏</a>
-							<!-- <a href="#" class="work-head-btn work-head-btn-right">已下线</a> -->
-							<a href="#" class="work-head-btn work-head-btn-right"
-								data-toggle="modal" data-target="#myModal">投递简历</a>
-							<!-- 弹窗 -->
-							<style>
-.modal {
-	/*position: relative;*/
-	top: 50%;
-	margin-top: -85px;
-}
 
-.modal-dialog {
-	background: rgba(0, 0, 0, 0.1);
-}
-</style>
-							<div class="modal fade" id="myModal" role="dialog"
-								aria-labelledby="myModalLabel">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content">
-
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal"
-												aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-											<h4 class="modal-title" id="myModalLabel">投递简历确认</h4>
-										</div>
-										<div class="modal-body">确认要投递简历吗？</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default"
-												data-dismiss="modal">确认投递</button>
-											<button type="button" class="btn btn-primary">放弃投递</button>
-										</div>
-
-									</div>
-								</div>
-							</div>
-							<!-- 弹窗 ending-->
-						</div>
-						<div class="work-head-resume">
-							<span class=""><i
-								class="fa fa-lg fa-pencil-square-o grey2 float"></i><a href="#"><p
-										class="title-intro grey2">完善在线简历</p></a></span> <span class=""><i
-								class="fa fa-lg fa-calendar-minus-o grey2 float"></i><a href="#"><p
-										class="title-intro grey2">上传附件简历</p></a></span>
-						</div>
-					</div>
-					<!-- work-head-right ending -->
-				</div>
-			</div>
-		</div>
 
 		<!-- work-head ending -->
 		<div class="work-body">
 			<div class="container">
 				<div class="col-xs-12">
+					<div class="videoli">
+						<div id="cans">
+							<video controls="controls" id="video" 　src="" poster=""
+								height="500px" width="760px"> </video>
+							<aside id="playList"> <header>
+							<h2>&nbsp;播放列表</h2>
+							</header>
 
-
+							<div id="mainBox">
+								<ul id="content">
+									<li name="list" value="video/VID_20170323_193609.mp4"
+										title="进球瞬间">进球瞬间</li>
+									<li name="list" value="video/VID_20170323_215451.mp4"
+										title="胜利庆祝">胜利庆祝</li>
+									<li name="list" value="video/VID_20170323_193609.mp4"
+										title="进球瞬间">进球瞬间</li>
+									<li name="list" value="video/VID_20170323_215451.mp4"
+										title="胜利庆祝">胜利庆祝</li>
+									<li name="list" value="video/VID_20170323_193609.mp4"
+										title="进球瞬间">进球瞬
+									<li>
+									<li name="list" value="video/VID_20170323_215451.mp4"
+										title="胜利庆祝">胜利庆祝</li>
+									<li name="list" value="video/VID_20170323_193609.mp4"
+										title="进球瞬间">进球瞬间</li>
+									<li name="list" value="video/VID_20170323_215451.mp4"
+										title="胜利庆祝">胜利庆祝</li>
+									<li name="list" value="video/VID_20170323_193609.mp4"
+										title="进球瞬间">进球瞬间</li>
+									<li name="list" value="video/VID_20170323_215451.mp4"
+										title="胜利庆祝">胜利庆祝</li>
+									<li name="list" value="video/VID_20170323_193609.mp4"
+										title="进球瞬间">进球瞬
+									<li>
+									<li name="list" value="video/VID_20170323_215451.mp4"
+										title="胜利庆祝">胜利庆祝</li>
+									<li name="list" value="video/VID_20170323_193609.mp4"
+										title="进球瞬间">进球瞬间</li>
+									<li name="list" value="video/VID_20170323_215451.mp4"
+										title="胜利庆祝">胜利庆祝</li>
+									<li name="list" value="video/VID_20170323_193609.mp4"
+										title="进球瞬间">进球瞬间</li>
+									<li name="list" value="video/VID_20170323_215451.mp4"
+										title="胜利庆祝">胜利庆祝</li>
+									<li name="list" value="video/VID_20170323_193609.mp4"
+										title="进球瞬间">进球瞬
+									<li>
+									<li name="list" value="video/VID_20170323_215451.mp4"
+										title="胜利庆祝">胜利庆祝</li>
+								</ul>
+							</div>
+							<button title="收起播放列表" id="playList-hidden">></button>
+							</aside>
+							<button title="展开播放列表" id="playList-show1"><</button>
+						</div>
+					</div>
+					
+				</div>
+				<!-- markcopy -->
 					<div class="work-body-left">
+
+						<!-- 成功显示 -->
+						<%
+							if (request.getAttribute("JobInfo") != null) {
+								List JobInfo = (List) request.getAttribute("JobInfo");
+								Post post = (Post) JobInfo.get(0);
+						%>
+
 						<div class="work-body-condition">
 							<h5 class="condition-title">职位诱惑:</h5>
-							<p class="main-font">五险一金,节假福利,带薪年假,交通补贴</p>
+							<p class="main-font"><%=post.getAllure()%></p>
 						</div>
 						<div class="work-body-condition">
 							<h5 class="condition-title">职位描述:</h5>
 							<h5 class="main-font">基本要求：</h5>
 							<p class="main-font">
-								1、精通HTML5、CSS3、
-								JavaScript等Web前端开发技术，对html5页面适配充分了解，熟悉不同浏览器间的差异，熟练写出兼容各种浏览器的代码；<br>
+								<%
+									String br = post.getDemand();
+										String[] brs = br.split("[|]");
+										int brslength = brs.length;
+										System.out.println("successfully" + brslength);
+										for (int i = 0; i < brslength; i++) {
+								%>
+								<%=i + 1%>、<%=brs[i]%>
+								<%
+									if (i < brslength) {
+								%>
+								<br>
+								<%
+									}
+										}
+								%>
 
-								2、熟悉运用常见JS开发框架，如JQuery、vue、angular，能快速高效实现各种交互效果；<br>
-
-								3、熟悉编写能够自动适应HTML5界面，能让网页格式自动适应各款各大小的手机；<br>
-
-								4、利用HTML5相关技术开发移动平台、PC终端的前端页面，实现HTML5模板化<br>
-
-								5、熟悉手机端和PC端web实现的差异，有移动平台web前端开发经验，了解移动互联网产品和行业，有在Android,iOS等平台下HTML5+CSS+JavaScript（或移动JS框架）开发经验者优先考虑；<br>
-								6、良好的沟通能力和团队协作精神，对移动互联网行业有浓厚兴趣，有较强的研究能力和学习能力；<br>
-
-								7、能够承担公司前端培训工作，对公司各业务线的前端（HTML5\CSS3）工作进行支撑和指导。
-							</p>
-							<h5 class="main-font">岗位职责：</h5>
-							<p class="main-font">
-								1、利用html5及相关技术开发移动平台、微信、APP等前端页面，各类交互的实现；<br>
-
-								2、持续的优化前端体验和页面响应速度，并保证兼容性和执行效率；<br>
-
-								3、根据产品需求，分析并给出最优的页面前端结构解决方案；<br> 4、协助后台及客户端开发人员完成功能开发和调试；<br>
-
-								5、移动端主流浏览器的适配、移动端界面自适应研发。
 							</p>
 						</div>
 						<div class="work-body-condition">
 							<h5 class="condition-title">工作地址:</h5>
 							<p class="main-font float">
-								<span class="main-color inline-block">长沙</span> - <span
-									class="main-color inline-block">天心区</span> -<span
-									class="main-color inline-block">韶山南路</span> - 韶山南路258号红网大楼
+								<span class="main-color inline-block"><%=post.getPlace()%></span>
 							</p>
 							<p class="main-font float-right">
 								<a id="underline" class="underline" href="#"><span
@@ -522,10 +591,11 @@ ul {
 						<div class="work-body-condition work-body-hr">
 							<h5 class="condition-title">职位发布者:</h5>
 							<div class="condition-left">
-								<img src="../img/class-teach.jpg" alt=""
+								<img src="<%=post.getPictureurl()%>" alt=""
 									class="condition-left-img img-circle float">
 								<p class="main-font">
-									moment<i class="fa fa-lg fa-commenting-o main-color"></i>
+									<%=post.getManager_id().getNickname()%><i
+										class="fa fa-lg fa-commenting-o main-color"></i>
 								</p>
 								<p class="main-font grey2">职位发布者</p>
 							</div>
@@ -547,133 +617,199 @@ ul {
 							<!-- condition-right ending -->
 						</div>
 						<!-- work-body-condition ending -->
-					</div>
-					<!-- col-xs-8 ending -->
 
+
+						<%
+							} else {
+						%>
+						<!-- 错误显示 -->
+						<div class="work-body-left">
+							<div class="work-body-condition">
+								<h5 class="condition-title">error职位诱惑:</h5>
+								<p class="main-font">error五险一金,节假福利,带薪年假,交通补贴</p>
+							</div>
+							<div class="work-body-condition">
+								<h5 class="condition-title">职位描述:</h5>
+								<h5 class="main-font">基本要求：</h5>
+								<p class="main-font">
+									1、ERROR<br> 2、ERROR<br> 3、ERROR<br> 4、ERROR<br>
+
+									5、ERROR<br> 6、ERROR<br> 7、ERROR
+								</p>
+								<h5 class="main-font">岗位职责：</h5>
+								<p class="main-font">
+									1、ERROR<br> 2、ERROR<br> 3、ERROR<br> 4、ERROR
+								</p>
+							</div>
+							<div class="work-body-condition">
+								<h5 class="condition-title">工作地址:</h5>
+								<p class="main-font float">error</p>
+								<p class="main-font float-right">
+									<a id="underline" class="underline" href="#"> <span
+										class="main-color inline-block">查看地图</span></a>
+								</p>
+							</div>
+
+							<br>
+							<!-- work-body-condition ending -->
+							<div class="work-body-condition work-body-hr">
+								<h5 class="condition-title">职位发布者:</h5>
+								<div class="condition-left">
+									<img src="./img/class-teach.jpg" alt=""
+										class="condition-left-img img-circle float">
+									<p class="main-font">
+										errorname<i class="fa fa-lg fa-commenting-o main-color"></i>
+									</p>
+									<p class="main-font grey2">职位发布者</p>
+								</div>
+								<!-- condition-left ending -->
+								<div class="condition-right">
+									<a href="#" class="hot-company-list-item float"> <span
+										class="main-color">errornum</span>
+										<h4 class="main-font float  hot-company-list-intro">面试评价</h4>
+										<span class="hot-company-list-border"></span>
+									</a> <a href="#" class="hot-company-list-item float"> <span
+										class="main-color">errornum</span>
+										<h4 class="main-font float  hot-company-list-intro">在找职位</h4>
+										<span class="hot-company-list-border"></span>
+									</a> <a href="#" class="hot-company-list-item float"> <span
+										class="main-color">errornum%</span>
+										<h4 class="main-font float hot-company-list-intro">简历处理率</h4>
+									</a>
+								</div>
+								<!-- condition-right ending -->
+							</div>
+							<!-- work-body-condition ending -->
+						</div>
+
+
+
+
+						<%
+							}
+						%>
+					</div>
 					<div class="work-body-right">
 						<!-- <span class="border float"></span> -->
+
+						<%
+							if (request.getAttribute("JobInfo") != null) {
+								List JobInfo = (List) request.getAttribute("JobInfo");
+								Post post = (Post) JobInfo.get(0);
+						%>
 						<div class="company-info">
-							<img class="float img-thumbnail" src="../img/work-intro-logo.png"
+							<img class="float img-thumbnail" src="./img/work-intro-logo.png"
 								alt="">
 							<p class="font-title2">
-								红网<i class="fa fa-lg fa-shield main-color"></i>
+								<%=post.getEname()%><i class="fa fa-lg fa-shield main-color"></i>
 							</p>
 							<ul class="company-info-list">
+
+								<%
+									if (request.getAttribute("ETagName") != null) {
+											List ETagNameList = (List) request.getAttribute("ETagName");
+											int ETagNameListSize = ETagNameList.size();
+
+											for (int i = 0; i < ETagNameListSize; i++) {
+												if (i < ETagNameListSize) {
+													Tag tag = (Tag) ETagNameList.get(i);
+								%>
 								<li class="info-list-item">
 									<p class="main-font grey2">
-										<i class="fa fa-lg fa-user-o"></i>移动互联网,电子商务
+										<i class="fa fa-lg fa-user-o"></i><%=tag.getTagname()%>
 									</p>
 								</li>
+								<%
+									} else {
+								%>
 								<li class="info-list-item">
 									<p class="main-font grey2">
-										<i class="fa fa-lg fa-user-o"></i>移动互联网,电子商务
+										<i class="fa fa-lg fa-user-o"></i>error移动互联网,电子商务
 									</p>
 								</li>
-								<li class="info-list-item">
-									<p class="main-font grey2">
-										<i class="fa fa-lg fa-user-o"></i>移动互联网,电子商务
-									</p>
-								</li>
-								<li class="info-list-item">
-									<p class="main-font grey2">
-										<i class="fa fa-lg fa-user-o"></i>移动互联网,电子商务
-									</p>
-								</li>
+
+
+								<%
+									}
+											}
+										}
+								%>
 							</ul>
 						</div>
+						<%
+							}
+						%>
 						<!-- company-info ending -->
-						<div class="similar-work">
-							<h5 class="condition-title float">工作地址</h5>
-							<span class="condition-title-hr"></span> <a href="#"
-								class="media">
-								<div class="media-left">
-									<a href="#"> <img class="media-object img-thumbnail"
-										src="../img/hot-company1.png" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading font-title2">
-										<a href="#">前端开发工程师</a>
-									</h4>
-									<p class="font-title2 red">6k-12k</p>
-									<p class="font-intro">成功软件[长沙.岳麓区]</p>
-								</div>
-							</a>
+
+
+					<div class="similar-work">
+							<h5 class="condition-title float">其他工作</h5>
+							<span class="condition-title-hr"></span>
+							
+							
+							<% 	
+							
+						
+							
+						if (request.getAttribute("OtherJob") != null) {
+							List OtherJob = (List)request.getAttribute("OtherJob");
+							int OtherJobLength = OtherJob.size();
+							
+							for (int i = 0; i < 5; i++) {
+								if (OtherJobLength < i) {
+									Post post = (Post)OtherJob.get(i);
+							%>
 							<!-- media-item ending -->
 							<span class="media-border"></span> <a href="#" class="media">
 								<div class="media-left">
 									<a href="#"> <img class="media-object img-thumbnail"
-										src="../img/hot-company1.png" alt="...">
+										src="<%=post.getPictureurl() %>" alt=".">
 									</a>
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading font-title2">
-										<a href="#">前端开发工程师</a>
+										<a href="#"><%=post.getSummary() %></a>
 									</h4>
-									<p class="font-title2 red">6k-12k</p>
-									<p class="font-intro">成功软件[长沙.岳麓区]</p>
+									<p class="font-title2 red"><%=post.getRemuneration() %></p>
+									<p class="font-intro"><%=post.getEname() %> [<%=post.getPlace() %>]</p>
 								</div>
 							</a>
+
+							<% } else { %>
+
 							<!-- media-item ending -->
 							<span class="media-border"></span> <a href="#" class="media">
 								<div class="media-left">
 									<a href="#"> <img class="media-object img-thumbnail"
-										src="../img/hot-company1.png" alt="...">
+										src="./img/hot-company1.png" alt=".">
 									</a>
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading font-title2">
-										<a href="#">前端开发工程师</a>
+										<a href="#">error job</a>
 									</h4>
-									<p class="font-title2 red">6k-12k</p>
-									<p class="font-intro">成功软件[长沙.岳麓区]</p>
+									<p class="font-title2 red">error price</p>
+									<p class="font-intro">error软件[error location]</p>
 								</div>
 							</a>
-							<!-- media-item ending -->
-							<span class="media-border"></span> <a href="#" class="media">
-								<div class="media-left">
-									<a href="#"> <img class="media-object img-thumbnail"
-										src="../img/hot-company1.png" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading font-title2">
-										<a href="#">前端开发工程师</a>
-									</h4>
-									<p class="font-title2 red">6k-12k</p>
-									<p class="font-intro">成功软件[长沙.岳麓区]</p>
-								</div>
-							</a>
-							<!-- media-item ending -->
-							<span class="media-border"></span> <a href="#" class="media">
-								<div class="media-left">
-									<a href="#"> <img class="media-object img-thumbnail"
-										src="../img/hot-company1.png" alt="...">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading font-title2">
-										<a href="#">前端开发工程师</a>
-									</h4>
-									<p class="font-title2 red">6k-12k</p>
-									<p class="font-intro">成功软件[长沙.岳麓区]</p>
-								</div>
-							</a>
-							<!-- media-item ending -->
+
+							<% } } } %>
 							<span class="media-border"></span>
 						</div>
+
+
 					</div>
-					<!-- col-xs-4 ending -->
-				</div>
+					<!-- markcopy -->
 			</div>
 		</div>
 		<!-- work-body ending -->
+
 	</div>
 	<div class="footer margin">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-4">
-					<img src="../img/logo_bottom.png" alt=""> <span
+					<img src="./img/logo_bottom.png" alt=""> <span
 						class="footer-brd footer-brd1 pull-right"></span>
 				</div>
 				<div class="col-xs-4">
@@ -754,13 +890,13 @@ ul {
 			</div>
 		</div>
 		<!-- fixed-munu-item end -->
-		<script src="../plugin/js/jquery.min.js"></script>
+		<script src="./plugin/js/jquery.min.js"></script>
 		<!-- Bootstrap -->
-		<script src="../plugin/js/bootstrap.min.js"></script>
+		<script src="./plugin/js/bootstrap.min.js"></script>
 		<!-- Owl Carousel -->
-		<script src="../plugin/js/owl.carousel.min.js"></script>
+		<script src="./plugin/js/owl.carousel.min.js"></script>
 
-		<script src="../plugin/js/fix-menu.js"></script>
+		<script src="./plugin/js/fix-menu.js"></script>
 		<script>
        $(function(){
        	  /*!侧边菜单栏

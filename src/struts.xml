@@ -37,15 +37,34 @@
 <result name="success">/WEB-INF/page/webpages/luntan-info.html</result>
 </action>
 
-<!-- 黄智豪 -->
-<action name="chuangxinggutest" class ="ChuangxingguAction">
+
+<!-- 创兴谷 --> 
+<action name="chuangxinggutest" class="ChuangxingguAction">
 <result name="success">/WEB-INF/page/webpages/chuangxinggu/chuangxinggu.jsp</result>
-<result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
+
+<action name="showmorejob" class="ShowMoreJobAction">
+<result name="success">/WEB-INF/page/webpages/chuangxinggu/showmorejob.jsp</result>
+</action>
+
+<action name="showjobinfo" class="ShowJobInfoAction">
+<result name="success">/WEB-INF/page/webpages/chuangxinggu/showjobinfo.jsp</result>
+</action>
+
+<!-- 躬行课堂 -->
+<action name="gongxingketangtest" class="GongxingketangAction">
+<result name="success">/WEB-INF/page/webpages/gongxingketang/gongxingketang.jsp</result>
+</action>
+
+<action name="showcourseinfo" class="ShowCourseInfoAction">
+<result name="success">/WEB-INF/page/webpages/gongxingketang/shoucourseinfo.jsp</result>
+</action>
+
+<!-- 黄智豪 END -->
 
 <!-- test   ....................................................................... -->
 <action name="chuangxinggu">
-<result name="success">/WEB-INF/page/webpages/work.html</result>
+<result name="success">/WEB-INF/page/webpages/chuangxinggu/testchuangxinggu.jsp</result>
 </action>
 <action name="gongxing">
 <result name="success">/WEB-INF/page/webpages/work/gongxing.html</result>
@@ -54,13 +73,9 @@
 <result name="success" >/WEB-INF/page/webpages/people.html</result>
 </action>
 
-<action name="JobClassification" class="JobClassificationAction">
-<result name="success">/WEB-INF/page/webpages/chuangxinggu/clickthejobclassification.jsp</result>
+<action name="newcourseinfo">
+<result name="success">/WEB-INF/page/webpages/gongxingketang/NewFile.jsp</result>
 </action>
-
-
-
-
 
 
 </package>

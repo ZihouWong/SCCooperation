@@ -5,14 +5,14 @@ import java.util.List;
 import org.sccooperation.dao.IUserDao;
 import org.sccooperation.service.UserManage;
 /**
- * Project:SCCooperation Comments:´ËÀàÊÇÓÃ»§·þÎñ²ã½Ó¿ÚÊµÏÖÀà
+ * Project:SCCooperation Comments:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½Êµï¿½ï¿½ï¿½ï¿½
  *  JDK version used:JDK1.8 
- *  Author£ºWLNSSS Create Date£º2017-9-27 Modified By£º <ÐÞ¸ÄÈËÖÐÎÄÃû»òÆ´ÒôËõÐ´>
- * Modified Date: <ÐÞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD> Why & What is modified <ÐÞ¸ÄÔ­ÒòÃèÊö>
+ *  Authorï¿½ï¿½WLNSSS Create Dateï¿½ï¿½2017-9-27 Modified Byï¿½ï¿½ <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½Ð´>
+ * Modified Date: <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Ê½:YYYY-MM-DD> Why & What is modified <ï¿½Þ¸ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>
  * Version:1.0
  */
 public class UserManageImpl<T> implements UserManage<T> {
-	/**¸Ã±äÁ¿ÓÉspring×°Åä£¬*/
+	/**ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½spring×°ï¿½ä£¬*/
     private IUserDao userDao;
 	public List loginCheck(String account, String password) {
 		
@@ -31,5 +31,5 @@ public class UserManageImpl<T> implements UserManage<T> {
 	public void insertUser(T entity) {
 		// TODO Auto-generated method stub
 		userDao.insertUser(entity);
-	}
+		}
 	}

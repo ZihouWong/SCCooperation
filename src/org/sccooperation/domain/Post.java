@@ -11,6 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="post")
+
+
 /** 
 *hiberateӳ�����ݿ�post��ӳ����
 * @author WLNSSS 
@@ -23,7 +25,6 @@ public class Post {
 	
 	private int id;
 	
-	//
 	private String ename;
 	
 	private String summary;
@@ -32,7 +33,7 @@ public class Post {
 	
 	private String ptime;
 	
-	private String domand;
+	private String demand;
 	
 	private String remuneration;
 	
@@ -41,14 +42,26 @@ public class Post {
 	private String allure;
 	
 	private String pictureurl;
+
+	private String state;
 	
+	private String contact;
+	
+	private Integer tagno;
+	
+	private Integer seenum;
+	
+	@ManyToOne(targetEntity=Enterprisesubuser.class)
+	@JoinColumn(name="manager_id",referencedColumnName="id")
+	private Enterprisesubuser manager_id;
 	
 	@ManyToOne(targetEntity=Enterprise.class)
 	@JoinColumn(name="enterprise_id",referencedColumnName="id")
 	private Enterprise enterprise_id;
 	
-	private String people_id;
 	
+	private String people_id;
+
 	public int getId() {
 		return id;
 	}
@@ -89,12 +102,12 @@ public class Post {
 		this.ptime = ptime;
 	}
 
-	public String getDomand() {
-		return domand;
+	public String getDemand() {
+		return demand;
 	}
 
-	public void setDomand(String domand) {
-		this.domand = domand;
+	public void setDemand(String demand) {
+		this.demand = demand;
 	}
 
 	public String getRemuneration() {
@@ -129,22 +142,6 @@ public class Post {
 		this.pictureurl = pictureurl;
 	}
 
-	public Enterprise getEnterprise_id() {
-		return enterprise_id;
-	}
-
-	public void setEnterprise_id(Enterprise enterprise_id) {
-		this.enterprise_id = enterprise_id;
-	}
-
-	public String getPeople_id() {
-		return people_id;
-	}
-
-	public void setPeople_id(String people_id) {
-		this.people_id = people_id;
-	}
-
 	public String getState() {
 		return state;
 	}
@@ -161,8 +158,6 @@ public class Post {
 		this.contact = contact;
 	}
 
-	
-
 	public Integer getTagno() {
 		return tagno;
 	}
@@ -171,13 +166,39 @@ public class Post {
 		this.tagno = tagno;
 	}
 
+	public Integer getSeenum() {
+		return seenum;
+	}
 
+	public void setSeenum(Integer seenum) {
+		this.seenum = seenum;
+	}
 
-	private String state;
+	public Enterprise getEnterprise_id() {
+		return enterprise_id;
+	}
+
+	public void setEnterprise_id(Enterprise enterprise_id) {
+		this.enterprise_id = enterprise_id;
+	}
+
+	public String getPeople_id() {
+		return people_id;
+	}
+
+	public void setPeople_id(String people_id) {
+		this.people_id = people_id;
+	}
 	
-	private String contact;
+	public Enterprisesubuser getManager_id() {
+		return manager_id;
+	}
+
+	public void setManager_id(Enterprisesubuser manager_id) {
+		this.manager_id = manager_id;
+	}
+
 	
-	private Integer tagno;
 	
 	
 

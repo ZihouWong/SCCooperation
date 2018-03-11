@@ -43,7 +43,6 @@ public class LuntanAction {
 		//��ȡrequest����
 		request = (Map)ActionContext.getContext().get("request"); 
 		
-		
 		//����ҳ����ѯ�����б�
 		request.put("list", noteManage.findAllNote(Integer.parseInt(pageNo)));
 		

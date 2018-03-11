@@ -39,6 +39,8 @@
         <value>org.sccooperation.domain.RReplyNote</value>
         <value>org.sccooperation.domain.Tag</value>
         <value>org.sccooperation.domain.Post</value>
+        <value>org.sccooperation.domain.Enterprisesubuser</value>
+        <value>org.sccooperation.domain.Course</value>
         </list>
         </property>
     </bean>  
@@ -103,6 +105,12 @@
    	<property name="postDao" ref="postDaoImpl"></property>
    	</bean>
    	
+   	<bean id="tagDaoImpl" class="org.sccooperation.daoimpl.TagDaoImpl">
+   	<property name="sessionFactory" ref="sessionFactory"></property>
+   	</bean>
+   	<bean id="tagManageImpl" class="org.sccooperation.service.impl.TagManageImpl">
+   	<property name="tagDao" ref="tagDaoImpl"></property>
+   	</bean>
    	
    	
    	<bean id="enterpriseDaoImpl" class="org.sccooperation.daoimpl.EnterpriseDaoImpl">
@@ -112,7 +120,19 @@
     <property name="enterpriseDao" ref="enterpriseDaoImpl"></property>
     </bean>
     
+    <bean id="courseDaoImpl" class="org.sccooperation.daoimpl.CourseDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="courseManageImpl" class="org.sccooperation.service.impl.CourseManageImpl">
+    <property name="courseDao" ref="courseDaoImpl"></property>
+    </bean>
     
+    <bean id="peopleDaoImpl" class="org.sccooperation.daoimpl.PeopleDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="peopleManageImpl" class="org.sccooperation.service.impl.PeopleManageImpl">
+    <property name="peopleDao" ref="peopleDaoImpl"></property>
+    </bean>
     
     
     
@@ -147,15 +167,36 @@
     
     <!-- 黄智豪 -->
     <!-- 工作显示Action -->
-    
+    <!-- 创兴谷 -->
     <bean id="ChuangxingguAction" class="org.sccooperation.chuangxinggu.action.ChuangxingguAction" scope="prototype">
     <property name="postManage" ref="postManageImpl"></property>
     <property name="enterpriseManage" ref="enterpriseManageImpl"></property>
     </bean>
+     
     
-    <bean id="JobClassificationAction" class="org.sccooperation.chuangxinggu.action.JobClassificationAction" scope="prototype">
+    <bean id="ShowMoreJobAction" class="org.sccooperation.chuangxinggu.action.ShowMoreJobAction" scope="prototype">
     <property name="postManage" ref="postManageImpl"></property>
     </bean>
+    
+    <bean id="ShowJobInfoAction" class="org.sccooperation.chuangxinggu.action.ShowJobInfoAction" scope="prototype">
+    <property name="postManage" ref="postManageImpl"></property>
+    <property name="tagManage" ref="tagManageImpl"></property>
+    <property name="enterpriseManage" ref="enterpriseManageImpl"></property>
+    </bean> 
 
+	<!-- 躬行课堂 -->
+ 	<bean id="GongxingketangAction" class="org.sccooperation.gongxingketang.action.GongxingketangAction" scope="prototype">
+ 	<property name="courseManage" ref="courseManageImpl"></property>
+ 	<property name="enterpriseManage" ref="enterpriseManageImpl"></property>
+ 	</bean>
+ 	
+ 	<bean id="ShowCourseInfoAction" class="org.sccooperation.gongxingketang.action.ShowCourseInfoAction" scope="prototype">
+ 	<property name="courseManage" ref="courseManageImpl"></property>
+ 	<property name="peopleManage" ref="peopleManageImpl"></property>
+ 	</bean>
+	
+	
+	
+	
 	
 	</beans>

@@ -1,6 +1,6 @@
-
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="java.util.*"%>
 <%@page import="java.util.List"%>
 <%@page import="org.sccooperation.domain.*"%>
 
@@ -35,8 +35,7 @@
   .cos-xs-3 {
   	padding: 0;
   	margin: 0;
-  }
-*/ /*!课程分类
+  }/*!课程分类
 -------------------------------------------------------------------------------!*/
 .body {
 	margin-top: -40px;
@@ -442,33 +441,18 @@ ul {
 	<div id="head-link" class="login">
 		<div class="container">
 			<div class="col-xs-12">
-				<%
-					List listU = (List) request.getSession().getAttribute("user");
-
-					if (request.getSession().getAttribute("user") == null) {
-				%>
 				<div class="login-in">
-					<form id="login-form" action="login.action?pageNo=1" method="post">
-						<p class="main-font">学生代码:</p><input type="text" name="account">
-						<p class="main-font">密码:</p><input type="password" name="password">
-						<p class="main-font">验证码:</p><input id="input-code" type="text" name="code">
-						<img src="" alt="" class="code-img"> 
-						<input id="login-btn" type="submit" value="登陆">
-						<a href="register-goto.html" id="login-btn-a" class="float">注册</a>
+					<form id="login-form" action="" method="post">
+						<p class="main-font">学生代码:</p>
+						<input type="text" name="id">
+						<p class="main-font">密码:</p>
+						<input type="password" name="password">
+						<p class="main-font">验证码:</p>
+						<input id="input-code" type="text" name="code"> <img
+							src="" alt="" class="code-img"> <input id="login-btn"
+							type="submit" value="登陆">
 					</form>
 				</div>
-
-				<%
-					} else {
-						People people = (People) listU.get(0);
-				%>
-
-				<div class="login-in">
-					欢迎<%=people.getPnumber()%>
-				</div>
-				<%
-					}
-				%>
 				<div class="login-tel">
 					<i class="fa fa-phone fa-lg"></i>
 					<p class="main-font">咨询电话：010-82319999转2846</p>
@@ -511,75 +495,20 @@ ul {
 					<div class="menu-head">所有工作分类</div>
 					<div class="menu">
 						<ul class="menu-list">
+							<%
+								String [] array = {"编程", "设计", "IT软件", "求职", "职场", "办公软件", "英语", "日语", "法语", "韩语", "营销"
+											, "理财", "专业技能", "钢琴", "建造师", "国学", "省学", "学历教育", "高考", "中考", "小升初", "考研", "四六级", "计算机考试"
+								             , "雅思", "托福", "留学指导", "生活", "文化", "兴趣", "学术", "TED", "名校公开课"};
+									
+									for(int i = 0; i < 33; i++) {
+										
+										if(i%3 == 0) { %> <li class="menu-title"> <% }%> 
+										
+										<a href="chuangxinggutest.action?button=<%=i+1%>&pageNo=1"> <span><%=array[i] %> </span> </a>
 
-							<li class="menu-title"><a
-								href="JobClassification.action?button=1&pageNo=1"><span>
-										编程 </span></a> <a href="JobClassification.action?button=2&pageNo=1"><span>
-										设计 </span></a> <a href="JobClassification.action?button=3&pageNo=1"><span>
-										IT软件 </span> </a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=3&pageNo=1"><span>
-										求职 </span></a> <a href="JobClassification.action?button=4&pageNo=1"><span>
-										职场 </span></a> <a href="JobClassification.action?button=5&pageNo=1"><span>
-										办公软件 </span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=6&pageNo=1"><span>
-										英语 </span></a> <a href="JobClassification.action?button=7&pageNo=1"><span>
-										日语 </span></a> <a href="JobClassification.action?button=8&pageNo=1"><span>
-										法语 </span></a> <a href="JobClassification.action?button=9&pageNo=1"><span>
-										韩语 </span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=10&pageNo=1"><span>
-										营销 </span></a> <a href="JobClassification.action?button=11&pageNo=1"><span>
-										理财 </span></a> <a href="JobClassification.action?button=12&pageNo=1"><span>专业技能
-								</span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=13&pageNo=1"><span>
-										会计证 </span></a> <a href="JobClassification.action?button=14&pageNo=1"><span>
-										钢琴 </span></a> <a href="JobClassification.action?button=15&pageNo=1"><span>
-										建造师 </span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=16&pageNo=1"><span>
-										国学 </span></a> <a href="JobClassification.action?button=17&pageNo=1"><span>
-										省学 </span></a> <a href="JobClassification.action?button=18&pageNo=1"><span>
-										学历教育 </span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=19&pageNo=1"><span>
-										高考 </span></a> <a href="JobClassification.action?button=20&pageNo=1"><span>
-										中考 </span></a> <a href="JobClassification.action?button=21&pageNo=1"><span>小升初
-								</span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=22&pageNo=1"><span>
-										考研 </span></a> <a href="JobClassification.action?button=23&pageNo=1"><span>
-										四六级 </span></a> <a href="JobClassification.action?button=24&pageNo=1"><span>
-										计算机考试 </span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=25&pageNo=1"><span>
-										雅思 </span></a> <a href="JobClassification.action?button=26&pageNo=1"><span>
-										托福 </span></a> <a href="JobClassification.action?button=27&pageNo=1"><span>
-										留学指导 </span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=28&pageNo=1"><span>生活
-								</span></a> <a href="JobClassification.action?button=29&pageNo=1"><span>文化
-								</span></a> <a href="JobClassification.action?button=30&pageNo=1"><span>兴趣
-								</span></a></li>
-
-							<li class="menu-title"><a
-								href="JobClassification.action?button=31&pageNo=1"><span>
-										学术</span></a> <a href="JobClassification.action?button=32&pageNo=1"><span>TED
-								</span></a> <a href="JobClassification.action?button=33&pageNo=1"><span>名校公开课
-								</span></a></li>
-						</ul>
-
+								 <% } %>
+							
+						</ul>	
 					</div>
 					<!-- menu ending -->
 				</div>
@@ -618,8 +547,9 @@ ul {
 
 					<!-- 正确显示 -->
 					<%
-						List Job = (List) request.getAttribute("JobList");
-						if (request.getSession().getAttribute("JobList") == null) {
+						
+						if (request.getAttribute("JobList") != null) {
+							List Job = (List) request.getAttribute("JobList");
 							int JlistSize = Job.size();
 
 							for (int i = 0; i < 9; i++) {
@@ -628,18 +558,33 @@ ul {
 					%>
 					<div class="col-xs-4">
 						<div class="hot-work-body-item">
-							<p class="work-name float"><%=post.getSummary()%></p>
+							<p class="work-name float">
+								<a
+									href="showjobinfo.action?pageNo=1&jobNo=<%=post.getId()%>&enterpriseNo=<%=post.getEnterprise_id().getId()%>&tagNo=<%=post.getTagno() %>">
+									<%=post.getSummary()%></a>
+							</p>
+
+
+
 							<p class="publish-time main-font grey2 float">
 								[<%=post.getStime()%>年发布] <i
 									class="fa fa-commenting-o fa-lg main-color"></i>
 							</p>
 							<p class="salary float-right"><%=post.getRemuneration()%></p>
-							<p class="demand main-font grey2"><%=post.getDomand()%></p>
+
+
+							<% String demand = post.getDemand();
+								demand = demand.replace('|', ' ');
+								if(demand.length() > 30) 
+									demand = demand.substring(0, 30);
+							%>
+							<p class="demand main-font grey2"><%=demand%>...
+							</p>
 							<%
 								String sp = post.getAllure();
 											String sps[] = sp.split(",");
 											int spslength = sps.length;
-
+											System.out.print(spslength);
 											for (int a = 0; a < spslength; a++) {
 							%>
 							<span class="condition"><%=sps[a]%></span>
@@ -659,7 +604,7 @@ ul {
 					<%
 						} else {
 					%>
-					<!-- 错误反馈 -->
+					<!-- 错误显示 -->
 					<div class="col-xs-4">
 						<div class="hot-work-body-item">
 							<p class="work-name float">error</p>
@@ -685,7 +630,9 @@ ul {
 					%>
 
 					<!-- col-xs-4 ending -->
-					<a href="#" class="hot-work-btn">查看更多</a>
+					<a href="showmorejob.action?button=3&pageNo=1" class="hot-work-btn">查看更多</a>
+
+					<!-- mark1 -->
 				</div>
 
 				<!-- hot-work-body ending -->
@@ -707,7 +654,7 @@ ul {
 						<!-- 正确显示 -->
 						<%
 							List EnterpriseList = (List) request.getAttribute("EnterpriseList");
-							if (request.getSession().getAttribute("user") == null) {
+							if (request.getAttribute("EnterpriseList") != null) {
 								int ElistSize = EnterpriseList.size();
 
 								for (int a = 0; a < 8; a++) {

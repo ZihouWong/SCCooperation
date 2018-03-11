@@ -4,6 +4,10 @@ import java.util.List;
 
 public interface IEnterpriseDao {
 /*******************************黄智豪******************************/
-	List findEnterpriseByPageNo(int pageNo);
+	public List findEnterpriseByPageNo(int pageNo);
 
+	public List findEnterpriseTName(int enterpriseNo);
+
+	public List findPartner(int pageNo);
+	
 }
