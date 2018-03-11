@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+        >
+        
+        
+        
+        <!-- 配置信息源数据库等 -->
+   <tx:annotation-driven transaction-manager="transactionManager" 
+                                       proxy-target-class="true"/>
+   <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="driverClass" value="com.mysql.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost/sccp?useUnicode=true&amp;characterEncoding=UTF-8" />
+        <property name="user" value="root"></property>
+        <property name="password" value="root"></property>
+    </bean>  
+        
+        
+
+      <!-- 配置sessionfactory -->  
+         <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" p:dataSource-ref="dataSource">  
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>  
+        <property name="annotatedClasses">
+        <list>
+        <value>org.sccooperation.domain.Course</value>
+        <value>org.sccooperation.domain.Cv</value>
+        <value>org.sccooperation.domain.Enterprise</value>
+        <value>org.sccooperation.domain.Enterprisesubuser</value>
+        <value>org.sccooperation.domain.Note</value>
+        <value>org.sccooperation.domain.Notification</value>
+        <value>org.sccooperation.domain.People</value>
+        <value>org.sccooperation.domain.Post</value>
+        <value>org.sccooperation.domain.ReplyNote</value>
+        <value>org.sccooperation.domain.RReplyNote</value>
+        <value>org.sccooperation.domain.Tag</value>
+        </list>
+        </property>
+    </bean>  
+    
+    
+    
+    
+    
+    <!-- 配置事务 -->
+    	 <bean id="transactionManager" 
+	 class="org.springframework.orm.hibernate4.HibernateTransactionManager" 
+	 p:sessionFactory-ref="sessionFactory">
+    </bean> 
+    <aop:aspectj-autoproxy/> 
+
+     <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    
+    <aop:config>
+        <aop:pointcut expression="execution(*  org.sccooperation.service.impl.*.*(..))" id="txPointcut"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+    
+    <!-- 配置底层操作的实体类，用来给service层赋值 -->
+    <!-- 模板类防止冗余 -->
+    <bean id="daoTemplate" abstract="true" lazy-init="true" p:sessionFactory-ref="sessionFactory"></bean>
+    
+    
+    
+    
+    <!-- spring装配-->
+    <!-- 用户类装配 -->
+    <bean id="userDaoImpl" class="org.sccooperation.daoimpl.UserDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="userManageImpl" class="org.sccooperation.service.impl.UserManageImpl">
+    <property name="userDao" ref="userDaoImpl"></property>
+    </bean>
+    
+    
+    <!-- BLANK700用户装配 -->
+    <!-- 简历类装配 -->
+    <bean id="cvDaoImpl" class="org.sccooperation.daoimpl.CvDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="cvManageImpl" class="org.sccooperation.service.impl.CvManageImpl">
+    <property name="cvDao" ref="cvDaoImpl"></property>
+    </bean>
+    
+    <!-- 标签类装配 -->
+    <bean id="tagDaoImpl" class="org.sccooperation.daoimpl.TagDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="tagManageImpl" class="org.sccooperation.service.impl.TagManageImpl">
+    <property name="tagDao" ref="tagDaoImpl"></property>
+    </bean>
+    
+    <!-- 项目类配置 -->
+    <bean id="postDaoImpl" class="org.sccooperation.daoimpl.PostDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="postManageImpl" class="org.sccooperation.service.impl.PostManageImpl">
+    <property name="postDao" ref="postDaoImpl"></property>
+    </bean>
+    
+    <!-- 企业类配置 -->
+    <bean id="enterpriseDaoImpl" class="org.sccooperation.daoimpl.EnterpriseDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="enterpriseManageImpl" class="org.sccooperation.service.impl.EnterpriseManageImpl">
+    <property name="enterpriseDao" ref="enterpriseDaoImpl"></property>
+    </bean>
+    
+    <!-- 企业子用户类配置 -->
+    <bean id="enterprisesubuserDaoImpl" class="org.sccooperation.daoimpl.EnterprisesubuserDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="enterprisesubuserManageImpl" class="org.sccooperation.service.impl.EnterprisesubuserManageImpl">
+    <property name="enterprisesubuserDao" ref="enterprisesubuserDaoImpl"></property>
+    </bean>
+    
+    <!-- 通知类配置 -->
+    <bean id="notificationDaoImpl" class="org.sccooperation.daoimpl.NotificationDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="notificationManageImpl" class="org.sccooperation.service.impl.NotificationManageImpl">
+    <property name="notificationDao" ref="notificationDaoImpl"></property>
+    </bean>
+    
+    
+    
+    
+    
+    <!-- 帖子类装配 -->
+    <bean id="noteDaoImpl" class="org.sccooperation.daoimpl.NoteDaoImpl">
+    <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    <bean id="noteManageImpl" class="org.sccooperation.service.impl.NoteManageImpl">
+    <property name="noteDao" ref="noteDaoImpl"></property>
+    </bean>
+    
+    
+
+    
+    
+    
+   <!-- 配置Action层,action直接调用即可 -->
+
+   <bean id="loginAction" class="org.sccooperation.action.LoginAction" scope="prototype">
+    <property name="userManage" ref="userManageImpl"></property>
+    </bean> 
+    
+    <bean id="InsertUserAction" class="org.sccooperation.action.InsertUserAction" scope="prototype">
+    <property name="userManage" ref="userManageImpl"></property>
+    </bean>
+    
+    <bean id="LuntanAction" class="org.sccooperation.action.LuntanAction" scope="prototype">
+    <property name="noteManage" ref="noteManageImpl"></property>
+    </bean> 
+    
+    <bean id="AddNoteAction" class="org.sccooperation.action.AddNoteAction" scope="prototype">
+    <property name="noteManage" ref="noteManageImpl"></property>
+    </bean> 
+    
+    <bean id="MinuteNoteAction" class="org.sccooperation.action.MinuteNoteAction" scope="prototype">
+    <property name="noteManage" ref="noteManageImpl"></property>
+    </bean> 
+    
+    <bean id="AddReplyNoteAction" class="org.sccooperation.action.AddReplyNoteAction" scope="prototype">
+    <property name="noteManage" ref="noteManageImpl"></property>
+    </bean> 
+    
+	
+	<!-- BLANK700 配置Action层 -->
+	<!-- 用普通户 -->
+    <bean id="displaypersonalcenterAction" class="org.sccooperation.action.personalcenter.DisplaypersonalcenterAction" scope="prototype">
+    <property name="tagManage" ref="tagManageImpl"></property>
+    <property name="postManage" ref="postManageImpl"></property>
+    </bean>
+    
+    <bean id="displaycvAction" class="org.sccooperation.action.personalcenter.DisplaycvAction" scope="prototype">
+    <property name="cvManage" ref="cvManageImpl"></property>
+    </bean>
+    
+    <bean id="modifycvAction" class="org.sccooperation.action.personalcenter.ModifycvAction" scope="prototype">
+    <property name="cvManage" ref="cvManageImpl"></property>
+    </bean>
+	
+	<bean id="modifypeopleAction" class="org.sccooperation.action.personalcenter.ModifypeopleAction" scope="prototype">
+    <property name="userManage" ref="userManageImpl"></property>
+    </bean>
+    
+    <bean id="modifypasswordAction" class="org.sccooperation.action.personalcenter.ModifypasswordAction" scope="prototype">
+    <property name="userManage" ref="userManageImpl"></property>
+    </bean>
+    
+    <bean id="quitAction" class="org.sccooperation.action.personalcenter.QuitAction" scope="prototype">
+    </bean>
+    
+    
+    <!-- 企业 -->
+    <bean id="enterpriseloginAction" class="org.sccooperation.action.enterprisecenter.EnterpriseloginAction" scope="prototype">
+    <property name="enterpriseManage" ref="enterpriseManageImpl"></property>
+    </bean>
+    
+    <bean id="displayenterprisecenterAction" class="org.sccooperation.action.enterprisecenter.DisplayenterprisecenterAction" scope="prototype">
+    <property name="tagManage" ref="tagManageImpl"></property>
+    </bean>
+    
+    <bean id="equitAction" class="org.sccooperation.action.enterprisecenter.EQuitAction" scope="prototype">
+    </bean>
+    
+    <!-- 企业集合Action配置 -->
+    <bean id="enterpriseAction" class="org.sccooperation.action.enterprisecenter.EnterpriseAction" scope="prototype">
+    <property name="enterpriseManage" ref="enterpriseManageImpl"></property>
+    <property name="tagManage" ref="tagManageImpl"></property>
+    </bean>
+    
+    <bean id="projectManagementAction" class="org.sccooperation.action.enterprisecenter.ProjectManagementAction" scope="prototype">
+    <property name="postManage" ref="postManageImpl"></property>
+    <property name="tagManage" ref="tagManageImpl"></property>
+    <property name="enterprisesubuserManage" ref="enterprisesubuserManageImpl"></property>
+    </bean>
+	
+	
+	<!-- 企业子用户 -->
+	<!-- 企业子用户集合Action配置 -->
+    <bean id="enterprisesubuserAction" class="org.sccooperation.action.enterprisesubusercenter.EnterprisesubuserAction" scope="prototype">
+    <property name="enterpriseManage" ref="enterpriseManageImpl"></property>
+    <property name="enterprisesubuserManage" ref="enterprisesubuserManageImpl"></property>
+    <property name="tagManage" ref="tagManageImpl"></property>
+    </bean>
+    
+    <bean id="projectManagementesuAction" class="org.sccooperation.action.enterprisesubusercenter.ProjectManagementesuAction" scope="prototype">
+    <property name="postManage" ref="postManageImpl"></property>
+    <property name="tagManage" ref="tagManageImpl"></property>
+    <property name="enterprisesubuserManage" ref="enterprisesubuserManageImpl"></property>
+    </bean>
+    
+    <!-- 通知类 -->
+    <!-- 通知类集合Action配置 -->
+    <bean id="notificationManagementAction" class="org.sccooperation.action.notification.NotificationManagementAction" scope="prototype">
+    <property name="notificationManage" ref="notificationManageImpl"></property>
+    </bean>
+    
+    
+	
+	
+	</beans>

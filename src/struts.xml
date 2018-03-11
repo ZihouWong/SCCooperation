@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.objectFactory" value="spring" />
+
+
+<package name="lee" namespace="/" extends="struts-default">
+
+<!-- action,spring结合，class已在spring里装配好 -->
+<action name="persionlogin" class="persionloginAction">
+<result type="chain" name="success">luntan</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<action name="login" class="loginAction">
+<result type="chain" name="success">luntan</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<action name="insertUser" class="InsertUserAction">
+<result name="success">/WEB-INF/page/imisindex.jsp</result>
+</action>
+<action name="pregister">
+<result>/WEB-INF/page/webpages/register-p.html</result>
+</action>
+<action name="cregister">
+<result>/WEB-INF/page/webpages/register-comp.html</result>
+</action>
+<action name="luntan" class="LuntanAction">
+<result>/WEB-INF/page/webpages/luntan.jsp</result>
+</action>
+<action name="addNote" class="AddNoteAction">
+<result type="chain" name="success">luntan</result>
+</action>
+<action name="minutenote" class="MinuteNoteAction">
+<result>/WEB-INF/page/webpages/luntan-info.jsp</result>
+</action>
+<action name="addreplynote" class="AddReplyNoteAction">
+<result type="chain" name="success">minutenote</result>
+</action>
+<action name="seex">
+<result name="success">/WEB-INF/page/webpages/luntan-info.html</result>
+</action>
+
+
+<!-- BLANK700 -->
+<!-- 普通用户开始 -->
+<!-- 登录界面 -->
+<action name="login700">
+<result name="success">/WEB-INF/page/webpages/personalcenter/login700.jsp</result>
+</action>
+
+<!-- 登录操作 -->
+<action name="loginoperating" class="loginAction">
+<result name="success">/WEB-INF/page/webpages/personalcenter/login700.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 个人信息中心 -->
+<action name="personalcenter" class="displaypersonalcenterAction">
+<result name="success">/WEB-INF/page/webpages/people.jsp</result>
+</action>
+
+<!-- 个人信息中心登录 -->
+<action name="loginpersonalcenter" class="persionloginAction">
+<result name="success">/WEB-INF/page/webpages/people.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 显示简历 -->
+<action name="display_cv_700" class="displaycvAction">
+<result name="success">/WEB-INF/page/webpages/personalcenter/modify_cv_700.jsp</result>
+</action>
+
+<!-- 修改简历 -->
+<action name="modify_cv_700" class="modifycvAction">
+<result type="chain" name="success">personalcenter</result>
+</action>
+
+<!-- 显示个人信息 -->
+<action name="display_people_700">
+<result name="success">/WEB-INF/page/webpages/personalcenter/modify_people_700.jsp</result>
+</action>
+
+<!-- 修改个人信息 -->
+<action name="modify_people_700" class="modifypeopleAction">
+<result type="chain" name="success">personalcenter</result>
+</action>
+
+<!-- 进入修改密码的界面 -->
+<action name="display_password_700">
+<result name="success">/WEB-INF/page/webpages/personalcenter/modify_password_700.jsp</result>
+</action>
+
+<!-- 修改密码 -->
+<action name="modify_password_700" class="modifypasswordAction">
+<result type="chain" name="success">personalcenter</result>
+</action>
+
+<!-- 退出登录 -->
+<action name="quit_700" class="quitAction">
+<result name="success">/WEB-INF/page/webpages/personalcenter/login700.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+<!-- 普通用户结束 -->
+
+
+
+<!-- 企业开始 -->
+<!-- 显示操作 -->
+<!-- 登录界面 -->
+<action name="elogin">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/enterpriselogin.jsp</result>
+</action>
+
+<!-- 进入修改企业信息的界面 -->
+<action name="e_display_enterpriseinfo">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/e_modify_enterpriseinfo.jsp</result>
+</action>
+
+<!-- 进入修改密码的界面 -->
+<action name="e_display_password">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/e_modify_password.jsp</result>
+</action>
+
+<!-- 进入项目管理的界面 -->
+<action name="e_display_projectmanagement">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/e_project_management.jsp</result>
+</action>
+
+
+<!-- 集合方法 -->
+<!-- 登录 -->
+<action name="el" class="enterpriseAction" method="login">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/enterpriselogin.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 退出 -->
+<action name="eq" class="enterpriseAction" method="quit">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/enterpriselogin.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 显示企业信息中心 -->
+<action name="edisec" class="enterpriseAction" method="displayenterprisecenter">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/enterprisecenter.jsp</result>
+</action>
+
+<!-- 修改企业信息 -->
+<action name="emdinfo" class="enterpriseAction" method="modifyenterpriseinfo">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/enterprisecenter.jsp</result>
+</action>
+
+<!-- 修改密码 -->
+<action name="emdpwd" class="enterpriseAction" method="modifypassword">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/enterprisecenter.jsp</result>
+</action>
+
+
+<!-- 显示项目管理界面 -->
+<action name="edisproject" class="projectManagementAction" method="displayprojectmanagement">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/e_project_management.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 新增项目 -->
+<action name="eaddproject" class="projectManagementAction" method="addproject">
+<result name="success">/WEB-INF/page/webpages/enterprisecenter/e_project_management.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 修改项目 -->
+<action name="eupdateproject" class="projectManagementAction" method="updateproject">
+<result type="chain" name="success">edisproject</result>
+<!-- <result name="success">/WEB-INF/page/webpages/enterprisecenter/e_project_management.jsp</result> -->
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+<!-- 企业结束 -->
+
+
+
+<!-- 企业子用户开始 -->
+<!-- 显示操作 -->
+<!-- 登录界面 -->
+<action name="esulogin">
+<result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/enterprisesubuserlogin.jsp</result>
+</action>
+
+<!-- 进入修改企业信息的界面 -->
+<action name="esu_display_enterprisesubuserinfo">
+<result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/esu_modify_enterprisesubuserinfo.jsp</result>
+</action>
+
+<!-- 进入修改密码的界面 -->
+<action name="esu_display_password">
+<result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/esu_modify_password.jsp</result>
+</action>
+
+
+<!-- 集合方法 -->
+<!-- 登录 -->
+<action name="esul" class="enterprisesubuserAction" method="login">
+<result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/enterprisesubuserlogin.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 退出 -->
+<action name="esuq" class="enterprisesubuserAction" method="quit">
+<result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/enterprisesubuserlogin.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 显示企业子用户信息中心 -->
+<action name="esudisec" class="enterprisesubuserAction" method="displayenterprisesubusercenter">
+<result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/enterprisesubusercenter.jsp</result>
+</action>
+
+<!-- 修改企业子用户信息 -->
+<action name="esumdinfo" class="enterprisesubuserAction" method="modifyenterprisesubuserinfo">
+<result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/enterprisesubusercenter.jsp</result>
+</action>
+
+<!-- 修改密码 -->
+<action name="esumdpwd" class="enterprisesubuserAction" method="modifypassword">
+<result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/enterprisesubusercenter.jsp</result>
+</action>
+
+
+<!-- 显示项目管理界面 -->
+<action name="esudisproject" class="projectManagementesuAction" method="displayesuprojectmanagement">
+<result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/esu_project_management.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 修改项目 -->
+<action name="esuupdateproject" class="projectManagementesuAction" method="updateesuproject">
+<result type="chain" name="success">esudisproject</result>
+<!-- <result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/esu_project_management.jsp</result> -->
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+<!-- 企业子用户结束 -->
+
+
+
+<!-- 通知开始 -->
+<!-- 显示新增通知 -->
+<action name="disaddnotification">
+<result name="success">/WEB-INF/page/webpages/notification/add_notification.jsp</result>
+</action>
+
+
+<!-- 集合方法 -->
+<!-- 新增通知 -->
+<action name="addnotification" class="notificationManagementAction" method="addnotification">
+<result name="success">/WEB-INF/page/webpages/notification/add_notification.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 显示通知 -->
+<action name="displaynotification" class="notificationManagementAction" method="displaynotification">
+<result name="success">/WEB-INF/page/webpages/personalcenter/notification.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+
+<!-- 通知结束 -->
+
+</package>
+
+
+</struts>    
