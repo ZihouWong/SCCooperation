@@ -3,8 +3,13 @@ package org.sccooperation.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.sccooperation.domain.Cv;
 
 /**                     
 * Project:SCCooperation                                            
@@ -28,7 +33,8 @@ import javax.persistence.Table;
 */  
 public class People {
 	@Id
-	@Column(name = "id", unique = false, nullable = false)
+	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 /*
  * 映射数据库主键字段
  * */
@@ -45,13 +51,16 @@ public class People {
 /* 生日 */	
 	private String birthday;
 /* 年龄 */	
-	private int age;
+	private Integer age;
 /* 个人简介*/
 	private String summary;
 /* 图片存放位置 */
 	private String picture;
 /* 简历外键 */
-	private int cv;
+	@ManyToOne(targetEntity=Cv.class)
+	@JoinColumn(name="cv",referencedColumnName="id")
+    
+	private Cv cv;
 /* 账号*/	
 	private String account;
 /* 密码 */	
@@ -60,10 +69,14 @@ public class People {
 	private String state;
 /* 用户名*/	
     private String username;
-/* 微信号 */    
-    private String wechar;
+/* 邮箱 */    
+    private String mail;
 /* qq号 */    
     private String qq;
+    /*发帖总数*/
+    private int notesum;
+    //个性标签
+    private String tagno;
     
 /*
  * 以下为所有字段的set，get方法
@@ -108,11 +121,11 @@ public class People {
 		this.birthday = birthday;
 	}
 
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
@@ -132,11 +145,11 @@ public class People {
 		this.picture = picture;
 	}
 
-	public int getCv() {
+	public Cv getCv() {
 		return cv;
 	}
 
-	public void setCv(int cv) {
+	public void setCv(Cv cv) {
 		this.cv = cv;
 	}
 
@@ -172,12 +185,12 @@ public class People {
 		this.username = username;
 	}
 
-	public String getWechar() {
-		return wechar;
+	public String getMail() {
+		return mail;
 	}
 
-	public void setWechar(String wechar) {
-		this.wechar = wechar;
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 
 	public String getQq() {
@@ -194,6 +207,22 @@ public class People {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getNotesum() {
+		return notesum;
+	}
+
+	public void setNotesum(int notesum) {
+		this.notesum = notesum;
+	}
+
+	public String getTagno() {
+		return tagno;
+	}
+
+	public void setTagno(String tagno) {
+		this.tagno = tagno;
 	}
 
 	
