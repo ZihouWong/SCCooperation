@@ -3,7 +3,6 @@
 <struts>
 <constant name="struts.objectFactory" value="spring" />
 
-
 <package name="lee" namespace="/" extends="struts-default">
 <!-- 拦截器 -->
 <interceptors>
