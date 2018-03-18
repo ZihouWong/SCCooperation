@@ -71,5 +71,22 @@ public class UserDaoImpl<T> extends BaseDaoImpl<T> implements IUserDao<T> {
 		
 		return pp;
 	}
+	
+		@Override
+	public boolean passwordCheck(String password) {
+		// TODO Auto-generated method stub
+		List<T> rp = find("from People where password =?0", password);
+		if (!rp.isEmpty()) {
+			return true;
+		} else {
+			return false;
+		}
+		}
+		
+			@Override
+	public void updateUser(T entity) {
+		// TODO Auto-generated method stub
+		update(entity);
+	}
 
 }

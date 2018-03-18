@@ -49,5 +49,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="showmorejob.action?pageNo=1&button=2">ShowMoreJob</a>
     <a href="gongxingketangtest.action?pageNo=1">gongxingketangtest12</a>
     <a href="newcourseinfo.action?pageNo=1&jobNo=1&enterpriseNo=1&tagNo=1">newcourseinfo</a>
+<br/>
+    <!-- Blank700登录 -->
+    <a href="login700.action">login700</a>
+    <a href="elogin.action">enterpriselogin</a>
+    <a href="esulogin.action">enterprisesubuserlogin</a>
+    <a href="disaddnotification.action">addnotification</a>
   </body>
 </html>

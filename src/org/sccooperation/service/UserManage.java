@@ -16,7 +16,7 @@ public interface UserManage<T> {
 	 *这里暂时和dao层差不多，类似于代理类，调用dao层的方法实现 
 	 */
 	public List loginCheck(String account,String password);
-	
+	public boolean passwordCheck(String password_old);
 	public void insertUser(T entity);
 	
 	public List<People> selectAllUser(int pageNo);
@@ -24,4 +24,6 @@ public interface UserManage<T> {
 	public List<T> searchByPageNo(String keyword,int pageNo);
 	
 	public List<T> backstageLoginCheck(String account, String password);
+	
+		public void updateUser(T entity);
 }

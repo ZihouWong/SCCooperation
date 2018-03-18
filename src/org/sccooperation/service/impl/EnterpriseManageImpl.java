@@ -5,15 +5,10 @@ import java.util.List;
 import org.sccooperation.dao.IEnterpriseDao;
 import org.sccooperation.dao.INoteDao;
 import org.sccooperation.service.EnterpriseManage;
+import org.sccooperation.domain.Enterprise;
 
 public class EnterpriseManageImpl<T> implements EnterpriseManage<T>{
 	private IEnterpriseDao enterpriseDao;
-
-	@Override
-	public List<T> findByPageNo(int pageNo) {
-		// TODO Auto-generated method stub
-		return enterpriseDao.findByPageNo(pageNo);
-	}
 
 	public IEnterpriseDao getEnterpriseDao() {
 		return enterpriseDao;
@@ -21,6 +16,12 @@ public class EnterpriseManageImpl<T> implements EnterpriseManage<T>{
 
 	public void setEnterpriseDao(IEnterpriseDao enterpriseDao) {
 		this.enterpriseDao = enterpriseDao;
+	}
+	
+		@Override
+	public List<T> findByPageNo(int pageNo) {
+		// TODO Auto-generated method stub
+		return enterpriseDao.findByPageNo(pageNo);
 	}
 
 	public List<T> searchByPageNo(String keyword, int pageNo) {
@@ -50,6 +51,34 @@ public class EnterpriseManageImpl<T> implements EnterpriseManage<T>{
 	public List findPartner(int pageNo) {
 		// Ö÷Ò³-ºÏ×÷»ï°é
 		return enterpriseDao.findPartner(pageNo);
+	}
+	
+	@Override
+	public List loginCheck(String account, String password) {
+		System.out.println("start logincheck");
+		return enterpriseDao.loginCheck(account, password);
+	}
+	
+	@Override
+	public boolean passwordCheck(String password_old) {
+		return enterpriseDao.passwordCheck(password_old);
+	}
+	
+	@Override
+	public void insertEnterprise(T entity) {
+		// TODO Auto-generated method stub
+		enterpriseDao.insertEnterprise(entity);
+	}
+	
+	@Override
+	public void updateEnterprise(T entity) {
+		// TODO Auto-generated method stub
+		enterpriseDao.updateEnterprise(entity);
+	}
+	
+	@Override
+	public List findEnterprise(int id) {
+		return enterpriseDao.findEnterprise(id);
 	}
 
 

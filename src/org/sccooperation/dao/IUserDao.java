@@ -26,6 +26,15 @@ public interface IUserDao<T>{
 	public List loginCheck(String account,String password);
 	
 	/**
+	 * 根据网页传过来的密码检查是否与用户密码一致
+	 * 
+	 * @param password String，用户的密码
+	 * @return boolean
+	 * @exception 暂时没做
+	 */
+	public boolean passwordCheck(String password);
+	
+	/**
 	 * 根据网页传过来的数据信息插入到相关数据库
 	 * 
 	 * @param entity 泛型类，包含要注册的用户或者公司的信息
@@ -64,5 +73,14 @@ public interface IUserDao<T>{
       *  @return 登录结果
       * */
      public List<T> backstageLoginCheck(String account,String password);
+	 
+	 	/**
+	 * 根据网页传过来的数据信息更新相关数据库
+	 * 
+	 * @param entity 泛型类，包含要注册的用户或者公司的信息
+	 * @return void
+	 * @exception 暂时没做
+	 */
+	public void updateUser(T entity);
 
 }

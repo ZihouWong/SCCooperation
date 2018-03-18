@@ -41,11 +41,7 @@ public class Post {
 	
 	private String pictureurl;
 	
-	@ManyToOne(targetEntity=Enterprisesubuser.class)
-	@JoinColumn(name="manager_id",referencedColumnName="id")
-	private Enterprisesubuser manager_id;
-
-
+	
 	@ManyToOne(targetEntity=Enterprise.class)
 	@JoinColumn(name="enterprise_id",referencedColumnName="id")
 	private Enterprise enterprise_id;
@@ -62,6 +58,11 @@ public class Post {
 	private Integer seenum;
 	
 	private String projectname;
+	
+	
+	@ManyToOne(targetEntity=Enterprisesubuser.class)
+	@JoinColumn(name="manager_id",referencedColumnName="id")
+	private Enterprisesubuser manager_id;
 
 	public int getId() {
 		return id;
@@ -198,8 +199,7 @@ public class Post {
 	public void setProjectname(String projectname) {
 		this.projectname = projectname;
 	}
-	
-	
+
 	public Enterprisesubuser getManager_id() {
 		return manager_id;
 	}
@@ -207,9 +207,4 @@ public class Post {
 	public void setManager_id(Enterprisesubuser manager_id) {
 		this.manager_id = manager_id;
 	}
-
-	
-	
-	
-
 }
