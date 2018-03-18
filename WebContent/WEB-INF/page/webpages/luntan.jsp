@@ -221,15 +221,29 @@ background: url("./img/hot-class4.jpg");
 	<div id="head-link" class="login">
 		<div class="container">
 			<div class="col-xs-12">
+			<%
+			List listU = (List)request.getSession().getAttribute("user");
+			if(request.getSession().getAttribute("user")==null) {%>
 			    <div class="login-in">
-					<form id="login-form" action="" method="post">
-						<p class="main-font">学生代码:</p><input type="text" name="id">
+					<form id="login-form" action="login.action?pageNo=1" method="post">
+						<p class="main-font">学生代码:</p><input type="text" name="account">
 						<p class="main-font">密码:</p><input type="password" name="password">
 						<p class="main-font">验证码:</p><input id="input-code" type="text" name="code">
 						<img src="" alt="" class="code-img">
 						<input id="login-btn" type="submit" value="登陆">
+						<a href="register-goto.html" id="login-btn-a" class="float">注册</a>
+
 					</form>
 				</div>
+				<%}else{ 
+					
+					People people =(People) listU.get(0);
+					%>
+				}
+				<div class="login-in">
+				欢迎<%=people.getPnumber() %>
+				</div>
+				<%} %>
 			    <div class="login-tel">
 			    	<i class="fa fa-phone fa-lg"></i>
 			    	<p class="main-font">咨询电话：010-82319999转2846</p>
@@ -298,9 +312,9 @@ background: url("./img/hot-class4.jpg");
 				 	   float pageS = (float)noteSum/23;
 				 	   int pageSum ;
 				 	   if(pageS>(int)pageS)
-				 	   	pageSum = (int)pageS+1;
+				 	   pageSum = (int)pageS+1;
 				 	   else
-				 	   	pageSum =(int) pageS;
+				 	   pageSum =(int) pageS;
 				 	int listSize = list.size();
 				 	for(int i =0;i<23;i++)
 				 	{

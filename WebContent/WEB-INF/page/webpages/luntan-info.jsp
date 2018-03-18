@@ -333,84 +333,8 @@
 					<div class="apply-item-right">
 						<p class="font-intro"><%=note.getContent() %></p>
 						<p class="apply-body-remark font-intro float"><%=note.getTime() %>
-							<a class="apply-btn-input apply-floot-btn btn" href="#" style="color:blue">收起回复</a>
-							<div class="apply-message ">
-								<div class="apply-menu">
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-								</div>
-								<!-- apply-menu ending -->
-								<!--  ..............................................................-->
-
-								
-								
-				
-								<!-- ..................................................... -->
-<p class="apply-tab text-left float"> 
-									   <a class="lock" href="#">1</a> 
-                                       <a href="#">2</a>
-                                       <a href="#">3</a>
-                                       <a href="#">4</a>
-                                       <a href="#">5</a>
-                                       <a href="#">6</a>
-                                       <a href="#">7</a>
-                                       <a href="#">8</a>
-                                       <a href="#">9</a>
-                                       <a href="#">10</a>
-                                       <a href="#">下一页</a>
-                                       <a href="#">尾页</a>
-									</p>
-									<a class="btn apply-btn-publish float-right apply-menu-btn" href="#" style="margin-right:25px;margin-top:10px;">我也说一句</a>
-								<form class="hidden apply-form" action="" method="post" name="apply-floor" style="padding-left:25px;">
-									<textarea name="" id="" cols="131" rows="5">
-										fvfvrtbrt
-									</textarea>
-									<input type="submit" class="apply-btn-publish" value="发表" name="topic-form">
-								</form>
-							</div>
+							
+							
 						</p>
 					</div>
 				</div>
@@ -430,85 +354,8 @@
 					<div class="apply-item-right">
 						<p class="font-intro"><%=replyNote.getContent() %></p>
 						<p class="apply-body-remark font-intro float"><%=replyNote.getTime() %>
-							<a class="apply-btn-input apply-floot-btn btn" href="#" style="color:blue">收起回复</a>
-							<div class="apply-message ">
-								<div class="apply-menu">
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-								</div>
-								<!-- apply-menu ending -->
-								<!--  ..............................................................-->
-
-								
-								
-				
-								<!-- ..................................................... -->
-<p class="apply-tab text-left float"> 
-									   <a class="lock" href="#">1</a> 
-                                       <a href="#">2</a>
-                                       <a href="#">3</a>
-                                       <a href="#">4</a>
-                                       <a href="#">5</a>
-                                       <a href="#">6</a>
-                                       <a href="#">7</a>
-                                       <a href="#">8</a>
-                                       <a href="#">9</a>
-                                       <a href="#">10</a>
-                                       <a href="#">下一页</a>
-                                       <a href="#">尾页</a>
-									</p>
-									<a class="btn apply-btn-publish float-right apply-menu-btn" href="#" style="margin-right:25px;margin-top:10px;">我也说一句</a>
-								<form class="hidden apply-form" action="" method="post" name="apply-floor" style="padding-left:25px;">
-									<textarea name="" id="" cols="131" rows="5">
-										fvfvrtbrt
-									</textarea>
-									<input type="submit" class="apply-btn-publish" value="发表" name="topic-form">
-								</form>
-							</div>
-						</p>
+							
+					
 					</div>
 				</div>
 				<%} }%> 

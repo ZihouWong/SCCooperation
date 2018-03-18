@@ -11,10 +11,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="post")
-
-
 /** 
-*hiberateÓ³ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½postï¿½ï¿½Ó³ï¿½ï¿½ï¿½ï¿½
+*hiberateÓ³ÉäÊý¾Ý¿âpostµÄÓ³ÉäÀà
 * @author WLNSSS 
 * @Time 2017-9-27 
 */  
@@ -42,6 +40,18 @@ public class Post {
 	private String allure;
 	
 	private String pictureurl;
+	
+	@ManyToOne(targetEntity=Enterprisesubuser.class)
+	@JoinColumn(name="manager_id",referencedColumnName="id")
+	private Enterprisesubuser manager_id;
+
+
+	@ManyToOne(targetEntity=Enterprise.class)
+	@JoinColumn(name="enterprise_id",referencedColumnName="id")
+	private Enterprise enterprise_id;
+	
+	private String people_id;
+	
 
 	private String state;
 	
@@ -51,16 +61,7 @@ public class Post {
 	
 	private Integer seenum;
 	
-	@ManyToOne(targetEntity=Enterprisesubuser.class)
-	@JoinColumn(name="manager_id",referencedColumnName="id")
-	private Enterprisesubuser manager_id;
-	
-	@ManyToOne(targetEntity=Enterprise.class)
-	@JoinColumn(name="enterprise_id",referencedColumnName="id")
-	private Enterprise enterprise_id;
-	
-	
-	private String people_id;
+	private String projectname;
 
 	public int getId() {
 		return id;
@@ -142,6 +143,22 @@ public class Post {
 		this.pictureurl = pictureurl;
 	}
 
+	public Enterprise getEnterprise_id() {
+		return enterprise_id;
+	}
+
+	public void setEnterprise_id(Enterprise enterprise_id) {
+		this.enterprise_id = enterprise_id;
+	}
+
+	public String getPeople_id() {
+		return people_id;
+	}
+
+	public void setPeople_id(String people_id) {
+		this.people_id = people_id;
+	}
+
 	public String getState() {
 		return state;
 	}
@@ -174,21 +191,14 @@ public class Post {
 		this.seenum = seenum;
 	}
 
-	public Enterprise getEnterprise_id() {
-		return enterprise_id;
+	public String getProjectname() {
+		return projectname;
 	}
 
-	public void setEnterprise_id(Enterprise enterprise_id) {
-		this.enterprise_id = enterprise_id;
+	public void setProjectname(String projectname) {
+		this.projectname = projectname;
 	}
-
-	public String getPeople_id() {
-		return people_id;
-	}
-
-	public void setPeople_id(String people_id) {
-		this.people_id = people_id;
-	}
+	
 	
 	public Enterprisesubuser getManager_id() {
 		return manager_id;

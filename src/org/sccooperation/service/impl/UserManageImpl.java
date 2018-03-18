@@ -3,33 +3,60 @@ package org.sccooperation.service.impl;
 import java.util.List;
 
 import org.sccooperation.dao.IUserDao;
+import org.sccooperation.domain.People;
 import org.sccooperation.service.UserManage;
+
 /**
- * Project:SCCooperation Comments:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½Êµï¿½ï¿½ï¿½ï¿½
- *  JDK version used:JDK1.8 
- *  Authorï¿½ï¿½WLNSSS Create Dateï¿½ï¿½2017-9-27 Modified Byï¿½ï¿½ <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ï¿½Ð´>
- * Modified Date: <ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½Ê½:YYYY-MM-DD> Why & What is modified <ï¿½Þ¸ï¿½Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>
- * Version:1.0
+ * Project:SCCooperation Comments:´ËÀàÊÇÓÃ»§·þÎñ²ã½Ó¿ÚÊµÏÖÀà JDK version used:JDK1.8
+ * Author£ºWLNSSS Create Date£º2017-9-27 Modified By£º <ÐÞ¸ÄÈËÖÐÎÄÃû»òÆ´ÒôËõÐ´> Modified Date:
+ * <ÐÞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD> Why & What is modified <ÐÞ¸ÄÔ­ÒòÃèÊö> Version:1.0
  */
 public class UserManageImpl<T> implements UserManage<T> {
-	/**ï¿½Ã±ï¿½ï¿½ï¿½ï¿½ï¿½spring×°ï¿½ä£¬*/
-    private IUserDao userDao;
+	/** ¸Ã±äÁ¿ÓÉspring×°Åä£¬ */
+	private IUserDao userDao;
+
 	public List loginCheck(String account, String password) {
-		
-		
-			System.out.println("kong");
-			return userDao.loginCheck(account, password);
+
+		System.out.println("kong");
+		return userDao.loginCheck(account, password);
 
 	}
+
 	public IUserDao getUserDao() {
 		return userDao;
 	}
+
 	public void setUserDao(IUserDao userDao) {
 		this.userDao = userDao;
 	}
+
+	@SuppressWarnings("unchecked")
 	@Override
 	public void insertUser(T entity) {
 		// TODO Auto-generated method stub
 		userDao.insertUser(entity);
-		}
 	}
+	
+	
+	/******************************************************WLNSSS**********************************/
+
+	@Override
+	public List<People> selectAllUser(int pageNo) {
+		// TODO Auto-generated method stub
+		return userDao.selectAllUser(pageNo);
+
+	}
+	
+	public List<T> searchByPageNo(String keyword,int pageNo) {
+		// TODO Auto-generated method stub
+		return userDao.searchByPageNo(keyword,pageNo);
+	}
+
+	@Override
+	public List<T> backstageLoginCheck(String account, String password) {
+		// TODO Auto-generated method stub
+		return userDao.backstageLoginCheck(account, password);
+	}
+	
+	
+}

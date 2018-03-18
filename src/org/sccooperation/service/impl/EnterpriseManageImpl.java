@@ -3,12 +3,18 @@ package org.sccooperation.service.impl;
 import java.util.List;
 
 import org.sccooperation.dao.IEnterpriseDao;
+import org.sccooperation.dao.INoteDao;
 import org.sccooperation.service.EnterpriseManage;
 
-public class EnterpriseManageImpl implements EnterpriseManage{
+public class EnterpriseManageImpl<T> implements EnterpriseManage<T>{
 	private IEnterpriseDao enterpriseDao;
 
-	
+	@Override
+	public List<T> findByPageNo(int pageNo) {
+		// TODO Auto-generated method stub
+		return enterpriseDao.findByPageNo(pageNo);
+	}
+
 	public IEnterpriseDao getEnterpriseDao() {
 		return enterpriseDao;
 	}
@@ -17,28 +23,34 @@ public class EnterpriseManageImpl implements EnterpriseManage{
 		this.enterpriseDao = enterpriseDao;
 	}
 
- /* é»„æ™ºè±ª */
+	public List<T> searchByPageNo(String keyword, int pageNo) {
+		// TODO Auto-generated method stub
+		return enterpriseDao.searchByPageNo(keyword, pageNo);
+	}
+	
+	/* »ÆÖÇºÀ */
 	
 		
-	// åˆ›å…´è°·ï¼š
+	// ´´ĞË¹È£º
 	@Override
 	public List findEnterpriseByPageNo(int pageNo) {
-		// ä¸»é¡µ-æ˜¾ç¤ºæ‰€æœ‰å…¬å¸
+		// Ö÷Ò³-ÏÔÊ¾ËùÓĞ¹«Ë¾
 		return enterpriseDao.findEnterpriseByPageNo(pageNo);
 	}
 	
 	@Override
 	public List showETagName(int enterpriseNo) {
-		// å·¥ä½œè¯¦ç»†é¡µé¢-æ‰€å±çš„æ ‡ç­¾åå­—
+		// ¹¤×÷ÏêÏ¸Ò³Ãæ-ËùÊôµÄ±êÇ©Ãû×Ö
 		return enterpriseDao.findEnterpriseTName(enterpriseNo);
 	}
 
-	// èº¬è¡Œè¯¾å ‚ï¼š
+	// ¹ªĞĞ¿ÎÌÃ£º
 	
 	@Override
 	public List findPartner(int pageNo) {
-		// ä¸»é¡µ-åˆä½œä¼™ä¼´
+		// Ö÷Ò³-ºÏ×÷»ï°é
 		return enterpriseDao.findPartner(pageNo);
 	}
+
 
 }

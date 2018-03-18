@@ -4,10 +4,26 @@ import java.util.List;
 
 import org.sccooperation.dao.IEnterpriseDao;
 
-public class EnterpriseDaoImpl extends BaseDaoImpl implements IEnterpriseDao {
-	
-	// 创兴谷：
+public class EnterpriseDaoImpl<T> extends BaseDaoImpl<T> implements IEnterpriseDao<T> {
+
+	/*
+	 * ¸ù¾ÝÒ³Êý»ñÈ¡Êý¾Ý
+	 * @param int pageNo Ò³Êý
+	 * @return List ·µ»Ø²éÑ¯µ½µÄ½á¹û¼¯
+	 * */
 	@Override
+	public List<T> findByPageNo(int pageNo) {
+		// TODO Auto-generated method stub
+		return findBypage("from Enterprise", pageNo, 10,10);
+	}
+
+	@Override
+	public List<T> searchByPageNo(String keyword, int pageNo) {
+		// TODO Auto-generated method stub
+		return findByPage("from Enterprise as e where e.ename like ?0 or e.place like ?1 or e.property like ?2 or e.vocation like ?3 or e.account like ?4 or e.contact like ?5 order by id desc", pageNo, 10,10, "%"+keyword+"%","%"+keyword+"%","%"+keyword+"%","%"+keyword+"%","%"+keyword+"%","%"+keyword+"%");
+	}
+	
+		@Override
 	public List findEnterpriseByPageNo(int pageNo) {
 		// 主页-显示企业
 		return findBypage("from Enterprise", pageNo, 16, 16);

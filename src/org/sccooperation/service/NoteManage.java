@@ -29,5 +29,11 @@ public interface NoteManage<T> {
 	public void saveAlter(T entity);
 	
 	public List seeManyNotePeople();
+	
+	public List<T> searchByPageNo(String keyword,int pageNo);
+	
+	public List<T> backstageFindAllReplyNote(int pageNo);
+	
+
 
 }

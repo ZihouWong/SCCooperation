@@ -1,14 +1,17 @@
- package org.sccooperation.service.impl;
+package org.sccooperation.service.impl;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import org.sccooperation.dao.INoteDao;
+import org.sccooperation.domain.Note;
 import org.sccooperation.service.NoteManage;
 
+import com.opensymphony.xwork2.ActionContext;
+
 public class NoteManageImpl<T> implements NoteManage<T> {
-	private INoteDao noteDao;
-	
+    private INoteDao noteDao;
 	public INoteDao getNoteDao() {
 		return noteDao;
 	}
@@ -18,11 +21,9 @@ public class NoteManageImpl<T> implements NoteManage<T> {
 		// TODO Auto-generated method stub
 		return noteDao.findAllNote(pageNo);
 	}
-
 	public void setNoteDao(INoteDao noteDao) {
 		this.noteDao = noteDao;
 	}
-
 	@Override
 	public void addNote(T entity) {
 		// TODO Auto-generated method stub
@@ -55,7 +56,7 @@ public class NoteManageImpl<T> implements NoteManage<T> {
 
 	public void saveAlter(T entity) {
 		// TODO Auto-generated method stub
-		noteDao.saveAlter(entity);
+		 noteDao.saveAlter(entity);
 	}
 
 	@Override
@@ -64,9 +65,22 @@ public class NoteManageImpl<T> implements NoteManage<T> {
 		return noteDao.seeManyNotePeople();
 	}
 
+	@Override
+	public List<T> searchByPageNo(String keyword,int pageNo) {
+		// TODO Auto-generated method stub
+		return noteDao.searchByPageNo(keyword,pageNo);
+	}
 
+	@Override
+	public List<T> backstageFindAllReplyNote(int pageNo) {
+		// TODO Auto-generated method stub
+		return noteDao.backstageFindAllReplyNote(pageNo);
+	}
 
+	
+	
 
+	
 
 
 

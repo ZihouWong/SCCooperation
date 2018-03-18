@@ -2,17 +2,26 @@ package org.sccooperation.service;
 
 import java.util.List;
 
+import org.sccooperation.domain.People;
+
 /**
- * Project:SCCooperation Comments:´ËÀàÊÇÓÃ»§·şÎñ²ã½Ó¿Ú
+ * Project:SCCooperation Comments:æ­¤ç±»æ˜¯ç”¨æˆ·æœåŠ¡å±‚æ¥å£
  *  JDK version used:JDK1.8 
- *  Author£ºWLNSSS Create Date£º2017-9-27 Modified By£º <ĞŞ¸ÄÈËÖĞÎÄÃû»òÆ´ÒôËõĞ´>
- * Modified Date: <ĞŞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD> Why & What is modified <ĞŞ¸ÄÔ­ÒòÃèÊö>
+ *  Authorï¼šWLNSSS Create Dateï¼š2017-9-27 Modified Byï¼š <ä¿®æ”¹äººä¸­æ–‡åæˆ–æ‹¼éŸ³ç¼©å†™>
+ * Modified Date: <ä¿®æ”¹æ—¥æœŸï¼Œæ ¼å¼:YYYY-MM-DD> Why & What is modified <ä¿®æ”¹åŸå› æè¿°>
  * Version:1.0
  */
 public interface UserManage<T> {
 	/*
-	 *ÕâÀïÔİÊ±ºÍdao²ã²î²»¶à£¬ÀàËÆÓÚ´úÀíÀà£¬µ÷ÓÃdao²ãµÄ·½·¨ÊµÏÖ 
+	 *è¿™é‡Œæš‚æ—¶å’Œdaoå±‚å·®ä¸å¤šï¼Œç±»ä¼¼äºä»£ç†ç±»ï¼Œè°ƒç”¨daoå±‚çš„æ–¹æ³•å®ç° 
 	 */
 	public List loginCheck(String account,String password);
+	
 	public void insertUser(T entity);
+	
+	public List<People> selectAllUser(int pageNo);
+	
+	public List<T> searchByPageNo(String keyword,int pageNo);
+	
+	public List<T> backstageLoginCheck(String account, String password);
 }

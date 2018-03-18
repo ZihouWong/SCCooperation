@@ -30,11 +30,46 @@ public class UserDaoImpl<T> extends BaseDaoImpl<T> implements IUserDao<T> {
 		}
 		return pp;
 	}
+	
+	
+	
+	
+	/*******************WLNSSS*******************************************************************/
+	
+	  /*
+	   * 父接口有说明此处不赘述
+	  */  
 
 	@Override
 	public void insertUser(T entity) {
 		// TODO Auto-generated method stub
 		save(entity);
+	}
+	
+	  /*
+	   * 父接口有说明此处不赘述
+	  */  
+
+	public List<T> selectAllUser(int pageNo) {
+		// TODO Auto-generated method stub
+		return   findBypage("from People", pageNo, 12,12);
+	}
+	
+	public List<T> searchByPageNo(String keyword,int pageNo) {
+		// TODO Auto-generated method stub
+		System.out.println(keyword);
+		return findByPage("from People as n where n.name like ?0 or n.idnumber like ?1 or n.pnumber like ?2 or n.sex like ?3 or n.age like ?4 or n.account like ?5 or n.username like 6 order by time desc", pageNo, 10,10, "%"+keyword+"%","%"+keyword+"%","%"+keyword+"%","%"+keyword+"%","%"+keyword+"%","%"+keyword+"%","%"+keyword+"%");
+	}
+
+
+
+
+	@Override
+	public List<T> backstageLoginCheck(String account, String password) {
+		// TODO Auto-generated method stub
+		List<T> pp=find("from BackstageUser where account =?0 and password = ?1", account,password);
+		
+		return pp;
 	}
 
 }
