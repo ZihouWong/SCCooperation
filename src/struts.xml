@@ -440,6 +440,12 @@
 
 
 <!-- 通知结束 -->
+
+<!-- new wlnss_dev 2018.3.24-->
+<action name="clientLoginView">
+<result name="success">/WEB-INF/page/webpages/login.html</result>
+</action>
+
 </package>
 
 </struts>    
