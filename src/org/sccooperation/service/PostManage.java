@@ -20,4 +20,6 @@ public interface PostManage {
 
 	public List showOtherJob(int tagNo);
 
+	public List SearchCourse(String content, int pageNo);
+
 }

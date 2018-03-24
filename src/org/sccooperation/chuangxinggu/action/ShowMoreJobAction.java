@@ -12,8 +12,8 @@ public class ShowMoreJobAction {
 	// 信息：
 	private Map request;
 	private String pageNo;
-	private String content;
-	private String button;
+	private String content;	// 搜索内容
+	private String button;    
 	
 	private PostManage postManage;
 
@@ -75,12 +75,13 @@ public class ShowMoreJobAction {
 		// 显示 
 		request.put("button", button);
 		request.put("pageNo", pageNo);
+		request.put("content", content);
 		
-		//搜索模块 ---- 未完成
+		// 搜索模块
 		if(content != null) {
-			System.out.println("开始搜索"+ content);
+			// 搜索页面-获得工作总数
+			request.put("JobList", postManage.SearchCourse(content, Integer.parseInt(pageNo)));
 		}
-		
 		return "success";
 	}
 }

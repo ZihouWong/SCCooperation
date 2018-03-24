@@ -529,44 +529,50 @@ to {
 			<p class="font-title float">创行谷课程</p>
 
 			<div id="search-input">
-				<form action="showmorejob.action?pageNo=1">
+
+
+				<!-- <form class="form-inline" role="form" method="post"
+					action="showmorejob.action?pageNo=1">
+					<input type="text" class="form-control" name="content" placeholder="请输入课程名" /> 
+					<input type="hidden" class="form-control"/>
+					<button type="submit" class="btn btn-primary">搜索</button>
+				</form> -->
 				
-				<!-- mark5 -->
-				<input id="input-text" name="content" value="a"/>
-				<div class="span-button">
-				<button type="submit" value=" ">搜索</button>
-				</div>
 				
-				
+				<form action="showmorejob.action" method="post">
+				<input type="hidden" name="pageNo" value="1"/>
+				<input type="hidden" name="button" value="<%=Integer.parseInt(request.getAttribute("button") + "") %>"/>
+  					<input type="text" name="content"/>
+  					<input type="submit" value="Submit" />
+				</form>
+
+
 				<div class="span-img">
 					<a href="#"><div class="span-img-circle">4</div></a>
 				</div>
 				<div class="menu2-drop">
 					<ul class="menu2-drop-ul">
 						<%
-							List HotJob = (List) request.getAttribute("HotJobList");
-
+							
 							if (request.getAttribute("HotJobList") != null) {
+								List HotJob = (List) request.getAttribute("HotJobList");
 								int HlistSize = HotJob.size();
 
 								for (int i = 0; i < 4; i++) {
 									if (HlistSize > i) {
 										Post post = (Post) HotJob.get(i);
 						%>
-
 						<li><a href="#">
-								<div class="menu2-drop-circle menu2-drop-top3"><%=i%></div>
-								<% String demand = post.getDemand();
+								<div class="menu2-drop-circle menu2-drop-top3"><%=i%></div> <% String demand = post.getDemand();
 								demand = demand.replace('|', ' ');
 								if(demand.length() > 30)
 									demand = demand.substring(0, 30);%>
 								<p><%=demand%><sub>新！</sub><sub><%=post.getSeenum()%>万次学习</sub>
 								</p>
 						</a></li>
-
 						<%
 							} else {
-						%>	
+						%>
 						<li><a href="#">
 								<div class="menu2-drop-circle menu2-drop-top3">2</div>
 								<p>
@@ -578,12 +584,9 @@ to {
 								}
 							}
 						%>
-
 					</ul>
 				</div>
-				</form>
 			</div>
-
 		</div>
 		<!-- 首部 结束-->
 		<!-- 导航栏 -->
@@ -691,14 +694,16 @@ to {
 						if (JobListSizeA > i) {
 							Post post = (Post) AllJob.get(i);
 			%>
-			<a href="showjobinfo.action?pageNo=1&jobNo=<%=post.getId()%>&enterpriseNo=<%=post.getEnterprise_id().getId()%>&tagNo=<%=post.getTagno() %>" class="item">
+			<a
+				href="showjobinfo.action?pageNo=1&jobNo=<%=post.getId()%>&enterpriseNo=<%=post.getEnterprise_id().getId()%>&tagNo=<%=post.getTagno() %>"
+				class="item">
 				<div class="item-caption">
 					<img src="<%=post.getPictureurl()%>" alt="">
 				</div>
 				<div class="item-body">
 					<p class="font-title2">
-					
-					<% String demand = post.getDemand();
+
+						<% String demand = post.getDemand();
 								demand = demand.replace('|', ' ');
 								if(demand.length() > 30)
 								 	demand = demand.substring(0, 30);
@@ -751,6 +756,8 @@ to {
 						int lastbutton = Integer.parseInt((String) (request.getAttribute("button")));
 
 						int pageNo = Integer.parseInt((String) (request.getAttribute("pageNo")));
+						
+						String lastcontent = (String)request.getAttribute("content");
 					%>
 					<%
 						if (pageNo == 1) {
@@ -764,7 +771,7 @@ to {
 						<%
 							}
 						%> <a
-						href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>"
+						href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=<%=lastcontent%>"
 						aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
 					</li>
 
@@ -781,7 +788,7 @@ to {
 						<%
 							}
 						%> <a
-						href="showmorejob.action?pageNo=<%=i%>&button=<%=lastbutton%>"><%=i%><span
+						href="showmorejob.action?pageNo=<%=i%>&button=<%=lastbutton%>&content=<%=lastcontent%>"><%=i%><span
 							class="sr-only">(current)</span> </a>
 					</li>
 					<%

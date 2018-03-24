@@ -58,5 +58,11 @@ public class PostManageImpl implements PostManage{
 		// 搜索页面-热点工作列表
 		return postDao.showHotJob(pageNo, button);
 	}
+
+	@Override
+	public List SearchCourse(String content, int pageNo) {
+		// TODO Auto-generated method stub
+		return postDao.SearchCourse(content, pageNo);
+	}
 	
 }
