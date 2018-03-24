@@ -26,7 +26,7 @@
 
 	<p>
 		当前负责人:<%=enterprisesubuser.getNickname()%></p>
-		
+
 	<br>
 	<br>
 	<br>
@@ -42,132 +42,12 @@
 	<div class="panel-group" id="accordion">
 		<%
 			if (!listEsupost.isEmpty()) {
+				List esupost_tag = (List) request.getAttribute("esupost_tag");//接收出各个项目的tag信息
 
-				List esupost_tag = (List) request.getAttribute("esupost_tag");
-		%>
-
-
-		<%-- <div class="panel panel-default">
-			<div class="panel-heading">
-				<h4 class="panel-title">
-					<a data-toggle="collapse" data-parent="#accordion"
-						href="#collapse0"> 点击我进行展开，再次点击我进行折叠。第 1 部分 </a>
-				</h4>
-			</div>
-			<div id="collapse0" class="panel-collapse collapse">
-				<div class="panel-body">
-					<p class="main-font">
-						项目名称:<%=epost.getProjectname()%></p>
-					<p class="main-font">
-						简介:<%=epost.getSummary()%></p>
-					<p class="main-font">
-						工作地点:<%=epost.getPlace()%></p>
-					<p class="main-font">
-						工作时间:<%=epost.getPtime()%></p>
-					<p class="main-font">
-						要求:<%=epost.getDemand()%></p>
-					<p class="main-font">
-						薪资待遇:<%=epost.getRemuneration()%></p>
-					<p class="main-font">
-						报名截止时间:<%=epost.getStime()%></p>
-					<p class="main-font">
-						职位诱惑:<%=epost.getAllure()%></p>
-					<p class="main-font">
-						联系方式:<%=epost.getContact()%></p>
-					<p class="main-font">
-						项目类型:<%=ptag.getTagname()%></p>
-					<p class="main-font">
-						项目负责人:<%=pesu.getNickname()%></p>
-
-					<!-- 按钮触发模态框 -->
-					<button class="btn btn-primary btn-lg" data-toggle="modal"
-						data-target="#project1_Modal">编辑</button>
-					<form id="modifypost1-form" action="eupdateproject.action?pageNo=1"
-						method="post" enctype="multipart/form-data">
-						<!-- 模态框（Modal） -->
-						<div class="modal fade" id="project1_Modal" tabindex="-1"
-							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal"
-											aria-hidden="true">&times;</button>
-										<h4 class="modal-title" id="myModalLabel">编辑项目</h4>
-									</div>
-									<div class="modal-body">
-										<input type="hidden" value="<%=epost.getId()%>" name="post_id">
-										<p class="main-font">项目名称:</p>
-										<input type="text" value="<%=epost.getProjectname()%>"
-											name="projectname">
-										<p class="main-font">简介:</p>
-										<input type="text" value="<%=epost.getSummary()%>"
-											name="summary">
-										<p class="main-font">工作地点:</p>
-										<input type="text" value="<%=epost.getPlace()%>" name="place">
-										<p class="main-font">工作时间:</p>
-										<input type="text" value="<%=epost.getPtime()%>" name="ptime">
-										<p class="main-font">要求:</p>
-										<input type="text" value="<%=epost.getDemand()%>"
-											name="demand">
-										<p class="main-font">薪资待遇:</p>
-										<input type="text" value="<%=epost.getRemuneration()%>"
-											name="remuneration">
-										<p class="main-font">报名截止时间:</p>
-										<input type="text" value="<%=epost.getStime()%>" name="stime">
-										<p class="main-font">职位诱惑:</p>
-										<input type="text" value="<%=epost.getAllure()%>"
-											name="allure">
-										<p class="main-font">联系方式:</p>
-										<input type="text" value="<%=epost.getContact()%>"
-											name="contact">
-										<p class="main-font">
-											项目类型:<%=ptag.getTagname()%></p>
-										<select name="tagno" class="form-control">
-											<%
-												for (int i = 0; i < Protag.size(); i++) {
-														Tag tag = (Tag) Protag.get(i);
-											%>
-											<option value="<%=tag.getId()%>"><%=tag.getTagname()%></option>
-											<%
-												}
-											%>
-										</select>
-
-
-										<p class="main-font">
-											项目负责人:<%=epost.getManager_id()%></p>
-										<select name="enterprisesubuser_id" class="form-control">
-											<%
-												for (int i = 0; i < Esu.size(); i++) {
-														enterprisesubuser = (Enterprisesubuser) Esu.get(i);
-											%>
-											<option value="<%=enterprisesubuser.getId()%>"><%=enterprisesubuser.getNickname()%></option>
-											<%
-												}
-											%>
-										</select>
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default"
-											data-dismiss="modal">取消</button>
-										<input class="btn btn-primary" id="modify-btn" type="submit"
-											value="提交">
-									</div>
-								</div>
-								<!-- /.modal-content -->
-							</div>
-							<!-- /.modal -->
-						</div>
-					</form>
-
-				</div>
-			</div>
-		</div> --%>
-		<%
-			for (int i = 0; i < listEsupost.size(); i++) {
+				for (int i = 0; i < listEsupost.size(); i++) {
 					Post esupost = (Post) listEsupost.get(i);
-					//获取出各个项目的tag信息
-					Tag ptag = (Tag) esupost_tag.get(i);
+					
+					Tag ptag = (Tag) esupost_tag.get(i);//获取出各个项目的tag信息
 		%>
 
 		<div class="panel panel-default">
@@ -180,7 +60,8 @@
 			</div>
 			<div id="collapse<%=i + 1%>" class="panel-collapse collapse">
 				<div class="panel-body">
-					<p class="main-font"> 项目名称:<%=esupost.getProjectname()%></p>
+					<p class="main-font">
+						项目名称:<%=esupost.getProjectname()%></p>
 					<p class="main-font">
 						简介:<%=esupost.getSummary()%></p>
 					<p class="main-font">
@@ -205,8 +86,9 @@
 					<!-- 按钮触发模态框 -->
 					<button class="btn btn-primary btn-lg" data-toggle="modal"
 						data-target="#project<%=i + 1%>_Modal">编辑</button>
-					<form id="modifypost<%=i + 1%>-form" action="esuupdateproject.action"
-						method="post" enctype="multipart/form-data">
+					<form id="modifypost<%=i + 1%>-form"
+						action="esuupdateproject.action" method="post"
+						enctype="multipart/form-data">
 						<!-- 模态框（Modal） -->
 						<div class="modal fade" id="project<%=i + 1%>_Modal" tabindex="-1"
 							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -219,7 +101,8 @@
 									</div>
 									<div class="modal-body">
 
-										<input type="hidden" value="<%=esupost.getId()%>" name="post_id">
+										<input type="hidden" value="<%=esupost.getId()%>"
+											name="post_id">
 										<p class="main-font">项目名称:</p>
 										<input type="text" value="<%=esupost.getProjectname()%>"
 											name="projectname">
@@ -227,9 +110,11 @@
 										<input type="text" value="<%=esupost.getSummary()%>"
 											name="summary">
 										<p class="main-font">工作地点:</p>
-										<input type="text" value="<%=esupost.getPlace()%>" name="place">
+										<input type="text" value="<%=esupost.getPlace()%>"
+											name="place">
 										<p class="main-font">工作时间:</p>
-										<input type="text" value="<%=esupost.getPtime()%>" name="ptime">
+										<input type="text" value="<%=esupost.getPtime()%>"
+											name="ptime">
 										<p class="main-font">要求:</p>
 										<input type="text" value="<%=esupost.getDemand()%>"
 											name="demand">
@@ -237,7 +122,8 @@
 										<input type="text" value="<%=esupost.getRemuneration()%>"
 											name="remuneration">
 										<p class="main-font">报名截止时间:</p>
-										<input type="text" value="<%=esupost.getStime()%>" name="stime">
+										<input type="text" value="<%=esupost.getStime()%>"
+											name="stime">
 										<p class="main-font">职位诱惑:</p>
 										<input type="text" value="<%=esupost.getAllure()%>"
 											name="allure">

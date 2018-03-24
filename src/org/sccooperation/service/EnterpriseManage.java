@@ -13,9 +13,21 @@ import org.sccooperation.domain.Enterprise;
  */
 public interface EnterpriseManage<T> {
 	/*
-	 *这里暂时和dao层差不多，类似于代理类，调用dao层的方法实现 
-	 */
-	public List loginCheck(String account,String password);
+	 * 根据页数获取数据
+	 * @param int pageNo 页数
+	 * @return List 返回查询到的结果集
+	 * */
+	public List<T> findByPageNo(int pageNo);
+	
+	public List<T> searchByPageNo(String keyword, int pageNo);
+
+	public List findEnterpriseByPageNo(int pageNo);
+
+	public List showETagName(int JobNo);
+
+	public List findPartner(int pageNo);
+	
+		public List loginCheck(String account,String password);
 	public boolean passwordCheck(String password_old);
 	public void insertEnterprise(T entity);
 	public void updateEnterprise(T entity);

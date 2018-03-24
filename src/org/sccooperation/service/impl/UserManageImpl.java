@@ -13,22 +13,51 @@ import org.sccooperation.service.UserManage;
  * Version:1.0
  */
 public class UserManageImpl<T> implements UserManage<T> {
-	/**该变量由spring装配，*/
-    private IUserDao userDao;
+	/** 该变量由spring装配， */
+	private IUserDao userDao;
 	public IUserDao getUserDao() {
 		return userDao;
 	}
+
 	public void setUserDao(IUserDao userDao) {
 		this.userDao = userDao;
 	}
-	
+
 	@Override
 	public List loginCheck(String account, String password) {
 		System.out.println("start logincheck");
 		return userDao.loginCheck(account, password);
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Override
+	public void insertUser(T entity) {
+		// TODO Auto-generated method stub
+		userDao.insertUser(entity);
+	}
+	
+	
+	/******************************************************WLNSSS**********************************/
+
+	@Override
+	public List<People> selectAllUser(int pageNo) {
+		// TODO Auto-generated method stub
+		return userDao.selectAllUser(pageNo);
+
+	}
+	
+	public List<T> searchByPageNo(String keyword,int pageNo) {
+		// TODO Auto-generated method stub
+		return userDao.searchByPageNo(keyword,pageNo);
+	}
+
+	@Override
+	public List<T> backstageLoginCheck(String account, String password) {
+		// TODO Auto-generated method stub
+		return userDao.backstageLoginCheck(account, password);
+	}
+	
+		@Override
 	public boolean passwordCheck(String password_old) {
 		return userDao.passwordCheck(password_old);
 		/*
@@ -44,15 +73,12 @@ public class UserManageImpl<T> implements UserManage<T> {
 		*/
 	}
 	
-	@Override
-	public void insertUser(T entity) {
-		// TODO Auto-generated method stub
-		userDao.insertUser(entity);
-	}
 	
 	@Override
 	public void updateUser(T entity) {
 		// TODO Auto-generated method stub
 		userDao.updateUser(entity);
 	}
+	
+	
 }

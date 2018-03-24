@@ -239,7 +239,7 @@ background: url("./img/hot-class4.jpg");
 					
 					People people =(People) listU.get(0);
 					%>
-				
+				}
 				<div class="login-in">
 				欢迎<%=people.getPnumber() %>
 				</div>
@@ -278,9 +278,9 @@ background: url("./img/hot-class4.jpg");
 				          margin-top: 5px;
 				        }
 			      </style>
-			      <a href="../index.html"><img src="../img/logo.png" alt="" class="logo-img float"></a>
+			      <a href="./index.html"><img src="../img/logo.png" alt="" class="logo-img float"></a>
 			      <span class="border-1 float"></span>
-			      <p class="font-title">创行谷管理</p>
+			      <p class="font-title">知行圈</p>
 			    </div>
 		</div>
 	
@@ -450,7 +450,7 @@ background: url("./img/hot-class4.jpg");
     				<div class="hot-class-item">
 	    				<div class="hot-class-heading">
 	    					<span class="hot-class-border"></span>
-	    					<p class="hot-class-title">明星讲师</p>
+	    					<p class="hot-class-title">明星发帖用户</p>
 	    					<p class="main-font hot-class-refresh mask"><a href="#"></a></p>
 	    					<!-- <i class="fa fa-refresh fa-1x"></i> -->
 	    				</div>
@@ -468,7 +468,7 @@ background: url("./img/hot-class4.jpg");
 							  </div>
 							  <div class="media-body">
 							    <h6 class="media-heading"><%=people.getName() %></h6>
-							    <p class="main-font">汉普老师-自闭症康复教育培训</p>
+							    <p class="main-font">累计发帖数<%=people.getNotesum() %></p>
 							  </div>
 							</div>
 							<%} %>

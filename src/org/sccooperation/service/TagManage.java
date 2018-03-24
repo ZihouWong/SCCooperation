@@ -18,4 +18,8 @@ public interface TagManage<T> {
 	public List findtag(int tagno);
 	
 	public List findalltag();
+	
+		public List showTagName(int JobNo);
+
+	public List getTitleName(int button);
 }

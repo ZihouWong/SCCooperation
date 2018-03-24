@@ -4,16 +4,24 @@ import java.util.List;
 
 import org.sccooperation.domain.Post;
 
-/**
- * Project:SCCooperation Comments:此类是标签服务层接口
- *  JDK version used:JDK1.8 
- *  Author：blank700 Create Date：2017-12-13Modified By： <修改人中文名或拼音缩写>
- * Modified Date:2017-12-13 <修改日期，格式:YYYY-MM-DD> Why & What is modified <修改原因描述>
- * Version:1.0
- */
 public interface PostManage<T> {
-	/*
-	 *这里暂时和dao层差不多，类似于代理类，调用dao层的方法实现
+
+	public List findJobByButton(int pageNo, String button);
+
+	public List findJobByPageNo(int pageNo);
+	
+	public List showMainJob(int pageNo, int button);
+	
+	public List showHotJob(int pageNo, int button);
+
+	public List showJobInfo(int jobId);
+
+	public long getPostNum(Class entityClazz);
+
+	public List showOtherJob(int tagNo);
+	
+		/*
+	 *脮芒脌茂脭脻脢卤潞脥dao虏茫虏卯虏禄露脿拢卢脌脿脣脝脫脷麓煤脌铆脌脿拢卢碌梅脫脙dao虏茫碌脛路陆路篓脢碌脧脰
 	 */
 	public List findpost(int tagno1,int tagno2,int tagno3);
 	public List pidtofindpost(int post_id);
@@ -21,4 +29,5 @@ public interface PostManage<T> {
 	public List esuidtofindpostbypage(int enterprisesubuser_id,int pageNo);
 	public void insertPost(T entity);
 	public void updatePost(T entity);
+
 }

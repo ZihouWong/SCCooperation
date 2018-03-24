@@ -2,6 +2,8 @@ package org.sccooperation.dao;
 
 import java.util.List;
 
+import org.sccooperation.domain.People;
+
 /**
  * Project:SCCooperation Comments:此类是用户操作接口
  *  JDK version used:JDK1.8 
@@ -42,6 +44,37 @@ public interface IUserDao<T>{
 	public void insertUser(T entity);
 	
 	/**
+	 * 分页查找用户信息,一页12条
+	 * 
+	 * @param 
+	 * @return list列表
+	 * @exception 暂时没做
+	 */
+	
+	
+	
+	/******************************************************WLNSSS**********************************/
+	public List<T> selectAllUser(int pageNo);
+	
+	/**
+  	 * 条件搜索帖子
+  	 * 
+  	 * @param 关键词
+  	 * @return 搜索结果
+  	 * @exception 暂时没做
+  	 */
+     public List<T> searchByPageNo(String keyword,int pageNo);
+     
+     /**
+      *  后台用户登录
+      *  
+      *  @param account String 账号
+      *  @param password String 密码
+      *  @return 登录结果
+      * */
+     public List<T> backstageLoginCheck(String account,String password);
+	 
+	 	/**
 	 * 根据网页传过来的数据信息更新相关数据库
 	 * 
 	 * @param entity 泛型类，包含要注册的用户或者公司的信息
@@ -49,7 +82,5 @@ public interface IUserDao<T>{
 	 * @exception 暂时没做
 	 */
 	public void updateUser(T entity);
-	
-	
 
 }

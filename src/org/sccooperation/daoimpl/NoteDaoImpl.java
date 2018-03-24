@@ -68,6 +68,22 @@ public class NoteDaoImpl<T> extends BaseDaoImpl<T> implements INoteDao<T> {
 		// TODO Auto-generated method stub
 		return findByPage("from People order by notesum desc", 0, 4,4);
 	}
+
+
+	@Override
+	public List<T> searchByPageNo(String keyword,int pageNo) {
+		// TODO Auto-generated method stub
+		System.out.println(keyword);
+		return findByPage("from Note as n where n.title like ?0 or n.content like ?1 or n.people_id.name like ?2 order by time desc", pageNo, 10,10, "%"+keyword+"%","%"+keyword+"%","%"+keyword+"%");
+	}
+
+
+	@Override
+	public List<T> backstageFindAllReplyNote(int pageNo) {
+		// TODO Auto-generated method stub
+		return findBypage("from ReplyNote  order by id desc", pageNo, 12, 12);
+	}
+	
 	
 
 

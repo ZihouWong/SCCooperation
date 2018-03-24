@@ -2,69 +2,77 @@ package org.sccooperation.dao;
 
 import java.util.List;
 
-/**
- * Project:SCCooperation Comments:´ËÀàÊÇ±êÇ©²Ù×÷½Ó¿Ú
- *  JDK version used:JDK1.8 
- *  Author£ºblank700 Create Date£º2017-12-13 Modified By£º <ĞŞ¸ÄÈËÖĞÎÄÃû»òÆ´ÒôËõĞ´>
- * Modified Date:2017-12-13 <ĞŞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD> Why & What is modified <ĞŞ¸ÄÔ­ÒòÃèÊö>
- * Version:1.0
- */
-public interface IPostDao<T>{
+public interface IPostDao<T> {
+/********************************* é»„æ™ºè±ª ******************************/
+	public List findJobByButton(int pageNo, String buttom);
 
+	public List findJobByPageNo(int pageNo);
+
+	public List showMainJob(int pageNo, int button);
+
+	public List showHotJob(int pageNo, int button);
+
+	public List showJobInfo(int jobId);
+
+	public long getPostNum(Class entityClazz);
+
+	public List getOtherJob(int tagNo);		
+	
+	
 	
 	
 	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄtagno£¬²éÑ¯Êı¾İ¿âPost±íÖĞtagno¶ÔÓ¦µÄ·½Ïò
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„tagnoï¼ŒæŸ¥è¯¢æ•°æ®åº“Postè¡¨ä¸­tagnoå¯¹åº”çš„æ–¹å‘
 	 * 
-	 * @param tagno?ÍøÒ³´«À´µÄtagno?
-	 * @return ·µ»Ø¸ÃÓÃ»§ĞÅÏ¢
-	 * @exception ÔİÊ±Ã»×ö
+	 * @param tagno?ç½‘é¡µä¼ æ¥çš„tagno?
+	 * @return è¿”å›è¯¥ç”¨æˆ·ä¿¡æ¯
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public List findpost(int tagno1,int tagno2,int tagno3);
 	
 	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´postµÄid£¬²éÑ¯Êı¾İ¿âPost±íÖĞÆä¶ÔÓ¦µÄÏîÄ¿
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥postçš„idï¼ŒæŸ¥è¯¢æ•°æ®åº“Postè¡¨ä¸­å…¶å¯¹åº”çš„é¡¹ç›®
 	 * 
-	 * @param p_idÍøÒ³´«À´µÄp_id
-	 * @return ·µ»Ø¸ÃÓÃ»§ĞÅÏ¢
-	 * @exception ÔİÊ±Ã»×ö
+	 * @param p_idç½‘é¡µä¼ æ¥çš„p_id
+	 * @return è¿”å›è¯¥ç”¨æˆ·ä¿¡æ¯
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public List pidtofindpost(int post_id);
 	
 	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄenterpriseµÄid£¬²éÑ¯Êı¾İ¿âPost±íÖĞÆä¶ÔÓ¦µÄÏîÄ¿
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„enterpriseçš„idï¼ŒæŸ¥è¯¢æ•°æ®åº“Postè¡¨ä¸­å…¶å¯¹åº”çš„é¡¹ç›®
 	 * 
-	 * @param enterprise_idÍøÒ³´«À´µÄenterprise_id
-	 * @return ·µ»Ø¸ÃÓÃ»§ĞÅÏ¢
-	 * @exception ÔİÊ±Ã»×ö
+	 * @param enterprise_idç½‘é¡µä¼ æ¥çš„enterprise_id
+	 * @return è¿”å›è¯¥ç”¨æˆ·ä¿¡æ¯
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public List eidtofindpostbypage(int enterprise_id,int pageNo);
 	
 	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄenterprisesubuserµÄid£¬²éÑ¯Êı¾İ¿âPost±íÖĞÆä¶ÔÓ¦µÄÏîÄ¿
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„enterprisesubuserçš„idï¼ŒæŸ¥è¯¢æ•°æ®åº“Postè¡¨ä¸­å…¶å¯¹åº”çš„é¡¹ç›®
 	 * 
-	 * @param enterprisesubuser_idÍøÒ³´«À´µÄenterprisesubuser_id
-	 * @return ·µ»Ø¸ÃÓÃ»§ĞÅÏ¢
-	 * @exception ÔİÊ±Ã»×ö
+	 * @param enterprisesubuser_idç½‘é¡µä¼ æ¥çš„enterprisesubuser_id
+	 * @return è¿”å›è¯¥ç”¨æˆ·ä¿¡æ¯
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public List esuidtofindpostbypage(int enterprisesubuser_id,int pageNo);
 	
 	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄÊı¾İĞÅÏ¢²åÈëµ½Ïà¹ØÊı¾İ¿â
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„æ•°æ®ä¿¡æ¯æ’å…¥åˆ°ç›¸å…³æ•°æ®åº“
 	 * 
-	 * @param entity ·ºĞÍÀà£¬°üº¬Òª×¢²áµÄÓÃ»§»òÕß¹«Ë¾µÄĞÅÏ¢
+	 * @param entity æ³›å‹ç±»ï¼ŒåŒ…å«è¦æ³¨å†Œçš„ç”¨æˆ·æˆ–è€…å…¬å¸çš„ä¿¡æ¯
 	 * @return void
-	 * @exception ÔİÊ±Ã»×ö
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public void insertPost(T entity);
 	
 	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄÊı¾İĞÅÏ¢¸üĞÂÏà¹ØÊı¾İ¿â
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„æ•°æ®ä¿¡æ¯æ›´æ–°ç›¸å…³æ•°æ®åº“
 	 * 
-	 * @param entity ·ºĞÍÀà£¬°üº¬Òª×¢²áµÄÓÃ»§»òÕß¹«Ë¾µÄĞÅÏ¢
+	 * @param entity æ³›å‹ç±»ï¼ŒåŒ…å«è¦æ³¨å†Œçš„ç”¨æˆ·æˆ–è€…å…¬å¸çš„ä¿¡æ¯
 	 * @return void
-	 * @exception ÔİÊ±Ã»×ö
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public void updatePost(T entity);
-
-}
+		
+}	

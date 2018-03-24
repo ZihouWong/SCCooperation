@@ -64,4 +64,9 @@ public interface IEnterprisesubuserDao<T> {
 	 * @exception 暂时没做
 	 */
 	public List esuidtofindenterprisesubuser(int esu_id);
+	
+	//根据页号查找公司子账户
+	public List<T> findByPageNo(int pageNo);
+	
+	public List<T> searchByPageNo(String keyword, int pageNo);
 }

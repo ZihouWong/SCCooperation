@@ -24,7 +24,7 @@ import java.text.SimpleDateFormat;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
-public class ProjectManagementAction {
+public class ProjectManagementAction<T> {
 	// 显示项目管理的界面
 	/** 实例化一个service层的变量，调用其方法 */
 	private PostManage postManage;
