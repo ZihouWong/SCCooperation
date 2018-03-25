@@ -20,7 +20,7 @@
 					<canvas id="demo-canvas"></canvas>
 					<div class="logo_box">
 						<h3>校企合作平台欢迎您</h3>
-						<form action="login.action?pageNo=1" name="f" id="login" method="post">
+						<form action="login.action?pageNo=1" name="form" id="login" method="post">
 							<div class="input_outer">
 								<span class="u_user"></span>
 								<input name="account" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入账户">
@@ -47,7 +47,32 @@
 		<script src="js/demo-1.js"></script>
 		<script type="text/javascript">
 		function aa(){
-			document.getElementById("login").submit();
+		    var radio = document.getElementsByName("userType");  
+		    for (i=0; i<radio.length; i++) {  
+		        if (radio[i].checked) {  
+		            var radioChecked = radio[i].value
+		        }  
+		    }  
+		    
+		    switch (radioChecked) {
+			case "student":
+				document.forms['form'].action = "login.action?pageNo=1";  
+		    	document.getElementById("login").submit();
+				break;
+			case "enterprisesubuser":
+				document.forms['form'].action = "el.action?pageNo=1";  
+		    	document.getElementById("login").submit();
+				break;
+			case "enterprise":
+				document.forms['form'].action = "esul.action?pageNo=1";  
+		    	document.getElementById("login").submit();
+				break;
+
+			default:
+				break;
+			}
+
+			
 			}
 		</script>
 	</body>

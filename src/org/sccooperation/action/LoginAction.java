@@ -28,6 +28,10 @@ public class LoginAction {
 	private String password;
 	// session
 	private Map session;
+	/**
+	 *  客户端登陆类型
+	 * */
+	private String userType;
 
 	public String getAccount() {
 		return account;
@@ -52,6 +56,14 @@ public class LoginAction {
 	public void setUserManage(UserManage userManage) {
 		this.userManage = userManage;
 	}
+	
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 
 	/**
 	 * 根据网页传过来的账号密码，调用service验证数据库是否有此条记录进行登录
@@ -70,8 +82,6 @@ public class LoginAction {
 		System.out.println("kaishile");
 		List list = userManage.loginCheck(account, password);
 
-		System.out.println("..................................");
-		System.out.println(password);
 		// if(session.get("user")==null)
 		ActionContext.getContext().getSession().put("user", list);
 
@@ -101,5 +111,7 @@ public class LoginAction {
 		session.remove("backstageUser");
 		return "success";
 	}
+
+
 
 }

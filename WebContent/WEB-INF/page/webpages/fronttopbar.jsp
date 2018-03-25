@@ -14,12 +14,20 @@
 		<div class="container">
 			<div class="col-xs-12">
 			<%
+			if(request.getSession().getAttribute("user") != null){
+				List listU = (List)request.getSession().getAttribute("user");
+			}else if(request.getSession().getAttribute("enterprise") != null){
+				List listU = (List)request.getSession().getAttribute("enterprise");
+			}else if(request.getSession().getAttribute("enterprisesubuser") != null){
+				List listU = (List)request.getSession().getAttribute("enterprisesubuser");
+			}else{
+				
+			}
 			List listU = (List)request.getSession().getAttribute("user");
-			if(request.getSession().getAttribute("user")==null) {%>
+			if(listU == null) {%>
 			  
 			  您好！欢迎使用校企合作平台。你可以<a href="clientLoginView.action" style="color:blue">登录</a>
 				<%}else{ 
-					
 					People people =(People) listU.get(0);
 					%>
 				}
