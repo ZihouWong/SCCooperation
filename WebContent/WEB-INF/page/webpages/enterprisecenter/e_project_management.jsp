@@ -20,8 +20,8 @@
 		List listE = (List) request.getSession().getAttribute("enterprise");
 		Enterprise enterprise = (Enterprise) listE.get(0);
 
-		List Esu = (List) request.getSession().getAttribute("esu");
-		List Protag = (List) request.getSession().getAttribute("protag");
+		List Esu = (List) request.getSession().getAttribute("esu");//接收所有项目的负责人信息
+		List Protag = (List) request.getSession().getAttribute("protag");//接收所有项目的tag信息
 	%>
 
 	<p>
@@ -62,7 +62,16 @@
 						<p class="main-font">联系方式:</p>
 						<input type="text" name="contact">
 						<p class="main-font">项目类型:</p>
-						<input type="text" name="tagno">
+						<select name="tagno" class="form-control">
+							<%
+								for (int j = 0; j < Protag.size(); j++) {
+									Tag tag = (Tag) Protag.get(j);
+							%>
+							<option value="<%=tag.getId()%>"><%=tag.getTagname()%></option>
+							<%
+								}
+							%>
+						</select>
 						<p class="main-font">项目负责人:</p>
 						<select name="enterprisesubuser_id" class="form-control">
 							<%
@@ -99,8 +108,8 @@
 	<div class="panel-group" id="accordion">
 		<%
 			if (!listEpost.isEmpty()) {
-				List post_esu = (List) request.getAttribute("post_esu");//接收出各个项目的负责人信息
-				List post_tag = (List) request.getAttribute("post_tag");//接收出各个项目的tag信息
+				List post_esu = (List) request.getAttribute("post_esu");//接收各个项目的负责人信息
+				List post_tag = (List) request.getAttribute("post_tag");//接收各个项目的tag信息
 
 				for (int i = 0; i < listEpost.size(); i++) {
 					Post epost = (Post) listEpost.get(i);

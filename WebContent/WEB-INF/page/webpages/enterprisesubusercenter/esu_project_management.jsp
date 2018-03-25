@@ -42,7 +42,7 @@
 	<div class="panel-group" id="accordion">
 		<%
 			if (!listEsupost.isEmpty()) {
-				List esupost_tag = (List) request.getAttribute("esupost_tag");//接收出各个项目的tag信息
+				List esupost_tag = (List) request.getAttribute("esupost_tag");//接收各个项目的tag信息
 
 				for (int i = 0; i < listEsupost.size(); i++) {
 					Post esupost = (Post) listEsupost.get(i);

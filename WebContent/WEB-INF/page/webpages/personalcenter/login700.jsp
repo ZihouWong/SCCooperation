@@ -38,7 +38,7 @@
 						<p">手机号:</p><input type="text" value="<%=people.getPnumber()%>" name="ppnumber">
 					</div>
 					<br/>
-					<a href="personalcenter.action">个人信息中心</a>
+					<a href="personalcenter.action?pageNo=1">个人信息中心</a>
 					<a href="display_people_700.action">修改个人资料</a>
 					<a href="display_password_700.action">修改密码</a>
 					<a href="display_cv_700.action">修改简历资料</a>
