@@ -17,7 +17,7 @@
 			List listU = (List)request.getSession().getAttribute("user");
 			if(request.getSession().getAttribute("user")==null) {%>
 			  
-			  您好！欢迎使用校企合作平台。你可以<a href="clientLoginView.action"><p style="color: blue">登录</p></a>
+			  您好！欢迎使用校企合作平台。你可以<a href="clientLoginView.action" style="color:blue">登录</a>
 				<%}else{ 
 					
 					People people =(People) listU.get(0);
