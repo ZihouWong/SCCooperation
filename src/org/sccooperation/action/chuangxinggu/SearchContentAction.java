@@ -1,4 +1,4 @@
-package org.sccooperation.chuangxinggu.action;
+package org.sccooperation.action.chuangxinggu;
 
 public class SearchContentAction {
 

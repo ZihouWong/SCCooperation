@@ -1,4 +1,4 @@
-package org.sccooperation.chuangxinggu.action;
+package org.sccooperation.action.chuangxinggu;
 
 import java.util.Map;
 
@@ -12,7 +12,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class ShowJobInfoAction {
 
-	// 信息：
+	// 信息�?
 	private Map request;
 	private String pageNo;
 	private String jobNo;
@@ -24,7 +24,7 @@ public class ShowJobInfoAction {
 	private PostManage postManage;
 	private EnterpriseManage enterpriseManage;
 	
-	// 信息的 Set & Get：
+	// 信息�? Set & Get�?
 	public Map getRequest() {
 		return request;
 	}
@@ -90,11 +90,11 @@ public class ShowJobInfoAction {
 	}
 
 	public String execute() {
-		// 创兴谷-详细页面:
-		// 从 URL 传参数中获得信息
+		// 创兴�?-详细页面:
+		// �? URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
 
-		// 主体信息框
+		// 主体信息�?
 		request.put("JobInfo", postManage.showJobInfo(Integer.parseInt(jobNo)));
 		
 		// 该工作所属的标签名字

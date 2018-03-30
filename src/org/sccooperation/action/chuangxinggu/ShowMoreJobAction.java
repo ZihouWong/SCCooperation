@@ -1,4 +1,4 @@
-package org.sccooperation.chuangxinggu.action;
+package org.sccooperation.action.chuangxinggu;
 
 import java.util.Map;
 
@@ -9,7 +9,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class ShowMoreJobAction {
 	
-	// 信息：
+	// 信息�?
 	private Map request;
 	private String pageNo;
 	private String content;
@@ -17,7 +17,7 @@ public class ShowMoreJobAction {
 	
 	private PostManage postManage;
 
-	// 信息的 Set & Get：
+	// 信息�? Set & Get�?
 	public Map getRequest() {
 		return request;
 	}
@@ -59,8 +59,8 @@ public class ShowMoreJobAction {
 	}
 
 	public String execute() {
-		// 创兴谷-搜索页面：		
-		// 从 URL 传参数中获得信息
+		// 创兴�?-搜索页面�?		
+		// �? URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
 		
 		// 搜索页面-热点工作列表
@@ -76,9 +76,9 @@ public class ShowMoreJobAction {
 		request.put("button", button);
 		request.put("pageNo", pageNo);
 		
-		//搜索模块 ---- 未完成
+		//搜索模块 ---- 未完�?
 		if(content != null) {
-			System.out.println("开始搜索"+ content);
+			System.out.println("�?始搜�?"+ content);
 		}
 		
 		return "success";

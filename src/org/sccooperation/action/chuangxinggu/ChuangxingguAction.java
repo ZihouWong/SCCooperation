@@ -1,4 +1,4 @@
-package org.sccooperation.chuangxinggu.action;
+package org.sccooperation.action.chuangxinggu;
 
 import java.util.Map;
 
@@ -11,7 +11,7 @@ import com.opensymphony.xwork2.ActionContext;
 
 public class ChuangxingguAction {
 	
-	//信息：
+	//信息�?
 	private String pageNo;
 	private Map request;
 	private String button;
@@ -19,7 +19,7 @@ public class ChuangxingguAction {
 	private PostManage postManage;
 	private EnterpriseManage enterpriseManage;
 	
-	// 信息的 Set & Get：
+	// 信息�? Set & Get�?
 	public String getPageNo() {
 		return pageNo;
 	}
@@ -62,18 +62,18 @@ public class ChuangxingguAction {
 
 	public String execute() {
 		//创兴谷主页：
-		// 从 URL 传参数中获得信息
+		// �? URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
 
-		if (button != null) {	// 若 button 存在
-			//主页-显示标签对应的工作
+		if (button != null) {	// �? button 存在
+			//主页-显示标签对应的工�?
 			request.put("JobList", postManage.findJobByButton(Integer.parseInt(pageNo), button));
-		} else {					// 若 button 不存在
-			//主页-显示所有工作
+		} else {					// �? button 不存�?
+			//主页-显示�?有工�?
 			request.put("JobList", postManage.findJobByPageNo(Integer.parseInt(pageNo)));			
 		}
 				
-		// 主页-显示所有公司
+		// 主页-显示�?有公�?
 		request.put("EnterpriseList", enterpriseManage.findEnterpriseByPageNo(Integer.parseInt(pageNo)));
 
 		return "success";

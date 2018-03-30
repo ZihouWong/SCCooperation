@@ -1,4 +1,4 @@
-package org.sccooperation.gongxingketang.action;
+package org.sccooperation.action.gongxingketang;
 
 import java.util.Map;
 
@@ -18,7 +18,7 @@ public class ShowCourseInfoAction {
 	private CourseManage courseManage;
 	private PeopleManage peopleManage;
 	
-	// 信息的 Set & Get：
+	// 信息�? Set & Get�?
 	public String getButton() {
 		return button;
 	}
@@ -78,7 +78,7 @@ public class ShowCourseInfoAction {
 
 	public String execute() {
 		// 躬行课堂-详细页面:
-		// 从 URL 传参数中获得信息
+		// �? URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
 		
 		// 详细页面-（视频显示）课程列表
