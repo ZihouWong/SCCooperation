@@ -39,5 +39,11 @@ public class CourseDaoImpl extends BaseDaoImpl implements ICourseDao{
 		// 详细页面-课程广告
 		return find("from Course order by seenum desc");
 	}
+
+	@Override
+	public String getTeacherid(int courseId) {
+		// TODO Auto-generated method stub
+		return (String)find("select people_id from Course where id=?0", courseId).get(0);
+	}
 	
 }

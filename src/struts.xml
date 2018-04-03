@@ -209,10 +209,6 @@
 <result name="success" >/WEB-INF/page/webpages/people.html</result>
 </action>
 
-<action name="newcourseinfo">
-<result name="success">/WEB-INF/page/webpages/gongxingketang/NewFile.jsp</result>
-</action>
-
 </package>
 
 </struts>    

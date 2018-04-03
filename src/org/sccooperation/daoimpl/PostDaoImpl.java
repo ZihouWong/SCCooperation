@@ -50,9 +50,14 @@ public class PostDaoImpl extends BaseDaoImpl implements IPostDao {
 
 	@Override
 	public List SearchCourse(String content, int pageNo) {
-		// TODO Auto-generated method stub
-//		// 搜索页面-获得工作总数
+		// 搜索页面-获得工作总数
 		return findByPage("from Post as p where p.ename like ?0 or p.summary like ?1 or p.place like ?2 or p.ptime like ?3 or p.demand like ?4 or p.remuneration like ?5 or p.stime like ?6 or p.allure like ?7 order by seenum desc", pageNo, 10, 10, "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%");
+	}
+
+	@Override
+	public int getEnterpriseId(int jobId) {
+		// TODO Auto-generated method stub
+		return (int)find("select enterprise_id.id from Post where id=?0", jobId).get(0); 
 	}
 }
   

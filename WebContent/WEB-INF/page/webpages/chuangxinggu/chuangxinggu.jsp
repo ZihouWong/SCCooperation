@@ -438,6 +438,11 @@ ul {
 <body>
 <body>
 	<!-- 登陆框、联系方式 -->
+	
+	<%
+	int lastbutton = Integer.parseInt((String)request.getAttribute("lastbutton"));
+	
+	%>
 	<div id="head-link" class="login">
 		<div class="container">
 			<div class="col-xs-12">
@@ -560,7 +565,7 @@ ul {
 						<div class="hot-work-body-item">
 							<p class="work-name float">
 								<a
-									href="showjobinfo.action?pageNo=1&jobNo=<%=post.getId()%>&enterpriseNo=<%=post.getEnterprise_id().getId()%>&tagNo=<%=post.getTagno() %>">
+									href="showjobinfo.action?jobNo=<%=post.getId()%>&tagNo=<%=post.getTagno() %>">
 									<%=post.getSummary()%></a>
 							</p>
 
@@ -602,35 +607,13 @@ ul {
 						</div>
 					</div>
 					<%
-						} else {
-					%>
-					<!-- 错误显示 -->
-					<div class="col-xs-4">
-						<div class="hot-work-body-item">
-							<p class="work-name float">error</p>
-							<p class="publish-time main-font grey2 float">
-								[error年发布]<i class="fa fa-commenting-o fa-lg main-color"></i>
-							</p>
-							<p class="salary float-right">error</p>
-							<p class="demand main-font grey2">error</p>
-
-							<span class="condition">error</span> <span
-								class="hot-work-body-border"></span> <img
-								class="company-logo float" src="./img/company-logo1.png" alt="">
-							<p class="company-name">
-								<a href="#">error</a>
-							</p>
-							<p class="company-intro grey2">error error</p>
-						</div>
-					</div>
-					<%
 						}
 							}
 						}
 					%>
 
 					<!-- col-xs-4 ending -->
-					<a href="showmorejob.action?button=3&pageNo=1" class="hot-work-btn">查看更多</a>
+					<a href="showmorejob.action?button=<%=lastbutton %>&pageNo=1" class="hot-work-btn">查看更多</a>
 
 					<!-- mark1 -->
 				</div>

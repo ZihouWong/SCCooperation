@@ -7,8 +7,6 @@ import org.sccooperation.service.PostManage;
 
 import com.opensymphony.xwork2.ActionContext;
 
-
-
 public class ChuangxingguAction {
 	
 	//信息：
@@ -76,6 +74,7 @@ public class ChuangxingguAction {
 		// 主页-显示所有公司
 		request.put("EnterpriseList", enterpriseManage.findEnterpriseByPageNo(Integer.parseInt(pageNo)));
 
+		request.put("lastbutton", button);
 		return "success";
 	}
 }

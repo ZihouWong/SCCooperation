@@ -18,8 +18,10 @@ public interface PostManage {
 
 	public long getPostNum(Class entityClazz);
 
-	public List showOtherJob(int tagNo);
+	public List showOtherJob(int button);
 
 	public List SearchCourse(String content, int pageNo);
+
+	public int getEnterpriseId(int jobNo);
 
 }

@@ -53,5 +53,11 @@ public class CourseManageImpl implements CourseManage{
 		return courseDao.getCourseAd();
 	}
 
+	@Override
+	public String getTeacherid(int courseId) {
+		// TODO Auto-generated method stub
+		return courseDao.getTeacherid(courseId);
+	}
+
 	
 }

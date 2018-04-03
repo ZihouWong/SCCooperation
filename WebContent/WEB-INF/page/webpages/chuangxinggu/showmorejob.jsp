@@ -521,6 +521,13 @@ to {
 </style>
 </head>
 <body>
+	<%
+		int lastbutton = Integer.parseInt((String) (request.getAttribute("button")));
+
+		int pageNo = Integer.parseInt((String) (request.getAttribute("pageNo")));
+
+		String lastcontent = (String) request.getAttribute("content");
+	%>
 	<div class="container contain1">
 		<!-- 首部 -->
 		<div class="logo-header">
@@ -529,15 +536,6 @@ to {
 			<p class="font-title float">创行谷课程</p>
 
 			<div id="search-input">
-
-
-				<!-- <form class="form-inline" role="form" method="post"
-					action="showmorejob.action?pageNo=1">
-					<input type="text" class="form-control" name="content" placeholder="请输入课程名" /> 
-					<input type="hidden" class="form-control"/>
-					<button type="submit" class="btn btn-primary">搜索</button>
-				</form> -->
-				
 				
 				<form action="showmorejob.action" method="post">
 				<input type="hidden" name="pageNo" value="1"/>
@@ -571,17 +569,8 @@ to {
 								</p>
 						</a></li>
 						<%
-							} else {
-						%>
-						<li><a href="#">
-								<div class="menu2-drop-circle menu2-drop-top3">2</div>
-								<p>
-									error<sub>error！</sub>
-								</p>
-						</a></li>
-						<%
 							}
-								}
+									}
 							}
 						%>
 					</ul>
@@ -669,14 +658,14 @@ to {
 				<ul>
 					<li><a href="#">全部(<%=postNum%>)
 					</a></li>
-					<li><a href="#">JAVA</a></li>
-					<li><a href="#">HTML</a></li>
-					<li><a href="#">CSS</a></li>
-					<li><a href="#">PHP</a></li>
-					<li><a href="#">Node</a></li>
-					<li><a href="#">JavaScript</a></li>
-					<li><a href="#">C++</a></li>
-					<li><a href="#">C#</a></li>
+					<li><a href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=JAVA">JAVA</a></li>
+					<li><a href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=HTML">HTML</a></li>
+					<li><a href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=CSS">CSS</a></li>
+					<li><a href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=PHP">PHP</a></li>
+					<li><a href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=Node">Node</a></li>
+					<li><a href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=JavaScript">JavaScript</a></li>
+					<li><a href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=cpp">C++</a></li>
+					<li><a href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=C#">C#</a></li>
 				</ul>
 			</div>
 		</div>
@@ -695,7 +684,7 @@ to {
 							Post post = (Post) AllJob.get(i);
 			%>
 			<a
-				href="showjobinfo.action?pageNo=1&jobNo=<%=post.getId()%>&enterpriseNo=<%=post.getEnterprise_id().getId()%>&tagNo=<%=post.getTagno() %>"
+				href="showjobinfo.action?jobNo=<%=post.getId()%>&tagNo=<%=post.getTagno() %>"
 				class="item">
 				<div class="item-caption">
 					<img src="<%=post.getPictureurl()%>" alt="">
@@ -719,25 +708,6 @@ to {
 				</div>
 			</a>
 			<%
-				} else {
-			%>
-
-
-
-			<a href="#" class="item">
-				<div class="item-caption">
-					<img src="#" alt="">
-				</div>
-				<div class="item-body">
-					<p class="font-title2">error</p>
-					<p class="main-font float">error万次学习</p>
-					<p class="main-font float-right">error学院</p>
-				</div>
-
-			</a>
-
-
-			<%
 				}
 					}
 				}
@@ -752,13 +722,6 @@ to {
 		<div class="pagintion">
 			<nav class="major-content-nav pull-center" aria-label="..">
 				<ul class="pagination pagination-lg">
-					<%
-						int lastbutton = Integer.parseInt((String) (request.getAttribute("button")));
-
-						int pageNo = Integer.parseInt((String) (request.getAttribute("pageNo")));
-						
-						String lastcontent = (String)request.getAttribute("content");
-					%>
 					<%
 						if (pageNo == 1) {
 					%>
