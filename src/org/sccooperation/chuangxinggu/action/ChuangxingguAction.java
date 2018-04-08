@@ -1,4 +1,4 @@
-package org.sccooperation.action.chuangxinggu;
+package org.sccooperation.chuangxinggu.action;
 
 import java.util.Map;
 

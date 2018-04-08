@@ -336,10 +336,10 @@
 			</div>
 		    <div class="navbar-right">
 		    	<ul class="navbar-body">
-		    		<li class="navbar-body-item"><a id="lock" href="#" class="navbar-link">项目介绍</a></li>
-		    		<li class="navbar-body-item"><a href="webpages/class.html" class="navbar-link">躬行课堂</a></li>
-		    		<li class="navbar-body-item"><a href="#" class="navbar-link">创行谷管理</a></li>
+		    		<li class="navbar-body-item"><a id="lock" href="#" class="navbar-link">首页</a></li>
+		    		<li class="navbar-body-item"><a href="webpages/class.html" class="navbar-link">创行谷</a></li>
 		    		<li class="navbar-body-item"><a href="#" class="navbar-link">知行圈</a></li>
+		    		<li class="navbar-body-item"><a href="#" class="navbar-link">躬行课堂</a></li>
 		    		<li class="navbar-body-item"><a href="#" class="navbar-link">个人中心</a></li>
 		    	</ul>
 		    </div>
@@ -432,9 +432,9 @@
 					<div class="head-news padding">
 					    <div class="head-news-title">
                         	<i class="fa fa-graduation-cap fa-2x head-news-icon"></i>
-						    <p class="font-first-heading">学院通知</p>
+						    <p class="font-first-heading">创行谷</p>
 						    
-						    <p class="know-more pull-right"><a href="#">更多<i class="fa fa-angle-right fa-lg"></i></a></p>
+						    <p class="know-more pull-right"><a href="chuangxinggutest.action?pageNo=1">更多<i class="fa fa-angle-right fa-lg"></i></a></p>
 						    
                         </div>
                         <span class="head-news-border"></span>
@@ -468,9 +468,9 @@
 					<div class="head-news padding">
 						<div class="head-news-title">
                         	<i class="fa fa-university fa-2x head-news-icon"></i>
-						    <p class="font-first-heading">学术论坛</p>
+						    <p class="font-first-heading">知行圈</p>
 						    
-						    <p class="know-more pull-right"><a href="#">更多<i class="fa fa-angle-right fa-lg"></i></a></p>
+						    <p class="know-more pull-right"><a href="luntan.action?pageNo=1">更多<i class="fa fa-angle-right fa-lg"></i></a></p>
 						    
                         </div>
                         <span class="head-news-border"></span>
@@ -504,9 +504,9 @@
 					<div class="head-news padding">
 						<div class="head-news-title">
                         	<i class="fa fa-newspaper-o fa-2x head-news-icon"></i>
-						    <p class="font-first-heading">信息公开</p>
+						    <p class="font-first-heading">躬行课堂</p>
 						    
-						    <p class="know-more pull-right"><a href="#">更多<i class="fa fa-angle-right fa-lg"></i></a></p>
+						    <p class="know-more pull-right"><a href="gongxingketangtest.action?pageNo=1">更多<i class="fa fa-angle-right fa-lg"></i></a></p>
 						    
                         </div>
                         <span class="head-news-border"></span>

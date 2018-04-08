@@ -1,4 +1,4 @@
-package org.sccooperation.action.gongxingketang;
+package org.sccooperation.gongxingketang.action;
 
 import java.util.Map;
 
