@@ -16,13 +16,42 @@ import org.sccooperation.dao.BaseDao;
  * Version:1.0
  */
 public class BaseDaoImpl<T> implements BaseDao<T> {
+	
+	/**session工厂*/
 	private SessionFactory sessionFactory;
-
+	
+	/**
+	 * 根据id获取数据
+	 * @param entityClazz  需要根据id获取数据的类类型
+	 * @param id  需要查找的id
+	 * @return 根据泛型返回类型
+	 */
 	@SuppressWarnings("unchecked")
 	public T get(Class<T> entityClazz, Serializable id) {
 		// TODO Auto-generated method stub
 		return (T)getSessionFactory().getCurrentSession().get(entityClazz, id);
 	}
+	
+	/**
+	 * 根据hql分页获取数据
+	 * @param hql hql语句
+	 * @param pageNo 表示从第几页开始查询
+	 * @param pageSize 表示一页有几条内容
+	 * @param max 表示要查询几页
+	 * @param 表示hql语句里占位符所要填充的数据
+	 * @return 返回hql查询得到的列表结果集
+	 */
+    @SuppressWarnings("unchecked")
+	protected List<T> findByPage(String hql ,int pageNo,int pageSize,int max,Object...params)
+    {
+    	Query query = getSessionFactory().getCurrentSession().createQuery(hql);
+    	for(int i=0,len = params.length;i<len;i++)
+    	{
+    		query.setParameter(i+"", params[i]);
+    	}
+    	
+    	return query.setFirstResult((pageNo-1)*pageSize).setMaxResults(max).list();
+    }
 
 	@Override
 	public Serializable save(T entity) {
@@ -111,28 +140,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
     {
     	return getSessionFactory().getCurrentSession().createQuery(hql).setFirstResult((pageNo-1)*pageSize).setMaxResults(max).list();
     }
-    /**
-	 * 根据hql分页获取数据
-	 * 
-	 * @param hql hql语句
-	 * @param pageNo 表示从第几页开始查询
-	 * @param pageSize 表示一页有几条内容
-	 * @param max 表示要查询几页
-	 * @param 表示hql语句里占位符所要填充的数据
-	 * @return 返回hql查询得到的列表结果集
-	 * @exception 暂时没做
-	 */
-    @SuppressWarnings("unchecked")
-	protected List<T> findByPage(String hql ,int pageNo,int pageSize,int max,Object...params)
-    {
-    	Query query = getSessionFactory().getCurrentSession().createQuery(hql);
-    	for(int i=0,len = params.length;i<len;i++)
-    	{
-    		query.setParameter(i+"", params[i]);
-    	}
-    	
-    	return query.setFirstResult((pageNo-1)*pageSize).setMaxResults(max).list();
-    }
+    
     
     /**
      * 与上面大同小异

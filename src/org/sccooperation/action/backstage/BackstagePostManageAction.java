@@ -13,18 +13,93 @@ import org.sccooperation.service.EnterprisesubuserManage;
 
 import com.opensymphony.xwork2.ActionContext;
 
-/*
+/**
  * 项目后台管理
  * @author WLNSSS
  * @time 2018.1.21
  * */
 public class BackstagePostManageAction {
 
-	//页数
+	/**页数*/
 	private int pageNo;
 	
-	//搜索关键字
+	/**搜索关键字*/
 	private String keyword;
+
+	/**操作器*/
+	private BackstagePostManage<Post> backstagePostManage;
+	
+	/**共有类操作器*/
+	private CommonManage<Post> commonManage;
+	
+	/**表名*/
+	private String table;
+	
+	/**id*/
+	private String id;
+	
+	/**状态*/
+	private String state;
+
+	/**
+	 * 跳转到首页
+	 * @return String 返回success代表成功，false代表失败，然后调用相应页面  
+	 * @throws NullPointerException pageNo缺失时会触发异常。
+	 * */
+	@SuppressWarnings("unchecked")
+	public String index() throws NullPointerException{
+		
+		List<Post> list = backstagePostManage.findByPageNo(pageNo);
+		
+		//置入request容器
+		 ((Map<String, List<Post>>) ActionContext.getContext().get("request")).put("backstagePostList", list);
+		 
+		 return "success";
+	}
+	
+public String stopPost() throws NumberFormatException, Exception {
+		
+		boolean result = commonManage.isEnable(table, Integer.parseInt(id), state);
+		
+		if(result == false) {
+			return "error";
+		}
+		
+		if(result == true) {
+			return "success";
+		}
+		return "success";
+	}
+
+    /**
+     * 查找
+     * */
+	public String search() {
+		
+		//获取搜索的结果集
+		List<Post> list = backstagePostManage.searchByPageNo(keyword,pageNo);
+		
+		//置入request容器
+		((Map) ActionContext.getContext().get("request")).put("noteList", list);
+		
+		return "success";
+	}
+
+	public int getPageNo() {
+		return pageNo;
+	}
+
+	public void setPageNo(int pageNo) {
+		this.pageNo = pageNo;
+	}
+
+	public BackstagePostManage<Post> getBackstagePostManage() {
+		return backstagePostManage;
+	}
+
+	public void setBackstagePostManage(BackstagePostManage<Post> backstagePostManage) {
+		this.backstagePostManage = backstagePostManage;
+	}
 	
 	public String getKeyword() {
 		return keyword;
@@ -33,22 +108,7 @@ public class BackstagePostManageAction {
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
 	}
-
-	//操作器
-	private BackstagePostManage<Post> backstagePostManage;
 	
-	//共有类操作器
-	private CommonManage<Post> commonManage;
-	
-	//表名
-	private String table;
-	
-	//id
-	private String id;
-	
-	//状态
-	private String state;
-
 	public CommonManage<Post> getCommonManage() {
 		return commonManage;
 	}
@@ -80,60 +140,6 @@ public class BackstagePostManageAction {
 	public void setState(String state) {
 		this.state = state;
 	}
-
-	//首页
-	public String index() throws Exception{
-		
-		List<Post> list = backstagePostManage.findByPageNo(pageNo);
-		
-		//置入request容器
-		 ((Map) ActionContext.getContext().get("request")).put("backstagePostList", list);
-		 
-		 return "success";
-	}
-	
-public String stopPost() throws NumberFormatException, Exception {
-		
-		boolean result = commonManage.isEnable(table, Integer.parseInt(id), state);
-		
-		if(result == false) {
-			return "error";
-		}
-		
-		if(result == true) {
-			return "success";
-		}
-		return "success";
-	}
-
-//查找页面
-	public String search() {
-		
-		//获取搜索的结果集
-		List<Post> list = backstagePostManage.searchByPageNo(keyword,pageNo);
-		
-		//置入request容器
-		((Map) ActionContext.getContext().get("request")).put("noteList", list);
-		
-		return "success";
-	}
-
-	public int getPageNo() {
-		return pageNo;
-	}
-
-	public void setPageNo(int pageNo) {
-		this.pageNo = pageNo;
-	}
-
-	public BackstagePostManage<Post> getBackstagePostManage() {
-		return backstagePostManage;
-	}
-
-	public void setBackstagePostManage(BackstagePostManage<Post> backstagePostManage) {
-		this.backstagePostManage = backstagePostManage;
-	}
-
 
 	
 	

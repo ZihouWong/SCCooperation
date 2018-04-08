@@ -34,37 +34,38 @@ public class Cv {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-/*
- * 映射数据库主键字段
- * */
+
+	/**
+	 * 映射数据库主键字段
+	 * */
 	
 	private int id;
 	
-	/*名称*/
+	/**名称*/
 	private String name;
 	
-	/*身份证号*/
+	/**身份证号*/
 	private String idnumber;
 	
-	/*手机号*/
+	/**手机号*/
 	private String pnumber;
 	
-	/*性别*/
+	/**性别*/
 	private String sex;
 	
-	/*生日*/
+	/**生日*/
 	private String birthday;
 	
-	/*年龄*/
+	/**年龄*/
 	private Integer age;
 	
-	/*个人描述*/
+	/**个人描述*/
 	private String summary;
 	
-	/*工作经历*/
+	/**工作经历*/
 	private String experience;
 	
-	/*获奖经历*/
+	/**获奖经历*/
 	private String prize;
 	
 	/*学校*/
