@@ -454,6 +454,12 @@
 <result type="redirect" name="success">personalcenter.action?pageNo=1</result>
 <result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
+
+<!-- 删除参与人员 -->
+<action name="deleteresume" class="resumemgtAction" method="deleteresume">
+<result type="redirect" name="success">edisproject.action?pageNo=1</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
 <!-- 与投递简历相关结束 -->
 
 

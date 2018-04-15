@@ -157,13 +157,13 @@
 						项目负责人:<%=pesu.getNickname()%></p>
 					<select name="enterprisesubuser_id" class="form-control">
 						<%
-												for (int j = 0; j < peoplelist.size(); j++) {
-															People people = (People) peoplelist.get(j);
-											%>
+							for (int j = 0; j < peoplelist.size(); j++) {
+										People people = (People) peoplelist.get(j);
+						%>
 						<option value="<%=people.getId()%>"><%=people.getName()%></option>
 						<%
-												}
-											%>
+							}
+						%>
 					</select>
 
 					<!-- 按钮触发模态框 -->
@@ -237,19 +237,6 @@
 										</select>
 
 
-										<p class="main-font">
-											项目参与人:<%=pesu.getNickname()%></p>
-										<select name="enterprisesubuser_id" class="form-control">
-											<%
-												for (int j = 0; j < peoplelist.size(); j++) {
-															People people = (People) peoplelist.get(j);
-											%>
-											<option value="<%=people.getId()%>"><%=people.getName()%></option>
-											<%
-												}
-											%>
-										</select>
-
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default"
@@ -267,7 +254,7 @@
 					<!-- 按钮触发模态框 -->
 					<button class="btn btn-primary btn-lg" data-toggle="modal"
 						data-target="#project<%=i + 6%>_Modal">编辑成员</button>
-					<form id="modifypost<%=i + 6%>-form" action="xxx.action?pageNo=1"
+					<form id="modifypost<%=i + 6%>-form" action="deleteresume.action"
 						method="post" enctype="multipart/form-data">
 						<!-- 模态框（Modal） -->
 						<div class="modal fade" id="project<%=i + 6%>_Modal" tabindex="-1"
@@ -281,9 +268,9 @@
 									</div>
 
 									<div class="modal-body">
-										<p class="main-font">
-											项目参与人:<%=pesu.getNickname()%></p>
-										<select name="enterprisesubuser_id" class="form-control">
+
+										<input type="hidden" value="<%=epost.getId()%>" name="post_id">
+										<select name="people_id" class="form-control">
 											<%
 												for (int j = 0; j < peoplelist.size(); j++) {
 															People people = (People) peoplelist.get(j);
@@ -298,8 +285,8 @@
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default"
 											data-dismiss="modal">取消</button>
-										<input class="btn btn-primary" id="modify-btn" type="submit"
-											value="提交">
+										<input class="btn btn-danger" id="modify-btn" type="submit"
+											value="删除"></>
 									</div>
 								</div>
 								<!-- /.modal-content -->

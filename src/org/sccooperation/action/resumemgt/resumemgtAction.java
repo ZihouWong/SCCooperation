@@ -32,6 +32,8 @@ public class resumemgtAction {
 	/** 网页传来的项目id */
 	private int post_id;
 	
+	private int people_id;
+	
 	public PostManage getPostManage() {
 		return postManage;
 	}
@@ -55,8 +57,15 @@ public class resumemgtAction {
 	public void setPost_id(int post_id) {
 		this.post_id = post_id;
 	}
-
 	
+	public int getPeople_id() {
+		return people_id;
+	}
+
+	public void setPeople_id(int people_id) {
+		this.people_id = people_id;
+	}
+
 	public String displaypostinfo() {
 		List temp=postManage.pidtofindpost(post_id);//获取出post_id对应的post信息
 		Map postrq = (Map)ActionContext.getContext().get("request");//实例化Request容器
@@ -91,6 +100,22 @@ public class resumemgtAction {
 			objectpost.setPeople_id(objectpeopleid);
 			postManage.updatePost(objectpost);
 		}
+		return "success";
+	}
+	
+	public String deleteresume() {
+		List post=postManage.pidtofindpost(post_id);//获取出post_id对应的post信息
+		Post objectpost=(Post)post.get(0);
+		
+		String[] peopleid = objectpost.getPeople_id().split(";");
+		String objectpeopleid=new String();
+		for(int i=0;i<peopleid.length;++i) {
+			if(Integer.parseInt(peopleid[i])!=people_id) {
+				objectpeopleid=objectpeopleid+peopleid[i]+";";
+			}
+		}
+		objectpost.setPeople_id(objectpeopleid);
+		postManage.updatePost(objectpost);
 		return "success";
 	}
 }
