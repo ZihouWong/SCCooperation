@@ -74,7 +74,6 @@ public class AddReplyNoteAction {
 		 //根据id获取帖子
 		 Note note = (Note)noteManage.findById(Note.class, Integer.parseInt(id));
 		 
-		 
 		 //保存回复帖子进入数据库
 		 ReplyNote replyNote = new ReplyNote();
 		 replyNote.setContent(content);

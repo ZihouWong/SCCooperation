@@ -2,35 +2,36 @@ package org.sccooperation.service.impl;
 
 import java.util.List;
 
+import org.sccooperation.dao.IBackstageEnterprisesubuserDao;
+import org.sccooperation.dao.IEnterpriseDao;
+import org.sccooperation.service.EnterprisesubuserManage;
 import org.sccooperation.dao.IEnterprisesubuserDao;
 import org.sccooperation.domain.Enterprisesubuser;
-import org.sccooperation.service.EnterprisesubuserManage;
-/**
- * Project:SCCooperation Comments:此类是企业子用户服务层接口实现类
- *  JDK version used:JDK1.8 
- *  Author：blank700 Create Date：2018-01-18 Modified By： <修改人中文名或拼音缩写>
- * Modified Date: <修改日期，格式:YYYY-MM-DD> Why & What is modified <修改原因描述>
- * Version:1.0
- */
-public class EnterprisesubuserManageImpl<T> implements EnterprisesubuserManage<T> {
-	/** 该变量由spring装配， */
-	private IEnterprisesubuserDao enterprisesubuserDao;
 
-	public IEnterprisesubuserDao getEnterprisesubuserDao() {
+public class EnterprisesubuserManageImpl<T> implements EnterprisesubuserManage<T>{
+	
+	private IEnterprisesubuserDao<T> enterprisesubuserDao;
+	
+	public IEnterprisesubuserDao<T> getEnterprisesubuserDao() {
 		return enterprisesubuserDao;
 	}
 
-	public void setEnterprisesubuserDao(IEnterprisesubuserDao enterprisesubuserDao) {
+	public void setEnterprisesubuserDao(IEnterprisesubuserDao<T> enterprisesubuserDao) {
 		this.enterprisesubuserDao = enterprisesubuserDao;
 	}
 
 	@Override
-	public List loginCheck(String account, String password) {
-		System.out.println("start logincheck");
-		return enterprisesubuserDao.loginCheck(account, password);
+	public List<T> findByPageNo(int pageNo) {
+		// TODO Auto-generated method stub
+		return enterprisesubuserDao.findByPageNo(pageNo);
 	}
 	
-	@Override
+	public List<T> searchByPageNo(String keyword, int pageNo) {
+		// TODO Auto-generated method stub
+		return enterprisesubuserDao.searchByPageNo(keyword, pageNo);
+	}
+	
+		@Override
 	public boolean passwordCheck(String password_old) {
 		return enterprisesubuserDao.passwordCheck(password_old);
 	}
@@ -58,4 +59,12 @@ public class EnterprisesubuserManageImpl<T> implements EnterprisesubuserManage<T
 		System.out.println("start esuidtofindenterprisesubuser");
 		return enterprisesubuserDao.esuidtofindenterprisesubuser(esu_id);
 	}
+
+	@Override
+	public List loginCheck(String account, String password) {
+		// TODO Auto-generated method stub
+		return enterprisesubuserDao.loginCheck(account, password);
+	}
+
+
 }

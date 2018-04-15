@@ -218,39 +218,7 @@ background: url("./img/hot-class4.jpg");
 </head>
 <body>
 	 <!-- 登陆框、联系方式 -->
-	<div id="head-link" class="login">
-		<div class="container">
-			<div class="col-xs-12">
-			<%
-			List listU = (List)request.getSession().getAttribute("user");
-			if(request.getSession().getAttribute("user")==null) {%>
-			    <div class="login-in">
-					<form id="login-form" action="login.action?pageNo=1" method="post">
-						<p class="main-font">学生代码:</p><input type="text" name="account">
-						<p class="main-font">密码:</p><input type="password" name="password">
-						<p class="main-font">验证码:</p><input id="input-code" type="text" name="code">
-						<img src="" alt="" class="code-img">
-						<input id="login-btn" type="submit" value="登陆">
-						<a href="register-goto.html" id="login-btn-a" class="float">注册</a>
-
-					</form>
-				</div>
-				<%}else{ 
-					
-					People people =(People) listU.get(0);
-					%>
-				
-				<div class="login-in">
-				欢迎<%=people.getPnumber() %>
-				</div>
-				<%} %>
-			    <div class="login-tel">
-			    	<i class="fa fa-phone fa-lg"></i>
-			    	<p class="main-font">咨询电话：010-82319999转2846</p>
-			    </div>
-			</div>
-		</div>
-	</div>
+		<jsp:include page="./fronttopbar.jsp"></jsp:include>
 	<!-- 导航条 -->
 	
 		<div class="container">
@@ -278,9 +246,9 @@ background: url("./img/hot-class4.jpg");
 				          margin-top: 5px;
 				        }
 			      </style>
-			      <a href="../index.html"><img src="../img/logo.png" alt="" class="logo-img float"></a>
+			      <a href="./index.html"><img src="../img/logo.png" alt="" class="logo-img float"></a>
 			      <span class="border-1 float"></span>
-			      <p class="font-title">创行谷管理</p>
+			      <p class="font-title">知行圈</p>
 			    </div>
 		</div>
 	
@@ -450,7 +418,7 @@ background: url("./img/hot-class4.jpg");
     				<div class="hot-class-item">
 	    				<div class="hot-class-heading">
 	    					<span class="hot-class-border"></span>
-	    					<p class="hot-class-title">明星讲师</p>
+	    					<p class="hot-class-title">明星发帖用户</p>
 	    					<p class="main-font hot-class-refresh mask"><a href="#"></a></p>
 	    					<!-- <i class="fa fa-refresh fa-1x"></i> -->
 	    				</div>
@@ -468,7 +436,7 @@ background: url("./img/hot-class4.jpg");
 							  </div>
 							  <div class="media-body">
 							    <h6 class="media-heading"><%=people.getName() %></h6>
-							    <p class="main-font">汉普老师-自闭症康复教育培训</p>
+							    <p class="main-font">累计发帖数<%=people.getNotesum() %></p>
 							  </div>
 							</div>
 							<%} %>

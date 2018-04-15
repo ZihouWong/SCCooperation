@@ -7,8 +7,10 @@ import java.util.*;
 
 import org.sccooperation.domain.Post;
 import org.sccooperation.domain.Tag;
+import org.sccooperation.domain.People;
 import org.sccooperation.domain.Enterprise;
 import org.sccooperation.domain.Enterprisesubuser;
+import org.sccooperation.service.UserManage;
 import org.sccooperation.service.PostManage;
 import org.sccooperation.service.TagManage;
 import org.sccooperation.service.EnterprisesubuserManage;
@@ -24,7 +26,7 @@ import java.text.SimpleDateFormat;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
-public class ProjectManagementAction {
+public class ProjectManagementAction<T> {
 	// 显示项目管理的界面
 	/** 实例化一个service层的变量，调用其方法 */
 	private PostManage postManage;
@@ -32,9 +34,11 @@ public class ProjectManagementAction {
 	private EnterprisesubuserManage enterprisesubuserManage;
 	/** 实例化一个service层的变量，调用其方法 */
 	private TagManage tagManage;
+	/** 实例化一个service层的变量，调用其方法 */
+	private UserManage userManage;
 	/** 网页传来的页数 */
 	private int pageNo;
-	
+
 	public PostManage getPostManage() {
 		return postManage;
 	}
@@ -59,6 +63,14 @@ public class ProjectManagementAction {
 		this.tagManage = tagManage;
 	}
 
+	public UserManage getUserManage() {
+		return userManage;
+	}
+
+	public void setUserManage(UserManage userManage) {
+		this.userManage = userManage;
+	}
+
 	public int getPageNo() {
 		return pageNo;
 	}
@@ -66,7 +78,6 @@ public class ProjectManagementAction {
 	public void setPageNo(int pageNo) {
 		this.pageNo = pageNo;
 	}
-
 
 	// 新增项目
 	/** 网页传来的项目名称 */
@@ -163,7 +174,7 @@ public class ProjectManagementAction {
 	public void setContact(String contact) {
 		this.contact = contact;
 	}
-	
+
 	public int getTagno() {
 		return tagno;
 	}
@@ -171,7 +182,7 @@ public class ProjectManagementAction {
 	public void setTagno(int tagno) {
 		this.tagno = tagno;
 	}
-	
+
 	public int getEnterprisesubuser_id() {
 		return enterprisesubuser_id;
 	}
@@ -179,10 +190,10 @@ public class ProjectManagementAction {
 	public void setEnterprisesubuser_id(int enterprisesubuser_id) {
 		this.enterprisesubuser_id = enterprisesubuser_id;
 	}
-	
-	//修改项目的信息
+
+	// 修改项目的信息
 	private int post_id;
-	
+
 	public int getPost_id() {
 		return post_id;
 	}
@@ -191,65 +202,84 @@ public class ProjectManagementAction {
 		this.post_id = post_id;
 	}
 
-	
-	
-	//显示项目管理的界面
+	// 显示项目管理的界面
 	public String displayprojectmanagement() {
 		System.out.println("start display projectmanagement");
-		List e=(List)ActionContext.getContext().getSession().get("enterprise");
-		Enterprise enterprise =(Enterprise)e.get(0);
-		
-		//查询出该企业所创建的项目
+		List e = (List) ActionContext.getContext().getSession().get("enterprise");
+		Enterprise enterprise = (Enterprise) e.get(0);
+
+		// 查询出该企业所创建的项目
 		System.out.println("开始根据enterprise的id查询Post");
-		List epost=postManage.eidtofindpostbypage(enterprise.getId(),pageNo);
+		List epost = postManage.eidtofindpostbypage(enterprise.getId(), pageNo);
 		System.out.println("完成Post的查询");
-		ActionContext.getContext().getSession().put("epost",epost);
-		
-		//查询出各个项目的负责人
+		ActionContext.getContext().getSession().put("epost", epost);
+
+		// 查询出各个项目的负责人
 		System.out.println("查询出各个项目的负责人");
-		List  listesu = new ArrayList();
+		List listesu = new ArrayList();
 		for (int i = 0; i < epost.size(); i++) {
 			Post post = (Post) epost.get(i);
 			listesu.add(post.getManager_id());
 		}
-		Map postinfo = (Map)ActionContext.getContext().get("request");//实例化Request容器
+		Map postinfo = (Map) ActionContext.getContext().get("request");// 实例化Request容器
 		postinfo.put("post_esu", listesu);
-		
-		//查询出各个项目的tag类别
+
+		// 查询出各个项目的tag类别
 		System.out.println("查询出各个项目的tag类别");
-		List  listtag = new ArrayList();
+		List listtag = new ArrayList();
 		for (int i = 0; i < epost.size(); i++) {
 			Post post = (Post) epost.get(i);
-			System.out.println("tagno:"+post.getTagno());
-			List listtemp=tagManage.findtag(post.getTagno());
-			listtag.add(listtemp.get(0));//error????遍历方式导致???
+			System.out.println("tagno:" + post.getTagno());
+			List listtemp = tagManage.findtag(post.getTagno());
+			listtag.add(listtemp.get(0));// error????遍历方式导致???
 		}
 		postinfo.put("post_tag", listtag);
-		
-		//查询出所有的负责人
+
+		// 查询出各个项目的参与人员
+		System.out.println("查询出各个项目的参与人员");
+		List listpeople = new ArrayList();
+		for (int i = 0; i < epost.size(); i++) {
+			Post post = (Post) epost.get(i);
+			String[] peopleid = post.getPeople_id().split(";");
+			
+			List peopleidarray=new ArrayList();
+			if(!peopleid[0].equals("")) {
+				for(int j=0;j<peopleid.length;++j) {
+					int a=Integer.parseInt(peopleid[j]);
+					People p=(People)userManage.idtouser(a).get(0);
+					peopleidarray.add(p);
+				}
+			}
+			System.out.println("people_id:" + post.getPeople_id());
+			listpeople.add(peopleidarray);
+		}
+		//People pp=(People)((People[])listpeople.get(0))[0];//list.数组[]
+		postinfo.put("post_people", listpeople);
+
+		// 查询出所有的负责人
 		System.out.println("查询出所有的负责人");
 		System.out.println("开始查询所有Enterprisesubuser的记录");
-		List esu=enterprisesubuserManage.findallenterprisesubuser();
+		List esu = enterprisesubuserManage.findallenterprisesubuser();
 		System.out.println("完成Enterprisesubuser的查询");
-		ActionContext.getContext().getSession().put("esu",esu);
-		
-		//查询出所有的tag信息
+		ActionContext.getContext().getSession().put("esu", esu);
+
+		// 查询出所有的tag信息
 		System.out.println("查询出所有的tag信息");
 		System.out.println("开始查询所有Tag的记录");
-		List protag=tagManage.findalltag();
+		List protag = tagManage.findalltag();
 		System.out.println("完成Tag的查询");
-		ActionContext.getContext().getSession().put("protag",protag);
-		
+		ActionContext.getContext().getSession().put("protag", protag);
+
 		return "success";
 	}
-	
-	//新增项目
+
+	// 新增项目
 	public String addproject() {
 		System.out.println("start insert post");
-		List e=(List)ActionContext.getContext().getSession().get("enterprise");
-		Enterprise enterprise =(Enterprise)e.get(0);
-		
-		Post post=new Post();
+		List e = (List) ActionContext.getContext().getSession().get("enterprise");
+		Enterprise enterprise = (Enterprise) e.get(0);
+
+		Post post = new Post();
 		post.setProjectname(projectname);
 		post.setSummary(summary);
 		post.setPlace(place);
@@ -260,29 +290,29 @@ public class ProjectManagementAction {
 		post.setAllure(allure);
 		post.setContact(contact);
 		post.setTagno(tagno);
-		
+
 		post.setEnterprise_id(enterprise);
 		post.setEname(enterprise.getEname());
 		post.setPictureurl(enterprise.getPictureurl());
-		
-		List esu=enterprisesubuserManage.esuidtofindenterprisesubuser(enterprisesubuser_id);
-		Enterprisesubuser enterprisesubuser=(Enterprisesubuser)esu.get(0);
+
+		List esu = enterprisesubuserManage.esuidtofindenterprisesubuser(enterprisesubuser_id);
+		Enterprisesubuser enterprisesubuser = (Enterprisesubuser) esu.get(0);
 		post.setManager_id(enterprisesubuser);
-		
+
 		postManage.insertPost(post);
-		
+
 		return "success";
 	}
-	
-	//修改项目信息
+
+	// 修改项目信息
 	public String updateproject() {
 		System.out.println("start update post");
-		
+
 		System.out.println("start find post");
-		List listp= postManage.pidtofindpost(post_id);
+		List listp = postManage.pidtofindpost(post_id);
 		System.out.println("finish find post");
-		Post post=(Post)listp.get(0);
-		
+		Post post = (Post) listp.get(0);
+
 		post.setProjectname(projectname);
 		post.setSummary(summary);
 		post.setPlace(place);
@@ -293,13 +323,13 @@ public class ProjectManagementAction {
 		post.setAllure(allure);
 		post.setContact(contact);
 		post.setTagno(tagno);
-		
-		List esu=enterprisesubuserManage.esuidtofindenterprisesubuser(enterprisesubuser_id);
-		Enterprisesubuser enterprisesubuser=(Enterprisesubuser)esu.get(0);
+
+		List esu = enterprisesubuserManage.esuidtofindenterprisesubuser(enterprisesubuser_id);
+		Enterprisesubuser enterprisesubuser = (Enterprisesubuser) esu.get(0);
 		post.setManager_id(enterprisesubuser);
-		
+
 		postManage.updatePost(post);
-		
+
 		return "success";
 	}
 }

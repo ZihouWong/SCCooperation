@@ -5,6 +5,10 @@
 
 
 <package name="lee" namespace="/" extends="struts-default">
+<!-- 拦截器 -->
+<interceptors>
+<interceptor name="backstageLoginCheck" class="org.sccooperation.action.backstage.BackstageIsLoginInterceptor"/>
+</interceptors>
 
 <!-- action,spring结合，class已在spring里装配好 -->
 <action name="persionlogin" class="persionloginAction">
@@ -42,6 +46,177 @@
 <result name="success">/WEB-INF/page/webpages/luntan-info.html</result>
 </action>
 
+<!-- test   ....................................................................... -->
+<action name="chuangxinggu">
+<result name="success">/WEB-INF/page/webpages/work.html</result>
+</action>
+<action name="gongxing">
+<result name="success">/WEB-INF/page/webpages/work/gongxing.html</result>
+</action>
+
+<action name="peopleManage" class="peopleManageAction">
+<result name="success">/WEB-INF/page/webpages/BackStage/peopleManageView/peopleManage.jsp</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="peopleManageSearch" class="peopleManageAction" method="search">
+<result type="chain" name="success">peopleManage</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="enterpriseManageSearch" class="enterpriseManageAction" method="search">
+<result type="chain" name="success">enterpriseManageIndex</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="postManageSearch" class="postManageAction" method="search">
+<result type="chain" name="success">backstagePostManageIndex</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="enterprisesubuserManageSearch" class="enterprisesubuserManageAction" method="search">
+<result type="chain" name="success">enterprisesubuserManageIndex</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="stopPeople" class="peopleManageAction" method="stopPeople">
+<result type="chain" name="success">peopleManage</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="stopEnterprise" class="enterpriseManageAction" method="stopEnterprise">
+<result type="chain" name="success">enterpriseManageIndex</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="stopEnterprisesubuser" class="enterprisesubuserManageAction" method="stopEnterprisesubuser">
+<result type="chain" name="success">enterprisesubuserManageIndex</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="stopPost" class="postManageAction" method="stopPost">
+<result type="chain" name="success">backstagePostManageIndex</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<!-- 创兴谷 --> 
+<action name="chuangxinggutest" class="ChuangxingguAction">
+<result name="success">/WEB-INF/page/webpages/chuangxinggu/chuangxinggu.jsp</result>
+</action>
+
+<action name="showmorejob" class="ShowMoreJobAction">
+<result name="success">/WEB-INF/page/webpages/chuangxinggu/showmorejob.jsp</result>
+</action>
+
+<action name="showjobinfo" class="ShowJobInfoAction">
+<result name="success">/WEB-INF/page/webpages/chuangxinggu/showjobinfo.jsp</result>
+</action>
+
+<action name="noteManage" class="noteManageAction" method="see">
+<result name="success">/WEB-INF/page/webpages/BackStage/noteManageView/noteManage.jsp</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="noteManageSearch" class="noteManageAction" method="search">
+<result name="success">/WEB-INF/page/webpages/BackStage/noteManageView/noteManage.jsp</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="stopNote" class="noteManageAction" method="stopNote">
+<result type="chain" name="success">noteManage</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<!-- 躬行课堂 -->
+<action name="gongxingketangtest" class="GongxingketangAction">
+<result name="success">/WEB-INF/page/webpages/gongxingketang/gongxingketang.jsp</result>
+</action>
+
+<action name="showcourseinfo" class="ShowCourseInfoAction">
+<result name="success">/WEB-INF/page/webpages/gongxingketang/shoucourseinfo.jsp</result>
+</action>
+
+<!-- 黄智豪 END -->
+
+
+<action name="enterpriseManageIndex" class="enterpriseManageAction" method="index">
+<result name="success">/WEB-INF/page/webpages/BackStage/enterpriseManageView/enterpriseManage.jsp</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="backstageIndex">
+<result name="success">/WEB-INF/page/webpages/BackStage/index.jsp</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="enterprisesubuserManageIndex" class="enterprisesubuserManageAction" method="index">
+<result name="success">/WEB-INF/page/webpages/BackStage/enterprisesubuserManageView/enterprisesubuserManage.jsp</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+
+</action>
+
+<action name="backstagePostManageIndex" class="backstagePostManageAction" method="index">
+<result name="success">/WEB-INF/page/webpages/BackStage/postManageView/postManage.jsp</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<action name="backstageUserLogin" class="loginAction" method="backstageLogin">
+<result type="chain" name="success">backstageIndex</result>
+<result type="chain" name="error">backstageLogin</result>
+</action>
+
+<action name="backstageLogin">
+<result name="success">/WEB-INF/page/webpages/BackStage/BackStageIndex.jsp</result>
+</action>
+
+<action name="backstageUserLoginOut" class="loginAction" method="loginOutByBackstage">
+<result type="chain" name="success">backstageLogin</result>
+</action>
+
+<action name="postCheck">
+<result name="success">/WEB-INF/page/webpages/BackStage/postCheckView/postManage.jsp</result>
+</action>
+
+<action name="noteCheck">
+<result name="success">/WEB-INF/page/webpages/BackStage/noteCheckView/noteManage.jsp</result>
+</action>
+
+<action name="replyNoteManage" class="replyNoteManageAction" method="index">
+<result name="success">/WEB-INF/page/webpages/BackStage/replyNoteManageView/replyNoteManage.jsp</result>
+<result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
+<interceptor-ref name="backstageLoginCheck"/>
+</action>
+
+<!-- test   ....................................................................... -->
+<action name="chuangxinggu">
+<result name="success">/WEB-INF/page/webpages/chuangxinggu/testchuangxinggu.jsp</result>
+</action>
+<action name="gongxing">
+<result name="success">/WEB-INF/page/webpages/work/gongxing.html</result>
+</action>
+<action name="geren">
+<result name="success" >/WEB-INF/page/webpages/people.html</result>
+</action>
+
+<action name="newcourseinfo">
+<result name="success">/WEB-INF/page/webpages/gongxingketang/NewFile.jsp</result>
+</action>
 
 <!-- BLANK700 -->
 <!-- 普通用户开始 -->
@@ -166,13 +341,13 @@
 
 <!-- 新增项目 -->
 <action name="eaddproject" class="projectManagementAction" method="addproject">
-<result name="success">/WEB-INF/page/webpages/enterprisecenter/e_project_management.jsp</result>
+<result type="redirect" name="success">edisproject.action?pageNo=1</result>
 <result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
 
 <!-- 修改项目 -->
 <action name="eupdateproject" class="projectManagementAction" method="updateproject">
-<result type="chain" name="success">edisproject</result>
+<result type="redirect" name="success">edisproject.action?pageNo=1</result>
 <!-- <result name="success">/WEB-INF/page/webpages/enterprisecenter/e_project_management.jsp</result> -->
 <result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
@@ -235,7 +410,7 @@
 
 <!-- 修改项目 -->
 <action name="esuupdateproject" class="projectManagementesuAction" method="updateesuproject">
-<result type="chain" name="success">esudisproject</result>
+<result type="redirect" name="success">esudisproject.action?pageNo=1</result>
 <!-- <result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/esu_project_management.jsp</result> -->
 <result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
@@ -262,11 +437,32 @@
 <result name="success">/WEB-INF/page/webpages/personalcenter/notification.jsp</result>
 <result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
-
-
 <!-- 通知结束 -->
 
-</package>
 
+
+<!-- 与投递简历相关开始 -->
+<!-- 集合方法 -->
+<!-- 显示相应的项目 -->
+<action name="displaypostinfo" class="resumemgtAction" method="displaypostinfo">
+<result name="success">/WEB-INF/page/webpages/submitResume.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 提交简历 -->
+<action name="submitresume" class="resumemgtAction" method="submitresume">
+<result type="redirect" name="success">personalcenter.action?pageNo=1</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+<!-- 与投递简历相关结束 -->
+
+
+
+<!-- new wlnss_dev 2018.3.24-->
+<action name="clientLoginView">
+<result name="success">/WEB-INF/page/webpages/login.html</result>
+</action>
+<!-- 哈哈 -->
+</package>
 
 </struts>    

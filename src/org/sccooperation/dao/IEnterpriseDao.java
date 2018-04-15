@@ -3,57 +3,77 @@ package org.sccooperation.dao;
 import java.util.List;
 
 /**
- * Project:SCCooperation Comments:´ËÀàÊÇÆóÒµ²Ù×÷½Ó¿Ú
+ * Project:SCCooperation Comments:æ­¤ç±»æ˜¯ä¼ä¸šæ“ä½œæ¥å£
  *  JDK version used:JDK1.8 
- *  Author£ºbllank700 Create Date£º2017-12-21 Modified By£º <ĞŞ¸ÄÈËÖĞÎÄÃû»òÆ´ÒôËõĞ´>
- * Modified Date: <ĞŞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD> Why & What is modified <ĞŞ¸ÄÔ­ÒòÃèÊö>
+ *  Authorï¼šbllank700 Create Dateï¼š2017-12-21 Modified Byï¼š <ä¿®æ”¹äººä¸­æ–‡åæˆ–æ‹¼éŸ³ç¼©å†™>
+ * Modified Date: <ä¿®æ”¹æ—¥æœŸï¼Œæ ¼å¼:YYYY-MM-DD> Why & What is modified <ä¿®æ”¹åŸå› æè¿°>
  * Version:1.0
  */
 
 public interface IEnterpriseDao<T> {
-	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄÕËºÅÃÜÂë£¬ÑéÖ¤Êı¾İ¿âÊÇ·ñÓĞ´ËÌõ¼ÇÂ¼½øĞĞµÇÂ¼
+/**
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„è´¦å·å¯†ç ï¼ŒéªŒè¯æ•°æ®åº“æ˜¯å¦æœ‰æ­¤æ¡è®°å½•è¿›è¡Œç™»å½•
 	 * 
-	 * @param account  ÍøÒ³´«À´µÄÕËºÅ
-	 * @param password ÍøÒ³´«À´µÄÃÜÂë
-	 * @return ·µ»Ø¸ÃÓÃ»§ĞÅÏ¢
-	 * @exception ÔİÊ±Ã»×ö
+	 * @param account  ç½‘é¡µä¼ æ¥çš„è´¦å·
+	 * @param password ç½‘é¡µä¼ æ¥çš„å¯†ç 
+	 * @return è¿”å›è¯¥ç”¨æˆ·ä¿¡æ¯
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public List loginCheck(String account,String password);
 
 	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄÃÜÂë¼ì²éÊÇ·ñÓëÓÃ»§ÃÜÂëÒ»ÖÂ
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„å¯†ç æ£€æŸ¥æ˜¯å¦ä¸ç”¨æˆ·å¯†ç ä¸€è‡´
 	 * 
-	 * @param password String£¬ÓÃ»§µÄÃÜÂë
+	 * @param password Stringï¼Œç”¨æˆ·çš„å¯†ç 
 	 * @return boolean
-	 * @exception ÔİÊ±Ã»×ö
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public boolean passwordCheck(String password);
 	
 	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄÊı¾İĞÅÏ¢²åÈëµ½Ïà¹ØÊı¾İ¿â
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„æ•°æ®ä¿¡æ¯æ’å…¥åˆ°ç›¸å…³æ•°æ®åº“
 	 * 
-	 * @param entity ·ºĞÍÀà£¬°üº¬Òª×¢²áµÄÓÃ»§»òÕß¹«Ë¾µÄĞÅÏ¢
+	 * @param entity æ³›å‹ç±»ï¼ŒåŒ…å«è¦æ³¨å†Œçš„ç”¨æˆ·æˆ–è€…å…¬å¸çš„ä¿¡æ¯
 	 * @return void
-	 * @exception ÔİÊ±Ã»×ö
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public void insertEnterprise(T entity);
 	
 	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄÊı¾İĞÅÏ¢¸üĞÂÏà¹ØÊı¾İ¿â
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„æ•°æ®ä¿¡æ¯æ›´æ–°ç›¸å…³æ•°æ®åº“
 	 * 
-	 * @param entity ·ºĞÍÀà£¬°üº¬Òª×¢²áµÄÓÃ»§»òÕß¹«Ë¾µÄĞÅÏ¢
+	 * @param entity æ³›å‹ç±»ï¼ŒåŒ…å«è¦æ³¨å†Œçš„ç”¨æˆ·æˆ–è€…å…¬å¸çš„ä¿¡æ¯
 	 * @return void
-	 * @exception ÔİÊ±Ã»×ö
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public void updateEnterprise(T entity);
 	
 	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄÆóÒµid²éÑ¯Ïà¹ØµÄÊı¾İ¿â
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„ä¼ä¸šidæŸ¥è¯¢ç›¸å…³çš„æ•°æ®åº“
 	 * 
-	 * @param id ÍøÒ³´«À´µÄÆóÒµid
+	 * @param id ç½‘é¡µä¼ æ¥çš„ä¼ä¸šid
 	 * @return void
-	 * @exception ÔİÊ±Ã»×ö
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public List findEnterprise(int id);
+	
+	//Â¸Ã¹Â¾ÃÃ’Â³ÂºÃ…Â²Ã©Ã•Ã’Ã†Ã³Ã’Âµ
+	public List<T> findByPageNo(int pageNo);
+	
+	 /**
+  	 * ÃŒÃµÂ¼Ã¾Ã‹Ã‘Ã‹Ã·ÃŒÃ»Ã—Ã“
+  	 * 
+  	 * @param Â¹Ã˜Â¼Ã¼Â´ÃŠ
+  	 * @return Ã‹Ã‘Ã‹Ã·Â½Ã¡Â¹Ã»
+  	 * @exception Ã”ÃÃŠÂ±ÃƒÂ»Ã—Ã¶
+  	 */
+     public List<T> searchByPageNo(String keyword,int pageNo);
+	
+	/*******************************é»„æ™ºè±ª******************************/
+	public List findEnterpriseByPageNo(int pageNo);
+
+	public List findEnterpriseTName(int enterpriseNo);
+
+	public List findPartner(int pageNo);
+
 }

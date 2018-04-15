@@ -5,18 +5,26 @@ import java.util.List;
 import org.sccooperation.domain.People;
 
 /**
- * Project:SCCooperation Comments:´ËÀàÊÇÓÃ»§·şÎñ²ã½Ó¿Ú
+ * Project:SCCooperation Comments:å§ã‚‡è¢«é„îˆœæ•¤é´é”‹æ¹‡é”â€³çœ°éºãƒ¥å½›
  *  JDK version used:JDK1.8 
- *  Author£ºWLNSSS Create Date£º2017-9-27 Modified By£º <ĞŞ¸ÄÈËÖĞÎÄÃû»òÆ´ÒôËõĞ´>
- * Modified Date: <ĞŞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD> Why & What is modified <ĞŞ¸ÄÔ­ÒòÃèÊö>
+ *  Authoré”›æ­LNSSS Create Dateé”›ï¿½2017-9-27 Modified Byé”›ï¿½ <æ·‡î†½æ•¼æµœè½°è…‘é‚å›§æ‚•é´æ ¨å«¾é—Šå´‡ç¼‰éï¿½>
+ * Modified Date: <æ·‡î†½æ•¼éƒãƒ¦æ¹¡é”›å±¾ç‰¸å¯®ï¿½:YYYY-MM-DD> Why & What is modified <æ·‡î†½æ•¼é˜ç†·æ´œé»å¿šå ª>
  * Version:1.0
  */
 public interface UserManage<T> {
 	/*
-	 *ÕâÀïÔİÊ±ºÍdao²ã²î²»¶à£¬ÀàËÆÓÚ´úÀíÀà£¬µ÷ÓÃdao²ãµÄ·½·¨ÊµÏÖ 
+	 *æ©æ¬“å™·é†å‚›æ¤‚éœå®’aoçå‚šæ¨Šæ¶“å¶…î˜¿é”›å²€è¢«æµ¼é—´ç°¬æµ ï½‡æ‚Šç»«ä¼™ç´ç’‹å†ªæ•¤daoçå‚œæ®‘é‚è§„ç¡¶ç€¹ç‚µå¹‡ 
 	 */
 	public List loginCheck(String account,String password);
 	public boolean passwordCheck(String password_old);
 	public void insertUser(T entity);
-	public void updateUser(T entity);
+	public List<T> idtouser(int pid);
+	
+	public List<People> selectAllUser(int pageNo);
+	
+	public List<T> searchByPageNo(String keyword,int pageNo);
+	
+	public List<T> backstageLoginCheck(String account, String password);
+	
+		public void updateUser(T entity);
 }

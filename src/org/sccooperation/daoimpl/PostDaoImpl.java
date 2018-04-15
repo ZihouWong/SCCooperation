@@ -5,17 +5,61 @@ import java.util.List;
 import org.sccooperation.dao.IPostDao;
 import org.sccooperation.domain.Post;
 /**
- * Project:SCCooperation Comments:�����Ǳ�ǩ�����ӿ�ʵ����
+ * Project:SCCooperation Comments:´ËÀàÊÇ±êÇ©²Ù×÷½Ó¿ÚÊµÏÖÀà
  *  JDK version used:JDK1.8 
- *  Author��blank700 Create Date��2017-12-13 Modified By�� <�޸�����������ƴ����д>
- * Modified Date:2017-12-13 <�޸����ڣ���ʽ:YYYY-MM-DD> Why & What is modified <�޸�ԭ������>
+ *  Author£ºblank700 Create Date£º2017-12-13 Modified By£º <ÐÞ¸ÄÈËÖÐÎÄÃû»òÆ´ÒôËõÐ´>
+ * Modified Date:2017-12-13 <ÐÞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD> Why & What is modified <ÐÞ¸ÄÔ­ÒòÃèÊö>
  * Version:1.0
  */
 
 
 public class PostDaoImpl<T> extends BaseDaoImpl<T> implements IPostDao<T> {
 	/*
-	 * ���ӿ���˵���˴���׸��
+	 * ¸¸½Ó¿ÚÓÐËµÃ÷´Ë´¦²»×¸Êö
+	 */
+	@Override
+	public List findJobByButton(int pageNo, String button) {
+		// 主页-显示标签对应的工作
+		return findByPage("from Post where tagNo=?0", pageNo, 18, 18, button); 
+	}
+	
+	public List findJobByPageNo(int pageNo) {
+		//主页-显示所有工作
+		return findBypage("from Post", pageNo, 24, 24);
+	}
+
+	@Override
+	public List showMainJob(int pageNo, int button) {
+		// 搜索页面-主体工作信息列表	
+		return findByPage("from Post where tagno=?0", pageNo, 50, 50, button);
+	}
+
+	@Override
+	public List showHotJob(int pageNo, int button) {
+		// 搜索页面-热点工作列表
+		return find("from Post order by seenum desc");
+	}
+	
+	@Override
+	public long getPostNum(Class entityClazz) {
+		// 搜索页面-获得工作总数
+		return findCount(entityClazz);
+	}
+
+	@Override
+	public List getOtherJob(int tagNo) {
+		// 显示工作详细页面-其他工作
+		return find("from Post where tagno=?0", tagNo);
+	}
+	
+	@Override
+	public List showJobInfo(int jobId) {
+		// 显示工作详细页面-主体信息框
+		return find("from Post where id=?0", jobId);
+	}
+	
+		/*
+	 * ¸¸½Ó¿ÚÓÐËµÃ÷´Ë´¦²»×¸Êö
 	 */
 	@Override
 	public List findpost(int tagno1, int tagno2, int tagno3) {
@@ -54,3 +98,4 @@ public class PostDaoImpl<T> extends BaseDaoImpl<T> implements IPostDao<T> {
 		update(entity);
 	}
 }
+  

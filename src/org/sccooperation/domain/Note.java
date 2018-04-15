@@ -48,6 +48,10 @@ public class Note {
 	private String time;
 	//状态吗
 	private String state;
+	
+	//是否是回复
+
+		private Integer note_id;
 	//用户关联id
 	@ManyToOne(targetEntity=People.class)
 	@JoinColumn(name="people_id",referencedColumnName="id")
@@ -105,6 +109,12 @@ public class Note {
 	}
 	public void setState(String state) {
 		this.state = state;
+	}
+	public Integer getNote_id() {
+		return note_id;
+	}
+	public void setNote_id(Integer note_id) {
+		this.note_id = note_id;
 	}
 	
 	

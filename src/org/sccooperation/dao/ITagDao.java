@@ -2,28 +2,32 @@ package org.sccooperation.dao;
 
 import java.util.List;
 
-/**
- * Project:SCCooperation Comments:´ËÀàÊÇ±êÇ©²Ù×÷½Ó¿Ú
- *  JDK version used:JDK1.8 
- *  Author£ºblank700 Create Date£º2017-12-8 Modified By£º <ĞŞ¸ÄÈËÖĞÎÄÃû»òÆ´ÒôËõĞ´>
- * Modified Date:2017-12-8 <ĞŞ¸ÄÈÕÆÚ£¬¸ñÊ½:YYYY-MM-DD> Why & What is modified <ĞŞ¸ÄÔ­ÒòÃèÊö>
- * Version:1.0
- */
-public interface ITagDao<T>{
-	/**
-	 * ¸ù¾İÍøÒ³´«¹ıÀ´µÄtagno£¬²éÑ¯Êı¾İ¿âÖĞtagno¶ÔÓ¦µÄ·½Ïò
+public interface ITagDao<T> {
+
+	//åˆ›å…´è°·ï¼š
+	//æ˜¾ç¤ºå…¬å¸æ‰€å±çš„æ ‡ç­¾å
+	List showTagName(int jobNo);
+
+	//èº¬è¡Œè¯¾å ‚ï¼š
+	//æ˜¾ç¤ºæŒ‰é’®çš„åå­—
+	List showTagNameByButton(int button);
+	
+		/**
+	 * æ ¹æ®ç½‘é¡µä¼ è¿‡æ¥çš„tagnoï¼ŒæŸ¥è¯¢æ•°æ®åº“ä¸­tagnoå¯¹åº”çš„æ–¹å‘
 	 * 
-	 * @param tagnoÍøÒ³´«À´µÄtagno
-	 * @return ·µ»Ø¸ÃÓÃ»§ĞÅÏ¢
-	 * @exception ÔİÊ±Ã»×ö
+	 * @param tagnoç½‘é¡µä¼ æ¥çš„tagno
+	 * @return è¿”å›è¯¥ç”¨æˆ·ä¿¡æ¯
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public List findtag(int tagno);
 
 	/**
-	 * ²éÕÒ³öËùÓĞµÄ±êÇ©ĞÅÏ¢ĞÅÏ¢
+	 * æŸ¥æ‰¾å‡ºæ‰€æœ‰çš„æ ‡ç­¾ä¿¡æ¯ä¿¡æ¯
 	 * 
-	 * @return ·µ»Ø±êÇ©ĞÅÏ¢
-	 * @exception ÔİÊ±Ã»×ö
+	 * @return è¿”å›æ ‡ç­¾ä¿¡æ¯
+	 * @exception æš‚æ—¶æ²¡åš
 	 */
 	public List findalltag();
+	
+	
 }

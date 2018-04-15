@@ -93,39 +93,7 @@
 </head>
 <body>
 	 <!-- 登陆框、联系方式 -->
-	<div id="head-link" class="login">
-		<div class="container">
-			<div class="col-xs-12">
-			    <%
-			List listU = (List)request.getSession().getAttribute("user");
-			if(request.getSession().getAttribute("user")==null) {%>
-			    <div class="login-in">
-					<form id="login-form" action="login.action?pageNo=1" method="post">
-						<p class="main-font">学生代码:</p><input type="text" name="account">
-						<p class="main-font">密码:</p><input type="password" name="password">
-						<p class="main-font">验证码:</p><input id="input-code" type="text" name="code">
-						<img src="" alt="" class="code-img">
-						<input id="login-btn" type="submit" value="登陆">
-						<a href="register-goto.html" id="login-btn-a" class="float">注册</a>
-
-					</form>
-				</div>
-				<%}else{ 
-					
-					People people =(People) listU.get(0);
-					%>
-				}
-				<div class="login-in">
-				欢迎<%=people.getPnumber() %>
-				</div>
-				<%} %>
-			    <div class="login-tel">
-			    	<i class="fa fa-phone fa-lg"></i>
-			    	<p class="main-font">咨询电话：010-82319999转2846</p>
-			    </div>
-			</div>
-		</div>
-	</div>
+		<jsp:include page="./fronttopbar.jsp"></jsp:include>
 	<!-- 导航条 -->
 	
 		<div class="container">
@@ -312,10 +280,11 @@
 			<%Note note = (Note)request.getAttribute("firstNote");
 			  People host = (People)request.getAttribute("host");
 			  List replyList = (List)request.getAttribute("replyNote");
+			  int pageN = Integer.parseInt((String)request.getAttribute("pageNo"));
 			%>
 			<div class="reply">
-				<p class="font-intro float"><span class="red"> 10 </span>回复贴，共<span class="red"> 1 </span>页</p>
-				<p class="font-intro float-right"><a href="#">&lt;&lt; 返回创行谷</a></p>
+			<p class="font-intro float"><span class="red"> 10 </span>回复贴，共<span class="red"> 1 </span>页</p>
+				<p class="font-intro float-right"><a href="luntan.action?pageNo=1">&lt;&lt; 返回创行谷</a></p>
 			</div>
 			<div class="topic1">
 				<p class="font-title2 float"><%=note.getTitle() %></p>
@@ -332,84 +301,8 @@
 					<div class="apply-item-right">
 						<p class="font-intro"><%=note.getContent() %></p>
 						<p class="apply-body-remark font-intro float"><%=note.getTime() %>
-							<a class="apply-btn-input apply-floot-btn btn" href="#" style="color:blue">收起回复</a>
-							<div class="apply-message ">
-								<div class="apply-menu">
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-								</div>
-								<!-- apply-menu ending -->
-								<!--  ..............................................................-->
-
-								
-								
-				
-								<!-- ..................................................... -->
-<p class="apply-tab text-left float"> 
-									   <a class="lock" href="#">1</a> 
-                                       <a href="#">2</a>
-                                       <a href="#">3</a>
-                                       <a href="#">4</a>
-                                       <a href="#">5</a>
-                                       <a href="#">6</a>
-                                       <a href="#">7</a>
-                                       <a href="#">8</a>
-                                       <a href="#">9</a>
-                                       <a href="#">10</a>
-                                       <a href="#">下一页</a>
-                                       <a href="#">尾页</a>
-									</p>
-									<a class="btn apply-btn-publish float-right apply-menu-btn" href="#" style="margin-right:25px;margin-top:10px;">我也说一句</a>
-								<form class="hidden apply-form" action="" method="post" name="apply-floor" style="padding-left:25px;">
-									<textarea name="" id="" cols="131" rows="5">
-										fvfvrtbrt
-									</textarea>
-									<input type="submit" class="apply-btn-publish" value="发表" name="topic-form">
-								</form>
-							</div>
+							
+							
 						</p>
 					</div>
 				</div>
@@ -429,85 +322,8 @@
 					<div class="apply-item-right">
 						<p class="font-intro"><%=replyNote.getContent() %></p>
 						<p class="apply-body-remark font-intro float"><%=replyNote.getTime() %>
-							<a class="apply-btn-input apply-floot-btn btn" href="#" style="color:blue">收起回复</a>
-							<div class="apply-message ">
-								<div class="apply-menu">
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-									<div class="apply-menu-item">
-										<div class="apply-menu-head">
-											<img class="float img-thumbnail" src="./img/class-teach.jpg" alt="">
-										</div>
-										
-										<p class="font-intro apply-name float">可爱炸了:</p>
-										<p class="font-intro apply-content">小吧，这贴不加精吗？</p>
-										<p class="apply-body-remark font-intro float">  1楼  2017-10-11 11:24&nbsp;&nbsp;<a class="apply-foor-btn" href="#">回复</a></p>
-									</div>
-								</div>
-								<!-- apply-menu ending -->
-								<!--  ..............................................................-->
-
-								
-								
-				
-								<!-- ..................................................... -->
-<p class="apply-tab text-left float"> 
-									   <a class="lock" href="#">1</a> 
-                                       <a href="#">2</a>
-                                       <a href="#">3</a>
-                                       <a href="#">4</a>
-                                       <a href="#">5</a>
-                                       <a href="#">6</a>
-                                       <a href="#">7</a>
-                                       <a href="#">8</a>
-                                       <a href="#">9</a>
-                                       <a href="#">10</a>
-                                       <a href="#">下一页</a>
-                                       <a href="#">尾页</a>
-									</p>
-									<a class="btn apply-btn-publish float-right apply-menu-btn" href="#" style="margin-right:25px;margin-top:10px;">我也说一句</a>
-								<form class="hidden apply-form" action="" method="post" name="apply-floor" style="padding-left:25px;">
-									<textarea name="" id="" cols="131" rows="5">
-										fvfvrtbrt
-									</textarea>
-									<input type="submit" class="apply-btn-publish" value="发表" name="topic-form">
-								</form>
-							</div>
-						</p>
+							
+					
 					</div>
 				</div>
 				<%} }%> 
@@ -515,18 +331,11 @@
 				
 				
 				<p class="apply-tab text-center float"> 
-									   <a class="lock" href="#">1</a> 
-                                       <a href="#">2</a>
-                                       <a href="#">3</a>
-                                       <a href="#">4</a>
-                                       <a href="#">5</a>
-                                       <a href="#">6</a>
-                                       <a href="#">7</a>
-                                       <a href="#">8</a>
-                                       <a href="#">9</a>
-                                       <a href="#">10</a>
-                                       <a href="#">下一页</a>
-                                       <a href="#">尾页</a>
+			                	<a href="minutenote.action?id=<%=note.getId()%>&pageNo=1">首页</a>
+								<a href="minutenote.action?id=<%=note.getId()%>&pageNo=<%=pageN-1%>">上页</a>
+								<a href="minutenote.action?id=<%=note.getId()%>&pageNo=<%=pageN+1%>">下页</a>
+								<input type="text" value="1">
+								<a href="#">GO</a>
 									</p>
 				 
 				         <style>
@@ -576,10 +385,10 @@
 			                </style>
 			        <div class="apply" id="apply" style="margin-top:60px;">
 <form action="addreplynote.action?pageNo=1&id=<%=note.getId() %>" name="topic-form" method="post">
-			            <p class="main-font" style="font-weight:500"><i class="fa fa-lg fa-star float"></i>发布新帖</p>
+			            <p class="main-font" style="font-weight:500"><i class="fa fa-lg fa-star float"></i>发布回复</p>
 			            <div class="apply-topic-title">
-				            	<input type="text" name="title" class="topic float">
-				            	<p class="main-font float-right topic-icon"><i class="fa fa-lg fa-comment-o float"></i><span style="color:#7d6d6d">话题</span></p>
+				            	
+				            	<p class="main-font float-right topic-icon"><i class="fa fa-lg fa-comment-o float"></i><span style="color:#7d6d6d">回复</span></p>
 			                <!-- 加载编辑器的容器 -->
 
 			            </div>

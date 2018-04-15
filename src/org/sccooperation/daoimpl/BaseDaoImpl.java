@@ -133,6 +133,37 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
     	
     	return query.setFirstResult((pageNo-1)*pageSize).setMaxResults(max).list();
     }
+    
+    /**
+     * 与上面大同小异
+     * */
+    @SuppressWarnings("unchecked")
+   	protected List<T> findByPageByArray(String hql ,int pageNo,int pageSize,int max,Object params[])
+       {
+       	Query query = getSessionFactory().getCurrentSession().createQuery(hql);
+       	for(int i=0,len = params.length;i<len;i++)
+       	{
+       		query.setParameter(i+"", params[i]);
+       	}
+       	
+       	return query.setFirstResult((pageNo-1)*pageSize).setMaxResults(max).list();
+       }
+    /**
+     * 根據字段進行更新
+     * @param hql String hql語句
+     * @param params object 可變參數,用於填充佔位符
+     * @return int 返回受影響的行數
+     * */
+    @SuppressWarnings("unchecked")
+    protected int updateByFields(String hql,Object...params) {
+    	Query query = getSessionFactory().getCurrentSession().createQuery(hql);
+    	for(int i=0,len = params.length;i<len;i++)
+    	{
+    		query.setParameter(i+"", params[i]);
+    	}
+    	int result = query.executeUpdate();
+    	return result;
+    }
 
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

@@ -73,6 +73,24 @@ public interface INoteDao<T> {
  	 * @exception 暂时没做
  	 */
      public List seeManyNotePeople();
+     
+     /**
+  	 * 条件搜索帖子
+  	 * 
+  	 * @param 关键词
+  	 * @return 搜索结果
+  	 * @exception 暂时没做
+  	 */
+     public List<T> searchByPageNo(String keyword,int pageNo);
+     
+     /**
+   	 * 分页搜索全部帖子详情页
+   	 * 
+   	 * @param pageNo int 帖子页数
+   	 * @return 搜索结果
+   	 * @exception 暂时没做
+   	 */
+     public List<T> backstageFindAllReplyNote(int pageNo);
 
 	
 
