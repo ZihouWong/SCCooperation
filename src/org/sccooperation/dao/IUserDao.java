@@ -44,7 +44,7 @@ public interface IUserDao<T>{
 	public void insertUser(T entity);
 	
 	/**
-	 * 根据网页传过来的peopleid查找people对象
+	 * 分页查找用户信息,一页12条
 	 * 
 	 * @param 
 	 * @return list列表

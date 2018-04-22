@@ -468,6 +468,10 @@
 <action name="clientLoginView">
 <result name="success">/WEB-INF/page/webpages/login.html</result>
 </action>
+
+<action name="frontIndex">
+<result name="success">/WEB-INF/page/webpages/frontIndex.jsp</result>
+</action>
 <!-- 哈哈 -->
 </package>
 
