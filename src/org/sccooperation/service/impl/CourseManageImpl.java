@@ -52,6 +52,12 @@ public class CourseManageImpl implements CourseManage{
 		// 详细页面-课程广告
 		return courseDao.getCourseAd();
 	}
+	
+	@Override
+	public String getTeacherid(int courseId) {
+		// TODO Auto-generated method stub
+		return courseDao.getTeacherid(courseId);
+	}
 
 	
 }

@@ -36,6 +36,12 @@ public class UserManageImpl<T> implements UserManage<T> {
 		userDao.insertUser(entity);
 	}
 	
+	@Override
+	public List<T> idtouser(int pid){
+		System.out.println("idtouser");
+		return userDao.idtouser(pid);
+	}
+	
 	
 	/******************************************************WLNSSS**********************************/
 

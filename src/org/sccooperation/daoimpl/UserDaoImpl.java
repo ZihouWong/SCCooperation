@@ -31,7 +31,11 @@ public class UserDaoImpl<T> extends BaseDaoImpl<T> implements IUserDao<T> {
 		return pp;
 	}
 	
-	
+	@Override
+	public List<T> idtouser(int pid){
+		List<T> p=find("from People where id =?0", pid);
+		return p;
+	}
 	
 	
 	/*******************WLNSSS*******************************************************************/

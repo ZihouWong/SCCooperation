@@ -18,6 +18,7 @@ public interface UserManage<T> {
 	public List loginCheck(String account,String password);
 	public boolean passwordCheck(String password_old);
 	public void insertUser(T entity);
+	public List<T> idtouser(int pid);
 	
 	public List<People> selectAllUser(int pageNo);
 	

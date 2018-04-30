@@ -378,6 +378,7 @@
     <bean id="projectManagementAction" class="org.sccooperation.action.enterprisecenter.ProjectManagementAction" scope="prototype">
     <property name="postManage" ref="postManageImpl"></property>
     <property name="tagManage" ref="tagManageImpl"></property>
+    <property name="userManage" ref="userManageImpl"></property>
     <property name="enterprisesubuserManage" ref="enterprisesubuserManageImpl"></property>
     </bean>
 	
@@ -400,6 +401,13 @@
     <!-- 通知类集合Action配置 -->
     <bean id="notificationManagementAction" class="org.sccooperation.action.notification.NotificationManagementAction" scope="prototype">
     <property name="notificationManage" ref="notificationManageImpl"></property>
+    </bean>
+    
+    <!-- 与投递简历相关 -->
+    <!-- 与投递简历相关集合Action配置 -->
+    <bean id="resumemgtAction" class="org.sccooperation.action.resumemgt.resumemgtAction" scope="prototype">
+    <property name="postManage" ref="postManageImpl"></property>
+    <property name="userManage" ref="userManageImpl"></property>
     </bean>
 
 </beans>

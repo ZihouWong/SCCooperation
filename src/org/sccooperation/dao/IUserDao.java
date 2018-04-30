@@ -50,6 +50,7 @@ public interface IUserDao<T>{
 	 * @return list列表
 	 * @exception 暂时没做
 	 */
+	public List<T> idtouser(int pid);
 	
 	
 	

@@ -445,8 +445,6 @@ ul {
 						%>
 						
 						<span class="label"><p class="font-intro"><%=tag.getTagname() %></p></span>
-						<% } else { %>
-						<span class="label"><p class="font-intro">eR-TagName</p></span>	
 						<% } %>
 						<p class="main-font grey2 publish-time">2017-07-06 发布于拉勾网</p>
 					</div>
@@ -455,7 +453,7 @@ ul {
 							<a href="#" class="work-head-btn work-head-btn-left"><i
 								class="fa fa-star fa-lg main-color"></i>收藏</a>
 							<!-- <a href="#" class="work-head-btn work-head-btn-right">已下线</a> -->
-							<a href="#" class="work-head-btn work-head-btn-right"
+							<a href="submitresume.action?post_id=<%=post.getId() %>" class="work-head-btn work-head-btn-right"
 								data-toggle="modal" data-target="#myModal">投递简历</a>
 							<!-- 弹窗 -->
 
@@ -575,73 +573,7 @@ ul {
 							<!-- condition-right ending -->
 						</div>
 						<!-- work-body-condition ending -->
-
-
-						<% } else { %>
-						<!-- 错误显示 -->
-						<div class="work-body-left">
-							<div class="work-body-condition">
-								<h5 class="condition-title">error职位诱惑:</h5>
-								<p class="main-font">error五险一金,节假福利,带薪年假,交通补贴</p>
-							</div>
-							<div class="work-body-condition">
-								<h5 class="condition-title">职位描述:</h5>
-								<h5 class="main-font">基本要求：</h5>
-								<p class="main-font">
-									1、ERROR<br> 2、ERROR<br> 3、ERROR<br> 4、ERROR<br>
-
-									5、ERROR<br> 6、ERROR<br> 7、ERROR
-								</p>
-								<h5 class="main-font">岗位职责：</h5>
-								<p class="main-font">
-									1、ERROR<br> 2、ERROR<br> 3、ERROR<br> 4、ERROR
-								</p>
-							</div>
-							<div class="work-body-condition">
-								<h5 class="condition-title">工作地址:</h5>
-								<p class="main-font float">error</p>
-								<p class="main-font float-right">
-									<a id="underline" class="underline" href="#"> <span
-										class="main-color inline-block">查看地图</span></a>
-								</p>
-							</div>
-
-							<br>
-							<!-- work-body-condition ending -->
-							<div class="work-body-condition work-body-hr">
-								<h5 class="condition-title">职位发布者:</h5>
-								<div class="condition-left">
-									<img src="./img/class-teach.jpg" alt=""
-										class="condition-left-img img-circle float">
-									<p class="main-font">
-										errorname<i class="fa fa-lg fa-commenting-o main-color"></i>
-									</p>
-									<p class="main-font grey2">职位发布者</p>
-								</div>
-								<!-- condition-left ending -->
-								<div class="condition-right">
-									<a href="#" class="hot-company-list-item float"> <span
-										class="main-color">errornum</span>
-										<h4 class="main-font float  hot-company-list-intro">面试评价</h4>
-										<span class="hot-company-list-border"></span>
-									</a> <a href="#" class="hot-company-list-item float"> <span
-										class="main-color">errornum</span>
-										<h4 class="main-font float  hot-company-list-intro">在找职位</h4>
-										<span class="hot-company-list-border"></span>
-									</a> <a href="#" class="hot-company-list-item float"> <span
-										class="main-color">errornum%</span>
-										<h4 class="main-font float hot-company-list-intro">简历处理率</h4>
-									</a>
-								</div>
-								<!-- condition-right ending -->
-							</div>
-							<!-- work-body-condition ending -->
-						</div>
-
-
-
-
-						<% }%>
+						<% } %>
 					</div>
 					<!-- col-xs-8 ending -->
 
@@ -677,18 +609,10 @@ ul {
 										<i class="fa fa-lg fa-user-o"></i><%=tag.getTagname() %>
 									</p>
 								</li>
-								<% } else { %>
-								<li class="info-list-item">
-									<p class="main-font grey2">
-										<i class="fa fa-lg fa-user-o"></i>error移动互联网,电子商务
-									</p>
-								</li>
-
-
-								<%} } }%>
+								<% } } } %>
 							</ul>
 						</div>
-						<%} %>
+						<% } %>
 						<!-- company-info ending -->
 
 
@@ -724,25 +648,6 @@ ul {
 									<p class="font-intro"><%=post.getEname() %> [<%=post.getPlace() %>]</p>
 								</div>
 							</a>
-
-							<% } else { %>
-
-							<!-- media-item ending -->
-							<span class="media-border"></span> <a href="#" class="media">
-								<div class="media-left">
-									<a href="#"> <img class="media-object img-thumbnail"
-										src="./img/hot-company1.png" alt=".">
-									</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading font-title2">
-										<a href="#">error job</a>
-									</h4>
-									<p class="font-title2 red">error price</p>
-									<p class="font-intro">error软件[error location]</p>
-								</div>
-							</a>
-
 							<% } } } %>
 							<span class="media-border"></span>
 						</div>

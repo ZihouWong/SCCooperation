@@ -110,6 +110,7 @@
 			if (!listEpost.isEmpty()) {
 				List post_esu = (List) request.getAttribute("post_esu");//接收各个项目的负责人信息
 				List post_tag = (List) request.getAttribute("post_tag");//接收各个项目的tag信息
+				List post_people = (List) request.getAttribute("post_people");//接收各个项目的people对象
 
 				for (int i = 0; i < listEpost.size(); i++) {
 					Post epost = (Post) listEpost.get(i);
@@ -117,6 +118,9 @@
 
 					Enterprisesubuser pesu = (Enterprisesubuser) post_esu.get(i);//获取出各个项目的负责人信息和tag信息
 					Tag ptag = (Tag) post_tag.get(i);//获取出各个项目的tag信息
+					//People pp=(People)((List)post_people.get(0)).get(0);
+					//System.out.print(pp.getName());
+					List peoplelist = (List) post_people.get(i);
 		%>
 
 		<div class="panel panel-default">
@@ -151,10 +155,20 @@
 						项目类型:<%=ptag.getTagname()%></p>
 					<p class="main-font">
 						项目负责人:<%=pesu.getNickname()%></p>
+					<select name="enterprisesubuser_id" class="form-control">
+						<%
+							for (int j = 0; j < peoplelist.size(); j++) {
+										People people = (People) peoplelist.get(j);
+						%>
+						<option value="<%=people.getId()%>"><%=people.getName()%></option>
+						<%
+							}
+						%>
+					</select>
 
 					<!-- 按钮触发模态框 -->
 					<button class="btn btn-primary btn-lg" data-toggle="modal"
-						data-target="#project<%=i + 1%>_Modal">编辑</button>
+						data-target="#project<%=i + 1%>_Modal">编辑项目</button>
 					<form id="modifypost<%=i + 1%>-form"
 						action="eupdateproject.action?pageNo=1" method="post"
 						enctype="multipart/form-data">
@@ -222,12 +236,57 @@
 											%>
 										</select>
 
+
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default"
 											data-dismiss="modal">取消</button>
 										<input class="btn btn-primary" id="modify-btn" type="submit"
 											value="提交">
+									</div>
+								</div>
+								<!-- /.modal-content -->
+							</div>
+							<!-- /.modal -->
+						</div>
+					</form>
+
+					<!-- 按钮触发模态框 -->
+					<button class="btn btn-primary btn-lg" data-toggle="modal"
+						data-target="#project<%=i + 6%>_Modal">编辑成员</button>
+					<form id="modifypost<%=i + 6%>-form" action="deleteresume.action"
+						method="post" enctype="multipart/form-data">
+						<!-- 模态框（Modal） -->
+						<div class="modal fade" id="project<%=i + 6%>_Modal" tabindex="-1"
+							role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true">&times;</button>
+										<h4 class="modal-title" id="myModalLabel">编辑成员</h4>
+									</div>
+
+									<div class="modal-body">
+
+										<input type="hidden" value="<%=epost.getId()%>" name="post_id">
+										<select name="people_id" class="form-control">
+											<%
+												for (int j = 0; j < peoplelist.size(); j++) {
+															People people = (People) peoplelist.get(j);
+											%>
+											<option value="<%=people.getId()%>"><%=people.getName()%></option>
+											<%
+												}
+											%>
+										</select>
+
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal">取消</button>
+										<input class="btn btn-danger" id="modify-btn" type="submit"
+											value="删除"></>
 									</div>
 								</div>
 								<!-- /.modal-content -->

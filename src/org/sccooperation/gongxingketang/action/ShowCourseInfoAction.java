@@ -10,7 +10,6 @@ public class ShowCourseInfoAction {
 	
 	// 信息:
 	private Map request;
-	private String pageNo;
 	private String button;
 	private String courseNo;
 	private String peopleid;
@@ -18,7 +17,7 @@ public class ShowCourseInfoAction {
 	private CourseManage courseManage;
 	private PeopleManage peopleManage;
 	
-	// 信息�? Set & Get�?
+	// 信息的 Set & Get：
 	public String getButton() {
 		return button;
 	}
@@ -42,15 +41,6 @@ public class ShowCourseInfoAction {
 	public void setRequest(Map request) {
 		this.request = request;
 	}
-
-	public String getPageNo() {
-		return pageNo;
-	}
-
-	public void setPageNo(String pageNo) {
-		this.pageNo = pageNo;
-	}
-	
 
 	public String getCourseNo() {
 		return courseNo;
@@ -78,7 +68,7 @@ public class ShowCourseInfoAction {
 
 	public String execute() {
 		// 躬行课堂-详细页面:
-		// �? URL 传参数中获得信息
+		// 从 URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
 		
 		// 详细页面-（视频显示）课程列表
@@ -88,7 +78,7 @@ public class ShowCourseInfoAction {
 		request.put("courseInfo", courseManage.getCourseInfo(Integer.parseInt(courseNo)));
 		
 		// 详细页面-讲师信息
-		request.put("teacherInfo", peopleManage.findTeacherInfo(Integer.parseInt(peopleid)));
+		request.put("teacherInfo", peopleManage.findTeacherInfo(Integer.parseInt(courseManage.getTeacherid(Integer.parseInt(courseNo)))));
 		
 		// 详细页面-课程广告
 		request.put("courseAd", courseManage.findCourseAd());

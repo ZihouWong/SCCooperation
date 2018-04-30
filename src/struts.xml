@@ -214,9 +214,6 @@
 <result name="success" >/WEB-INF/page/webpages/people.html</result>
 </action>
 
-<action name="newcourseinfo">
-<result name="success">/WEB-INF/page/webpages/gongxingketang/NewFile.jsp</result>
-</action>
 
 <!-- BLANK700 -->
 <!-- 普通用户开始 -->
@@ -437,9 +434,32 @@
 <result name="success">/WEB-INF/page/webpages/personalcenter/notification.jsp</result>
 <result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
-
-
 <!-- 通知结束 -->
+
+
+
+<!-- 与投递简历相关开始 -->
+<!-- 集合方法 -->
+<!-- 显示相应的项目 -->
+<action name="displaypostinfo" class="resumemgtAction" method="displaypostinfo">
+<result name="success">/WEB-INF/page/webpages/submitResume.jsp</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 提交简历 -->
+<action name="submitresume" class="resumemgtAction" method="submitresume">
+<result type="redirect" name="success">personalcenter.action?pageNo=1</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+
+<!-- 删除参与人员 -->
+<action name="deleteresume" class="resumemgtAction" method="deleteresume">
+<result type="redirect" name="success">edisproject.action?pageNo=1</result>
+<result name="error">/WEB-INF/page/sp.jsp</result>
+</action>
+<!-- 与投递简历相关结束 -->
+
+
 
 <!-- new wlnss_dev 2018.3.24-->
 <action name="clientLoginView">

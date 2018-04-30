@@ -90,7 +90,7 @@ public class DisplaypersonalcenterAction {
 		//产生随机数
 		HashSet hs=new HashSet();
 		int cnt=0;
-		for(int i=0;i<3;i++) {
+		for(int i=0;i<5;i++) {
 			int tem=new Random().nextInt(post.size()-1);
 			System.out.println("tem:"+tem);
 			System.out.println("i:"+i);
@@ -107,7 +107,7 @@ public class DisplaypersonalcenterAction {
 		//随机将post对象装入temp中
 		List rand = new ArrayList<Post>();
 		Iterator it = hs.iterator();
-		for(int i=0;i<3;i++) {
+		for(int i=0;i<5;i++) {
 			rand.add(post.get((int)it.next()));
 		}
 		

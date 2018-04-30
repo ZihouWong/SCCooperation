@@ -2,7 +2,7 @@
     <wb-module deploy-name="SCCooperation">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="SCCooperation"/>
         <property name="java-output-path" value="/SCCooperation/build/classes"/>
+        <property name="context-root" value="SCCooperation"/>
     </wb-module>
 </project-modules>
