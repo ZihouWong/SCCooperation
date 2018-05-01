@@ -366,48 +366,24 @@ ul {
 
 
 	<!-- 登陆框、联系方式 -->
-
-	<div id="head-link" class="login">
-		<div class="container">
-			<div class="col-xs-12">
-				<div class="login-in">
-					<form id="login-form" action="" method="post">
-						<p class="main-font">学生代码:</p>
-						<input type="text" name="id">
-						<p class="main-font">密码:</p>
-						<input type="password" name="password">
-						<p class="main-font">验证码:</p>
-						<input id="input-code" type="text" name="code"> <img
-							src="" alt="" class="code-img"> <input id="login-btn"
-							type="submit" value="登陆">
-					</form>
-				</div>
-				<div class="login-tel">
-					<i class="fa fa-phone fa-lg"></i>
-					<p class="main-font">咨询电话：010-82319999转2846</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	<jsp:include page="../fronttopbar.jsp"></jsp:include>
 	<!-- 导航条 -->
 	<div class="navbar">
 		<div class="container">
-			<div class="col-xs-12">
-				<div class="navbar-left">
-					<img src="./img/logo.png" alt="" class="navbar-logo"> <span
-						class="navbar-border"></span> <a href="#" class="navbar-title">大创项目</a>
-				</div>
-				<div class="navbar-right">
-					<ul class="navbar-body">
-						<li class="navbar-body-item"><a id="lock" href="#"
-							class="navbar-link">项目介绍</a></li>
-						<li class="navbar-body-item"><a href="#" class="navbar-link">躬行课堂</a></li>
-						<li class="navbar-body-item"><a href="#" class="navbar-link">创行谷管理</a></li>
-						<li class="navbar-body-item"><a href="#" class="navbar-link">知行圈</a></li>
-						<li class="navbar-body-item"><a href="#" class="navbar-link">个人中心</a></li>
-					</ul>
-				</div>
+			<div class="navbar-left">
+				<img src="img/logo.png" alt="" class="navbar-logo">
+				<span class="navbar-border"></span>
+				<a href="#" class="navbar-title">创行谷</a>
 			</div>
+		    <div class="navbar-right">
+		    	<ul class="navbar-body">
+		    		<li class="navbar-body-item"><a href="frontIndex.action"  class="navbar-link">首页</a></li>
+		    		<li class="navbar-body-item"><a  id="lock" href="chuangxinggutest.action?pageNo=1&button=1" class="navbar-link">创行谷</a></li>
+		    		<li class="navbar-body-item"><a href="luntan.action?pageNo=1" class="navbar-link">知行圈</a></li>
+		    		<li class="navbar-body-item"><a href="gongxingketangtest.action?pageNo=1" class="navbar-link">躬行课堂</a></li>
+		    		<li class="navbar-body-item"><a href="personalcenter.action" class="navbar-link">个人中心</a></li>
+		    	</ul>
+		    </div>
 		</div>
 	</div>
 	<!-- 导航条 结束-->
