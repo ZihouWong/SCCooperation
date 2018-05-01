@@ -653,7 +653,9 @@ px
 								<a href="#" class="hot-class-body-item">
 									<div class="class-body-item-img class-body-item-img1"></div>
 									<h5 class="class-body-item-title text-center">eR-title</h5>
+									<div  style="margin-top: 5px">
 									<p class="main-font mask">
+									
 										<i class="fa fa-clock-o fa-lg float grey2"></i><span
 											class="main-color float">eR-t</span>课时
 									</p>
@@ -664,6 +666,7 @@ px
 									<h5 id="class-body-item-intro"
 										class="class-body-item-intro main-color">eRprice</h5>
 								</a>
+								</div>
 								<!-- hot-class-body-item ending -->
 							</div>
 							<!-- col-xs-6 ending -->

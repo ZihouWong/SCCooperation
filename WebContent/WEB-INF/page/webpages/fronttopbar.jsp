@@ -32,7 +32,7 @@
 					%>
 				}
 				<div class="login-in">
-				欢迎<%=people.getPnumber() %>
+				欢迎<%=people.getUsername() %>
 				</div>
 				<%} %>
 			    <div class="login-tel">
