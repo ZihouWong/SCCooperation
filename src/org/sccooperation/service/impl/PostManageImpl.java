@@ -44,9 +44,9 @@ public class PostManageImpl<T> implements PostManage<T> {
 	}
 	
 	@Override
-	public List showOtherJob(int tagNo) {
+	public List showOtherJob(int button) {
 		// 显示工作详细页面-其他工作
-		return postDao.getOtherJob(tagNo);
+		return postDao.getOtherJob(button);
 	}
 	
 	@Override
@@ -67,7 +67,19 @@ public class PostManageImpl<T> implements PostManage<T> {
 		return postDao.showHotJob(pageNo, button);
 	}
 	
-		public List findpost(int tagno1,int tagno2,int tagno3) {
+	@Override
+	public List SearchCourse(String content, int pageNo) {
+		// TODO Auto-generated method stub
+		return postDao.SearchCourse(content, pageNo);
+	}
+	
+	@Override
+	public int getEnterpriseId(int jobId) {
+		// TODO Auto-generated method stub
+		return postDao.getEnterpriseId(jobId);
+	}
+	
+	public List findpost(int tagno1,int tagno2,int tagno3) {
 		System.out.println("findtag");
 		return postDao.findpost(tagno1,tagno2,tagno3);
 	}

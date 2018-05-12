@@ -20,7 +20,7 @@ public class ReplyNoteManageAction {
 	private NoteManage<ReplyNote> replyNoteManage;
 
 	// Ò³Êý
-	private int pageNo;
+	private String pageNo;
 
 	public NoteManage<ReplyNote> getReplyNoteManage() {
 		return replyNoteManage;
@@ -30,19 +30,20 @@ public class ReplyNoteManageAction {
 		this.replyNoteManage = replyNoteManage;
 	}
 
-	public int getPageNo() {
+	public String getPageNo() {
 		return pageNo;
 	}
 
-	public void setPageNo(int pageNo) {
+	public void setPageNo(String pageNo) {
 		this.pageNo = pageNo;
 	}
 
 	@SuppressWarnings("unchecked")
 	public String index() {
 		
-		List<ReplyNote> result = replyNoteManage.backstageFindAllReplyNote(pageNo);
+		List<ReplyNote> result = replyNoteManage.backstageFindAllReplyNote(Integer.parseInt(pageNo));
 		
+		System.out.println(pageNo+".............................");
 		((Map<String, List<ReplyNote>>)ActionContext.getContext().get("request")).put("replyNoteList", result);
 		
 		return "success";

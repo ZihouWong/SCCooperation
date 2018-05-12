@@ -240,18 +240,24 @@ public class ProjectManagementAction<T> {
 		List listpeople = new ArrayList();
 		for (int i = 0; i < epost.size(); i++) {
 			Post post = (Post) epost.get(i);
-			String[] peopleid = post.getPeople_id().split(";");
-			
-			List peopleidarray=new ArrayList();
-			if(!peopleid[0].equals("")) {
-				for(int j=0;j<peopleid.length;++j) {
-					int a=Integer.parseInt(peopleid[j]);
-					People p=(People)userManage.idtouser(a).get(0);
-					peopleidarray.add(p);
+			if(!(post.getPeople_id()==null)) {
+				String[] peopleid = post.getPeople_id().split(";");
+				
+				List peopleidarray=new ArrayList();
+				if(!peopleid[0].equals("")) {
+					for(int j=0;j<peopleid.length;++j) {
+						int a=Integer.parseInt(peopleid[j]);
+						People p=(People)userManage.idtouser(a).get(0);
+						peopleidarray.add(p);
+					}
 				}
+				System.out.println("people_id:" + post.getPeople_id());
+				listpeople.add(peopleidarray);
 			}
-			System.out.println("people_id:" + post.getPeople_id());
-			listpeople.add(peopleidarray);
+			else {
+				List peopleidarray=new ArrayList(); 
+				listpeople.add(peopleidarray);
+			}
 		}
 		//People pp=(People)((People[])listpeople.get(0))[0];//list.สýื้[]
 		postinfo.put("post_people", listpeople);

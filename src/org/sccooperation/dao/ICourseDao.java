@@ -15,5 +15,7 @@ public interface ICourseDao {
 	public List getCourseList();
 
 	public List getCourseAd();
+
+	public String getTeacherid(int courseId);
 }
 	

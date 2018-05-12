@@ -57,13 +57,13 @@
 <action name="peopleManage" class="peopleManageAction">
 <result name="success">/WEB-INF/page/webpages/BackStage/peopleManageView/peopleManage.jsp</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
-<interceptor-ref name="backstageLoginCheck"/>
+<!-- <interceptor-ref name="backstageLoginCheck"/> -->
 </action>
 
 <action name="peopleManageSearch" class="peopleManageAction" method="search">
 <result type="chain" name="success">peopleManage</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
-<interceptor-ref name="backstageLoginCheck"/>
+<!-- <interceptor-ref name="backstageLoginCheck"/> -->
 </action>
 
 <action name="enterpriseManageSearch" class="enterpriseManageAction" method="search">
@@ -124,19 +124,19 @@
 <action name="noteManage" class="noteManageAction" method="see">
 <result name="success">/WEB-INF/page/webpages/BackStage/noteManageView/noteManage.jsp</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
-<interceptor-ref name="backstageLoginCheck"/>
+<!--<interceptor-ref name="backstageLoginCheck"/>  -->
 </action>
 
 <action name="noteManageSearch" class="noteManageAction" method="search">
 <result name="success">/WEB-INF/page/webpages/BackStage/noteManageView/noteManage.jsp</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
-<interceptor-ref name="backstageLoginCheck"/>
+<!--<interceptor-ref name="backstageLoginCheck"/>  -->
 </action>
 
 <action name="stopNote" class="noteManageAction" method="stopNote">
 <result type="chain" name="success">noteManage</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
-<interceptor-ref name="backstageLoginCheck"/>
+<!--<interceptor-ref name="backstageLoginCheck"/>  -->
 </action>
 
 <!-- 躬行课堂 -->
@@ -154,26 +154,25 @@
 <action name="enterpriseManageIndex" class="enterpriseManageAction" method="index">
 <result name="success">/WEB-INF/page/webpages/BackStage/enterpriseManageView/enterpriseManage.jsp</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
-<interceptor-ref name="backstageLoginCheck"/>
+<!-- <interceptor-ref name="backstageLoginCheck"/> -->
 </action>
 
 <action name="backstageIndex">
 <result name="success">/WEB-INF/page/webpages/BackStage/index.jsp</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
-<interceptor-ref name="backstageLoginCheck"/>
+<!--<interceptor-ref name="backstageLoginCheck"/>  -->
 </action>
 
 <action name="enterprisesubuserManageIndex" class="enterprisesubuserManageAction" method="index">
 <result name="success">/WEB-INF/page/webpages/BackStage/enterprisesubuserManageView/enterprisesubuserManage.jsp</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
-<interceptor-ref name="backstageLoginCheck"/>
-
+<!--<interceptor-ref name="backstageLoginCheck"/>  -->
 </action>
 
 <action name="backstagePostManageIndex" class="backstagePostManageAction" method="index">
 <result name="success">/WEB-INF/page/webpages/BackStage/postManageView/postManage.jsp</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
-<interceptor-ref name="backstageLoginCheck"/>
+<!--<interceptor-ref name="backstageLoginCheck"/>  -->
 </action>
 
 <action name="backstageUserLogin" class="loginAction" method="backstageLogin">
@@ -200,7 +199,7 @@
 <action name="replyNoteManage" class="replyNoteManageAction" method="index">
 <result name="success">/WEB-INF/page/webpages/BackStage/replyNoteManageView/replyNoteManage.jsp</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
-<interceptor-ref name="backstageLoginCheck"/>
+<!--<interceptor-ref name="backstageLoginCheck"/>  -->
 </action>
 
 <!-- test   ....................................................................... -->
@@ -214,9 +213,6 @@
 <result name="success" >/WEB-INF/page/webpages/people.html</result>
 </action>
 
-<action name="newcourseinfo">
-<result name="success">/WEB-INF/page/webpages/gongxingketang/NewFile.jsp</result>
-</action>
 
 <!-- BLANK700 -->
 <!-- 普通用户开始 -->
@@ -471,6 +467,10 @@
 
 <action name="frontIndex">
 <result name="success">/WEB-INF/page/webpages/frontIndex.jsp</result>
+</action>
+
+<action name="classDetail">
+<result name="success">/WEB-INF/page/webpages/classDetail.jsp</result>
 </action>
 <!-- 哈哈 -->
 </package>

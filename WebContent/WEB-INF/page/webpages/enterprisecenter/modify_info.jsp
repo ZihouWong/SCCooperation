@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>esu_modify_enterprisesubuserinfo</title>
+<title>e_modify_enterpriseinfo</title>
 
 <link rel="stylesheet"
 	href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -49,7 +49,7 @@
 -------------------------------------------------------------------------------!*/
 .resume-intro {
 	width: 100%;
-	height: 1000px;
+	height: 800px;
 	background: white;
 	margin: 0 auto;
 	margin-top: 40px;
@@ -328,6 +328,8 @@ nav {
 					<img src="./img/logo.png" alt="" class="navbar-logo"> <span
 						class="navbar-border"></span> <a href="#" class="navbar-title">大创项目</a>
 				</div>
+
+				<p>修改企业信息</p>
 			</div>
 		</div>
 	</div>
@@ -340,50 +342,60 @@ nav {
 			<div class="col-xs-12">
 				<div class="resume-intro">
 
+
 					<%
-						List listEsu = (List) request.getSession().getAttribute("enterprisesubuser");
-						Enterprisesubuser enterprisesubuser = (Enterprisesubuser) listEsu.get(0);
+						List listE = (List) request.getSession().getAttribute("enterprise");
+						Enterprise enterprise = (Enterprise) listE.get(0);
 					%>
-					<form id="modifycv-form" action="esumdinfo.action" method="post"
+					<form id="modifycv-form" action="emdinfo.action" method="post"
 						enctype="multipart/form-data">
 
 						<div class="form-group">
-							<label for="name">子用户昵称:</label> <input type="text"
-								class="form-control"
-								value="<%=enterprisesubuser.getNickname()%>" name="nickname">
-						</div>
-						<div class="form-group">
-							<label for="name">子用户真实姓名:</label> <input type="text"
-								class="form-control"
-								value="<%=enterprisesubuser.getRealname()%>" name="realname">
-						</div>
-						<div class="form-group">
-							<label for="name">联系电话:</label> <input type="text"
-								class="form-control" value="<%=enterprisesubuser.getTel()%>"
-								name="tel">
-						</div>
-						<div class="form-group">
-							<label for="name">QQ:</label> <input type="text"
-								class="form-control" value="<%=enterprisesubuser.getQq()%>"
-								name="qq">
-						</div>
-						<div class="form-group">
-							<label for="name">mail:</label> <input type="text"
-								class="form-control" value="<%=enterprisesubuser.getMail()%>"
-								name="mail">
+							<label for="name">公司名称:</label> <input type="text"
+								class="form-control" value="<%=enterprise.getEname()%>" name="ename">
 						</div>
 						<div class="form-group">
 							<label for="name">简介:</label> <input type="text"
-								class="form-control" value="<%=enterprisesubuser.getBriefly()%>"
-								name="briefly">
+								class="form-control" value="<%=enterprise.getSummary()%>" name="summary">
 						</div>
-						<%-- <img src="<%=enterprisesubuser.getPictureurl()%>"> --%>
 						<div class="form-group">
-							<label for="inputfile">请选择需要上传的图标：</label> <input type="file"
-								name="upload" />
+							<label for="name">详细地点:</label> <input type="text"
+								class="form-control" value="<%=enterprise.getPlace()%>"
+								name="place">
+						</div>
+						<div class="form-group">
+							<label for="name">创建时间:</label> <input type="text"
+								class="form-control" value="<%=enterprise.getBtime()%>"
+								name="btime">
+						</div>
+						<div class="form-group">
+							<label for="name">公司性质:</label> <input type="text"
+								class="form-control" value="<%=enterprise.getProperty()%>"
+								name="property">
+						</div>
+						<div class="form-group">
+							<label for="name">公司官网:</label> <input type="text"
+								class="form-control" value="<%=enterprise.getWebsite()%>"
+								name="website">
+						</div>
+						<div class="form-group">
+							<label for="name">公司CEO:</label> <input type="text"
+								class="form-control" value="<%=enterprise.getCeo()%>"
+								name="ceo">
+						</div>
+						<div class="form-group">
+							<label for="name">公司所在城市:</label> <input type="text"
+								class="form-control" value="<%=enterprise.getVocation()%>"
+								name="vocation">
+						</div>
+						<div class="form-group">
+							<label for="inputfile">请选择需要上传的图标：</label>
+							<input type="file" name="upload" />
+							<p class="help-block">这里是块级帮助文本的实例。</p>
 						</div>
 						<button type="submit" class="btn btn-default">提交</button>
 					</form>
+
 
 				</div>
 			</div>

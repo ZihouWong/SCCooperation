@@ -299,22 +299,20 @@ nav {
 	<!-- 导航条 -->
 	<div class="navbar">
 		<div class="container">
-			<div class="col-xs-12">
-				<div class="navbar-left">
-					<img src="./img/logo.png" alt="" class="navbar-logo">
-					<span class="navbar-border"></span>
-					<a href="#" class="navbar-title">大创项目</a>
-				</div>
-			    <div class="navbar-right">
-			    	<ul class="navbar-body">
-			    		<li class="navbar-body-item"><a id="lock" href="#" class="navbar-link">项目介绍</a></li>
-			    		<li class="navbar-body-item"><a href="#" class="navbar-link">躬行课堂</a></li>
-			    		<li class="navbar-body-item"><a href="#" class="navbar-link">创行谷管理</a></li>
-			    		<li class="navbar-body-item"><a href="#" class="navbar-link">知行圈</a></li>
-			    		<li class="navbar-body-item"><a href="#" class="navbar-link">个人中心</a></li>
-			    	</ul>
-			    </div>
+			<div class="navbar-left">
+				<img src="img/logo.png" alt="" class="navbar-logo">
+				<span class="navbar-border"></span>
+				<a href="#" class="navbar-title">创行谷</a>
 			</div>
+		    <div class="navbar-right">
+		    	<ul class="navbar-body">
+		    		<li class="navbar-body-item"><a href="frontIndex.action"  class="navbar-link">首页</a></li>
+		    		<li class="navbar-body-item"><a href="chuangxinggutest.action?pageNo=1&button=1" class="navbar-link">创行谷</a></li>
+		    		<li class="navbar-body-item"><a href="luntan.action?pageNo=1" class="navbar-link">知行圈</a></li>
+		    		<li class="navbar-body-item"><a  href="gongxingketangtest.action?pageNo=1" class="navbar-link">躬行课堂</a></li>
+		    		<li class="navbar-body-item"><a      id="lock" href="personalcenter.action" class="navbar-link">个人中心</a></li>
+		    	</ul>
+		    </div>
 		</div>
 	</div>
 
@@ -453,7 +451,7 @@ nav {
 			</div>
 
 			<div class="col-xs-12">
-				<div class="apply-work">
+				<!-- <div class="apply-work">
 					<span class="apply-work-border main-color float"></span>
 				    <p class="font-title2">适合你的职位</p>
 				    <form action="" method="post" name="apply-form">
@@ -471,7 +469,7 @@ nav {
                             <p class="font-intro grey2 work-time float">2017-07-26</p>
 
 				    	</div>
-				    	<!-- apply-work-item ending -->
+				    	apply-work-item ending
 				    	<div class="apply-work-item">
 				    		<input class="float apply-work-item-input" type="checkbox" name="work" value="">
                             <p class="main-font float work-name">急聘WEB前端开发助理</p>
@@ -482,7 +480,7 @@ nav {
                             <p class="font-intro grey2 work-time float">2017-07-26</p>
 
 				    	</div>
-				    	<!-- apply-work-item ending -->
+				    	apply-work-item ending
 				    	<div class="apply-work-item">
 				    		<input class="float apply-work-item-input" type="checkbox" name="work" value="">
                             <p class="main-font float work-name">急聘WEB前端开发助理</p>
@@ -493,7 +491,7 @@ nav {
                             <p class="font-intro grey2 work-time float">2017-07-26</p>
 
 				    	</div>
-				    	<!-- apply-work-item ending -->
+				    	apply-work-item ending
 				    	<div class="apply-work-item">
 				    		<input class="float apply-work-item-input" type="checkbox" name="work" value="">
                             <p class="main-font float work-name">急聘WEB前端开发助理</p>
@@ -504,7 +502,7 @@ nav {
                             <p class="font-intro grey2 work-time float">2017-07-26</p>
 
 				    	</div>
-				    	<!-- apply-work-item ending -->
+				    	apply-work-item ending
 				    	<div class="apply-work-item">
 				    		<input class="float apply-work-item-input" type="checkbox" name="work" value="">
                             <p class="main-font float work-name">急聘WEB前端开发助理</p>
@@ -515,7 +513,7 @@ nav {
                             <p class="font-intro grey2 work-time float">2017-07-26</p>
 
 				    	</div>
-				    	<!-- apply-work-item ending -->
+				    	apply-work-item ending
 				    </form>
 				      <nav class="major-content-nav pull-center" aria-label="...">
 					  <ul class="pagination pagination-lg">
@@ -532,7 +530,7 @@ nav {
 					    </li>
 					  </ul>
 					</nav>
-				</div>
+				</div> -->
 				<!-- apply-work ending -->
 			</div>
 		</div>

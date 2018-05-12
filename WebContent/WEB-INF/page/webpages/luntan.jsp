@@ -220,36 +220,24 @@ background: url("./img/hot-class4.jpg");
 	 <!-- 登陆框、联系方式 -->
 		<jsp:include page="./fronttopbar.jsp"></jsp:include>
 	<!-- 导航条 -->
-	
+<div class="navbar">
 		<div class="container">
-			    <div class="logo-header">
-			      <style>
-				      .logo-header {
-				        height: 120px;
-				        padding-top: 40px;
-				        border-bottom: 2px solid #eee;
-				        box-shadow: 0px 5px 3px #f5f7f9;
-				      }
-				        .logo-img {
-				          display: block;
-				          width: 140px;
-				          height: 45px;
-				        }
-				        .border-1 {
-				          background: rgba(0,0,0,0.3);
-				          height: 45px;
-				          width: 1px;
-				          margin-left: 15px;
-				          margin-right: 15px;
-				        }
-				        .logo-header .font-title {
-				          margin-top: 5px;
-				        }
-			      </style>
-			      <a href="./index.html"><img src="../img/logo.png" alt="" class="logo-img float"></a>
-			      <span class="border-1 float"></span>
-			      <p class="font-title">知行圈</p>
-			    </div>
+			<div class="navbar-left">
+				<img src="img/logo.png" alt="" class="navbar-logo">
+				<span class="navbar-border"></span>
+				<a href="#" class="navbar-title">躬行课堂</a>
+			</div>
+		    <div class="navbar-right">
+		    	<ul class="navbar-body">
+		    		<li class="navbar-body-item"><a href="frontIndex.action"  class="navbar-link">首页</a></li>
+		    		<li class="navbar-body-item"><a href="chuangxinggutest.action?pageNo=1&button=1" class="navbar-link">创行谷</a></li>
+		    		<li class="navbar-body-item"><a  id="lock" href="luntan.action?pageNo=1" class="navbar-link">知行圈</a></li>
+		    		<li class="navbar-body-item"><a href="gongxingketangtest.action?pageNo=1" class="navbar-link">躬行课堂</a></li>
+		    		<li class="navbar-body-item"><a href="personalcenter.action" class="navbar-link">个人中心</a></li>
+		    	</ul>
+		    </div>
+		</div>
+	</div>
 		</div>
 	
 	<!-- 导航条 结束-->

@@ -14,9 +14,8 @@ public class ShowJobInfoAction {
 
 	// 信息：
 	private Map request;
-	private String pageNo;
 	private String jobNo;
-	private String tagNo;
+	private String button;
 	private String enterpriseNo;
 
 	
@@ -32,14 +31,6 @@ public class ShowJobInfoAction {
 	public void setRequest(Map request) {
 		this.request = request;
 	}
-	
-	public String getPageNo() {
-		return pageNo;
-	}
-
-	public void setPageNo(String pageNo) {
-		this.pageNo = pageNo;
-	}
 
 	public String getJobNo() {
 		return jobNo;
@@ -49,12 +40,12 @@ public class ShowJobInfoAction {
 		this.jobNo = jobNo;
 	}
 
-	public String getTagNo() {
-		return tagNo;
+	public String getButton() {
+		return button;
 	}
 
-	public void setTagNo(String tagNo) {
-		this.tagNo = tagNo;
+	public void setButton(String button) {
+		this.button = button;
 	}
 
 	public String getEnterpriseNo() {
@@ -94,6 +85,8 @@ public class ShowJobInfoAction {
 		// 从 URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
 
+		System.out.println(button + "酸奶怪");
+		System.out.println(jobNo + "酸奶怪");
 		// 主体信息框
 		request.put("JobInfo", postManage.showJobInfo(Integer.parseInt(jobNo)));
 		
@@ -101,10 +94,10 @@ public class ShowJobInfoAction {
 		request.put("TagName", tagManage.showTagName(Integer.parseInt(jobNo)));
 		
 		// 该公司所属的标签名字
-		request.put("ETagName", enterpriseManage.showETagName(Integer.parseInt(enterpriseNo)));
+		request.put("ETagName", enterpriseManage.showETagName(postManage.getEnterpriseId(Integer.parseInt(jobNo))));
 		
 		// 该公司其他的工作
-		request.put("OtherJob", postManage.showOtherJob(Integer.parseInt(tagNo)));
+		request.put("OtherJob", postManage.showOtherJob(Integer.parseInt(button)));
 		return "success";
 	}
 }

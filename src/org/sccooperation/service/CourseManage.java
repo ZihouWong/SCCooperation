@@ -15,5 +15,7 @@ public interface CourseManage {
 
 	public List findCourseAd();
 	
+	public String getTeacherid(int courseId);
+	
 
 }

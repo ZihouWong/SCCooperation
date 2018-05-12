@@ -521,6 +521,13 @@ to {
 </style>
 </head>
 <body>
+	<%
+		int lastbutton = Integer.parseInt((String) (request.getAttribute("button")));
+
+		int pageNo = Integer.parseInt((String) (request.getAttribute("pageNo")));
+
+		String lastcontent = (String) request.getAttribute("content");
+	%>
 	<div class="container contain1">
 		<!-- 首部 -->
 		<div class="logo-header">
@@ -529,24 +536,25 @@ to {
 			<p class="font-title float">创行谷课程</p>
 
 			<div id="search-input">
-				<form action="showmorejob.action?pageNo=1">
-				
-				<!-- mark5 -->
-				<input id="input-text" name="content" value="a"/>
-				<div class="span-button">
-				<button type="submit" value=" ">搜索</button>
-				</div>
-				
-				
+
+				<form action="showmorejob.action" method="post">
+					<input type="hidden" name="pageNo" value="1" /> <input
+						type="hidden" name="button"
+						value="<%=Integer.parseInt(request.getAttribute("button") + "")%>" />
+					<input type="text" name="content" /> <input type="submit"
+						value="Submit" />
+				</form>
+
+
+
 				<div class="span-img">
 					<a href="#"><div class="span-img-circle">4</div></a>
 				</div>
 				<div class="menu2-drop">
 					<ul class="menu2-drop-ul">
 						<%
-							List HotJob = (List) request.getAttribute("HotJobList");
-
 							if (request.getAttribute("HotJobList") != null) {
+								List HotJob = (List) request.getAttribute("HotJobList");
 								int HlistSize = HotJob.size();
 
 								for (int i = 0; i < 4; i++) {
@@ -556,21 +564,12 @@ to {
 
 						<li><a href="#">
 								<div class="menu2-drop-circle menu2-drop-top3"><%=i%></div>
-								<% String demand = post.getDemand();
-								demand = demand.replace('|', ' ');
-								if(demand.length() > 30)
-									demand = demand.substring(0, 30);%>
+								 <% String demand = post.getDemand();
+ 				demand = demand.replace('|', ' ');
+ 				if (demand.length() > 30)
+ 					demand = demand.substring(0, 30);
+ %>
 								<p><%=demand%><sub>新！</sub><sub><%=post.getSeenum()%>万次学习</sub>
-								</p>
-						</a></li>
-
-						<%
-							} else {
-						%>	
-						<li><a href="#">
-								<div class="menu2-drop-circle menu2-drop-top3">2</div>
-								<p>
-									error<sub>error！</sub>
 								</p>
 						</a></li>
 						<%
@@ -581,7 +580,6 @@ to {
 
 					</ul>
 				</div>
-				</form>
 			</div>
 
 		</div>
@@ -602,17 +600,22 @@ to {
 									<a href="#" class="depth_2"><span class="icon10"></span>高清图片</a>
 								</h3>
 								<ul id="children_01a">
-									<li><a href="#" class="depth_3">创意</a></li>
-									<li><a href="#" class="depth_3">风景</a></li>
-									<li><a href="#" class="depth_3">物品</a></li>
-									<li><a href="#" class="depth_3">花卉</a></li>
-									<li><a href="#" class="depth_3">饮食</a></li>
-									<li><a href="#" class="depth_3">建筑/室内</a></li>
-									<li><a href="#" class="depth_3">旅行</a></li>
-									<li><a href="#" class="depth_3">人物</a></li>
-									<li><a href="#" class="depth_3">运动</a></li>
-									<li><a href="#" class="depth_3">生活</a></li>
-									<li><a href="#" class="depth_3">交通</a></li>
+									<li><a
+										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=JAVA">JAVA</a></li>
+									<li><a
+										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=HTML">HTML</a></li>
+									<li><a
+										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=CSS">CSS</a></li>
+									<li><a
+										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=PHP">PHP</a></li>
+									<li><a
+										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=Node">Node</a></li>
+									<li><a
+										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=JavaScript">JavaScript</a></li>
+									<li><a
+										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=cpp">C++</a></li>
+									<li><a
+										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=C#">C#</a></li>
 								</ul>
 							</li>
 							<li>
@@ -691,18 +694,21 @@ to {
 						if (JobListSizeA > i) {
 							Post post = (Post) AllJob.get(i);
 			%>
-			<a href="showjobinfo.action?pageNo=1&jobNo=<%=post.getId()%>&enterpriseNo=<%=post.getEnterprise_id().getId()%>&tagNo=<%=post.getTagno() %>" class="item">
+			<a
+				href="showjobinfo.action?jobNo=<%=post.getId()%>&button=<%=post.getTagno()%>"
+				class="item">
 				<div class="item-caption">
 					<img src="<%=post.getPictureurl()%>" alt="">
 				</div>
 				<div class="item-body">
 					<p class="font-title2">
-					
-					<% String demand = post.getDemand();
-								demand = demand.replace('|', ' ');
-								if(demand.length() > 30)
-								 	demand = demand.substring(0, 30);
-							%>
+
+						<%
+							String demand = post.getDemand();
+										demand = demand.replace('|', ' ');
+										if (demand.length() > 30)
+											demand = demand.substring(0, 30);
+						%>
 						<%=demand%>...
 					</p>
 					<p class="main-font float"><%=post.getSeenum()%>万次学习
@@ -713,25 +719,6 @@ to {
 					<span>免 费</span>
 				</div>
 			</a>
-			<%
-				} else {
-			%>
-
-
-
-			<a href="#" class="item">
-				<div class="item-caption">
-					<img src="#" alt="">
-				</div>
-				<div class="item-body">
-					<p class="font-title2">error</p>
-					<p class="main-font float">error万次学习</p>
-					<p class="main-font float-right">error学院</p>
-				</div>
-
-			</a>
-
-
 			<%
 				}
 					}
@@ -747,11 +734,6 @@ to {
 		<div class="pagintion">
 			<nav class="major-content-nav pull-center" aria-label="..">
 				<ul class="pagination pagination-lg">
-					<%
-						int lastbutton = Integer.parseInt((String) (request.getAttribute("button")));
-
-						int pageNo = Integer.parseInt((String) (request.getAttribute("pageNo")));
-					%>
 					<%
 						if (pageNo == 1) {
 					%>
@@ -786,9 +768,6 @@ to {
 					</li>
 					<%
 						}
-					%>
-
-					<%
 						if (pageNo == 5) {
 					%>
 					<li class="disabled">

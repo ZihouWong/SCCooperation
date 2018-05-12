@@ -123,7 +123,7 @@
 			      </style>
 			      <a href="./index.html"><img src="./img/logo.png" alt="" class="logo-img float"></a>
 			      <span class="border-1 float"></span>
-			      <p class="font-title">创行谷管理</p>
+			      <p class="font-title">详情</p>
 			    </div>
 		</div>
 	
@@ -283,8 +283,8 @@
 			  int pageN = Integer.parseInt((String)request.getAttribute("pageNo"));
 			%>
 			<div class="reply">
-			<p class="font-intro float"><span class="red"> 10 </span>回复贴，共<span class="red"> 1 </span>页</p>
-				<p class="font-intro float-right"><a href="luntan.action?pageNo=1">&lt;&lt; 返回创行谷</a></p>
+			<p class="font-intro float"><span class="red"> <%=replyList.size()%> </span>回复贴，共<span class="red"> 1 </span>页</p>
+				<p class="font-intro float-right"><a href="luntan.action?pageNo=1">&lt;&lt; 返回知行圈</a></p>
 			</div>
 			<div class="topic1">
 				<p class="font-title2 float"><%=note.getTitle() %></p>

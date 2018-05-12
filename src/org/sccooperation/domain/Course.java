@@ -19,7 +19,7 @@ public class Course{
 	private int id;
 	// 查看人数
 	private Integer seenum;
-	// 课程对应的标签名字
+	// 课程对应的标签号
 	private Integer tagno;
 	// 课程价格
 	private Integer price;

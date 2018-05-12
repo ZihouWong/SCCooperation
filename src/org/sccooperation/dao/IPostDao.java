@@ -16,9 +16,11 @@ public interface IPostDao<T> {
 
 	public long getPostNum(Class entityClazz);
 
-	public List getOtherJob(int tagNo);		
-	
-	
+	public List getOtherJob(int button);		
+
+	public List SearchCourse(String content, int pageNo);
+
+	public int getEnterpriseId(int jobId);	
 	
 	
 	/**
