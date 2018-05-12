@@ -336,24 +336,22 @@ nav {
 		</div>
 	</div>
 	<!-- 导航条 -->
-	<div class="navbar">
+		<div class="navbar">
 		<div class="container">
-			<div class="col-xs-12">
-				<div class="navbar-left">
-					<img src="./img/logo.png" alt="" class="navbar-logo"> <span
-						class="navbar-border"></span> <a href="#" class="navbar-title">大创项目</a>
-				</div>
-				<div class="navbar-right">
-					<ul class="navbar-body">
-						<li class="navbar-body-item"><a id="lock" href="#"
-							class="navbar-link">项目介绍</a></li>
-						<li class="navbar-body-item"><a href="#" class="navbar-link">躬行课堂</a></li>
-						<li class="navbar-body-item"><a href="#" class="navbar-link">创行谷管理</a></li>
-						<li class="navbar-body-item"><a href="#" class="navbar-link">知行圈</a></li>
-						<li class="navbar-body-item"><a href="#" class="navbar-link">个人中心</a></li>
-					</ul>
-				</div>
+			<div class="navbar-left">
+				<img src="img/logo.png" alt="" class="navbar-logo">
+				<span class="navbar-border"></span>
+				<a href="#" class="navbar-title">创行谷</a>
 			</div>
+		    <div class="navbar-right">
+		    	<ul class="navbar-body">
+		    		<li class="navbar-body-item"><a href="frontIndex.action"  class="navbar-link">首页</a></li>
+		    		<li class="navbar-body-item"><a href="chuangxinggutest.action?pageNo=1&button=1" class="navbar-link">创行谷</a></li>
+		    		<li class="navbar-body-item"><a href="luntan.action?pageNo=1" class="navbar-link">知行圈</a></li>
+		    		<li class="navbar-body-item"><a  href="gongxingketangtest.action?pageNo=1" class="navbar-link">躬行课堂</a></li>
+		    		<li class="navbar-body-item"><a      id="lock" href="personalcenter.action" class="navbar-link">个人中心</a></li>
+		    	</ul>
+		    </div>
 		</div>
 	</div>
 
