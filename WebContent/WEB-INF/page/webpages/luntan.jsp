@@ -225,7 +225,7 @@ background: url("./img/hot-class4.jpg");
 			<div class="navbar-left">
 				<img src="img/logo.png" alt="" class="navbar-logo">
 				<span class="navbar-border"></span>
-				<a href="#" class="navbar-title">躬行课堂</a>
+				<a href="#" class="navbar-title">知行圈</a>
 			</div>
 		    <div class="navbar-right">
 		    	<ul class="navbar-body">
@@ -529,6 +529,7 @@ padding: 10px 5px;
 			<!-- col-xs-4 结束 -->
 		</div>
 	</div>
+	<!--  
 	<div class="footer margin">
 	<div class="container">
 		<div class="row">
@@ -563,6 +564,7 @@ padding: 10px 5px;
 <div class="footer-end">
 	<p class="text-center footer-end-intro">信息管理与信息系统</p>
 </div>
+-->
 <!-- footer-end end -->
 
 <div class="fixed-menu">

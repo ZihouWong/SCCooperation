@@ -297,7 +297,7 @@ nav {
 		</div>
 	</div>
 	<!-- 导航条 -->
-		<div class="navbar">
+	<div class="navbar">
 		<div class="container">
 			<div class="navbar-left">
 				<img src="img/logo.png" alt="" class="navbar-logo">
@@ -451,7 +451,7 @@ nav {
 			</div>
 
 			<div class="col-xs-12">
-				<div class="apply-work">
+				<!-- <div class="apply-work">
 					<span class="apply-work-border main-color float"></span>
 				    <p class="font-title2">适合你的职位</p>
 				    <form action="" method="post" name="apply-form">
@@ -469,7 +469,7 @@ nav {
                             <p class="font-intro grey2 work-time float">2017-07-26</p>
 
 				    	</div>
-				    	<!-- apply-work-item ending -->
+				    	apply-work-item ending
 				    	<div class="apply-work-item">
 				    		<input class="float apply-work-item-input" type="checkbox" name="work" value="">
                             <p class="main-font float work-name">急聘WEB前端开发助理</p>
@@ -480,7 +480,7 @@ nav {
                             <p class="font-intro grey2 work-time float">2017-07-26</p>
 
 				    	</div>
-				    	<!-- apply-work-item ending -->
+				    	apply-work-item ending
 				    	<div class="apply-work-item">
 				    		<input class="float apply-work-item-input" type="checkbox" name="work" value="">
                             <p class="main-font float work-name">急聘WEB前端开发助理</p>
@@ -491,7 +491,7 @@ nav {
                             <p class="font-intro grey2 work-time float">2017-07-26</p>
 
 				    	</div>
-				    	<!-- apply-work-item ending -->
+				    	apply-work-item ending
 				    	<div class="apply-work-item">
 				    		<input class="float apply-work-item-input" type="checkbox" name="work" value="">
                             <p class="main-font float work-name">急聘WEB前端开发助理</p>
@@ -502,7 +502,7 @@ nav {
                             <p class="font-intro grey2 work-time float">2017-07-26</p>
 
 				    	</div>
-				    	<!-- apply-work-item ending -->
+				    	apply-work-item ending
 				    	<div class="apply-work-item">
 				    		<input class="float apply-work-item-input" type="checkbox" name="work" value="">
                             <p class="main-font float work-name">急聘WEB前端开发助理</p>
@@ -513,7 +513,7 @@ nav {
                             <p class="font-intro grey2 work-time float">2017-07-26</p>
 
 				    	</div>
-				    	<!-- apply-work-item ending -->
+				    	apply-work-item ending
 				    </form>
 				      <nav class="major-content-nav pull-center" aria-label="...">
 					  <ul class="pagination pagination-lg">
@@ -530,7 +530,7 @@ nav {
 					    </li>
 					  </ul>
 					</nav>
-				</div>
+				</div> -->
 				<!-- apply-work ending -->
 			</div>
 		</div>

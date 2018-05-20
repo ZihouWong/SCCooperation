@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>躬行课堂搜索页</title>
+<title>创行谷堂搜索页</title>
 <link rel="stylesheet" href="./plugin/css/easy-responsive-tabs.css">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="./plugin/css/bootstrap.min.css">
@@ -66,7 +66,7 @@
 	height: 32px;
 	margin: 200px 150px;
 	z-index: 100;
-	border: 1px solid grey;
+	border: 0px solid grey;
 }
 
 #search-input .span-text {
@@ -533,23 +533,21 @@ to {
 		<div class="logo-header">
 			<img src="./img/logo.png" alt="" class="logo-img float"> <span
 				class="border-1 float"></span>
-			<p class="font-title float">创行谷课程</p>
+			<p class="font-title float">创行谷</p>
 
 			<div id="search-input">
 
-				<form action="showmorejob.action" method="post">
-					<input type="hidden" name="pageNo" value="1" /> <input
+				
+<form class="form-inline" role="form"  method="post" action="showmorejob.action">
+  <div class="form-group">
+								<input type="hidden" name="pageNo" value="1" /> <input
 						type="hidden" name="button"
 						value="<%=Integer.parseInt(request.getAttribute("button") + "")%>" />
-					<input type="text" name="content" /> <input type="submit"
-						value="Submit" />
-				</form>
+    <input type="text" class="form-control" id="name"  name="content" placeholder="请输入查询内容">
+  </div>
+  <button type="submit" class="btn btn-default">查询</button>
+</form>
 
-
-
-				<div class="span-img">
-					<a href="#"><div class="span-img-circle">4</div></a>
-				</div>
 				<div class="menu2-drop">
 					<ul class="menu2-drop-ul">
 						<%
@@ -592,7 +590,7 @@ to {
 					<li>
 						<h3 id="menu_01"
 							style="background-color: #82CCC9 /*6ed3cf*/; opacity: 1; filter (alpha=150); width: 205px; padding-left: 15px;">
-							<a href="#" class="depth_1">所有课程</a>
+							<a href="#" class="depth_1">所有项目</a>
 						</h3>
 						<ul id="children_01" class="children">
 							<li>
@@ -646,7 +644,7 @@ to {
 				</ul>
 				<ul class="mn_extd">
 					<li><a class="a2" target="_blank" style="margin-right: 40px;"
-						href="//chuanke.baidu.com/?mod=school&act=create">创建课程</a></li>
+						href="//chuanke.baidu.com/?mod=school&act=create">创建项目</a></li>
 				</ul>
 			</div>
 		</div>
@@ -659,7 +657,7 @@ to {
 			<span class="class-c1 float">IT/计算机/互联网</span> <span
 				class="class-c2 float">编程语言</span>
 			<p class="main-font">
-				共找到<span class="red"><%=postNum%></span>门课程
+				共找到<span class="red"><%=postNum%></span>门项目
 			</p>
 		</div>
 
@@ -711,12 +709,12 @@ to {
 						%>
 						<%=demand%>...
 					</p>
-					<p class="main-font float"><%=post.getSeenum()%>万次学习
+					<p class="main-font float"><%=post.getSeenum()%>次浏览
 					</p>
 					<p class="main-font float-right"><%=post.getEname()%></p>
 				</div>
 				<div class="item-pay">
-					<span>免 费</span>
+					<span><%=post.getPlace()%></span>
 				</div>
 			</a>
 			<%

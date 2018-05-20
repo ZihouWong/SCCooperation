@@ -7,6 +7,8 @@ import org.sccooperation.service.PostManage;
 
 import com.opensymphony.xwork2.ActionContext;
 
+
+
 public class ChuangxingguAction {
 	
 	//信息：

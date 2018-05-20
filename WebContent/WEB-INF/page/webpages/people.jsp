@@ -545,7 +545,7 @@ nav {
 							<p class="font-intro grey2 work-time float">
 								开始时间：<%=((Post) post.get(1)).getPtime()%>
 								报名截止时间：<%=((Post) post.get(1)).getStime()%></p>
-
+								<a href="displaypostinfo.action?post_id=<%=((Post) post.get(1)).getId()%>">查看该项目</a>
 						</div>
 						<!-- apply-work-item ending -->
 						<div class="apply-work-item">
@@ -560,7 +560,7 @@ nav {
 							<p class="font-intro grey2 work-time float">
 								开始时间：<%=((Post) post.get(2)).getPtime()%>
 								报名截止时间：<%=((Post) post.get(2)).getStime()%></p>
-
+								<a href="displaypostinfo.action?post_id=<%=((Post) post.get(2)).getId()%>">查看该项目</a>
 						</div>
 						<!-- apply-work-item ending -->
 						<div class="apply-work-item">
@@ -575,7 +575,7 @@ nav {
 							<p class="font-intro grey2 work-time float">
 								开始时间：<%=((Post) post.get(3)).getPtime()%>
 								报名截止时间：<%=((Post) post.get(3)).getStime()%></p>
-
+								<a href="displaypostinfo.action?post_id=<%=((Post) post.get(3)).getId()%>">查看该项目</a>
 						</div>
 						<!-- apply-work-item ending -->
 						<div class="apply-work-item">
@@ -590,7 +590,7 @@ nav {
 							<p class="font-intro grey2 work-time float">
 								开始时间：<%=((Post) post.get(4)).getPtime()%>
 								报名截止时间：<%=((Post) post.get(4)).getStime()%></p>
-
+								<a href="displaypostinfo.action?post_id=<%=((Post) post.get(4)).getId()%>">查看该项目</a>
 						</div>
 						<!-- apply-work-item ending -->
 					</form>

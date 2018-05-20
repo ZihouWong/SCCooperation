@@ -280,7 +280,12 @@
 		<property name="enterpriseDao" ref="enterpriseDaoImpl"></property>
 	</bean>
 
-
+	<bean id="enterpriseManageAction"
+		class="org.sccooperation.action.backstage.EnterpriseManageAction"
+		scope="prototype">
+		<property name="commonManage" ref="commonManageImpl"></property>
+		<property name="enterpriseManage" ref="enterpriseManageImpl"></property>
+	</bean>
 	 -->
 <!-- 	<bean id="enterprisesubuserDaoImpl" class="org.sccooperation.daoimpl.EnterprisesubuserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
@@ -289,14 +294,6 @@
 		class="org.sccooperation.service.impl.EnterprisesubuserManageImpl">
 		<property name="backstageEnterprisesubuserDao" ref="enterprisesubuserDaoImpl"></property>
 	</bean> -->
-	
-		<bean id="enterpriseManageAction"
-		class="org.sccooperation.action.backstage.EnterpriseManageAction"
-		scope="prototype">
-		<property name="commonManage" ref="commonManageImpl"></property>
-		<property name="enterpriseManage" ref="enterpriseManageImpl"></property>
-	</bean>
-	
 	<bean id="enterprisesubuserManageAction"
 		class="org.sccooperation.action.backstage.EnterprisesubuserManageAction"
 		scope="prototype">

@@ -33,7 +33,7 @@ a:hover{color:#CC0000;text-decoration:none;}
 
 /*导航栏*/
 .nav{ background-color:#B1B3A7;margin-top:0;}
-#wrap-nav{height:1px;line-height:1px;background-repeat:repeat-x;background-position:0 0;background-color:#B1B3A7;width:960px;margin:0 auto 0 auto;}
+#wrap-nav{height:37px;line-height:35px;background-repeat:repeat-x;background-position:0 0;background-color:#B1B3A7;width:960px;margin:0 auto 0 auto;}
 #wrap-nav ul.menu li{position:relative;float:left;background-position:0 -40px;}
 #wrap-nav ul.menu li h3{/*border-right:1px solid white;*/padding:0 20px 0 20px;margin:0;}
 #wrap-nav ul.menu li h3 a.depth_1{display:inline-block;color:#F6F7EF;font-size:1.2em;}
