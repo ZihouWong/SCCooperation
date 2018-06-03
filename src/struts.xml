@@ -145,7 +145,7 @@
 </action>
 
 <action name="showcourseinfo" class="ShowCourseInfoAction">
-<result name="success">/WEB-INF/page/webpages/gongxingketang/shoucourseinfo.jsp</result>
+<result name="success">/WEB-INF/page/webpages/gongxingketang/showcourseinfo.jsp</result>
 </action>
 
 <!-- 黄智豪 END -->
