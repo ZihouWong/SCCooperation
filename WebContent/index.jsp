@@ -54,6 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="showjobinfo.action?jobNo=1&button=2">showjobinfo</a>
     <!-- 躬行课堂模块 -->
     <a href="gongxingketangtest.action?pageNo=1">gongxingketangtest12</a>
+    <a href="showmorecourse.action?courseNo=1&button=2">showmorecourse</a>
     <a href="showcourseinfo.action?courseNo=1">showcourseinfo</a>
     <!-- 黄智豪使用用例结束 -->
     
