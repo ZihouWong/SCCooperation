@@ -1,0 +1,327 @@
+    /*!常规设置
+-----------------------------------------------------------------------------!*/
+.container {
+	width: 1240px !important;
+}
+body {
+	margin: 0;
+	padding: 0;
+}
+li {
+    list-style: none;
+}
+ a,
+ a:hover {
+      text-decoration: none;
+      font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+      color: black;
+ }
+ .main-font {
+ 	font-size: 14px;
+ 	color: black;
+  font-weight: 300;
+  letter-spacing: 1px;
+ 	font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+	line-height: 1.50;
+ }
+    .font-title {
+        font-size: 24px;
+        letter-spacing: 1px;
+        color: black;
+        font-weight: 400;
+        font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+      }
+      .font-title2 {
+        font-size: 16px;
+        color: grey;
+        font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+      }
+      .font-intro {
+        font-size: 12px;
+        color:grey;
+        font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu;
+      }
+      .red {
+        color: red;
+      }
+ .float {
+ 	float: left;
+ }
+ .padding {
+ 	padding: 40px;
+ }
+ .space {
+ 	height: 40px;
+ 	width: 100%;
+ 	background-color: #f5f7f9;
+ }
+ .main-color {
+    color: #0099CC;
+}
+.grey {
+  color: #eee;
+}
+.grey2 {
+      color: grey;
+}
+.float-right {
+  float: right;
+}
+.inline-block {
+  display: inline-block;
+}
+.display {
+  display: none;
+}
+#underline:hover {
+  text-decoration: underline;
+}
+.btn-normal {
+  text-align: center;
+  letter-spacing: 1px;
+  display: block;
+} 
+.clear-left {
+  clear: left;
+}
+.border {
+  display: block;
+}
+.border-1 {
+  display: block;
+  width: 3px;
+  height: 24px;
+  background-color: #0099CC;
+  margin-right: 7px;
+  margin-bottom: 10px;
+  float: left;
+}
+.border-grey {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: #eee;
+  /*margin-right: 7px;*/
+  margin-bottom: 7px;
+  /*float: left;*/
+}
+.white-body {
+  background: white;
+  padding-left: 42px;
+  width: 100%;
+}
+/*!登陆框、联系方式
+-------------------------------------------------------------------------------!*/
+.login {
+	height: 45px;
+	width: 100%;
+	padding: 15px;
+	background-color: #f5f7f9;
+}
+.login-in {
+	float: left;
+}
+.login .main-font {
+	float: left;
+	margin-right: 7px;
+}
+.login input {
+	margin-right: 15px;
+	margin-top: -5px;
+	float: left;
+	width: 110px;
+}
+.code-img {
+	width: 35px;
+	height: 20px;
+	float: left;
+	margin-top: -3px;
+	margin-left: -5px;
+	margin-right: 5px;
+}
+#login-btn {
+	width: 70px;
+}
+
+#input-code {
+	width: 55px;
+}
+.login-tel {
+	float: right;
+}
+.login-tel i {
+	float: left;
+	margin-right: 8px;
+	margin-top: 3px;
+}
+.login-tel .main-font{
+
+}
+.orange {
+  color: orange;
+}
+
+.margin-right-7 {
+  margin-right: 7px;
+}
+.margin-top-7 {
+  margin-top: 7px;
+}
+/*!导航条
+-------------------------------------------------------------------------------!*/
+   .navbar {
+      	height: 140px;
+      	width: 100%;
+      	padding: 30px 15px;
+      }
+      .navbar-left {
+      	float: left;
+      }
+      .navbar-left .navbar-logo {
+        width: 120px;
+        height: 45px;
+        float: left;
+      }
+      .navbar-left .navbar-border {
+      	display: block;
+      	width: 2px;
+      	height: 50px;
+      	float: left;
+      	margin: 0 10px;
+      	background-color: grey;
+      }
+      .navbar-left .navbar-title {
+      	font-size: 28px;
+      	float: left;
+      }
+      .navbar-left .navbar-title:hover {
+        text-decoration: underline;
+      }
+      .navbar-right {
+      	float: left;
+      	margin-left: 50px;
+      }
+      .navbar-right .navbar-body-item {
+      	display: block;
+      	width: 90px;
+      	float: left;
+      	margin-top: 10px;
+      	text-align: center;
+      	
+      	margin-right: 40px;
+      }
+      .navbar-right .navbar-body-item .navbar-link {
+      	color: black;
+      	font-size: 16px;
+      	display: block;
+      	border-radius: 5px;
+      	padding: 6px 0;
+      }
+      .navbar-right .navbar-body-item .navbar-link:hover {
+      	background-color: red;
+      	color: white;
+      }
+      #lock {
+      	background-color: red;
+      	color: white;
+      }
+      /*!尾部-版权信息等
+-------------------------------------------------------------------------------!*/         
+            .footer {
+    width: 100%;
+     padding: 20px 0 30px 0;
+    background: #0099CC;
+  }
+  .footer img {
+   width: 95%;
+  }
+  .footer .footer-address {
+    color: #eee;
+    font-size: 13px;
+  }
+  .footer-brd {
+        display: block;
+        background: #eee;
+        height: 80px;
+        width: 1px;
+  }
+  .footer-brd1 {
+        margin-left: 10px;
+  }
+  .footer-brd2 {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  .footer-end {
+    padding: 3px;
+         height: 25px;
+         width: 100%;
+         color: #f5f7f9;
+         color: grey;
+         font-size: 14px;
+        /* letter-spacing: 1px;*/
+  }
+  .footer-end-intro {
+    letter-spacing: 5px;
+    font-weight: 300;
+  }
+  .footer-address {
+    text-align: center;
+  }
+  /* 侧边栏
+------------------------------------------------------------------------------*/
+   .fixed-menu {
+      position: fixed;
+      right: 0;
+      bottom: 30%;
+      width: 43px;
+      z-index: 100;
+      height: 180px;
+   }
+   .fixed-munu-item {
+      position: relative;
+      width: 100%;
+      height: 43px;
+      margin-bottom: 8px;
+      opacity: 0;
+      z-index: 100;
+      /*background: #7d6d6d;*/
+   }
+   .fixed-menu i {
+      
+      color: #ccc;
+   }
+   .fixed-munu-item-icon {
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      background: #7d6d6d;
+      padding: 8px 0 5px 8px;
+   }
+   .fixed-munu-item-content {
+      position: absolute;
+        right: 43px;
+        top: 0px;
+      background: #0099CC;
+      height: 43px;
+      line-height: 43px;
+      width: 80px;
+      z-index: 100;
+      visibility: hidden;
+   }
+   .fixed-menu-intro a{
+      font-size: 14px;
+      color: white;
+   }
+   .fixed-menu-intro a:hover {
+      color: white;
+   }
+   .fix-menu-item-door {
+      position: absolute;
+      top: -120px;
+        width: 120px;
+        height: 120px;
+        background: url("img/weixin.png");
+        background-size: cover;
+       visibility: hidden;
+   }

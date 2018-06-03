@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>工作详情</title>
+	<link rel="stylesheet" href="../plugin/css/easy-responsive-tabs.css">
+	 <!-- Bootstrap -->
+	<link rel="stylesheet" href="../plugin/css/bootstrap.min.css">
+    <!-- Animate -->
+	<link rel="stylesheet" href="../plugin/css/animate.css">
+    <link rel="stylesheet" href="../plugin/css/animate-control.css">
+ 
+    <!-- Owl Carousel -->
+	<link rel="stylesheet" href="../plugin/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../plugin/css/owl.theme.default.min.css">
+    <!-- Font Awesome -->
+	<link rel="stylesheet" href="../plugin/font-awesome-4.7.0/css/font-awesome.min.css">
+	 <!-- easyTab css -->
+  
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/class.css">
+  <style>
+  /*!课程分类
+-------------------------------------------------------------------------------!*/
+.body {
+	margin-top: -40px;
+	background-color: #f5f7f9;
+	padding-bottom: 60px;
+}
+/*!课程分类
+-------------------------------------------------------------------------------!*/
+/*!课程分类
+-------------------------------------------------------------------------------!*/
+/*!课程分类
+-------------------------------------------------------------------------------!*/
+.user-view {
+	margin-top: 40px;
+}
+#view-bottom h4,
+#view-bottom-p1 {
+	float: left;
+}
+#view-bottom-p1 {
+	padding-top: 15px;
+	padding-left: 15px;
+}
+#view-bottom hr {
+	color: red;
+	clear: both;
+	margin-top: -3px; 
+	margin-bottom: -3px; 
+}
+#view-bottom textarea {
+	width: 100%;
+	height: 70px;
+	padding: 10px;
+}
+#view-bottom-media1 i{
+	margin-top: 10px;
+	color: grey;
+}
+#view-bottom-media1 p {
+	margin-top: 10px;
+	margin-right: 15px;
+}
+.user-view {
+	margin-top: 20px;
+}
+#view-bottom-media2-p1 {
+	float: left;
+}
+#body-right-pagination {
+	margin-left: 15%;
+}
+.vedio-span i{
+   margin-left: 4px;
+}
+.vedio-span i:hover{
+   margin-left: 4px;
+   color: black;
+}
+.fa-thumbs-o-up {
+	margin-right: 7px;
+}
+/*!课程分类
+-------------------------------------------------------------------------------!*/
+/*!课程分类
+-------------------------------------------------------------------------------!*/
+  </style>
+</head>
+<body>
+	 <!-- 登陆框、联系方式 -->
+	<div id="head-link" class="login">
+		<div class="container">
+			<div class="col-xs-12">
+			    <div class="login-in">
+					<form id="login-form" action="" method="post">
+						<p class="main-font">学生代码:</p><input type="text" name="id">
+						<p class="main-font">密码:</p><input type="password" name="password">
+						<p class="main-font">验证码:</p><input id="input-code" type="text" name="code">
+						<img src="" alt="" class="code-img">
+						<input id="login-btn" type="submit" value="登陆">
+					</form>
+				</div>
+			    <div class="login-tel">
+			    	<i class="fa fa-phone fa-lg"></i>
+			    	<p class="main-font">咨询电话：010-82319999转2846</p>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<!-- 导航条 -->
+	<div class="navbar">
+		<div class="container">
+			<div class="col-xs-12">
+				<div class="navbar-left">
+					<img src="../img/logo.png" alt="" class="navbar-logo">
+					<span class="navbar-border"></span>
+					<a href="#" class="navbar-title">大创项目</a>
+				</div>
+			    <div class="navbar-right">
+			    	<ul class="navbar-body">
+			    		<li class="navbar-body-item"><a id="lock" href="#" class="navbar-link">项目介绍</a></li>
+			    		<li class="navbar-body-item"><a href="#" class="navbar-link">躬行课堂</a></li>
+			    		<li class="navbar-body-item"><a href="#" class="navbar-link">创行谷管理</a></li>
+			    		<li class="navbar-body-item"><a href="#" class="navbar-link">知行圈</a></li>
+			    		<li class="navbar-body-item"><a href="#" class="navbar-link">个人中心</a></li>
+			    	</ul>
+			    </div>
+			</div>
+		</div>
+	</div>
+	<!-- 导航条 结束-->
+	<style>
+	.topic-panel .container {
+		width: 1400px;
+	}
+       .topic-panel {
+       	height: 572px;
+       	width: 100%;
+       	background: url("../img/topic-img.jpg");
+       	background-size: 160% 572px;
+       	background-position: -420px 0;
+       	margin-bottom: 20px;
+       	/*background-repeat: no-repeat;*/
+       }
+       .topic-banner {
+       	height: 191px;
+       	width: 100%;
+       	top: 381px;
+       	padding: 35px 20px 35px 150px;
+       	background: rgba(0,0,0,.65);
+       	position: relative;
+       	border-radius: 10px 10px 0 0;
+       }
+       .topic-border {
+       	display: block;
+       	width: 8px;
+       	height: 140px;
+       	background: #eee;
+       	margin-right: 35px;
+       }
+       .topic-slogan {
+       	font-size: 38px;
+       	letter-spacing: 1px;
+       	color: white;
+       	margin-bottom: 15px;
+       }
+       .topic-share-list {
+       	position: absolute;
+       	right: 80px;
+       	bottom: 14px;
+       }
+       .topic-banner .font-intro {
+       	position: relative;
+       	top: 15px;
+       }
+       .topic-banner .font-intro i {
+       	margin-right: 7px;
+       }
+       .share-list-item {
+       	display: block;
+       	width: 45px;
+       	height: 45px;
+       	border-radius: 50%;
+       	background: rgba(0,0,0,0.3);
+       	padding-left: 9px;
+       	padding-top: 7px;
+       	margin-right: 7px;
+       	float: left;
+       }
+       .share-list-item i {
+       	color: grey;
+       }
+       .share-list-item:hover i{
+       	color: white;
+       }
+
+	</style>
+	<div class="body">
+		<div class="topic-panel">
+			<div class="container">
+				<div class="col-xs-12">
+					<div class="topic-banner">
+						<span class="topic-border float"></span>
+						<p class="topic-slogan">#我们打算不再支持IE10以下版本#</p>
+					    <p class="main-font grey2">新版本前端网最近就会上线，我们打算不再支持IE10以下版本的浏览器了，IE9属于半支持，基本显示效果能够保证。对此大家怎么看？</p>
+					    <p class="orange font-intro"><i class="fa fa-lg fa-eye orange float"></i>8558</p>
+					    <div class="topic-share-list">
+					    	<a href="#" class="share-list-item">
+					    		<i class="fa fa-2x fa-weibo"></i>
+					    	</a>
+					    	<a href="#" class="share-list-item">
+					    		<i class="fa fa-2x fa-weibo"></i>
+					    	</a>
+					    	<a href="#" class="share-list-item">
+					    		<i class="fa fa-2x fa-qq"></i>
+					    	</a>
+					    	<a href="#" class="share-list-item">
+					    		<i class="fa fa-2x fa-weibo"></i>
+					    	</a>
+					    </div>
+					    <!-- topic-share-list ending -->
+					</div>
+					<!-- topic-banner ending -->
+				</div>
+		    </div>
+		</div>
+		<style>
+         .topic-body .col-xs-9 {
+         	background-color: white;
+         	padding: 40px 20px;
+         }
+         .topic-body .font-title2 {
+         	color: black;
+         }
+         .topic-body .font-intro {
+         	margin-left: 200px;
+         	font-size: 14px;
+         	margin-top: 5px;
+         	color: rgba(0,0,0,0.2);
+         }
+         .my-opinion {
+         	margin-bottom: 60px;
+         }
+         .opinion-text {
+         	width: 85%;
+            height: 100px;
+            margin-left: -73px;
+            padding: 20px;
+         }
+         .opinion-btn {
+         	width: 121px;
+         	height: 100px;
+         	background-color: #55acee;
+         	letter-spacing: 2px;
+         	font-size: 22px;
+         	border-radius: none;
+         	color: #eee;
+         }
+         .opinion-btn:hover {
+            color: #eee;
+            background-color: #0099CC;
+         }
+         .smile .main-font {
+         	margin-left: 8px;
+         	margin-top: 7px;
+         }
+         .smile i {
+            margin-top: 10px;
+            margin-right: 10px;
+         }
+        /* #25425d*/
+		</style>
+		<!-- topic-panel ending -->	
+		<div class="topic-body">
+			<div class="container">
+			  <div class="col-xs-12">
+			    <div class="col-xs-9">
+					<div class="my-opinion">
+						<span class="border-1"></span>
+						<p class="font-title2 float">我说两句 </p>
+						<p class="font-intro">以下用户言论只代表其个人观点，不代表 前端网（QDFuns） 的观点或立场。</p>
+						<form action="" method="post" name="my-opinion">
+							<textarea class="opinion-text float" name="" id="opinion" cols="30" rows="10">
+								
+							</textarea>
+							<input type="submit" class="btn opinion-btn" value="走你">
+						</form>
+						<a href="#" class="smile"><i class="fa fa-lg fa-smile-o grey2 float"></i><p  class="main-font grey2">表情</p></a>
+					</div>
+<!-- 精彩评论开始 -->
+<style>
+	.user-view .user-view-title {
+		padding-left: 0;
+		border-bottom: 2px solid orange;
+		z-index: 100;
+		width: 74px;
+		text-align: left;
+		letter-spacing: 1px;
+		padding: 0;
+	}
+	.user-view-border {
+		/*position: relative;
+		top: -2px;*/
+		margin-top: -2px;
+		height: 2px;
+		display: block;
+		width:100%;
+		background-color: #eee; 
+		z-index: 1;
+	}
+	.user-view .orange {
+		font-size: 18px;
+		margin-top: -1px;
+	}
+	.new-view .orange {
+		color: #55acee;
+	}
+	.new-view .user-view-title {
+		border-bottom: 2px solid #55acee;
+	}
+</style>
+			<div class="user-view">
+            	<div class="btn user-view-title"><p class="font-title2"><span class="orange float">精彩</span>评论</p></div>
+            	<span class="user-view-border"></span>
+            	<div class="media" id="view-bottom-media2">
+            		<div class="media-left">
+            			<img src="../img/user1.png" alt="">
+            		</div>
+            		<div class="media-body">
+            			<p><a href="#">想想想着你:</a>告白气球，一点点，说走就走，继续暴走</p>
+            			<p id="view-bottom-media2-p1">09:09</p>
+            			<p class="font1 pull-right"><a href="#"><i class="fa fa-thumbs-o-up"></i></a>(64) | <a href="#">回复(64)</a></p>
+            		</div>
+            	</div>
+            	<hr>
+            	
+            </div>
+            <!-- 最新评论结束 -->
+            <div class="user-view new-view">
+            	<div class="btn user-view-title"><p class="font-title2"><span class="orange float">最新</span>评论</p></div>
+            	<span class="user-view-border"></span>
+            	<div class="media" id="view-bottom-media2">
+            		<div class="media-left">
+            			<img src="../img/user1.png" alt="">
+            		</div>
+            		<div class="media-body">
+            			<p><a href="#">想想想着你:</a>告白气球，一点点，说走就走，继续暴走</p>
+            			<p id="view-bottom-media2-p1">09:09</p>
+            			<p class="font1 pull-right"><a href="#"><i class="fa fa-thumbs-o-up"></i></a>(64) | <a href="#">回复(64)</a></p>
+            		</div>
+            	</div>
+            	<hr>
+            	<div class="media" id="view-bottom-media2">
+            		<div class="media-left">
+            			<img src="../img/user1.png" alt="">
+            		</div>
+            		<div class="media-body">
+            			<p><a href="#">想想想着你:</a>告白气球，一点点，说走就走，继续暴走</p>
+            			<p id="view-bottom-media2-p1">09:09</p>
+            			<p class="font1 pull-right"><a href="#"><i class="fa fa-thumbs-o-up"></i></a>(64) | <a href="#">回复(64)</a></p>
+            		</div>
+            	</div>
+            	<hr>
+            	<div class="media" id="view-bottom-media2">
+            		<div class="media-left">
+            			<img src="../img/user1.png" alt="">
+            		</div>
+            		<div class="media-body">
+            			<p><a href="#">想想想着你:</a>告白气球，一点点，说走就走，继续暴走</p>
+            			<p id="view-bottom-media2-p1">09:09</p>
+            			<p class="font1 pull-right"><a href="#"><i class="fa fa-thumbs-o-up"></i></a>(64) | <a href="#">回复(64)</a></p>
+            		</div>
+            	</div>
+            	<hr>
+            	<div class="media" id="view-bottom-media2">
+            		<div class="media-left">
+            			<img src="../img/user1.png" alt="">
+            		</div>
+            		<div class="media-body">
+            			<p><a href="#">想想想着你:</a>告白气球，一点点，说走就走，继续暴走</p>
+            			<p id="view-bottom-media2-p1">09:09</p>
+            			<p class="font1 pull-right"><a href="#"><i class="fa fa-thumbs-o-up"></i></a>(64) | <a href="#">回复(64)</a></p>
+            		</div>
+            	</div>
+            	<hr>
+            	<div class="media" id="view-bottom-media2">
+            		<div class="media-left">
+            			<img src="../img/user1.png" alt="">
+            		</div>
+            		<div class="media-body">
+            			<p><a href="#">想想想着你:</a>告白气球，一点点，说走就走，继续暴走</p>
+            			<p id="view-bottom-media2-p1">09:09</p>
+            			<p class="font1 pull-right"><a href="#"><i class="fa fa-thumbs-o-up"></i></a>(64) | <a href="#">回复(64)</a></p>
+            		</div>
+            	</div>
+            	<hr>
+            	<div class="media" id="view-bottom-media2">
+            		<div class="media-left">
+            			<img src="../img/user1.png" alt="">
+            		</div>
+            		<div class="media-body">
+            			<p><a href="#">想想想着你:</a>告白气球，一点点，说走就走，继续暴走</p>
+            			<p id="view-bottom-media2-p1">09:09</p>
+            			<p class="font1 pull-right"><a href="#"><i class="fa fa-thumbs-o-up"></i></a>(64) | <a href="#">回复(64)</a></p>
+            		</div>
+            	</div>
+            </div>
+            <!-- 最新评论结束 -->
+				</div>
+				<!-- col-xs-9 ending -->
+        <style>
+          .admin {
+            height: 186px;
+            width: 100%;
+            position: absolute;
+            background: white;
+            margin-bottom: 20px;
+          }
+          .admin-bg {
+            height: 86px;
+             position: relative;
+            background: url("../img/banner_mini.jpg");
+          }
+          .img-circle {
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            left: 50%;
+            margin-left: -37px;
+            bottom: -37px;
+            border: 3px solid #eee;
+          }
+         /* .admin .main-font {
+            position: relative;
+            bottom: 25px;
+            left: 50%;
+          }*/
+          .admin-body {
+            width: 120px;
+            margin: 0 auto;
+            text-align: center;
+            margin-top: 45px;
+          }
+          .more-topic {
+            margin-top: 20px;
+            width: 100%;
+            height: 500px;
+            /*background: white;*/
+          }
+        </style>
+				<div class="col-xs-3">
+					<div class="admin">
+            <div class="admin-bg">
+              <img src="../img/admin.jpg" alt="" class="img-circle">
+            </div>
+            <div class="admin-body">
+               <p class="main-font float">主讲人:</p>
+               <p class="font-title2">Sakura</p>
+            </div>
+          </div>
+          <!-- 主持人模块 ending -->
+          <div class="more-topic">
+            <span class="border-1"></span>
+            <p class="font-title2">等您参与</p>
+            <span class="border-grey"></span>
+          </div>
+          <!-- 更多话题 ending -->
+				</div>
+				<!-- col-xs-3 ending -->		
+			  </div>	
+			</div>
+		</div>
+		<!-- topic-body ending -->
+	</div>
+
+	<div class="footer margin">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-4">
+				<img src="../img/logo_bottom.png" alt="">
+				<span class="footer-brd footer-brd1 pull-right"></span>
+			</div>
+			<div class="col-xs-4">
+				
+				<p class="footer-address">
+					地址:广东省珠海市唐家湾金凤路6号 邮编：519088</p>
+				<p class="footer-address">
+					联系电话：0756-3622745 招生咨询电话：0756-3622966
+				</p>
+				<p class="footer-address">
+					邮箱：zhbit@zhbit.com
+				</p>
+                
+			</div>
+			<div class="col-xs-4">
+				<span class="footer-brd footer-brd2 pull-left"></span>
+			    <p class="footer-address">
+			    	版权所有：北京理工大学珠海学院
+			    </p>
+			    <p class="footer-address"> 
+                  粤ICP备05063448号-1
+			    </p>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<!-- fixed-munu-item end -->
+	<script src="../plugin/js/jquery.min.js"></script>
+    <!-- Bootstrap -->
+	<script src="../plugin/js/bootstrap.min.js"></script>
+    <!-- Owl Carousel -->
+	<script src="../plugin/js/owl.carousel.min.js"></script>
+
+	<script src="../plugin/js/fix-menu.js"></script>
+	<script>
+       $(function(){
+       	  /*!侧边菜单栏
+-------------------------------------------------------------------------------!*/
+$(window).scroll(function() {
+
+          if(($(this).scrollTop() > 0)) {
+            
+            $(".fixed-munu-item").css("opacity","1");
+        }
+        else{
+             $(".fixed-munu-item").css("opacity","0");
+        }
+              
+      });
+     $(window).load(function() {
+
+          if(($(this).scrollTop() > 0)) {
+            
+            $(".fixed-munu-item").css("opacity","1");
+        }
+        else{
+             $(".fixed-munu-item").css("opacity","0");
+        }
+              
+      });
+     //滚动监听完成
+     $(".fixed-munu-item").hover(
+           function() {   
+               $(this).find(".fixed-munu-item-icon").css("background","#0099CC");
+           $(this).find(".fixed-munu-item-icon i").css("color","#eee");
+           $(this).find(".fixed-munu-item-content").animate({width:"120px"},1000).css("visibility","visible");
+
+         },function(){         
+             $(this).find(".fixed-munu-item-content").css({"visibility":"hidden","width":"80px"});
+         $(this).find(".fixed-munu-item-icon").css("background","#7d6d6d");
+             $(this).find(".fixed-munu-item-icon i").css("color","#eee");
+           }
+      );
+      $(".fixed-munu-item-content").hover(
+           function(){  
+              $(this).find(".fix-menu-item-door").css("visibility","visible");
+           },function(){
+              $(this).find(".fix-menu-item-door").css("visibility","hidden");
+           }
+      );
+      //侧边回馈栏完成
+    });
+	</script>
+</body>
+</html>
