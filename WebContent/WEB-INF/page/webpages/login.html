@@ -31,8 +31,8 @@
 							</div>
 							
 							用户类型：<input type="radio" name="userType" value="student" checked>普通用户
-							<input type="radio" name="userType" value="enterprisesubuser">公司用户
 							<input type="radio" name="userType" value="enterprise">公司
+							<input type="radio" name="userType" value="enterprisesubuser">公司用户		
 							<div class="mb2"><a class="act-but submit" href="javascript:;" onclick="aa()" style="color: #FFFFFF">登录</a></div>
 							
 							
@@ -59,15 +59,15 @@
 				document.forms['form'].action = "login.action?pageNo=1";  
 		    	document.getElementById("login").submit();
 				break;
-			case "enterprisesubuser":
+			case "enterprise":
 				document.forms['form'].action = "el.action?pageNo=1";  
 		    	document.getElementById("login").submit();
 				break;
-			case "enterprise":
+			case "enterprisesubuser":
 				document.forms['form'].action = "esul.action?pageNo=1";  
 		    	document.getElementById("login").submit();
 				break;
-
+			
 			default:
 				break;
 			}

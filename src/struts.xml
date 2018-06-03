@@ -17,7 +17,7 @@
 </action>
 
 <action name="login" class="loginAction">
-<result type="chain" name="success">luntan</result>
+<result type="chain" name="success">frontIndex</result>
 <result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
 
@@ -303,7 +303,7 @@
 <!-- 集合方法 -->
 <!-- 登录 -->
 <action name="el" class="enterpriseAction" method="login">
-<result name="success">/WEB-INF/page/webpages/enterprisecenter/enterpriselogin.jsp</result>
+<result type="chain" name="success">frontIndex</result>
 <result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
 
@@ -372,7 +372,7 @@
 <!-- 集合方法 -->
 <!-- 登录 -->
 <action name="esul" class="enterprisesubuserAction" method="login">
-<result name="success">/WEB-INF/page/webpages/enterprisesubusercenter/enterprisesubuserlogin.jsp</result>
+<result type="chain" name="success">frontIndex</result>
 <result name="error">/WEB-INF/page/sp.jsp</result>
 </action>
 

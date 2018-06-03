@@ -371,19 +371,24 @@ ul {
 	<div class="navbar">
 		<div class="container">
 			<div class="navbar-left">
-				<img src="img/logo.png" alt="" class="navbar-logo">
-				<span class="navbar-border"></span>
-				<a href="#" class="navbar-title">创行谷</a>
+				<img src="img/logo.png" alt="" class="navbar-logo"> <span
+					class="navbar-border"></span> <a href="#" class="navbar-title">创行谷</a>
 			</div>
-		    <div class="navbar-right">
-		    	<ul class="navbar-body">
-		    		<li class="navbar-body-item"><a href="frontIndex.action"  class="navbar-link">首页</a></li>
-		    		<li class="navbar-body-item"><a  id="lock" href="chuangxinggutest.action?pageNo=1&button=1" class="navbar-link">创行谷</a></li>
-		    		<li class="navbar-body-item"><a href="luntan.action?pageNo=1" class="navbar-link">知行圈</a></li>
-		    		<li class="navbar-body-item"><a href="gongxingketangtest.action?pageNo=1" class="navbar-link">躬行课堂</a></li>
-		    		<li class="navbar-body-item"><a href="personalcenter.action" class="navbar-link">个人中心</a></li>
-		    	</ul>
-		    </div>
+			<div class="navbar-right">
+				<ul class="navbar-body">
+					<li class="navbar-body-item"><a href="frontIndex.action"
+						class="navbar-link">首页</a></li>
+					<li class="navbar-body-item"><a id="lock"
+						href="chuangxinggutest.action?pageNo=1&button=1"
+						class="navbar-link">创行谷</a></li>
+					<li class="navbar-body-item"><a href="luntan.action?pageNo=1"
+						class="navbar-link">知行圈</a></li>
+					<li class="navbar-body-item"><a
+						href="gongxingketangtest.action?pageNo=1" class="navbar-link">躬行课堂</a></li>
+					<li class="navbar-body-item"><a href="personalcenter.action"
+						class="navbar-link">个人中心</a></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<!-- 导航条 结束-->
@@ -391,37 +396,37 @@ ul {
 
 
 		<div class="work-header">
-			<% 	
-				
-			if (request.getAttribute("JobInfo") != null) {
-				List JobInfo = (List)request.getAttribute("JobInfo");
-				Post post = (Post)JobInfo.get(0);
-				
+			<%
+				if (request.getAttribute("JobInfo") != null) {
+					List JobInfo = (List) request.getAttribute("JobInfo");
+					Post post = (Post) JobInfo.get(0);
 			%>
 
 			<div class="container">
 				<div class="col-xs-12">
 					<div class="work-head-left">
-						<p class="font-intro grey2"><%=post.getSummary() %>招聘
+						<p class="font-intro grey2"><%=post.getSummary()%>招聘
 						</p>
-						<p class="font-title"><%=post.getSummary() %></p>
+						<p class="font-title"><%=post.getSummary()%></p>
 						<p class="font-title2">
-							<span class="red"><%=post.getPlace() %> </span> / 经验3-5年 / 本科及以上
-							/ 全职
+							<span class="red"><%=post.getPlace()%> </span> / 经验3-5年 / 本科及以上 /
+							全职
 						</p>
 
-						<% 	
-							 
+						<%
+							
 						%>
 						<!-- mark2 -->
 						<%
-						if (request.getAttribute("JobInfo") != null) {
-							List TagList = (List)request.getAttribute("TagName");
-							Tag tag = (Tag)TagList.get(0);
+							if (request.getAttribute("JobInfo") != null) {
+									List TagList = (List) request.getAttribute("TagName");
+									Tag tag = (Tag) TagList.get(0);
 						%>
-						
-						<span class="label"><p class="font-intro"><%=tag.getTagname() %></p></span>
-						<% } %>
+
+						<span class="label"><p class="font-intro"><%=tag.getTagname()%></p></span>
+						<%
+							}
+						%>
 						<p class="main-font grey2 publish-time">2017-07-06 发布于拉勾网</p>
 					</div>
 					<div class="work-head-right">
@@ -429,8 +434,9 @@ ul {
 							<a href="#" class="work-head-btn work-head-btn-left"><i
 								class="fa fa-star fa-lg main-color"></i>收藏</a>
 							<!-- <a href="#" class="work-head-btn work-head-btn-right">已下线</a> -->
-							<a href="submitresume.action?post_id=<%=post.getId() %>" class="work-head-btn work-head-btn-right"
-								data-toggle="modal" data-target="#myModal">投递简历</a>
+							<a href="submitresume.action?post_id=<%=post.getId()%>"
+								class="work-head-btn work-head-btn-right" data-toggle="modal"
+								data-target="#myModal">投递简历</a>
 							<!-- 弹窗 -->
 
 
@@ -469,7 +475,9 @@ ul {
 					<!-- work-head-right ending -->
 				</div>
 			</div>
-			<% }%>
+			<%
+				}
+			%>
 		</div>
 
 		<!-- work-head ending -->
@@ -479,38 +487,43 @@ ul {
 					<div class="work-body-left">
 
 						<!-- 成功显示 -->
-						<% 
+						<%
 							if (request.getAttribute("JobInfo") != null) {
-								List JobInfo = (List)request.getAttribute("JobInfo");
-								Post post = (Post)JobInfo.get(0);
-							%>
+								List JobInfo = (List) request.getAttribute("JobInfo");
+								Post post = (Post) JobInfo.get(0);
+						%>
 
 						<div class="work-body-condition">
 							<h5 class="condition-title">职位诱惑:</h5>
-							<p class="main-font"><%=post.getAllure() %></p>
+							<p class="main-font"><%=post.getAllure()%></p>
 						</div>
 						<div class="work-body-condition">
 							<h5 class="condition-title">职位描述:</h5>
 							<h5 class="main-font">基本要求：</h5>
 							<p class="main-font">
 								<%
-								String br = post.getDemand();
-								String [] brs = br.split("[|]");
-								int brslength = brs.length;
-								System.out.println("successfully"+ brslength);
-								for (int i = 0; i < brslength; i++) {
+									String br = post.getDemand();
+										String[] brs = br.split("[|]");
+										int brslength = brs.length;
+										System.out.println("successfully" + brslength);
+										for (int i = 0; i < brslength; i++) {
 								%>
-								<%=i+1%>、<%=brs[i]%>
-								<%if (i < brslength) { %>
+								<%=i + 1%>、<%=brs[i]%>
+								<%
+									if (i < brslength) {
+								%>
 								<br>
-								<% }} %>
+								<%
+									}
+										}
+								%>
 
 							</p>
 						</div>
 						<div class="work-body-condition">
 							<h5 class="condition-title">工作地址:</h5>
 							<p class="main-font float">
-								<span class="main-color inline-block"><%=post.getPlace() %></span>
+								<span class="main-color inline-block"><%=post.getPlace()%></span>
 							</p>
 							<p class="main-font float-right">
 								<a id="underline" class="underline" href="#"><span
@@ -523,13 +536,17 @@ ul {
 						<div class="work-body-condition work-body-hr">
 							<h5 class="condition-title">职位发布者:</h5>
 							<div class="condition-left">
-								<img src="<%=post.getPictureurl() %>" alt=""
+
+								<img src="<%=post.getPictureurl()%>" alt=""
 									class="condition-left-img img-circle float">
+									<a
+									target="_blank"
+									href="http://wpa.qq.com/msgrd?V=1&amp;Uin=<%=post.getManager_id().getQq()%>&amp;Site=联系我;Menu=yes">联系我</a>
 								<p class="main-font">
-									<%=post.getManager_id().getNickname() %><i
+									<%=post.getManager_id().getNickname()%><i
 										class="fa fa-lg fa-commenting-o main-color"></i>
 								</p>
-								<p class="main-font grey2">职位发布者</p>
+								<p class="main-font grey2"><%=post.getManager_id().getBriefly()%></p>
 							</div>
 							<!-- condition-left ending -->
 							<div class="condition-right">
@@ -549,82 +566,91 @@ ul {
 							<!-- condition-right ending -->
 						</div>
 						<!-- work-body-condition ending -->
-						<% } %>
+						<%
+							}
+						%>
 					</div>
 					<!-- col-xs-8 ending -->
 
 					<div class="work-body-right">
 						<!-- <span class="border float"></span> -->
 
-						<% 
+						<%
 							if (request.getAttribute("JobInfo") != null) {
-								List JobInfo = (List)request.getAttribute("JobInfo");
-								Post post = (Post)JobInfo.get(0);
-							%>
+								List JobInfo = (List) request.getAttribute("JobInfo");
+								Post post = (Post) JobInfo.get(0);
+						%>
 						<div class="company-info">
 							<img class="float img-thumbnail" src="./img/work-intro-logo.png"
 								alt="">
 							<p class="font-title2">
-								<%=post.getEname() %><i class="fa fa-lg fa-shield main-color"></i>
+								<%=post.getEname()%><i class="fa fa-lg fa-shield main-color"></i>
 							</p>
 							<ul class="company-info-list">
 
-								<%	
+								<%
 									if (request.getAttribute("ETagName") != null) {
-										List ETagNameList = (List)request.getAttribute("ETagName");
-										int ETagNameListSize = ETagNameList.size();
-										
-										for (int i = 0; i < ETagNameListSize; i++) {
-											if (i < ETagNameListSize) {
-												Tag tag = (Tag)ETagNameList.get(i);
-												
-								
+											List ETagNameList = (List) request.getAttribute("ETagName");
+											int ETagNameListSize = ETagNameList.size();
+
+											for (int i = 0; i < ETagNameListSize; i++) {
+												if (i < ETagNameListSize) {
+													Tag tag = (Tag) ETagNameList.get(i);
 								%>
 								<li class="info-list-item">
 									<p class="main-font grey2">
-										<i class="fa fa-lg fa-user-o"></i><%=tag.getTagname() %>
+										<i class="fa fa-lg fa-user-o"></i><%=tag.getTagname()%>
 									</p>
 								</li>
-								<% } } } %>
+								<%
+									}
+											}
+										}
+								%>
 							</ul>
 						</div>
-						<% } %>
+						<%
+							}
+						%>
 						<!-- company-info ending -->
 
 
 						<div class="similar-work">
 							<h5 class="condition-title float">其他工作</h5>
 							<span class="condition-title-hr"></span>
-							
-							
-							<% 	
-							
-						
-							
-						if (request.getAttribute("OtherJob") != null) {
-							List OtherJob = (List)request.getAttribute("OtherJob");
-							int OtherJobLength = OtherJob.size();
-							
-							for (int i = 0; i < 5; i++) {
-								if (OtherJobLength < i) {
-									Post post = (Post)OtherJob.get(i);
+
+
+							<%
+								if (request.getAttribute("OtherJob") != null) {
+									List OtherJob = (List) request.getAttribute("OtherJob");
+									int OtherJobLength = OtherJob.size();
+
+									for (int i = 0; i < 5; i++) {
+										if (OtherJobLength < i) {
+											Post post = (Post) OtherJob.get(i);
 							%>
 							<!-- media-item ending -->
 							<span class="media-border"></span> <a href="#" class="media">
 								<div class="media-left">
 									<a href="#"> <img class="media-object img-thumbnail"
-										src="<%=post.getPictureurl() %>" alt=".">
+										src="<%=post.getPictureurl()%>" alt=".">
 									</a>
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading font-title2">
-										<a href="#"><%=post.getSummary() %></a>
+										<a href="#"><%=post.getSummary()%></a>
 									</h4>
-									<p class="font-title2 red"><%=post.getRemuneration() %></p>
-									<p class="font-intro"><%=post.getEname() %> [<%=post.getPlace() %>]</p>
+									<p class="font-title2 red"><%=post.getRemuneration()%></p>
+									<p class="font-intro"><%=post.getEname()%>
+										[<%=post.getPlace()%>]
+									</p>
 								</div>
 							</a>
-							<% } } } %>
+							<%
+								}
+									}
+								}
+							%>
 							<span class="media-border"></span>
 						</div>
 

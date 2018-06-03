@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="java.util.List"%> 
+    <%@page import="org.sccooperation.domain.*"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -340,7 +342,36 @@
 		    		<li class="navbar-body-item"><a href="chuangxinggutest.action?pageNo=1&button=1" class="navbar-link">创行谷</a></li>
 		    		<li class="navbar-body-item"><a href="luntan.action?pageNo=1" class="navbar-link">知行圈</a></li>
 		    		<li class="navbar-body-item"><a href="gongxingketangtest.action?pageNo=1" class="navbar-link">躬行课堂</a></li>
-		    		<li class="navbar-body-item"><a href="personalcenter.action" class="navbar-link">个人中心</a></li>
+		    		<%
+		    		List listU = null;
+					int flag=0;
+					if(request.getSession().getAttribute("user") != null){
+						listU = (List)request.getSession().getAttribute("user");
+						flag=0;
+					}else if(request.getSession().getAttribute("enterprise") != null){
+						listU = (List)request.getSession().getAttribute("enterprise");
+						flag=1;
+					}else if(request.getSession().getAttribute("enterprisesubuser") != null){
+						listU = (List)request.getSession().getAttribute("enterprisesubuser");
+						flag=2;
+					}else{
+						
+					}
+		    		if(flag==0){
+		    			%>
+		    			<li class="navbar-body-item"><a href="personalcenter.action" class="navbar-link">个人中心</a></li>
+		    			<%
+		    		}else if(flag==1){
+		    			%>
+		    			<li class="navbar-body-item"><a href="edisec.action" class="navbar-link">个人中心</a></li>
+		    			<%
+		    		}else if(flag==2){
+		    			%>
+		    			<li class="navbar-body-item"><a href="esudisec.action" class="navbar-link">个人中心</a></li>
+		    			<%
+		    		}
+		    		%>
+		    		
 		    	</ul>
 		    </div>
 		</div>

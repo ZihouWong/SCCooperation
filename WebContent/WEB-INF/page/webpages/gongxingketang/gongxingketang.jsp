@@ -485,7 +485,7 @@ px
 			<div class="navbar-left">
 				<img src="img/logo.png" alt="" class="navbar-logo">
 				<span class="navbar-border"></span>
-				<a href="#" class="navbar-title">创行谷</a>
+				<a href="#" class="navbar-title">躬行课堂</a>
 			</div>
 		    <div class="navbar-right">
 		    	<ul class="navbar-body">

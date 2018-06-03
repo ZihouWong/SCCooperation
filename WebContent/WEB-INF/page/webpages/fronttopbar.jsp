@@ -14,25 +14,30 @@
 		<div class="container">
 			<div class="col-xs-12">
 			<%
+			List listU = null;
+			String name = "";
 			if(request.getSession().getAttribute("user") != null){
-				List listU = (List)request.getSession().getAttribute("user");
+				listU = (List)request.getSession().getAttribute("user");
+				name = ((People)listU.get(0)).getName();
 			}else if(request.getSession().getAttribute("enterprise") != null){
-				List listU = (List)request.getSession().getAttribute("enterprise");
+				listU = (List)request.getSession().getAttribute("enterprise");
+				name = ((Enterprise)listU.get(0)).getEname();
 			}else if(request.getSession().getAttribute("enterprisesubuser") != null){
-				List listU = (List)request.getSession().getAttribute("enterprisesubuser");
+				listU = (List)request.getSession().getAttribute("enterprisesubuser");
+				name = ((Enterprisesubuser)listU.get(0)).getNickname();
 			}else{
 				
 			}
-			List listU = (List)request.getSession().getAttribute("user");
 			if( listU == null || listU.size() == 0 ) {%>
 			  
 			  您好！欢迎使用校企合作平台。你可以<a href="clientLoginView.action" style="color:blue">登录</a>
 				<%}else{ 
-					People people =(People) listU.get(0);
+					
+					
 					%>
 				}
 				<div class="login-in">
-				欢迎<%=people.getUsername() %>
+				欢迎<%=name %>
 				</div>
 				<%} %>
 			    <div class="login-tel">
