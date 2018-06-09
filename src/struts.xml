@@ -108,6 +108,7 @@
 <interceptor-ref name="backstageLoginCheck"/>
 </action>
 
+<!-- 黄智豪 START -->
 <!-- 创兴谷 --> 
 <action name="chuangxinggutest" class="ChuangxingguAction">
 <result name="success">/WEB-INF/page/webpages/chuangxinggu/chuangxinggu.jsp</result>
@@ -121,11 +122,14 @@
 <result name="success">/WEB-INF/page/webpages/chuangxinggu/showjobinfo.jsp</result>
 </action>
 
+<!-- 黄智豪 END -->
+
 <action name="noteManage" class="noteManageAction" method="see">
 <result name="success">/WEB-INF/page/webpages/BackStage/noteManageView/noteManage.jsp</result>
 <result name="loginFalse">/WEB-INF/page/webpages/BackStage/execeptionView/loginfalse.html</result>
 <!--<interceptor-ref name="backstageLoginCheck"/>  -->
 </action>
+
 
 <action name="noteManageSearch" class="noteManageAction" method="search">
 <result name="success">/WEB-INF/page/webpages/BackStage/noteManageView/noteManage.jsp</result>
@@ -139,9 +143,14 @@
 <!--<interceptor-ref name="backstageLoginCheck"/>  -->
 </action>
 
+<!-- 黄智豪 START -->
 <!-- 躬行课堂 -->
 <action name="gongxingketangtest" class="GongxingketangAction">
 <result name="success">/WEB-INF/page/webpages/gongxingketang/gongxingketang.jsp</result>
+</action>
+
+<action name="showmorecourse" class="ShowMoreCourseAction">
+<result name="success">/WEB-INF/page/webpages/gongxingketang/showmorecourse.jsp</result>
 </action>
 
 <action name="showcourseinfo" class="ShowCourseInfoAction">
