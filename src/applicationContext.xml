@@ -245,6 +245,7 @@
  	<bean id="GongxingketangAction" class="org.sccooperation.gongxingketang.action.GongxingketangAction" scope="prototype">
  	<property name="courseManage" ref="courseManageImpl"></property>
  	<property name="enterpriseManage" ref="enterpriseManageImpl"></property>
+ 	<property name="tagManage" ref="tagManageImpl"></property>
  	</bean>
  	
  	<bean id="ShowCourseInfoAction" class="org.sccooperation.gongxingketang.action.ShowCourseInfoAction" scope="prototype">

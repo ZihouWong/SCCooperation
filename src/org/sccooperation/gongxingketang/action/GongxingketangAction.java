@@ -75,13 +75,12 @@ public class GongxingketangAction {
 		// 躬行课堂主页：
 		// 从 URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
-	
 		// 主页-猜你喜欢模块
 		request.put("GuessULike", courseManage.guessUlike(Integer.parseInt(pageNo)));
-		
 		if (button != null) {	// 若 button 存在
 			// 主页-标签所对应的课程
 			request.put("CourseList", courseManage.findCourseByButton(Integer.parseInt(button), Integer.parseInt(pageNo)));
+			System.out.println("mark3");
 			// 显示标签名字
 			request.put("TagName", tagManage.getTitleName(Integer.parseInt(button)));
 		} else {					// 若 button 不存在
