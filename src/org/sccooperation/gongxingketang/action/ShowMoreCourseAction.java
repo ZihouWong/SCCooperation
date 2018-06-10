@@ -2,13 +2,19 @@ package org.sccooperation.gongxingketang.action;
 
 import java.util.Map;
 
+import org.sccooperation.service.CourseManage;
+
+import com.opensymphony.xwork2.ActionContext;
+
 public class ShowMoreCourseAction {
 
 	// 信息：
 	private Map request;
 	private String pageNo;
 	private String content;	// 搜索内容
-	private String button; 
+	private String button;
+	
+	private CourseManage courseManage; 
 	
 	public Map getRequest() {
 		return request;
@@ -43,6 +49,10 @@ public class ShowMoreCourseAction {
 	}
 
 	public String execute() {
+		// 躬行课堂-搜索页面：
+		// 从 URL 传参数中获得信息
+		request = (Map)ActionContext.getContext().get("request");
+
 		return "success";
 	}
 }
