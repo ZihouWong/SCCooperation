@@ -16,6 +16,14 @@ public class ShowMoreCourseAction {
 	
 	private CourseManage courseManage; 
 	
+	public CourseManage getCourseManage() {
+		return courseManage;
+	}
+
+	public void setCourseManage(CourseManage courseManage) {
+		this.courseManage = courseManage;
+	}
+
 	public Map getRequest() {
 		return request;
 	}
@@ -53,9 +61,12 @@ public class ShowMoreCourseAction {
 		// 从 URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
 		
+		request.put("HotCourseList", courseManage.showHotCourse(Integer.parseInt(pageNo), Integer.parseInt(button)));
+		
 		request.put("CourseList", courseManage.showMainCourse(Integer.parseInt(pageNo), Integer.parseInt(button)));
 		
 		if (content == null) {
+			request.put("CourseList", courseManage.searchCourse(content, Integer.parseInt(pageNo)));
 			
 		}
 		return "success";

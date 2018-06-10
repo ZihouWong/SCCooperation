@@ -522,9 +522,9 @@ to {
 </head>
 <body>
 	<%
-		int lastbutton = Integer.parseInt((String) (request.getAttribute("button")));
+		int lastbutton = Integer.parseInt(request.getAttribute("button") + "");
 
-		int pageNo = Integer.parseInt((String) (request.getAttribute("pageNo")));
+		int lastpageNo = Integer.parseInt(request.getAttribute("pageNo") + "");
 
 		String lastcontent = (String) request.getAttribute("content");
 	%>
@@ -539,12 +539,11 @@ to {
 
 
 				<form class="form-inline" role="form" method="post"
-					action="showmorejob.action">
+					action="showmorecourse.action">
 					<div class="form-group">
 						<input type="hidden" name="pageNo" value="1" /> <input
-							type="hidden" name="button"
-							value="<%=Integer.parseInt(request.getAttribute("button") + "")%>" />
-						<input type="text" class="form-control" id="name" name="content"
+							type="hidden" name="button" value="<%=lastbutton%>" /> <input
+							type="text" class="form-control" id="name" name="content"
 							placeholder="请输入查询内容">
 					</div>
 					<button type="submit" class="btn btn-default">查询</button>
@@ -553,23 +552,23 @@ to {
 				<div class="menu2-drop">
 					<ul class="menu2-drop-ul">
 						<%
-							if (request.getAttribute("HotJobList") != null) {
-								List HotJob = (List) request.getAttribute("HotJobList");
-								int HlistSize = HotJob.size();
+							if (request.getAttribute("HotCourseList") != null) {
+								List HotCourse = (List) request.getAttribute("HotCourseList");
+								int HlistSize = HotCourse.size();
 
 								for (int i = 0; i < 4; i++) {
 									if (HlistSize > i) {
-										Post post = (Post) HotJob.get(i);
+										Course course = (Course) HotCourse.get(i);
 						%>
 
 						<li><a href="#">
 								<div class="menu2-drop-circle menu2-drop-top3"><%=i%></div> <%
- 	String demand = post.getDemand();
- 				demand = demand.replace('|', ' ');
- 				if (demand.length() > 30)
- 					demand = demand.substring(0, 30);
+ 	String summary = course.getSummary();
+ 				summary = summary.replace('|', ' ');
+ 				if (summary.length() > 30)
+ 					summary = summary.substring(0, 30);
  %>
-								<p><%=demand%><sub>新！</sub><sub><%=post.getSeenum()%>万次学习</sub>
+								<p><%=summary%><sub>新！</sub><sub><%=course.getSeenum()%>万次学习</sub>
 								</p>
 						</a></li>
 						<%
@@ -592,7 +591,7 @@ to {
 					<li>
 						<h3 id="menu_01"
 							style="background-color: #82CCC9 /*6ed3cf*/; opacity: 1; filter (alpha=150); width: 205px; padding-left: 15px;">
-							<a href="#" class="depth_1">所有项目</a>
+							<a href="#" class="depth_1">所有课程</a>
 						</h3>
 						<ul id="children_01" class="children">
 							<li>
@@ -601,21 +600,21 @@ to {
 								</h3>
 								<ul id="children_01a">
 									<li><a
-										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=JAVA">JAVA</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=JAVA">JAVA</a></li>
 									<li><a
-										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=HTML">HTML</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=HTML">HTML</a></li>
 									<li><a
-										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=CSS">CSS</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=CSS">CSS</a></li>
 									<li><a
-										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=PHP">PHP</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=PHP">PHP</a></li>
 									<li><a
-										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=Node">Node</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=Node">Node</a></li>
 									<li><a
-										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=JavaScript">JavaScript</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=JavaScript">JavaScript</a></li>
 									<li><a
-										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=cpp">C++</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=cpp">C++</a></li>
 									<li><a
-										href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>&content=C#">C#</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=C#">C#</a></li>
 								</ul>
 							</li>
 							<li>
@@ -686,37 +685,34 @@ to {
 
 
 			<%
-				List AllJob = (List) request.getAttribute("JobList");
-				if (request.getAttribute("JobList") != null) {
-					int JobListSizeA = AllJob.size();
+				List AllCourse = (List) request.getAttribute("CourseList");
+				if (request.getAttribute("CourseList") != null) {
+					int CourseListSizeA = AllCourse.size();
 
 					for (int i = 0; i < 10; i++) {
-						if (JobListSizeA > i) {
-							Post post = (Post) AllJob.get(i);
+						if (CourseListSizeA > i) {
+							Course course = (Course) AllCourse.get(i);
 			%>
 			<a
-				href="showjobinfo.action?jobNo=<%=post.getId()%>&button=<%=post.getTagno()%>"
+				href="showmorecourse.action?jobNo=<%=course.getId()%>&button=<%=course.getTagno()%>"
 				class="item">
 				<div class="item-caption">
-					<img src="<%=post.getPictureurl()%>" alt="">
+					<img src="<%=course.getPictureurl()%>" alt="">
 				</div>
 				<div class="item-body">
 					<p class="font-title2">
 
 						<%
-							String demand = post.getDemand();
-										demand = demand.replace('|', ' ');
-										if (demand.length() > 30)
-											demand = demand.substring(0, 30);
+							String summary = course.getSummary();
+										summary = summary.replace('|', ' ');
+										if (summary.length() > 30)
+											summary = summary.substring(0, 30);
 						%>
-						<%=demand%>...
+						<%=summary%>...
 					</p>
-					<p class="main-font float"><%=post.getSeenum()%>次浏览
+					<p class="main-font float"><%=course.getSeenum()%>次浏览
 					</p>
-					<p class="main-font float-right"><%=post.getEname()%></p>
-				</div>
-				<div class="item-pay">
-					<span><%=post.getPlace()%></span>
+					<p class="main-font float-right"><%=course.getTitle()%></p>
 				</div>
 			</a>
 			<%
@@ -735,7 +731,7 @@ to {
 			<nav class="major-content-nav pull-center" aria-label="..">
 				<ul class="pagination pagination-lg">
 					<%
-						if (pageNo == 1) {
+						if (lastpageNo == 1) {
 					%>
 					<li class="disabled">
 						<%
@@ -746,13 +742,13 @@ to {
 						<%
 							}
 						%> <a
-						href="showmorejob.action?pageNo=<%=pageNo - 1%>&button=<%=lastbutton%>"
+						href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>"
 						aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
 					</li>
 
 					<%
 						for (int i = 1; i <= 5; i++) {
-							if (pageNo == i) {
+							if (lastpageNo == i) {
 					%>
 					<li class="active">
 						<%
@@ -763,12 +759,12 @@ to {
 						<%
 							}
 						%> <a
-						href="showmorejob.action?pageNo=<%=i%>&button=<%=lastbutton%>"><%=i%><span
+						href="showmorecourse.action?pageNo=<%=i%>&button=<%=lastbutton%>"><%=i%><span
 							class="sr-only">(current)</span> </a>
 					</li>
 					<%
 						}
-						if (pageNo == 5) {
+						if (lastpageNo == 5) {
 					%>
 					<li class="disabled">
 						<%
@@ -779,7 +775,7 @@ to {
 						<%
 							}
 						%> <a
-						href="showmorejob.action?pageNo=<%=pageNo + 1%>&button=<%=lastbutton%>"
+						href="showmorejob.action?pageNo=<%=lastpageNo + 1%>&button=<%=lastbutton%>"
 						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 					</a>
 					</li>

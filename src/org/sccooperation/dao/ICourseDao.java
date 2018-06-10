@@ -19,5 +19,9 @@ public interface ICourseDao {
 	public String getTeacherid(int courseId);
 
 	public List showMainCourse(int pageNo, int button);
+
+	public List showHotCourse(int pageNo, int button);
+
+	public List searchCourseByContent(String content, int pageNo);
 }
 	

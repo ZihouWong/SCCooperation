@@ -19,4 +19,8 @@ public interface CourseManage {
 
 	public List showMainCourse(int pageNo, int button);
 
+	public List showHotCourse(int pageNo, int button);
+
+	public List searchCourse(String content, int pageNo);
+
 }

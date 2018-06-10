@@ -252,7 +252,7 @@
  	<property name="peopleManage" ref="peopleManageImpl"></property>
  	</bean>
 	
-	<bean id="ShowMoreCourseAction" class="org.sccooperation.gongxingketang.action.SHowMoreCourseAction" scope="prototype">
+	<bean id="ShowMoreCourseAction" class="org.sccooperation.gongxingketang.action.ShowMoreCourseAction" scope="prototype">
 	<property name="courseManage" ref="courseManageImpl"></property>
 	</bean>
 	

@@ -69,7 +69,6 @@ public class ShowMoreJobAction {
 		// 搜索页面-主体工作信息列表		
 		request.put("JobList", postManage.showMainJob(Integer.parseInt(pageNo), Integer.parseInt(button)));
 
-		
 		// 搜索页面-获得工作总数
 		request.put("postNum", postManage.getPostNum(Post.class));
 		

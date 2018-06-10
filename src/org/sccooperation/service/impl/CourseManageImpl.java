@@ -65,5 +65,17 @@ public class CourseManageImpl implements CourseManage{
 		return courseDao.showMainCourse(pageNo, button);
 	}
 
+	@Override
+	public List showHotCourse(int pageNo, int button) {
+		// 搜索页面-热点课程列表
+		return courseDao.showHotCourse(pageNo, button);
+	}
+
+	@Override
+	public List searchCourse(String content, int pageNo) {
+		// 搜索页面-获取搜索内容
+		return courseDao.searchCourseByContent(content, pageNo);
+	}
+
 	
 }
