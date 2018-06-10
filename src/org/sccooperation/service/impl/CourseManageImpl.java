@@ -55,8 +55,14 @@ public class CourseManageImpl implements CourseManage{
 	
 	@Override
 	public String getTeacherid(int courseId) {
-		// TODO Auto-generated method stub
+		// 详细页面-获取教师Id-用于获取教师信息
 		return courseDao.getTeacherid(courseId);
+	}
+
+	@Override
+	public List showMainCourse(int pageNo, int button) {
+		// 搜索页面-主要课程内容
+		return courseDao.showMainCourse(pageNo, button);
 	}
 
 	

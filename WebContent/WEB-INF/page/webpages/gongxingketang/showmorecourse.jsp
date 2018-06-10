@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>创行谷堂搜索页</title>
+<title>躬行课堂搜索页</title>
 <link rel="stylesheet" href="./plugin/css/easy-responsive-tabs.css">
 <!-- Bootstrap -->
 <link rel="stylesheet" href="./plugin/css/bootstrap.min.css">
@@ -537,16 +537,18 @@ to {
 
 			<div id="search-input">
 
-				
-<form class="form-inline" role="form"  method="post" action="showmorejob.action">
-  <div class="form-group">
-								<input type="hidden" name="pageNo" value="1" /> <input
-						type="hidden" name="button"
-						value="<%=Integer.parseInt(request.getAttribute("button") + "")%>" />
-    <input type="text" class="form-control" id="name"  name="content" placeholder="请输入查询内容">
-  </div>
-  <button type="submit" class="btn btn-default">查询</button>
-</form>
+
+				<form class="form-inline" role="form" method="post"
+					action="showmorejob.action">
+					<div class="form-group">
+						<input type="hidden" name="pageNo" value="1" /> <input
+							type="hidden" name="button"
+							value="<%=Integer.parseInt(request.getAttribute("button") + "")%>" />
+						<input type="text" class="form-control" id="name" name="content"
+							placeholder="请输入查询内容">
+					</div>
+					<button type="submit" class="btn btn-default">查询</button>
+				</form>
 
 				<div class="menu2-drop">
 					<ul class="menu2-drop-ul">
@@ -561,8 +563,8 @@ to {
 						%>
 
 						<li><a href="#">
-								<div class="menu2-drop-circle menu2-drop-top3"><%=i%></div>
-								 <% String demand = post.getDemand();
+								<div class="menu2-drop-circle menu2-drop-top3"><%=i%></div> <%
+ 	String demand = post.getDemand();
  				demand = demand.replace('|', ' ');
  				if (demand.length() > 30)
  					demand = demand.substring(0, 30);

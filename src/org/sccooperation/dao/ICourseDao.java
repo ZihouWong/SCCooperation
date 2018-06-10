@@ -17,5 +17,7 @@ public interface ICourseDao {
 	public List getCourseAd();
 
 	public String getTeacherid(int courseId);
+
+	public List showMainCourse(int pageNo, int button);
 }
 	

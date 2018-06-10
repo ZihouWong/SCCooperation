@@ -42,7 +42,13 @@ public class CourseDaoImpl extends BaseDaoImpl implements ICourseDao{
 	
 	@Override
 	public String getTeacherid(int courseId) {
-		// TODO Auto-generated method stub
+		// 详细页面-获取教师Id-用于获取教师信息
 		return (String)find("select people_id from Course where id=?0", courseId).get(0);
+	}
+
+	@Override
+	public List showMainCourse(int pageNo, int button) {
+		// 搜索页面-主要课程内容
+		return findByPage("from Course where tagno=?0", pageNo, 10, 10, button);
 	}
 }

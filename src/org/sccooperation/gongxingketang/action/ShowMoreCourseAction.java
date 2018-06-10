@@ -52,7 +52,12 @@ public class ShowMoreCourseAction {
 		// 躬行课堂-搜索页面：
 		// 从 URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
-
+		
+		request.put("CourseList", courseManage.showMainCourse(Integer.parseInt(pageNo), Integer.parseInt(button)));
+		
+		if (content == null) {
+			
+		}
 		return "success";
 	}
 }
