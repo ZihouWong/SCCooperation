@@ -65,9 +65,8 @@ public class ShowMoreCourseAction {
 		
 		request.put("CourseList", courseManage.showMainCourse(Integer.parseInt(pageNo), Integer.parseInt(button)));
 		
-		if (content == null) {
+		if (content != null) {
 			request.put("CourseList", courseManage.searchCourse(content, Integer.parseInt(pageNo)));
-			
 		}
 		return "success";
 	}
