@@ -57,20 +57,18 @@ public class ShowMoreCourseAction {
 	}
 
 	public String execute() {
-		System.out.println("Testinnnnnnnnnnnnnnnnnnnnnnnnnnnnng 000000000000000");
 		// 躬行课堂-搜索页面：
 		// 从 URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
-		System.out.println("Testinnnnnnnnnnnnnnnnnnnnnnnnnnnnng 11111111111111");
+		
 		request.put("HotCourseList", courseManage.showHotCourse(Integer.parseInt(pageNo), Integer.parseInt(button)));
-		System.out.println("Testinnnnnnnnnnnnnnnnnnnnnnnnnnnnng 22222222222222");
+		
 		request.put("CourseList", courseManage.showMainCourse(Integer.parseInt(pageNo), Integer.parseInt(button)));
-		System.out.println("Testinnnnnnnnnnnnnnnnnnnnnnnnnnnnng 33333333333333");
+		
 		if (content != null) {
-			System.out.println("Testinnnnnnnnnnnnnnnnnnnnnnnnnnnnng 444444444444444");
+			
 			request.put("CourseList", courseManage.searchCourse(content, Integer.parseInt(pageNo)));
 		}
-		
 //		request.put("courseNum", course)
 		return "success";
 	}
