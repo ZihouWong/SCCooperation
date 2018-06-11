@@ -533,7 +533,7 @@ to {
 		<div class="logo-header">
 			<img src="./img/logo.png" alt="" class="logo-img float"> <span
 				class="border-1 float"></span>
-			<p class="font-title float">创行谷</p>
+			<p class="font-title float">躬行课堂</p>
 
 			<div id="search-input">
 
@@ -645,7 +645,7 @@ to {
 				</ul>
 				<ul class="mn_extd">
 					<li><a class="a2" target="_blank" style="margin-right: 40px;"
-						href="//chuanke.baidu.com/?mod=school&act=create">创建项目</a></li>
+						href="//chuanke.baidu.com/?mod=school&act=create">创建课堂</a></li>
 				</ul>
 			</div>
 		</div>
@@ -658,7 +658,7 @@ to {
 			<span class="class-c1 float">IT/计算机/互联网</span> <span
 				class="class-c2 float">编程语言</span>
 			<p class="main-font">
-				共找到<span class="red"><%-- <%=postNum%> --%></span>门项目
+				共找到<span class="red"><%-- <%=postNum%> --%></span>门课程
 			</p>
 		</div>
 

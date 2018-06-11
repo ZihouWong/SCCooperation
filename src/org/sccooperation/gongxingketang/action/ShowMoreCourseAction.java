@@ -2,6 +2,7 @@ package org.sccooperation.gongxingketang.action;
 
 import java.util.Map;
 
+import org.sccooperation.domain.Course;
 import org.sccooperation.service.CourseManage;
 
 import com.opensymphony.xwork2.ActionContext;
@@ -69,7 +70,8 @@ public class ShowMoreCourseAction {
 			
 			request.put("CourseList", courseManage.searchCourse(content, Integer.parseInt(pageNo)));
 		}
-//		request.put("courseNum", course)
+		// 搜索页面-获取课程数量
+		request.put("courseNum", courseManage.getCourseNum(Course.class));
 		return "success";
 	}
 }

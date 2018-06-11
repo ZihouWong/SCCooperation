@@ -63,4 +63,11 @@ public class CourseDaoImpl extends BaseDaoImpl implements ICourseDao{
 		// 搜索页面-获取搜索内容
 		return findByPage("from Course as c where c.title like ?0 or c.summary like ?1 or c.catalogue like ?2 or c.timeconsuming like ?3 or c.price like ?4 or c.seenum like ?5 ", pageNo, 10, 10, "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%");
 	}
+
+	@Override
+	public long getCourseNum(Class entityClazz) {
+		// 搜索页面-获取课程数量
+		return findCount(entityClazz);
+	}
+
 }

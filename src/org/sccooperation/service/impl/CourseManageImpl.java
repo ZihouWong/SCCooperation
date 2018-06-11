@@ -77,5 +77,10 @@ public class CourseManageImpl implements CourseManage{
 		return courseDao.searchCourseByContent(content, pageNo);
 	}
 
+	@Override
+	public long getCourseNum(Class entityClazz) {
+		// 搜索页面-获取课程数量
+		return courseDao.getCourseNum(entityClazz);
+	}
 	
 }

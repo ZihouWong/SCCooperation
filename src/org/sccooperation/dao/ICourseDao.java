@@ -23,5 +23,7 @@ public interface ICourseDao {
 	public List showHotCourse(int pageNo, int button);
 
 	public List searchCourseByContent(String content, int pageNo);
+
+	public long getCourseNum(Class entityClazz);
 }
 	
