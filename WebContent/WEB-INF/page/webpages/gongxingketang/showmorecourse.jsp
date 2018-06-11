@@ -694,7 +694,7 @@ to {
 							Course course = (Course) AllCourse.get(i);
 			%>
 			<a
-				href="showmorecourse.action?jobNo=<%=course.getId()%>&button=<%=course.getTagno()%>"
+				href="showcourseinfo.action?courseNo=<%=course.getId() %>"
 				class="item">
 				<div class="item-caption">
 					<img src="<%=course.getPictureurl()%>" alt="">
