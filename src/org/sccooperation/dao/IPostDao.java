@@ -18,7 +18,7 @@ public interface IPostDao<T> {
 
 	public List getOtherJob(int button);		
 
-	public List SearchCourse(String content, int pageNo);
+	public List SearchJob(String content, int pageNo);
 
 	public int getEnterpriseId(int jobId);	
 	

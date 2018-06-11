@@ -68,9 +68,9 @@ public class PostManageImpl<T> implements PostManage<T> {
 	}
 	
 	@Override
-	public List SearchCourse(String content, int pageNo) {
+	public List SearchJob(String content, int pageNo) {
 		// TODO Auto-generated method stub
-		return postDao.SearchCourse(content, pageNo);
+		return postDao.SearchJob(content, pageNo);
 	}
 	
 	@Override

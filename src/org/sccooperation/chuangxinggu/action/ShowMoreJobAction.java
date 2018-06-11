@@ -79,8 +79,8 @@ public class ShowMoreJobAction {
 		
 		// 搜索模块 
 		if(content != null) {
-			// 搜索页面-获得工作总数
-			request.put("JobList", postManage.SearchCourse(content, Integer.parseInt(pageNo)));
+			// 搜索页面-查找对应工作
+			request.put("JobList", postManage.SearchJob(content, Integer.parseInt(pageNo)));
 		}
 		return "success";
 	}

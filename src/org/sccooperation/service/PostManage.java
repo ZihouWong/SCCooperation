@@ -20,7 +20,7 @@ public interface PostManage<T> {
 
 	public List showOtherJob(int button);
 	
-	public List SearchCourse(String content, int pageNo);
+	public List SearchJob(String content, int pageNo);
 	
 	public int getEnterpriseId(int jobNo);
 	
