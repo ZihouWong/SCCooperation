@@ -48,7 +48,7 @@ public class CourseDaoImpl extends BaseDaoImpl implements ICourseDao{
 
 	@Override
 	public List showMainCourse(int pageNo, int button) {
-		// 搜索页面-主要课程内容
+		// 搜索页面-主体课程信息列表
 		return findByPage("from Course where tagno=?0", pageNo, 10, 10, button);
 	}
 
@@ -60,7 +60,7 @@ public class CourseDaoImpl extends BaseDaoImpl implements ICourseDao{
 
 	@Override
 	public List searchCourseByContent(String content, int pageNo) {
-		// 搜索页面-获取搜索内容
+		// 搜索页面-查找对应课程
 		return findByPage("from Course as c where c.title like ?0 or c.summary like ?1 or c.catalogue like ?2 or c.timeconsuming like ?3 or c.price like ?4 or c.seenum like ?5 ", pageNo, 10, 10, "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%", "%"+content+"%");
 	}
 

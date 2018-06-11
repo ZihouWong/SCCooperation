@@ -17,14 +17,7 @@ public class ShowMoreCourseAction {
 	
 	private CourseManage courseManage; 
 	
-	public CourseManage getCourseManage() {
-		return courseManage;
-	}
-
-	public void setCourseManage(CourseManage courseManage) {
-		this.courseManage = courseManage;
-	}
-
+	// 信息的 Set & Get：
 	public Map getRequest() {
 		return request;
 	}
@@ -57,19 +50,31 @@ public class ShowMoreCourseAction {
 		this.button = button;
 	}
 
+	public CourseManage getCourseManage() {
+		return courseManage;
+	}
+
+	public void setCourseManage(CourseManage courseManage) {
+		this.courseManage = courseManage;
+	}
+	
 	public String execute() {
 		// 躬行课堂-搜索页面：
 		// 从 URL 传参数中获得信息
 		request = (Map)ActionContext.getContext().get("request");
 		
+		// 搜索页面-热点课程列表
 		request.put("HotCourseList", courseManage.showHotCourse(Integer.parseInt(pageNo), Integer.parseInt(button)));
 		
+		// 搜索页面-主体课程信息列表
 		request.put("CourseList", courseManage.showMainCourse(Integer.parseInt(pageNo), Integer.parseInt(button)));
 		
+		// 搜索模块 
 		if (content != null) {
-			
+			// 搜索页面-查找对应课程
 			request.put("CourseList", courseManage.searchCourse(content, Integer.parseInt(pageNo)));
 		}
+		
 		// 搜索页面-获取课程数量
 		request.put("courseNum", courseManage.getCourseNum(Course.class));
 		return "success";

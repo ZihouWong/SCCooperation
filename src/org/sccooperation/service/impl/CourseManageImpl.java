@@ -61,7 +61,7 @@ public class CourseManageImpl implements CourseManage{
 
 	@Override
 	public List showMainCourse(int pageNo, int button) {
-		// 搜索页面-主要课程内容
+		// 搜索页面-主体课程信息列表
 		return courseDao.showMainCourse(pageNo, button);
 	}
 
@@ -73,7 +73,7 @@ public class CourseManageImpl implements CourseManage{
 
 	@Override
 	public List searchCourse(String content, int pageNo) {
-		// 搜索页面-获取搜索内容
+		// 搜索页面-查找对应课程
 		return courseDao.searchCourseByContent(content, pageNo);
 	}
 
