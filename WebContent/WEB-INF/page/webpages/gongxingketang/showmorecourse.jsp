@@ -522,11 +522,11 @@ to {
 </head>
 <body>
 	<%
+	
 		int lastbutton = Integer.parseInt(request.getAttribute("button") + "");
 
 		int lastpageNo = Integer.parseInt(request.getAttribute("pageNo") + "");
 
-		String lastcontent = (String) request.getAttribute("content");
 	%>
 	<div class="container contain1">
 		<!-- 首部 -->
@@ -534,24 +534,21 @@ to {
 			<img src="./img/logo.png" alt="" class="logo-img float"> <span
 				class="border-1 float"></span>
 			<p class="font-title float">躬行课堂</p>
-
 			<div id="search-input">
-
-
 				<form class="form-inline" role="form" method="post"
 					action="showmorecourse.action">
 					<div class="form-group">
 						<input type="hidden" name="pageNo" value="1" /> <input
-							type="hidden" name="button" value="<%=lastbutton%>" /> <input
+							type="hidden" name="button" value="<%=lastbutton %>" /> <input
 							type="text" class="form-control" id="name" name="content"
 							placeholder="请输入查询内容">
 					</div>
 					<button type="submit" class="btn btn-default">查询</button>
 				</form>
-
 				<div class="menu2-drop">
 					<ul class="menu2-drop-ul">
 						<%
+						
 							if (request.getAttribute("HotCourseList") != null) {
 								List HotCourse = (List) request.getAttribute("HotCourseList");
 								int HlistSize = HotCourse.size();
@@ -559,16 +556,16 @@ to {
 								for (int i = 0; i < 4; i++) {
 									if (HlistSize > i) {
 										Course course = (Course) HotCourse.get(i);
+										
 						%>
-
 						<li><a href="#">
-								<div class="menu2-drop-circle menu2-drop-top3"><%=i%></div> <%
+								<div class="menu2-drop-circle menu2-drop-top3"><%=i %></div> <%
  	String summary = course.getSummary();
  				summary = summary.replace('|', ' ');
  				if (summary.length() > 30)
  					summary = summary.substring(0, 30);
  %>
-								<p><%=summary%><sub>新！</sub><sub><%=course.getSeenum()%>万次学习</sub>
+								<p><%=summary %><sub>新！</sub><sub><%=course.getSeenum() %>万次学习</sub>
 								</p>
 						</a></li>
 						<%
@@ -600,21 +597,21 @@ to {
 								</h3>
 								<ul id="children_01a">
 									<li><a
-										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=JAVA">JAVA</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1 %>&button=<%=lastbutton %>&content=JAVA">JAVA</a></li>
 									<li><a
-										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=HTML">HTML</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1 %>&button=<%=lastbutton %>&content=HTML">HTML</a></li>
 									<li><a
-										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=CSS">CSS</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1 %>&button=<%=lastbutton %>&content=CSS">CSS</a></li>
 									<li><a
-										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=PHP">PHP</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1 %>&button=<%=lastbutton %>&content=PHP">PHP</a></li>
 									<li><a
-										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=Node">Node</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1 %>&button=<%=lastbutton %>&content=Node">Node</a></li>
 									<li><a
-										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=JavaScript">JavaScript</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1 %>&button=<%=lastbutton %>&content=JavaScript">JavaScript</a></li>
 									<li><a
-										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=cpp">C++</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1 %>&button=<%=lastbutton %>&content=cpp">C++</a></li>
 									<li><a
-										href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>&content=C#">C#</a></li>
+										href="showmorecourse.action?pageNo=<%=lastpageNo - 1 %>&button=<%=lastbutton %>&content=C#">C#</a></li>
 								</ul>
 							</li>
 							<li>
@@ -653,7 +650,7 @@ to {
 
 		<%
 			int courseNum = Integer.parseInt(request.getAttribute("courseNum") + "");
-		%> 
+		%>
 		<div class="class-condition">
 			<span class="class-c1 float">IT/计算机/互联网</span> <span
 				class="class-c2 float">编程语言</span>
@@ -682,9 +679,8 @@ to {
 
 		<div class="carousel-intro">
 			<!-- item start-->
-
-
 			<%
+			
 				List AllCourse = (List) request.getAttribute("CourseList");
 				if (request.getAttribute("CourseList") != null) {
 					int CourseListSizeA = AllCourse.size();
@@ -692,27 +688,26 @@ to {
 					for (int i = 0; i < 10; i++) {
 						if (CourseListSizeA > i) {
 							Course course = (Course) AllCourse.get(i);
+			
 			%>
-			<a
-				href="showcourseinfo.action?courseNo=<%=course.getId() %>"
+			<a href="showcourseinfo.action?courseNo=<%=course.getId() %>"
 				class="item">
 				<div class="item-caption">
-					<img src="<%=course.getPictureurl()%>" alt="">
+					<img src="<%=course.getPictureurl() %>" alt="">
 				</div>
 				<div class="item-body">
 					<p class="font-title2">
-
 						<%
 							String summary = course.getSummary();
 										summary = summary.replace('|', ' ');
 										if (summary.length() > 30)
 											summary = summary.substring(0, 30);
 						%>
-						<%=summary%>...
+						<%=summary %>...
 					</p>
-					<p class="main-font float"><%=course.getSeenum()%>次浏览
+					<p class="main-font float"><%=course.getSeenum() %>次浏览
 					</p>
-					<p class="main-font float-right"><%=course.getTitle()%></p>
+					<p class="main-font float-right"><%=course.getTitle() %></p>
 				</div>
 			</a>
 			<%
@@ -734,48 +729,35 @@ to {
 						if (lastpageNo == 1) {
 					%>
 					<li class="disabled">
-						<%
-							} else {
-						%>
-					
+						<% } else { %>
 					<li>
-						<%
-							}
-						%> <a
+						<% } %>
+						<a
 						href="showmorecourse.action?pageNo=<%=lastpageNo - 1%>&button=<%=lastbutton%>"
 						aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
 					</li>
-
 					<%
 						for (int i = 1; i <= 5; i++) {
 							if (lastpageNo == i) {
 					%>
 					<li class="active">
-						<%
-							} else {
-						%>
-					
+						<%  } else { %>
 					<li>
-						<%
-							}
-						%> <a
-						href="showmorecourse.action?pageNo=<%=i%>&button=<%=lastbutton%>"><%=i%><span
+						<%  } %>
+						 <a href="showmorecourse.action?pageNo=<%=i%>&button=<%=lastbutton%>"><%=i%><span
 							class="sr-only">(current)</span> </a>
 					</li>
-					<%
+					<% 
 						}
 						if (lastpageNo == 5) {
 					%>
 					<li class="disabled">
 						<%
-							} else {
+						} else {
 						%>
-					
 					<li>
-						<%
-							}
-						%> <a
-						href="showmorejob.action?pageNo=<%=lastpageNo + 1%>&button=<%=lastbutton%>"
+					 <% } %>
+						<a href="showmorejob.action?pageNo=<%=lastpageNo + 1%>&button=<%=lastbutton%>"
 						aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 					</a>
 					</li>
