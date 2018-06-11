@@ -651,14 +651,14 @@ to {
 		</div>
 		<!-- 导航栏 结束-->
 
-		<%-- <%
-			int postNum = Integer.parseInt(request.getAttribute("postNum") + "");
-		%> --%>
+		<%
+			int courseNum = Integer.parseInt(request.getAttribute("courseNum") + "");
+		%> 
 		<div class="class-condition">
 			<span class="class-c1 float">IT/计算机/互联网</span> <span
 				class="class-c2 float">编程语言</span>
 			<p class="main-font">
-				共找到<span class="red"><%-- <%=postNum%> --%></span>门课程
+				共找到<span class="red"><%=courseNum %></span>门课程
 			</p>
 		</div>
 
@@ -666,7 +666,7 @@ to {
 			<div class="class-p" style="font-size: 16px;">课 程:</div>
 			<div class="class-menu">
 				<ul>
-					<li><a href="#">全部(<%-- <%=postNum%> --%>)
+					<li><a href="#">全部(<%=courseNum %>)
 					</a></li>
 					<li><a href="#">JAVA</a></li>
 					<li><a href="#">HTML</a></li>
